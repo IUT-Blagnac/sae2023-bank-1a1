@@ -80,20 +80,12 @@ _[Figure 1] Diagramme des Cas d'Utilisation de la version 0_
 
 == Analyse des besoins
 
-==== Besoins fonctionnels
-
 
 - Permettre aux guichetiers de créer un nouveau compte client ;
 - Permettre aux guichetiers de créditer ou débiter un compte client ;
 - Permettre aux guichetiers d'effectuer des virements de compte à compte ;
 - Permettre aux guichetiers de clôturer un compte client ;
 - Permettre aux chefs d'agence de gérer les employés (créer, lire, mettre à jour, supprimer des - comptes employés).
-
-==== Besoins non fonctionnels
-
-- Sécurité : le système doit être sécurisé et garantir la confidentialité des données des clients ;
-- Fiabilité : le système doit être fiable et ne pas donner d'informations erronées ;
-- Ergonomie : le système doit être convivial et facile à utiliser pour les guichetiers et les chefs d'agence.
 
 === Cas d'utilisation à développer dans la Version 1 :
 
