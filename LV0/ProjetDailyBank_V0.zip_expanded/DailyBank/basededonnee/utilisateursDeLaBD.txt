@@ -1,0 +1,12 @@
+
+
+Voir dans scriptCreaBase
+les créations des employés
+
+Exemple :
+INSERT INTO Employe VALUES (seq_id_employe.NEXTVAL,'Tuffery','Michel','chefAgence','Tuff','Lejeune', 1);
+=> User : Tuff
+=> Mdp : Lejeune
+INSERT INTO Employe VALUES (seq_id_employe.NEXTVAL,'Nonne','Laurent','guichetier','LN','Levieux',1); -- ag1
+=> User : LN
+=> Mdp : Levieux
