@@ -164,6 +164,8 @@ La version actuelle (V0) du logiciel bancaire permet aux guichetiers de modifier
 ==== Contraintes organisationnelles
 
 - Le développement de la solution doit respecté les délais fixés.
+- Les livrables seront sur github.
+- Le moyen de communication priviligié est Discord.
 
 [[conclusion]]
 == Conclusion
