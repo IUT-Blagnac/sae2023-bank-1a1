@@ -169,7 +169,7 @@ _[Figure 1] Diagramme des Cas d'Utilisation de la version 0_
 [[conclusion]]
 == Conclusion
 
-
+En conclusion, la transformation numérique a profondément modifié le secteur bancaire, poussant les banques à investir massivement dans le digital pour moderniser leurs services de banque au quotidien. Dans ce contexte, la banque DailyBank souhaite développer une application de gestion des comptes clients pour remplacer plusieurs outils obsolètes. L'objectif principal de ce projet est d'améliorer l'application de gestion des comptes clients et de moderniser les services bancaires proposés aux clients de la banque. La nouvelle application devra permettre la gestion de comptes bancaires de dépôt pour des clients existants, ainsi que les opérations de débit et de crédit, soit par virement, soit en personne au guichet. En répondant à ces besoins, la banque DailyBank pourra améliorer l'expérience client.
 
 
 
