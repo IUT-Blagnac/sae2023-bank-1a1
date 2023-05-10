@@ -61,7 +61,7 @@ La version actuelle (V0) du logiciel bancaire permet aux guichetiers de modifier
 Le diagramme des cas d'utilisation de la version 0 est présenté dans la figure 1.
 
 
-image::"images/dgCasUtilisationInitial.svg"[figure1]
+image::"https://raw.githubusercontent.com/IUT-Blagnac/sae2023-bank-1a1/b509f58ba0d4db485ce0f80a3313196b44502d2f/LV1/images/dgCasUtilisationInitial.svg?token=A6CQMKQKLIJI2QUOOVHO7OTELOQQ4"[figure1]
 _[Figure 1] Diagramme des Cas d'Utilisation de la version 0_
 
 === Fonctionnalitées de la version existante (V0)
@@ -108,20 +108,13 @@ _[Figure 1] Diagramme des Cas d'Utilisation de la version 0_
 
 - Gérer (faire le "CRUD") les employés (guichetier et chef d'agence)
 
-
-
 == Analyse des contraintes
 
 ==== Contraintes techniques
 
-- Le système doit être développé en Java ;
-- Le système doit être compatible avec une base de données relationnelle ;
-- Le système doit être hébergé sur un serveur dédié.
-
 ==== Contraintes organisationnelles
 
 - Le développement de la solution doit respecté les délais fixés.
-- Le système doit être facilement évolutif pour permettre d'ajouter de nouvelles fonctionnalités à l'avenir.
 
 
 
