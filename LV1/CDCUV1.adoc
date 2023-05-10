@@ -100,7 +100,7 @@ La version actuelle (V0) du logiciel bancaire permet aux guichetiers de modifier
 Le diagramme des cas d'utilisation de la version 0 est présenté dans la figure 1.
 
 
-image::"https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/images/dgCasUtilisationInitial.svg"[figure1]
+image::"https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/images/dgCasUtilisationInitial.png"[figure1]
 _[Figure 1] Diagramme des Cas d'Utilisation de la version 0_
 
 [[foncts-version-existante]]
@@ -160,6 +160,11 @@ _[Figure 1] Diagramme des Cas d'Utilisation de la version 0_
 
 [[contraintes-techniques]]
 ==== Contraintes techniques
+
+- Le language utilisé pour implémenter l'application est le Java.
+- L'interface graphique utilise la librairie JavaFx.
+- La base de donnée doit être utiliser le langage SQL avec le SGBD Sql Developper.
+- L'outil de build utilisé est Maven.
 
 [[contraintes-organisationnelles]]
 ==== Contraintes organisationnelles
