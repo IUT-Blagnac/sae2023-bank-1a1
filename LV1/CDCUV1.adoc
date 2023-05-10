@@ -109,10 +109,10 @@ _[Figure 1] Diagramme des Cas d'Utilisation de la version 0_
 [[guichetierV0]]
 ==== Un guichetier peut :
 
-- Modifier les informations client (adresse, téléphone, etc.)
-- Créer un nouveau client
+- Modifier les informations des clients
+- Inscrire un nouveau client
 - Consulter un compte
-- Débiter un compte (BD)
+- Débiter un compte
 
 [[chef-agenceV0]]
 ==== Un chef d'agence peut :
@@ -136,7 +136,7 @@ _[Figure 1] Diagramme des Cas d'Utilisation de la version 0_
 [[chef-agence-besoins]]
 ==== Chef d'Agence :
 
-- Permettre aux chefs d'agence de gérer les employés (créer, lire, mettre à jour, supprimer des - comptes employés).
+- Permettre aux chefs d'agence de gérer les employés (créer, lire, mettre à jour, supprimer des comptes employés).
 
 [[cas-utilisation]]
 === Cas d'utilisation à développer dans la Version 1 :
