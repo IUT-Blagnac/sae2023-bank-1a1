@@ -97,12 +97,6 @@ Enfin, le développement de cette application de gestion des comptes clients s'i
 
 La version actuelle (V0) du logiciel bancaire permet aux guichetiers de modifier les informations des clients (adresse, téléphone, etc.), de créer un nouveau client, de consulter un compte et de débiter un compte. Les chefs d'agence peuvent rendre inactif un client.
 
-Le diagramme des cas d'utilisation de la version 0 est présenté dans la figure 1.
-
-
-image::"https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/images/dgCasUtilisationInitial.png"[figure1]
-_[Figure 1] Diagramme des Cas d'Utilisation de la version 0_
-
 [[foncts-version-existante]]
 === Fonctionnalitées de la version existante (V0)
 
