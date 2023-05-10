@@ -15,13 +15,49 @@
 
 |Mathéo KATBIE | Bilon KWADJANI |Illan GABARRA
 
-
 |===
+
+== Sommaire 
+
+- <<introduction,Introduction>>
+
+  .. <<contexte,Contexte>>
+  .. <<objectifs,Objectifs>>
+  .. <<probleme,Problème>>
+
+
+- <<analyse-existant,Analyse de l'existant>>
+
+  * <<foncts-version-existante,Fonctionnalitées de la version existante (V0)>>
+  
+    ** <<guichetierV0,Guichetier>>
+    ** <<chef-agenceV0,Chef d'agence>>
+   
+   
+- <<analyse-des-besoins,Analyse des besoins>>
+
+	.. <<besoins,Besoins exprimés>>
+  		*** <<guichetier-besoins,Guichetier>>
+  		*** <<chef-agence-besoins,Chef d'agence>>
+
+  .. <<cas-utilisation,Cas d'utilisation à développer dans la Version 1>>
+  
+      *** <<guichetierV1,Guichetier>>
+      *** <<chef-agenceV1,Chef d'agence>>
+
+- <<analyse-des-contraintes,Analyse des contraintes>>
+
+ ** <<contraintes-techniques,Contraintes techniques>>
+ ** <<contraintes-organisationnelles,Contraintes organisationnelles>>
+
+- <<conclusion,Conclusion>>
 
 :toc:
 
+[[introduction]]
 == Introduction
 
+[[contexte]]
 === Contexte
 
 Le contexte général actuel est marqué par une forte transformation numérique des services bancaires. Les banques françaises ont investi massivement dans le digital pour répondre aux exigences d'instantanéité de leurs clients et ont créé des offres alternatives, telles que les banques mobiles, tout en modernisant en profondeur leurs services de banque au quotidien.
@@ -32,6 +68,7 @@ Cette transformation numérique a également conduit à une révolution organisa
 
 Dans ce contexte, la banque DailyBank souhaite développer une application JAVA-Oracle de gestion des comptes clients pour remplacer plusieurs outils obsolètes. Cette application sera déployée dans les 100 agences que compte son réseau et permettra de gérer des comptes bancaires de dépôt pour des clients préalablement créés, de débiter ou créditer un compte soit par virement, soit par une personne physique se présentant devant un guichet. Ce développement s'inscrit dans le cadre de la restructuration des services bancaires de la banque DailyBank.
 
+[[objectifs]]
 === Objectifs
 
 L'objectif principal est l'amélioration d'une application de gestion des comptes clients pour la banque DailyBank. 
@@ -46,6 +83,7 @@ Le projet s'inscrit dans le cadre d'une restructuration plus large des services 
 
 Le but du projet est de créer une version améliorée du logiciel bancaire, capable de répondre aux besoins des utilisateurs et de s'adapter aux évolutions technologiques.
 
+[[probleme]]
 === Problème
 
 Le développement de cette application de gestion des comptes clients répond à plusieurs problèmes. Tout d'abord, la banque DailyBank doit remplacer plusieurs outils obsolètes utilisés pour la gestion des comptes clients. Ces outils peuvent être peu efficaces, peu performants et ne répondent plus aux attentes des clients en termes de rapidité et de facilité d'utilisation. En développant une nouvelle application moderne et efficace, la banque pourra améliorer l'expérience client et renforcer sa compétitivité.
@@ -54,6 +92,7 @@ En outre, la banque DailyBank cherche à moderniser ses services bancaires pour 
 
 Enfin, le développement de cette application de gestion des comptes clients s'inscrit dans une restructuration plus large des services bancaires proposés par la banque. La modernisation des outils de la banque permettra d'améliorer l'efficacité de l'ensemble des services bancaires et de renforcer la compétitivité de l'entreprise sur le marché.
 
+[[analyse-existant]]
 == Analyse de l'existant
 
 La version actuelle (V0) du logiciel bancaire permet aux guichetiers de modifier les informations des clients (adresse, téléphone, etc.), de créer un nouveau client, de consulter un compte et de débiter un compte. Les chefs d'agence peuvent rendre inactif un client.
@@ -64,8 +103,10 @@ Le diagramme des cas d'utilisation de la version 0 est présenté dans la figure
 image::"https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/images/dgCasUtilisationInitial.svg"[figure1]
 _[Figure 1] Diagramme des Cas d'Utilisation de la version 0_
 
+[[foncts-version-existante]]
 === Fonctionnalitées de la version existante (V0)
 
+[[guichetierV0]]
 ==== Un guichetier peut :
 
 - Modifier les informations client (adresse, téléphone, etc.)
@@ -73,22 +114,34 @@ _[Figure 1] Diagramme des Cas d'Utilisation de la version 0_
 - Consulter un compte
 - Débiter un compte (BD)
 
+[[chef-agenceV0]]
 ==== Un chef d'agence peut :
 
 - Rendre inactif un client
 
-
+[[analyse-des-besoins]]
 == Analyse des besoins
 
+[[besoins]]
+=== Besoins exprimés
+
+[[guichetier-besoins]]
+==== Guichetier :
 
 - Permettre aux guichetiers de créer un nouveau compte client ;
 - Permettre aux guichetiers de créditer ou débiter un compte client ;
 - Permettre aux guichetiers d'effectuer des virements de compte à compte ;
 - Permettre aux guichetiers de clôturer un compte client ;
+
+[[chef-agence-besoins]]
+==== Chef d'Agence :
+
 - Permettre aux chefs d'agence de gérer les employés (créer, lire, mettre à jour, supprimer des - comptes employés).
 
+[[cas-utilisation]]
 === Cas d'utilisation à développer dans la Version 1 :
 
+[[guichetierV1]]
 ==== Guichetier :
 
 - Créditer/débiter un compte (Java et BD avec procédure stockée)
@@ -96,17 +149,25 @@ _[Figure 1] Diagramme des Cas d'Utilisation de la version 0_
 - Effectuer un virement de compte à compte
 - Clôturer un compte
 
+[[chef-agenceV1]]
 ==== Chef d'Agence :
 
 - Gérer (faire le "CRUD") les employés (guichetier et chef d'agence)
 
+
+[[analyse-des-contraintes]]
 == Analyse des contraintes
 
+[[contraintes-techniques]]
 ==== Contraintes techniques
 
+[[contraintes-organisationnelles]]
 ==== Contraintes organisationnelles
 
 - Le développement de la solution doit respecté les délais fixés.
+
+[[conclusion]]
+== Conclusion
 
 
 
