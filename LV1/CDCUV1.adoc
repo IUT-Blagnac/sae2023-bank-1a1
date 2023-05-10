@@ -7,6 +7,9 @@
 | V1 | 10 mai 2023 
 |===
 
+Équipe : 1A1
+Membre : Mathéo KATBIE Bilon KWADJANI Illan GABARRA
+
 [cols="2,1,1,1", options="header"]
 |===
 | | Page
@@ -16,7 +19,8 @@
 
 === Présentation du sujet
 
-Le projet consiste en la mise en place d'un logiciel bancaire permettant aux guichetiers et aux chefs d'agence d'effectuer des opérations courantes liées aux comptes bancaires.
+Le projet consiste en la mise en place d'un logiciel bancaire permettant aux guichetiers 
+et aux chefs d'agence d'effectuer des opérations courantes liées aux comptes bancaires.
 
 ==== Contexte
 
@@ -38,7 +42,7 @@ Le diagramme des cas d'utilisation initial est présenté dans la figure 1.
 
 .[figure]
 Diagramme des Cas d'Utilisation initial
-image::Cas_utilisation_initial.png[]
+image::"/LV1/Rendus/images/dgCasUtilisationInitial.svg"[]
 
 [cols="2,1,1,1", options="header"]
 |===
