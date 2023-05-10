@@ -1,0 +1,129 @@
+== Cahier des charges utilisateur - Version 1
+
+[cols="1,1", options="header"]
+|===
+| Version | Date
+
+| V1 | 10 mai 2023 
+|===
+
+=== Équipe : 1A1  
+
+=== Membres :
+[cols="1,1,1", options="header"]
+|===
+
+|Mathéo KATBIE | Bilon KWADJANI |Illan GABARRA
+
+
+|===
+
+:toc:
+
+== Introduction
+
+=== Contexte
+
+Le contexte général actuel est marqué par une forte transformation numérique des services bancaires. Les banques françaises ont investi massivement dans le digital pour répondre aux exigences d'instantanéité de leurs clients et ont créé des offres alternatives, telles que les banques mobiles, tout en modernisant en profondeur leurs services de banque au quotidien.
+
+Ces investissements majeurs ont été accompagnés de restructurations et d'une refonte des réseaux de banque de détail. Les banques ont robotisé les tâches automatisables et modernisé les outils de bureautique des guichetiers pour offrir des services bancaires rapides et efficaces.
+
+Cette transformation numérique a également conduit à une révolution organisationnelle au sein des banques, qui évoluent vers une approche transversale et pluridisciplinaire pour suivre le client sans interruption et en temps réel. Des professionnels de diverses disciplines interagissent pour développer les parcours et les trajectoires de chaque client.
+
+Dans ce contexte, la banque DailyBank souhaite développer une application JAVA-Oracle de gestion des comptes clients pour remplacer plusieurs outils obsolètes. Cette application sera déployée dans les 100 agences que compte son réseau et permettra de gérer des comptes bancaires de dépôt pour des clients préalablement créés, de débiter ou créditer un compte soit par virement, soit par une personne physique se présentant devant un guichet. Ce développement s'inscrit dans le cadre de la restructuration des services bancaires de la banque DailyBank.
+
+=== Objectifs
+
+L'objectif principal est l'amélioration d'une application de gestion des comptes clients pour la banque DailyBank. 
+
+Pour cela nous chercherons à remplacer plusieurs outils obsolètes et de moderniser les services bancaires proposés aux clients de la banque. 
+
+L'application sera développée en utilisant le langage de programmation Java et la base de données Oracle. 
+
+Elle devra permettre la gestion de comptes bancaires de dépôt pour des clients existants, ainsi que les opérations de débit et de crédit, soit par virement, soit en personne au guichet. Cette application sera déployée dans les 100 agences que compte le réseau bancaire de DailyBank. 
+
+Le projet s'inscrit dans le cadre d'une restructuration plus large des services bancaires proposés par la banque, qui cherche à moderniser ses outils et à offrir une meilleure expérience client.
+
+Le but du projet est de créer une version améliorée du logiciel bancaire, capable de répondre aux besoins des utilisateurs et de s'adapter aux évolutions technologiques.
+
+=== Problème
+
+Le développement de cette application de gestion des comptes clients répond à plusieurs problèmes. Tout d'abord, la banque DailyBank doit remplacer plusieurs outils obsolètes utilisés pour la gestion des comptes clients. Ces outils peuvent être peu efficaces, peu performants et ne répondent plus aux attentes des clients en termes de rapidité et de facilité d'utilisation. En développant une nouvelle application moderne et efficace, la banque pourra améliorer l'expérience client et renforcer sa compétitivité.
+
+En outre, la banque DailyBank cherche à moderniser ses services bancaires pour répondre aux attentes des clients en matière de rapidité et de facilité d'utilisation. L'application de gestion des comptes clients permettra à la banque de proposer des services bancaires plus modernes et plus pratiques pour les clients, comme la gestion des comptes à distance et les opérations de paiement en ligne. Cela permettra à la banque de mieux s'adapter aux nouveaux modes de consommation des services bancaires, notamment l'utilisation croissante des applications mobiles.
+
+Enfin, le développement de cette application de gestion des comptes clients s'inscrit dans une restructuration plus large des services bancaires proposés par la banque. La modernisation des outils de la banque permettra d'améliorer l'efficacité de l'ensemble des services bancaires et de renforcer la compétitivité de l'entreprise sur le marché.
+
+== Analyse de l'existant
+
+La version actuelle (V0) du logiciel bancaire permet aux guichetiers de modifier les informations des clients (adresse, téléphone, etc.), de créer un nouveau client, de consulter un compte et de débiter un compte. Les chefs d'agence peuvent rendre inactif un client.
+
+Le diagramme des cas d'utilisation de la version 0 est présenté dans la figure 1.
+
+
+image::"images/dgCasUtilisationInitial.svg"[figure1]
+_[Figure 1] Diagramme des Cas d'Utilisation de la version 0_
+
+=== Fonctionnalitées de la version existante (V0)
+
+==== Un guichetier peut :
+
+- Modifier les informations client (adresse, téléphone, etc.)
+- Créer un nouveau client
+- Consulter un compte
+- Débiter un compte (BD)
+
+==== Un chef d'agence peut :
+
+- Rendre inactif un client
+
+
+== Analyse des besoins
+
+==== Besoins fonctionnels
+
+
+- Permettre aux guichetiers de créer un nouveau compte client ;
+- Permettre aux guichetiers de créditer ou débiter un compte client ;
+- Permettre aux guichetiers d'effectuer des virements de compte à compte ;
+- Permettre aux guichetiers de clôturer un compte client ;
+- Permettre aux chefs d'agence de gérer les employés (créer, lire, mettre à jour, supprimer des - comptes employés).
+
+==== Besoins non fonctionnels
+
+- Sécurité : le système doit être sécurisé et garantir la confidentialité des données des clients ;
+- Fiabilité : le système doit être fiable et ne pas donner d'informations erronées ;
+- Ergonomie : le système doit être convivial et facile à utiliser pour les guichetiers et les chefs d'agence.
+
+=== Cas d'utilisation à développer dans la Version 1 :
+
+==== Guichetier :
+
+- Créditer/débiter un compte (Java et BD avec procédure stockée)
+- Créer un compte
+- Effectuer un virement de compte à compte
+- Clôturer un compte
+
+==== Chef d'Agence :
+
+- Gérer (faire le "CRUD") les employés (guichetier et chef d'agence)
+
+
+
+== Analyse des contraintes
+
+==== Contraintes techniques
+
+- Le système doit être développé en Java ;
+- Le système doit être compatible avec une base de données relationnelle ;
+- Le système doit être hébergé sur un serveur dédié.
+
+==== Contraintes organisationnelles
+
+- Le développement de la solution doit respecté les délais fixés.
+- Le système doit être facilement évolutif pour permettre d'ajouter de nouvelles fonctionnalités à l'avenir.
+
+
+
+
+
