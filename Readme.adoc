@@ -6,7 +6,7 @@
 ==== Répartition des tâches et état d'avancement
 [options="header,footer"]
 |=======================
-|version|rôle     |use case   |cas...                 |   Etudiant 1 | Etudiant 2  |   Etudiant 3 
+|version|rôle     |use case   |cas...                 |   Mathéo KATBIE | Bilon KWADJANI  |   Illan GABARRA 
 |1    |Chef d’Agence    |CRUD employé  |C| | |
 |1    |Chef d’Agence    |CRUD employé  |R| | |
 |1    |Chef d’Agence |CRUD employé  |U| | |
