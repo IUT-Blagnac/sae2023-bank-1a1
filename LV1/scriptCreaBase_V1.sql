@@ -253,6 +253,53 @@ INSERT INTO Operation (idOperation, montant, dateValeur, idNumCompte, idTypeOp)
 --------- PROCEDURES STOCKEES ---------------------	
 ---------------------------------------------------
 
+----------------------------------------------------
+------------ CREDITER COMPTE --------------------------
+----------------------------------------------------
+
+CREATE OR REPLACE PROCEDURE Crediter	(
+	vidNumCompte CompteCourant.idNumCompte%TYPE,
+	vMontantCredit Operation.montant%TYPE,
+	vTypeOp TypeOperation.idTypeOp%TYPE,
+	retour OUT NUMBER)
+IS
+-- On ne teste pas les exceptions ici, on suppose que cela est fait au niveau JAVA :
+-- (cela peut être changé mais il faut être capable d'intercepter et traiter les exceptions
+-- SQL depuis JDBC...
+
+    vDebitAutorise CompteCourant.debitAutorise%TYPE;
+	vSolde CompteCourant.solde%TYPE;
+	vNouveauSolde CompteCourant.solde%TYPE;
+	
+BEGIN
+	-- on n'insère pas la dateOp car elle est définie dans la table pour prendre la valeur du jour par défaut
+	-- on insere la date du jour (sysdate) + 2 jours pour la date de valeur de l'operation
+    
+	-- la valeur vMontantCredit est passée en valeur absolue (ex : 120) 
+	
+	SELECT debitAutorise, solde into vDebitAutorise, vSolde FROM CompteCourant WHERE idNumCompte = vidNumCompte;
+
+	vNouveauSolde := vSolde + vMontantCredit;
+	
+		INSERT INTO Operation (idOperation, montant, dateValeur, idNumCompte, idTypeOp)
+		VALUES (seq_id_operation.NEXTVAL, -vMontantCredit, sysdate +2, vidNumCompte, vTypeOp);
+
+		-- on met à jour le solde du compte correspondant à l'opération
+		UPDATE CompteCourant
+		SET solde = vNouveauSolde
+		WHERE idNumCompte = vidNumCompte;
+		
+		COMMIT;
+		retour := 0;
+	
+END;
+/
+
+
+----------------------------------------------------
+------------ DEBITER COMPTE --------------------------
+----------------------------------------------------
+
 CREATE OR REPLACE PROCEDURE Debiter	(
 	vidNumCompte CompteCourant.idNumCompte%TYPE,
 	vMontantDebit Operation.montant%TYPE,
