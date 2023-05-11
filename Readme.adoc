@@ -40,7 +40,7 @@ Dans sa colonne il doit remplir la ligne correspondant à chaque partie qu'il a 
 |===
 | Date    | Nom         |  Lien                             | Retour
 | Sem.19  | CDC V1      | https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/CDCUV1.adoc                                  |           
-|         |Gantt V1 Prévu|                                  |
+|         |Gantt V1 Prévu|  https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/Livrables%20Gestion%20de%20projet/PlannificationGant.pdf                                |
 | 16/05  | CdC V2final|                                     |  
 |         | Gantt V1 Réalisé |                               |     
 |         | Gantt V2 Prevu|         |     
