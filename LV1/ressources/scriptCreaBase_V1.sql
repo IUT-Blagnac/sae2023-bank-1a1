@@ -282,7 +282,7 @@ BEGIN
 	vNouveauSolde := vSolde + vMontantCredit;
 	
 		INSERT INTO Operation (idOperation, montant, dateValeur, idNumCompte, idTypeOp)
-		VALUES (seq_id_operation.NEXTVAL, -vMontantCredit, sysdate +2, vidNumCompte, vTypeOp);
+		VALUES (seq_id_operation.NEXTVAL, vMontantCredit, sysdate +2, vidNumCompte, vTypeOp);
 
 		-- on met à jour le solde du compte correspondant à l'opération
 		UPDATE CompteCourant
