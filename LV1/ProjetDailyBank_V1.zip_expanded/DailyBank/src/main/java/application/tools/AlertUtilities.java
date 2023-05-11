@@ -27,7 +27,7 @@ public class AlertUtilities {
 	 * @return true si dialogue confirmé, false sinon
 	 */
 	public static boolean confirmYesCancel(Stage _fen, String _title, String _message, String _content, AlertType _at) {
-
+		
 		if (_at == null) {
 			_at = AlertType.INFORMATION;
 		}
