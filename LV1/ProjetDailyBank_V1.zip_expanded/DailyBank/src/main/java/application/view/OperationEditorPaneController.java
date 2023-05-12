@@ -9,15 +9,23 @@ import application.tools.ConstantesIHM;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.CompteCourant;
 import model.data.Operation;
+import model.data.OperationTransfert;
+import model.orm.Access_BD_CompteCourant;
+import model.orm.exception.DataAccessException;
+import model.orm.exception.DatabaseConnexionException;
+import model.orm.exception.RowNotFoundOrTooManyRowsException;
 
 public class OperationEditorPaneController {
 
@@ -85,6 +93,33 @@ public class OperationEditorPaneController {
 			this.cbTypeOpe.getSelectionModel().select(0);
 
 			break;
+		case TRANSFERT:
+
+			info = "Cpt. : " + this.compteEdite.idNumCompte + "  "
+					+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
+					+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
+			this.lblMessage.setText(info);
+			
+			
+			Label lblCompteDestinataire = new Label("Compte destinataire");
+			
+			lblCompteDestinataire.setAlignment(Pos.CENTER_RIGHT);
+			lblCompteDestinataire.setMaxWidth(Double.MAX_VALUE);
+			lblCompteDestinataire.setPadding(new Insets(0, 20, 0, 0));
+			
+			this.gridPaneSaisies.addRow(2,lblCompteDestinataire);
+			this.gridPaneSaisies.addRow(2, new TextField());
+			
+			this.btnOk.setText("Effectuer Transfert");
+			this.btnCancel.setText("Annuler Transfert");
+
+			listTypesOpesPossibles.addAll(ConstantesIHM.OPERATIONS_TRANSFERT_GUICHET);
+
+			this.cbTypeOpe.setItems(listTypesOpesPossibles);
+			this.cbTypeOpe.getSelectionModel().select(0);
+
+			break;
+
 		}
 
 		// Paramétrages spécifiques pour les chefs d'agences
@@ -109,6 +144,9 @@ public class OperationEditorPaneController {
 	// Attributs de la scene + actions
 
 	@FXML
+	private GridPane gridPaneSaisies;
+	
+	@FXML
 	private Label lblMessage;
 	@FXML
 	private Label lblMontant;
@@ -129,11 +167,11 @@ public class OperationEditorPaneController {
 
 	@FXML
 	private void doAjouter() {
-		
+
 		double montant;
 		String info;
 		String typeOp;
-		
+
 		switch (this.categorieOperation) {
 		case DEBIT:
 			// règles de validation d'un débit :
@@ -144,7 +182,7 @@ public class OperationEditorPaneController {
 			this.txtMontant.getStyleClass().remove("borderred");
 			this.lblMontant.getStyleClass().remove("borderred");
 			this.lblMessage.getStyleClass().remove("borderred");
-			
+
 			info = "Cpt. : " + this.compteEdite.idNumCompte + "  "
 					+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
 					+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
@@ -183,7 +221,51 @@ public class OperationEditorPaneController {
 			this.txtMontant.getStyleClass().remove("borderred");
 			this.lblMontant.getStyleClass().remove("borderred");
 			this.lblMessage.getStyleClass().remove("borderred");
+
+			info = "Cpt. : " + this.compteEdite.idNumCompte + "  "
+					+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
+					+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
+			this.lblMessage.setText(info);
+
+			try {
+				montant = Double.parseDouble(this.txtMontant.getText().trim());
+				if (montant <= 0)
+					throw new NumberFormatException();
+			} catch (NumberFormatException nfe) {
+				this.txtMontant.getStyleClass().add("borderred");
+				this.lblMontant.getStyleClass().add("borderred");
+				this.txtMontant.requestFocus();
+				return;
+			}
+
+			typeOp = this.cbTypeOpe.getValue();
+			this.operationResultat = new Operation(-1, montant, null, null, this.compteEdite.idNumCli, typeOp);
+			this.primaryStage.close();
+			break;
+		case TRANSFERT:
 			
+			
+			// règles de validation d'un débit :
+			// - le montant doit être un nombre valide
+			// - et si l'utilisateur n'est pas chef d'agence,
+			// - le débit ne doit pas amener le compte en dessous de son découvert autorisé
+			// - Le compte destinataire doit exister
+
+			int NumCompteDestinataire = -1000;
+
+			
+			TextField txtCompteDestinataire = (TextField) this.gridPaneSaisies.getChildren().get(5);
+			Label lblCompteDestinataire = (Label) this.gridPaneSaisies.getChildren().get(4);
+			
+			
+			this.txtMontant.getStyleClass().remove("borderred");
+			this.lblMontant.getStyleClass().remove("borderred");
+			this.lblMessage.getStyleClass().remove("borderred");
+			lblCompteDestinataire.getStyleClass().remove("borderred");
+			txtCompteDestinataire.getStyleClass().remove("borderred");
+			
+			Access_BD_CompteCourant bdAccesComptes = new Access_BD_CompteCourant();
+
 			info = "Cpt. : " + this.compteEdite.idNumCompte + "  "
 					+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
 					+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
@@ -200,8 +282,37 @@ public class OperationEditorPaneController {
 				return;
 			}
 			
+			
+			
+			try {
+				NumCompteDestinataire = Integer.parseInt(txtCompteDestinataire.getText().trim());
+				if (NumCompteDestinataire <= 0 | NumCompteDestinataire == this.compteEdite.idNumCompte)
+					throw new NumberFormatException();
+				
+			} catch (NumberFormatException nfe) {
+				txtCompteDestinataire.getStyleClass().add("borderred");
+				lblCompteDestinataire.getStyleClass().add("borderred");
+				txtCompteDestinataire.requestFocus();
+				return;
+			}
+			
+			try {
+				if (bdAccesComptes.getCompteCourant(NumCompteDestinataire) == null) {
+					txtCompteDestinataire.getStyleClass().add("borderred");
+					lblCompteDestinataire.getStyleClass().add("borderred");
+					txtCompteDestinataire.requestFocus();
+					return;
+				}
+			} catch (RowNotFoundOrTooManyRowsException | DataAccessException | DatabaseConnexionException e) {
+				txtCompteDestinataire.getStyleClass().add("borderred");
+				lblCompteDestinataire.getStyleClass().add("borderred");
+				txtCompteDestinataire.requestFocus();
+				return;
+			}
+			
 			typeOp = this.cbTypeOpe.getValue();
-			this.operationResultat = new Operation(-1, montant, null, null, this.compteEdite.idNumCli, typeOp);
+
+			this.operationResultat = new OperationTransfert(-1, montant, null, null, this.compteEdite.idNumCli, typeOp , NumCompteDestinataire);
 			this.primaryStage.close();
 			break;
 		}

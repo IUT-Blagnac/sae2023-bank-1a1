@@ -44,6 +44,7 @@ public class OperationsManagementController {
 		this.clientDuCompte = client;
 		this.compteConcerne = compte;
 		this.configure();
+		
 	}
 
 	private void configure() {
@@ -53,7 +54,6 @@ public class OperationsManagementController {
 		this.lvOperations.setItems(this.oListOperations);
 		this.lvOperations.setSelectionModel(new NoSelectionModel<Operation>());
 		this.updateInfoCompteClient();
-		this.validateComponentState();
 	}
 
 	public void displayDialog() {
@@ -75,11 +75,15 @@ public class OperationsManagementController {
 	private Label lblInfosCompte;
 	@FXML
 	private ListView<Operation> lvOperations;
+	
 	@FXML
 	private Button btnDebit;
 	@FXML
 	private Button btnCredit;
-
+	@FXML
+	private Button btnTransfert;
+	
+	
 	@FXML
 	private void doCancel() {
 		this.primaryStage.close();
@@ -91,7 +95,6 @@ public class OperationsManagementController {
 		Operation op = this.omDialogController.enregistrerDebit();
 		if (op != null) {
 			this.updateInfoCompteClient();
-			this.validateComponentState();
 		}
 	}
 
@@ -101,19 +104,33 @@ public class OperationsManagementController {
 		Operation op = this.omDialogController.enregistrerCredit();
 		if (op != null) {
 			this.updateInfoCompteClient();
-			this.validateComponentState();
 		}
 		
 	}
 
 	@FXML
-	private void doAutre() {
+	private void doTransfert() {
+		Operation op = this.omDialogController.enregistrerTransfert();
+		if (op != null) {
+			this.updateInfoCompteClient();
+		}
 	}
+	
 
 	private void validateComponentState() {
-		// Non implémenté => désactivé
-		this.btnCredit.setDisable(false);
-		this.btnDebit.setDisable(false);
+		
+		if (this.compteConcerne.estCloture.compareTo("O") == 0) {
+
+			this.btnCredit.setDisable(true);
+			this.btnDebit.setDisable(true);
+			this.btnTransfert.setDisable(true);
+			
+		}
+		else {
+			this.btnCredit.setDisable(false);
+			this.btnDebit.setDisable(false);
+			this.btnTransfert.setDisable(false);
+		}
 	}
 
 	private void updateInfoCompteClient() {

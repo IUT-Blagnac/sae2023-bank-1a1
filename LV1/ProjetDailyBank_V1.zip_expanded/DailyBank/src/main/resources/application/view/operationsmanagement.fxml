@@ -39,7 +39,7 @@
                               <Insets bottom="10.0" top="10.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button disable="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doAutre" GridPane.rowIndex="3">
+                        <Button fx:id="btnTransfert" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doTransfert" text="Enregistrer un Transfert" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets bottom="10.0" top="10.0" />
                            </GridPane.margin>
