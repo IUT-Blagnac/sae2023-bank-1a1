@@ -9,7 +9,7 @@
 |1    |Chef d’Agence    |CRUD employé  |C| F | |
 |1    |Chef d’Agence    |CRUD employé  |R| D | |
 |1    |Chef d’Agence |CRUD employé  |U| D | |
-|1    |Chef d’Agence   |CRUD employé  |D| D | |
+|1    |Chef d’Agence   |CRUD employé  |D| F | |
 |1    |Guichetier     | Compte | Créer| | D | 
 |1    |Guichetier     | Compte | Créditer/Débiter|| |F
 |1    |Guichetier     | Compte | Effectuer un virement|| |F
