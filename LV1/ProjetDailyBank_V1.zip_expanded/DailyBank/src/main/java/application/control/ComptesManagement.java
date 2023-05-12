@@ -65,7 +65,11 @@ public class ComptesManagement {
 				this.clientDesComptes, cpt);
 		om.doOperationsManagementDialog();
 	}
-
+	
+	/**
+	 * Cette methode permet de crée un nouveau compte pour un client et l'insert dans la Base de Donnée
+	 * Par Bilon KWADJANI
+	 */
 	public CompteCourant creerNouveauCompte() {
 		CompteCourant compte;
 		CompteEditorPane cep = new CompteEditorPane(this.primaryStage, this.dailyBankState);
@@ -77,11 +81,10 @@ public class ComptesManagement {
 				AlertUtilities.showAlert(this.primaryStage, "En cours de développement", "Non implémenté",
 						"Enregistrement réel en BDD du compe non effectué\nEn cours de développement", AlertType.ERROR);
 
-				// TODO : enregistrement du nouveau compte en BDD (la BDD donne de nouvel id
-				// dans "compte")
+				Access_BD_Client ac = new Access_BD_Client();
 
-				// if JAMAIS vrai
-				// existe pour compiler les catchs dessous
+				ac.insertClient(client);
+				
 				if (Math.random() < -1) {
 					throw new ApplicationException(Table.CompteCourant, Order.INSERT, "todo : test exceptions", null);
 				}
