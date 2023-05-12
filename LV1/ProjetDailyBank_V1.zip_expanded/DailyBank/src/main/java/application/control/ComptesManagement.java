@@ -76,14 +76,13 @@ public class ComptesManagement {
 		compte = cep.doCompteEditorDialog(this.clientDesComptes, null, EditionMode.CREATION);
 		if (compte != null) {
 			try {
-				// Temporaire jusqu'à implémentation
+				/* Temporaire jusqu'à implémentation
 				compte = null;
 				AlertUtilities.showAlert(this.primaryStage, "En cours de développement", "Non implémenté",
 						"Enregistrement réel en BDD du compe non effectué\nEn cours de développement", AlertType.ERROR);
-
-				Access_BD_Client ac = new Access_BD_Client();
-
-				ac.insertClient(client);
+				 	*/
+				Access_BD_CompteCourant ac = new Access_BD_CompteCourant();
+				ac.insertCompteC(compte);
 				
 				if (Math.random() < -1) {
 					throw new ApplicationException(Table.CompteCourant, Order.INSERT, "todo : test exceptions", null);
