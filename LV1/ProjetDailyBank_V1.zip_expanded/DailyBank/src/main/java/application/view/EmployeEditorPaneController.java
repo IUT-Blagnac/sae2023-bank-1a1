@@ -1,15 +1,24 @@
 package application.view;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import application.DailyBankState;
 import application.control.EmployeManagement;
+import application.tools.AlertUtilities;
 import application.tools.EditionMode;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.Employe;
+import model.orm.LogToDatabase;
+import model.orm.exception.DatabaseConnexionException;
 
 public class EmployeEditorPaneController {
 	
@@ -46,13 +55,45 @@ public class EmployeEditorPaneController {
 	
 	private void configure() {
 		this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
-		
 	}
 	
 	@FXML
 	private void doAjouter()
 	{
-		
+		if(isSaisieValide()) {
+			System.out.println("VALIDE");
+			Connection con;
+			try {
+				con = LogToDatabase.getConnexion();
+				
+				String query = "INSERT INTO EMPLOYE VALUES (" + "?" + ", " + "?" + ", " + "?" + ", "
+						+ "?" + ", " + "?" + ", " + "?" + ", " + "?" + ")";
+				PreparedStatement pst = con.prepareStatement(query);
+				pst.setInt(1, getMaximumId() + 1);
+				pst.setString(2, this.txtNom.getText());
+				pst.setString(3, this.txtPrenom.getText());
+				pst.setString(4,"guichetier");
+				pst.setString(5, this.txtLogin.getText());
+				pst.setString(6, this.txtLogin.getText());
+				pst.setInt(7, Integer.parseInt(this.txtIdAgence.getText()));
+				
+
+				System.err.println(query);
+
+				int result = pst.executeUpdate();
+				
+				con.commit();
+				pst.close();
+				this.primaryStage.close();
+				
+			} catch (DatabaseConnexionException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	@FXML
@@ -68,13 +109,13 @@ public class EmployeEditorPaneController {
 		return null;
 	}
 	
-	public Employe displayDialog(Employe employe)
+	public void displayDialog(Employe employe)
 	{
-		Employe employeResultat;
+		int maxId = this.getMaximumId();
 		
 		if(employe == null)
 		{
-			this.employe = new Employe(0,"","","guichetier","","",0);
+			this.employe = new Employe(maxId,"","","guichetier","","",0);
 		} else
 		{
 			this.employe = new Employe(employe);
@@ -87,19 +128,77 @@ public class EmployeEditorPaneController {
 		this.txtMotDePasse.setText(this.employe.motPasse);
 		this.txtIdAgence.setText("" + this.employe.idAg);
 	
-		employeResultat = this.employe;
 		this.primaryStage.showAndWait();
-		
-		return employeResultat;
 	}
 	
 	
 	
 	private boolean isSaisieValide()
 	{
+		this.employe.nom = this.txtNom.getText().trim();
+		this.employe.prenom = this.txtPrenom.getText().trim();
+		this.employe.login = this.txtLogin.getText().trim();
+		this.employe.motPasse = this.txtMotDePasse.getText().trim();
 		
+		if(this.employe.nom.isEmpty()) {
+			AlertUtilities.showAlert(this.primaryStage, "Erreur de saisie", null, "Le nom ne doit pas être vide",
+					AlertType.WARNING);
+			return false;
+		}
 		
+		if(this.employe.prenom.isEmpty()) {
+			AlertUtilities.showAlert(this.primaryStage, "Erreur de saisie", null, "Le prénom ne doit pas être vide",
+					AlertType.WARNING);
+			return false;
+		}
+		
+		if(this.employe.login.isEmpty()) {
+			AlertUtilities.showAlert(this.primaryStage, "Erreur de saisie", null, "Le login ne doit pas être vide",
+					AlertType.WARNING);
+			return false;
+		}
+		
+		if(this.employe.motPasse.isEmpty()) {
+			AlertUtilities.showAlert(this.primaryStage, "Erreur de saisie", null, "Le mot de passe ne doit pas être vide",
+					AlertType.WARNING);
+			return false;
+		}
 		
 		return true;
+	}
+	
+	public int getMaximumId()
+	{
+		int idEmployeTrouve = 0;
+		
+		Connection con;
+		PreparedStatement pst;
+		try {
+			
+			con = LogToDatabase.getConnexion();
+			String query = "select max(idemploye) AS max_id FROM employe";
+
+			pst = con.prepareStatement(query);
+
+			ResultSet rs = pst.executeQuery();
+
+			System.err.println(query);
+			
+			if(rs.next()) {
+				idEmployeTrouve = rs.getInt("max_id");
+			}
+
+			rs.close();
+			pst.close();
+		} catch (DatabaseConnexionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return idEmployeTrouve;
 	}
 }
