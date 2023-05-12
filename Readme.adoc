@@ -6,7 +6,7 @@
 [options="header,footer"]
 |=======================
 |version|rôle     |use case   |cas...                 |   Mathéo KATBIE | Bilon KWADJANI  |   Illan GABARRA 
-|1    |Chef d’Agence    |CRUD employé  |C| D | |
+|1    |Chef d’Agence    |CRUD employé  |C| F | |
 |1    |Chef d’Agence    |CRUD employé  |R| D | |
 |1    |Chef d’Agence |CRUD employé  |U| D | |
 |1    |Chef d’Agence   |CRUD employé  |D| D | |
