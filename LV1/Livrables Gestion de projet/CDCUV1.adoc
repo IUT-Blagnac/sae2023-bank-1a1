@@ -133,7 +133,7 @@ Tous ces cas d'utilisation sont possible si le guichetier s'est authentifié ave
 
 - Consulter un compte : le guichetier peut accéder aux informations des comptes d'un client existant, comme le solde actuel et les transactions récentes.
 
-- Débiter un compte : le guichetier peut effectuer des opérations de débit sur le compte d'un client, par exemple, en retirant de l'argent liquide ou en effectuant un paiement. Pour cela le montant débité doit être supérieur à 0 et le solde après débit ne dois pas être supérieur au découvert autorisé et le compte client à qui appartient le compte ne doit pas être désactivé.
+- Débiter un compte : le guichetier peut effectuer des opérations de débit sur le compte d'un client, par exemple, en retirant de l'argent liquide ou en effectuant un paiement. Pour cela le montant débité doit être supérieur à 0 et le solde après débit ne dois pas être inférieur au découvert autorisé et le compte client à qui appartient le compte ne doit pas être désactivé.
 
 [[chef-agenceV0]]
 ==== Un chef d'agence peut :
@@ -173,7 +173,7 @@ Tous ces cas d'utilisation sont possible si le chef d'agence s'est authentifié 
 
 - Créer un compte : le guichetier peut créer un nouveau compte pour un client existant en générant un nouveau numéro de compte unique. Pour cela le compte du client ne doit pas être désactivé.
 
-- Effectuer un virement de compte à compte : le guichetier peut transférer de l'argent d'un compte à un autre en utilisant le numéro de compte du destinataire et le montant à transférer. Les comptes doivent appartenir à des clients de la DailyBank. Le montant transféré devra être supérieur à 0.
+- Effectuer un virement de compte à compte : le guichetier peut transférer de l'argent d'un compte à un autre en utilisant le numéro de compte du destinataire et le montant à transférer. Les comptes doivent appartenir à des clients de la DailyBank. Le montant transféré devra être supérieur à 0. Le solde après transfert du compte source ne dois pas être inférieur au découvert autorisé et les comptes clients à qui appartiennent les comptes ne doivent pas être désactivés.
 
 - Clôturer un compte : le guichetier peut clôturer le compte bancaire d'un client si nécessaire.
 
