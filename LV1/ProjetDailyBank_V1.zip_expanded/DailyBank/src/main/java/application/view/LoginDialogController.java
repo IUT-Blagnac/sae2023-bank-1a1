@@ -1,6 +1,7 @@
 package application.view;
 
 import application.DailyBankState;
+import application.GlobalSettings;
 import application.control.LoginDialog;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -24,6 +25,9 @@ public class LoginDialogController {
 
 	// Fenêtre physique ou est la scène contenant le fichier xml contrôlé par this
 	private Stage primaryStage;
+	
+	// private String login,password;
+	
 
 	// Données de la fenêtre
 
@@ -99,13 +103,14 @@ public class LoginDialogController {
 	 */
 	@FXML
 	private void doOK() {
-		String login = this.txtLogin.getText().trim();
-		String password = new String(this.txtPassword.getText().trim());
-		if (login.length() == 0 || password.length() == 0) {
+		GlobalSettings.login = this.txtLogin.getText().trim();
+		GlobalSettings.password = new String(this.txtPassword.getText().trim());
+		if (GlobalSettings.login.length() == 0 || GlobalSettings.password.length() == 0) {
 			this.afficheErreur("Identifiants incorrects :");
 		} else {
 			Employe e;
-			e = this.ldDialogController.chercherEmployeParLogin(login, password);
+			e = this.ldDialogController.chercherEmployeParLogin(GlobalSettings.login, GlobalSettings.password);
+
 			if (e == null) {
 				this.afficheErreur("Identifiants incorrects :");
 			} else {
@@ -113,7 +118,7 @@ public class LoginDialogController {
 			}
 		}
 	}
-
+	
 	/*
 	 * Affichage d'un message d'erreur
 	 *
