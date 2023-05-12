@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import application.DailyBankState;
 import application.control.ClientsManagement;
 import application.control.DailyBankMainFrame;
+import application.control.EmployeEditorPane;
 import application.control.EmployeManagement;
 import javafx.stage.Stage;
 import application.tools.AlertUtilities;
@@ -71,11 +72,11 @@ public class EmployeManagementController {
 	@FXML
 	private ListView<Employe> lvEmploye;
 	@FXML
-	private Button btnDesactClient;
+	private Button btnDesactEmploye;
 	@FXML
-	private Button btnModifClient;
+	private Button btnModifEmploye;
 	@FXML
-	private Button btnComptesClient;
+	private Button btnNouveauEmploye;
 	
 	@FXML
 	private void doCancel() {
@@ -90,7 +91,8 @@ public class EmployeManagementController {
 	@FXML
 	private void doNouveauEmploye()
 	{
-		
+		EmployeEditorPane edp = new EmployeEditorPane(this.primaryStage, this.dailyBankState);
+		edp.doEmployeManagementDialog(new Employe());
 	}
 	
 	@FXML
@@ -102,5 +104,12 @@ public class EmployeManagementController {
 	@FXML
 	private void doDesactiverEmploye(){
 		 
+	}
+	
+	private Employe getEmployeSelectionne()
+	{
+		
+		
+		return new Employe();
 	}
 }
