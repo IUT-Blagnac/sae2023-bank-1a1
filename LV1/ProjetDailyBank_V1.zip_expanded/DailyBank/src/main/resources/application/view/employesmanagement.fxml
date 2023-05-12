@@ -44,12 +44,12 @@
                         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="btnModifClient" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doModifierEmploye" text="Modifier employe" GridPane.rowIndex="2">
+                        <Button fx:id="btnModifEmploye" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doModifierEmploye" text="Modifier employe" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets bottom="10.0" top="10.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button fx:id="btnDesactClient" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doDesactiverEmploye" text="Désactiver employe" GridPane.rowIndex="3">
+                        <Button fx:id="btnDesactEmploye" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doDesactiverEmploye" text="Désactiver employe" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets bottom="10.0" top="10.0" />
                            </GridPane.margin>
@@ -81,12 +81,6 @@
          <top>
             <FlowPane BorderPane.alignment="CENTER">
                <children>
-                  <Label text="Numéro" />
-                  <TextField fx:id="txtNum" prefColumnCount="5">
-                     <FlowPane.margin>
-                        <Insets left="5.0" />
-                     </FlowPane.margin>
-                  </TextField>
                   <Label layoutX="10.0" layoutY="15.0" text="Nom">
                      <FlowPane.margin>
                         <Insets left="5.0" />
