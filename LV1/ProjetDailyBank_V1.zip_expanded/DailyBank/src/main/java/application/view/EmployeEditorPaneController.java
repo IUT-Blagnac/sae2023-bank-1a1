@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import application.DailyBankState;
+import application.GlobalSettings;
 import application.control.EmployeManagement;
 import application.tools.AlertUtilities;
 import application.tools.EditionMode;
@@ -29,7 +30,7 @@ public class EmployeEditorPaneController {
 	private EditionMode editionMode;
 	
 	private DailyBankState dailyBankState;
-
+	
 	@FXML
 	private TextField txtIdEmploye;
 	@FXML
@@ -51,6 +52,8 @@ public class EmployeEditorPaneController {
 	public void initContext(Stage _containingStage, EmployeManagement _em, DailyBankState _dbstate) {
 		this.primaryStage = _containingStage;
 		this.dailyBankState = _dbstate;
+		txtIdAgence.setDisable(true);
+		txtIdEmploye.setDisable(true);
 	}
 	
 	private void configure() {
@@ -61,7 +64,6 @@ public class EmployeEditorPaneController {
 	private void doAjouter()
 	{
 		if(isSaisieValide()) {
-			System.out.println("VALIDE");
 			Connection con;
 			try {
 				con = LogToDatabase.getConnexion();
@@ -75,15 +77,14 @@ public class EmployeEditorPaneController {
 				pst.setString(4,"guichetier");
 				pst.setString(5, this.txtLogin.getText());
 				pst.setString(6, this.txtLogin.getText());
-				pst.setInt(7, Integer.parseInt(this.txtIdAgence.getText()));
+				pst.setInt(7, GlobalSettings.currentChefAgence.idAg);
 				
-
-				System.err.println(query);
+				System.err.println(query);	
 
 				int result = pst.executeUpdate();
 				
-				con.commit();
 				pst.close();
+				
 				this.primaryStage.close();
 				
 			} catch (DatabaseConnexionException e) {
@@ -126,7 +127,7 @@ public class EmployeEditorPaneController {
 		this.txtNom.setText(this.employe.nom);
 		this.txtLogin.setText(this.employe.login);
 		this.txtMotDePasse.setText(this.employe.motPasse);
-		this.txtIdAgence.setText("" + this.employe.idAg);
+		this.txtIdAgence.setText("" + GlobalSettings.currentChefAgence.idAg);
 	
 		this.primaryStage.showAndWait();
 	}
