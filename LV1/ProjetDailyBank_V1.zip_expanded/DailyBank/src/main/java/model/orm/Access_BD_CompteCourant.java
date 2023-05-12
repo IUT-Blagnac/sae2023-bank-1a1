@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import model.data.Client;
 import model.data.CompteCourant;
 import model.orm.exception.DataAccessException;
 import model.orm.exception.DatabaseConnexionException;
@@ -117,6 +118,52 @@ public class Access_BD_CompteCourant {
 			throw new DataAccessException(Table.CompteCourant, Order.SELECT, "Erreur accès", e);
 		}
 	}
+	
+	/**
+	*
+    *Cette méthode permet d'insérer un nouveau compte courant dans la base de données.
+    *@param cc Le compte courant à insérer.
+    *@throws RowNotFoundOrTooManyRowsException si l'insertion ne concerne pas une seule ligne.
+    *@throws DataAccessException si une erreur d'accès à la base de données se produit.
+	*/
+	public void insertCompteC(CompteCourant cc) throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {
+	    try {
+	        Connection con = LogToDatabase.getConnexion();
+	        String query = "INSERT INTO CompteCourant (idNumCompte, debitAutorise, solde, idNumCli, estCloture) VALUES (seq_id_compte.NEXTVAL, ?, ?, ?, ?)";
+	        PreparedStatement pst = con.prepareStatement(query);
+	        pst.setInt(1, cc.debitAutorise);
+	        pst.setDouble(2, cc.solde);
+	        pst.setInt(3, cc.idNumCli);
+	        pst.setString(4, cc.estCloture);
+	        System.err.println(query);
+	        int result = pst.executeUpdate();
+	        pst.close();
+	        if (result != 1) {
+	            con.rollback();
+	            throw new RowNotFoundOrTooManyRowsException(Table.CompteCourant, Order.INSERT, "Insert anormal (insert de moins ou plus d'une ligne)", null, result);
+	        }
+	        query = "SELECT seq_id_compte.CURRVAL from DUAL";
+	        System.err.println(query);
+	        PreparedStatement pst2 = con.prepareStatement(query);
+	        ResultSet rs = pst2.executeQuery();
+	        rs.next();
+	        int numCliBase = rs.getInt(1);
+	        con.commit();
+	        rs.close();
+	        pst2.close();
+	        cc.idNumCompte = numCliBase;
+	    } catch (SQLException e) {
+	        throw new DataAccessException(Table.CompteCourant, Order.SELECT, "Erreur accès", e);
+	    }
+	}
+
+	
+	
+	
+	
+	
+	
+	
 
 	/**
 	 * Mise à jour d'un CompteCourant.

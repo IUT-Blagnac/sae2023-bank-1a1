@@ -62,12 +62,6 @@ public class OperationsManagement {
 		this.omcViewController.displayDialog();
 	}
 
-	/**
-	 * Permet de faire saisir à l'utilisateur une nouvelle opération de débit
-	 * 
-	 * 
-	 * @return L'operation de débit créé
-	 */
 	public Operation enregistrerDebit() {
 
 		OperationEditorPane oep = new OperationEditorPane(this.primaryStage, this.dailyBankState);
@@ -89,42 +83,6 @@ public class OperationsManagement {
 				op = null;
 			}
 		}
-		return op;
-	}
-	
-	/**
-	 * Permet de faire saisir à l'utilisateur une nouvelle opération de crédit
-	 * 
-	 * 
-	 * @return L'operation de crédit créé
-	 */
-	public Operation enregistrerCredit() {
-		
-		System.out.println("Création d'une page de dialog de saisie de crédit");
-		
-		OperationEditorPane oep = new OperationEditorPane(this.primaryStage, this.dailyBankState);
-		Operation op = oep.doOperationEditorDialog(this.compteConcerne, CategorieOperation.CREDIT);
-		System.out.println(op);
-		if (op != null) {
-			try {
-				Access_BD_Operation ao = new Access_BD_Operation();
-
-				ao.insertCredit(this.compteConcerne.idNumCompte, op.montant, op.idTypeOp);
-
-			} catch (DatabaseConnexionException e) {
-				System.err.println(e);
-				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);
-				ed.doExceptionDialog();
-				this.primaryStage.close();
-				op = null;
-			} catch (ApplicationException ae) {
-				System.err.println(ae);
-				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, ae);
-				ed.doExceptionDialog();
-				op = null;
-			}
-		}
-		System.out.println(op);
 		return op;
 	}
 

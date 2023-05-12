@@ -207,7 +207,11 @@ public class DailyBankMainFrameController {
 	@FXML
 	private void doEmployeOption() {
 
-		this.dbmfDialogController.gestionEmploye();
+		LocalDate current_date;
+
+		current_date = LocalDate.now();
+		AlertUtilities.showAlert(this.primaryStage, "Gestion des Employé", "En cours de développement",
+				"Livraison prévue\nEn juin " + current_date.getYear(), AlertType.INFORMATION);
 	}
 
 	/*

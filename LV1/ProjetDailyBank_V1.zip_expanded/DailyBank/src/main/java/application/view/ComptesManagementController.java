@@ -101,10 +101,12 @@ public class ComptesManagementController {
 
 	@FXML
 	private void doModifierCompte() {
+		
 	}
 
 	@FXML
 	private void doSupprimerCompte() {
+		
 	}
 
 	@FXML
@@ -121,6 +123,7 @@ public class ComptesManagementController {
 		listeCpt = this.cmDialogController.getComptesDunClient();
 		this.oListCompteCourant.clear();
 		this.oListCompteCourant.addAll(listeCpt);
+		
 	}
 
 	private void validateComponentState() {

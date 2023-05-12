@@ -79,7 +79,7 @@ public class DailyBankState {
 		}
 	}
 
-	/*
+	/**
 	 * Permet de modifier le statut de l'employé connecté.
 	 *
 	 * @param droitsAccess ConstantesIHM.AGENCE_CHEF ou
