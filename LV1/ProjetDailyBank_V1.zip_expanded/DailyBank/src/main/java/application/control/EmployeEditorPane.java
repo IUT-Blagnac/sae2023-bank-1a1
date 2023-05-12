@@ -49,4 +49,9 @@ public class EmployeEditorPane {
 	{
 		emcViewPaneController.displayDialog(employe);
 	}
+	
+	public int getEmployeMaxId()
+	{
+		return emcViewPaneController.getMaximumId();
+	}
 }

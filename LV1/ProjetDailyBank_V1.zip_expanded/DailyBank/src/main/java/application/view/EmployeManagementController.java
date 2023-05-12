@@ -1,6 +1,12 @@
 package application.view;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+
+import com.itextpdf.text.List;
 
 import application.DailyBankState;
 import application.control.ClientsManagement;
@@ -24,6 +30,8 @@ import javafx.stage.WindowEvent;
 import model.data.AgenceBancaire;
 import model.data.Client;
 import model.data.Employe;
+import model.orm.LogToDatabase;
+import model.orm.exception.DatabaseConnexionException;
 
 public class EmployeManagementController {
 	private DailyBankState dailyBankState;
@@ -48,12 +56,20 @@ public class EmployeManagementController {
 		this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
 		
 		this.oListEmploye = FXCollections.observableArrayList();
-		this.lvEmploye.setItems(this.oListEmploye);
+		
 	}
 	
 	public void displayDialog()
 	{
+		oListEmploye = FXCollections.observableArrayList(this.getAllEmploye());
+		this.lvEmploye.setItems(this.oListEmploye);
+		
+		System.out.println("TEST");
+		for(Employe employe : oListEmploye) {
+			System.out.println(employe.idEmploye);
+		}
 		primaryStage.showAndWait();
+		
 	}
 	
 	private Object closeWindow(WindowEvent e)
@@ -61,6 +77,38 @@ public class EmployeManagementController {
 		this.doCancel();
 		e.consume();
 		return null;
+	}
+	
+	private ArrayList<Employe> getAllEmploye()
+	{
+		ArrayList<Employe> output = new ArrayList<Employe>();
+		
+		System.out.println("VALIDE");
+		Connection con;
+		try {
+			con = LogToDatabase.getConnexion();
+			
+			String query = "SELECT * FROM employe";
+			PreparedStatement pst = con.prepareStatement(query);
+			
+			ResultSet rs = pst.executeQuery();
+			
+			while(rs.next()) {
+				Employe employe = new Employe(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getInt(7));
+				output.add(employe);
+			}
+
+			this.primaryStage.close();
+			
+		} catch (DatabaseConnexionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return output;
 	}
 	
 	@FXML
@@ -92,7 +140,7 @@ public class EmployeManagementController {
 	private void doNouveauEmploye()
 	{
 		EmployeEditorPane edp = new EmployeEditorPane(this.primaryStage, this.dailyBankState);
-		edp.doEmployeManagementDialog(new Employe());
+		edp.doEmployeManagementDialog(new Employe(edp.getEmployeMaxId() + 1,"","","","","",0));
 	}
 	
 	@FXML
@@ -104,12 +152,5 @@ public class EmployeManagementController {
 	@FXML
 	private void doDesactiverEmploye(){
 		 
-	}
-	
-	private Employe getEmployeSelectionne()
-	{
-		
-		
-		return new Employe();
 	}
 }
