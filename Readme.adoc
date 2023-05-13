@@ -8,7 +8,7 @@
 |version|rôle     |use case   |cas...                 |   Mathéo KATBIE | Bilon KWADJANI  |   Illan GABARRA 
 |1    |Chef d’Agence    |CRUD employé  |C| F | |
 |1    |Chef d’Agence    |CRUD employé  |R| F | |
-|1    |Chef d’Agence |CRUD employé  |U| D | |
+|1    |Chef d’Agence |CRUD employé  |U| F | |
 |1    |Chef d’Agence   |CRUD employé  |D| F | |
 |1    |Guichetier     | Compte | Créer| | D | 
 |1    |Guichetier     | Compte | Créditer/Débiter|| |F
