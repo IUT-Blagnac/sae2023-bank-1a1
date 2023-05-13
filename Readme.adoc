@@ -1,6 +1,8 @@
 
 ==== Présentation de l'équipe et rôles respectifs
-
+- Katbie Mathéo
+- Gabara Illan
+- Kwadjani Bilon 
 
 ==== Répartition des tâches et état d'avancement
 [options="header,footer"]
