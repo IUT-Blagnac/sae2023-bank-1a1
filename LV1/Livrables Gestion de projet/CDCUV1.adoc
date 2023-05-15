@@ -56,12 +56,11 @@
 
  ** <<contraintes-techniques,Contraintes techniques>>
 
- ** <<contraintes-organisationnelles,Contraintes organisationnelles>>
-
  ** <<contraintes-juridiques-securite,Contraintes juridiques et de sécurité>>
     *** <<contraintes-juridiques,Juridiques>>
     *** <<contraintes-juridiques,Sécurité>>
 
+ ** <<contraintes-organisationnelles,Contraintes organisationnelles>>
 - <<livrables,Livrables attendus>>
 
 - <<conclusion,Conclusion>>
@@ -89,7 +88,7 @@ Dans un but de sécurité et de suivi des opérations, les utilisateurs doivent 
 
 ==== Guichetier :
 
-Le guichetier est le premier niveau de droit d'accès, il peut faire toutes les opérations de base sur des clients de son agence : faire des débits/crédits, des transferts, créer de nouveaux clients et de nouveaux comptes. 
+Le guichetier est le premier niveau de droit d'accès, il peut lire toutes les informations sur les client (Comptes, opérations, informations personneles), faire toutes les opérations de base sur des clients de son agence : faire des débits/crédits, des transferts, créer de nouveaux clients et de nouveaux comptes, cloturer des comptes et les réouvrir. 
 
 ==== Chef d'agence :
 
@@ -134,10 +133,38 @@ Enfin, le développement de cette application de gestion des comptes clients s'i
 [[architecture-existant]]
 ==== Architecture de l'application
 
+===== Package de la partie application
+
+- *application* : Main de l'application
+
+- *application.control* : C'est un ensemble de classes permettant de controler les dialogues et l'accès aux données.
+
+- *application.tools* : Utilitaires pour application.view et application.control
+
+- *application.view* : Controleurs de vues FXML avec controle des saisies effectuées en appelant au controleur de dialogue associé pour réaliser les actions
+
+===== Package de la partie model
+
+- *model.data* : Ce package se compose des classes permettant de stocker les informations de l'application en cours.  Chaque classe représente une table.
+Le package est définit par le diagramme de classe ci-dessous.
+
+.Diagramme de classe de la V0
+image::..\..\ressources\images\dc-initialv0.svg[alt=Diagramme de classe V0]
+
+- *model.orm* : Ce package est composé des classes permettant de faire des requêtes à la base de donnée de l'application. Chaque classe représente l'accès à une table.
+
+- *model.orm.exception* : On y définit dans ce package des exceptions personnalisé pour les accès à la base de données, elles sont levées par les classes de model.orm
+
+
+
 [[foncts-version-existante]]
 === Fonctionnalitées de la version existante (V0)
 
 La version actuelle (V0) du logiciel bancaire permet aux guichetiers de modifier les informations des clients (adresse, téléphone, etc.), de créer un nouveau client, de consulter un compte et de débiter un compte. Les chefs d'agence peuvent rendre inactif un client.
+
+
+image::..\..\ressources\images\uc-initial-v0.svg[alt=UseCase V0]
+
 
 [[guichetierV0]]
 ==== Un guichetier peut :
@@ -170,10 +197,10 @@ Tous ces cas d'utilisation sont possible si le chef d'agence s'est authentifié 
 [[guichetier-besoins]]
 ==== Guichetier :
 
-- Permettre aux guichetiers de créer un nouveau compte client ;
-- Permettre aux guichetiers de créditer ou débiter un compte client ;
-- Permettre aux guichetiers d'effectuer des virements de compte à compte ;
-- Permettre aux guichetiers de clôturer un compte client ;
+- Permettre aux guichetiers de créer un nouveau compte client.
+- Permettre aux guichetiers de créditer ou débiter un compte client.
+- Permettre aux guichetiers d'effectuer des virements de compte à compte.
+- Permettre aux guichetiers de clôturer un compte client.
 
 [[chef-agence-besoins]]
 ==== Chef d'Agence :
@@ -219,8 +246,22 @@ Tous ces cas d'utilisation sont possible si le chef d'agence s'est authentifié 
 [[contraintes-juridiques]]
 ==== Contraintes juridiques :
 
+- *Conformité aux règlementations bancaires* : Cette partie inclut les exigences en matière de lutte contre le blanchiment d'argent et de prévention de la fraude. Cela signifie que l'application DailyBank doit être en mesure de détecter et de prévenir les activités suspectes, conformément aux règles bancaires.
+
+- *Protection des données personnelles* : Cette partie concerne les lois sur la protection des données personnelles, notamment le RGPD en Europe. Pour se conformer à ces règles, l'application doit obtenir le consentement des clients avant de recueillir leurs données et garantir la sécurité des informations stockées.
+
 [[contraintes-securite]]
 ==== Contraintes de sécurité :
+
+- *Authentification et contrôle d'accès* : L'application pour DailyBank doit mettre en place un système d'authentification et de contrôle d'accès sécurisé pour tous les utilisateurs, y compris les guichetiers et les chefs d'agence. Chaque utilisateur doit disposer d'un identifiant unique et d'un mot de passe pour accéder à l'application. Les autorisations d'accès doivent être définies en fonction des rôles et des responsabilités de chaque utilisateur afin de garantir l'intégrité et la confidentialité des données.
+
+- *Sécurité des transactions et conservation des données* : Cette partie concerne la mise en place de mesures de sécurité pour protéger les transactions en ligne et garantir la confidentialité des données. Elle inclut également les exigences d'archivage et de conservation des données imposées par la réglementation bancaire, qui nécessitent que les données soient conservées de manière sûre et fiable.
+
+- *Protection contre les attaques par injection* :
+L'application doit mettre en place des mécanismes de protection contre les attaques par injection, telles que les injections SQL ou les injections de scripts. Pour ce faire, toutes les entrées utilisateur doivent être correctement validées, filtrées et échappées pour éviter l'exécution de code malveillant ou l'accès non autorisé aux données.
+
+- *Gestion des erreurs et des exceptions* :
+L'application doit être conçue pour gérer les erreurs et les exceptions de manière sécurisée. Les messages d'erreur générés par l'application ne doivent pas révéler d'informations sensibles ou d'indices sur la structure interne du système. Des mécanismes appropriés doivent être mis en place pour enregistrer et suivre les erreurs, afin de permettre une analyse et une correction ultérieures.
 
 [[contraintes-organisationnelles]]
 === Contraintes organisationnelles
