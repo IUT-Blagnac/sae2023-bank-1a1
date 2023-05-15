@@ -1,1 +1,39 @@
+= Documentation utilisateur : DailyBank
 
+[abstract]
+Ce document fournit des informations sur l'utilisation du logiciel bancaire qui permet la création et la modification de comptes bancaires, ainsi que des fonctionnalités de virement. Il décrit les cas d'utilisation à développer dans les différentes versions du logiciel. Il permet également de créer/modifier des employés dans des agences.
+
+== Introduction
+
+Le logiciel bancaire est un outil puissant qui facilite la gestion des comptes bancaires et des opérations financières. Il permet aux utilisateurs de créer, modifier et clôturer des comptes, ainsi que d'effectuer des virements entre les comptes.
+
+== Cas d'utilisation à développer
+
+Le logiciel bancaire sera développé en plusieurs versions, avec des fonctionnalités spécifiques à chaque version. Voici l'ordre de développement des cas d'utilisation dans les différentes versions du logiciel :
+
+=== Version 1
+
+
+[options="header"]
+|===
+|Cas d'utilisation | Description
+
+|Créditer/débiter un compte
+|Cette fonctionnalité permet au guichetier de créditer ou débiter un compte bancaire. Elle est implémentée en utilisant le langage Java et en interagissant avec la base de données à l'aide d'une procédure stockée.
+
+|Créer un compte
+|Cette fonctionnalité permet au guichetier de créer un nouveau compte bancaire pour un client. Le guichetier doit fournir les informations nécessaires, telles que le nom du client, l'adresse, etc.
+
+|Effectuer un virement de compte à compte
+|Cette fonctionnalité permet aux utilisateurs de transférer des fonds d'un compte bancaire à un autre. Les utilisateurs doivent spécifier les comptes source et destinataire, ainsi que le montant à transférer.
+
+|Clôturer un compte
+|Cette fonctionnalité permet au guichetier de clôturer un compte bancaire. Le guichetier doit fournir le numéro de compte du compte à clôturer.
+
+|Créer un
+|En tant que chef d'agence, cette fonctionnalité permet de gérer les employés du système bancaire. Elle inclut les opérations de création, lecture, mise à jour et suppression (CRUD) des employés, qu'ils soient guichetiers ou chefs d'agence.
+
+|===
+
+=== Se connecter 
+Voici les démarches à suivre pour se connecter au logiciel bancaire.
