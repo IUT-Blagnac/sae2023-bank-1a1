@@ -1,0 +1,297 @@
+== Cahier des charges utilisateur Daily Bank
+
+[cols="1,1", options="header"]
+|===
+| Version | Date
+
+| V1 | 12 mai 2023 
+|===
+
+=== Équipe : 1A1  
+
+=== Membres :
+[cols="1,1,1", options="header"]
+|===
+
+|Mathéo KATBIE | Bilon KWADJANI |Illan GABARRA
+
+|===
+
+== Sommaire 
+
+- <<introduction,Introduction>>
+
+  .. <<contexte,Contexte>>
+  .. <<utilisateurs,Utilisateurs>>
+  .. <<objectifs,Objectifs>>
+  .. <<probleme,Problème>>
+
+
+- <<analyse-existant,Analyse de l'existant>>
+
+  * <<documents-version-existante,Documents de la version existante (V0)>>
+
+    ** <<description-documents,Description des documents>>
+    ** <<architecture-existant,Architecture de l'application>>
+
+  * <<foncts-version-existante,Fonctionnalitées de la version existante (V0)>>
+  
+    ** <<guichetierV0,Guichetier>>
+    ** <<chef-agenceV0,Chef d'agence>>
+   
+   
+- <<analyse-des-besoins,Analyse des besoins>>
+
+	.. <<besoins,Besoins exprimés>>
+
+  		*** <<guichetier-besoins,Guichetier>>
+  		*** <<chef-agence-besoins,Chef d'agence>>
+
+  .. <<cas-utilisation,Cas d'utilisation à développer dans la Version 1>>
+  
+      *** <<guichetierV1,Guichetier>>
+      *** <<chef-agenceV1,Chef d'agence>>
+
+- <<analyse-des-contraintes,Analyse des contraintes>>
+
+ ** <<contraintes-techniques,Contraintes techniques>>
+
+ ** <<contraintes-juridiques-securite,Contraintes juridiques et de sécurité>>
+    *** <<contraintes-juridiques,Juridiques>>
+    *** <<contraintes-juridiques,Sécurité>>
+
+ ** <<contraintes-organisationnelles,Contraintes organisationnelles>>
+- <<livrables,Livrables attendus>>
+
+- <<conclusion,Conclusion>>
+
+[[introduction]]
+== Introduction
+
+[[contexte]]
+=== Contexte
+
+Le contexte général actuel est marqué par une forte transformation numérique des services bancaires. Les banques françaises ont investi massivement dans le digital pour répondre aux exigences d'instantanéité de leurs clients et ont créé des offres alternatives, telles que les banques mobiles, tout en modernisant en profondeur leurs services de banque au quotidien.
+
+Ces investissements majeurs ont été accompagnés de restructurations et d'une refonte des réseaux de banque de détail. Les banques ont robotisé les tâches automatisables et modernisé les outils de bureautique des guichetiers pour offrir des services bancaires rapides et efficaces.
+
+Cette transformation numérique a également conduit à une révolution organisationnelle au sein des banques, qui évoluent vers une approche transversale et pluridisciplinaire pour suivre le client sans interruption et en temps réel. Des professionnels de diverses disciplines interagissent pour développer les parcours et les trajectoires de chaque client.
+
+Dans ce contexte, la banque DailyBank souhaite développer une application JAVA-Oracle de gestion des comptes clients pour remplacer plusieurs outils obsolètes. Cette application sera déployée dans les 100 agences que compte son réseau et permettra de gérer des comptes bancaires de dépôt pour des clients préalablement créés, de débiter ou créditer un compte soit par virement, soit par une personne physique se présentant devant un guichet. Ce développement s'inscrit dans le cadre de la restructuration des services bancaires de la banque DailyBank.
+
+[[utilisateurs]]
+=== Utilisateurs
+
+L'application est fait pour être utilisé par deux types d'utilisateurs ayant des droits d'accès différents, Le guichetier et le chef d'agence.
+
+Dans un but de sécurité et de suivi des opérations, les utilisateurs doivent se connecter via un nom d'utilisateur et un mot de passe qui leurs seront attribués. Sans cela aucune action n'est possible.
+
+==== Guichetier :
+
+Le guichetier est le premier niveau de droit d'accès, il peut lire toutes les informations sur les client (Comptes, opérations, informations personneles), faire toutes les opérations de base sur des clients de son agence : faire des débits/crédits, des transferts, créer de nouveaux clients et de nouveaux comptes, cloturer des comptes et les réouvrir. 
+
+==== Chef d'agence :
+
+Le chef d'agence est le deuxième niveau de droit d'accès et l'utilisateur avec le plus de droits. 
+Il peut faire toutes les actions d'un guichetier mais en plus de cela il peut gérer tous les employés de son agence.
+C'est à dire : Créer un nouvel employé, voir les informations d'un employé, mettre à jour les informations d'un employé et supprimer un employé.
+
+[[objectifs]]
+=== Objectifs
+
+L'objectif principal est l'amélioration d'une application de gestion des comptes clients pour la banque DailyBank. 
+
+Pour cela nous chercherons à remplacer plusieurs outils obsolètes et de moderniser les services bancaires proposés aux clients de la banque. 
+
+L'application sera développée en utilisant le langage de programmation Java et la base de données Oracle. 
+
+Elle devra permettre la gestion de comptes bancaires de dépôt pour des clients existants, ainsi que les opérations de débit et de crédit, soit par virement, soit en personne au guichet. Cette application sera déployée dans les 100 agences que compte le réseau bancaire de DailyBank. 
+
+Le projet s'inscrit dans le cadre d'une restructuration plus large des services bancaires proposés par la banque, qui cherche à moderniser ses outils et à offrir une meilleure expérience client.
+
+Le but du projet est de créer une version améliorée du logiciel bancaire, capable de répondre aux besoins des utilisateurs et de s'adapter aux évolutions technologiques.
+
+[[probleme]]
+=== Problème
+
+Le développement de cette application de gestion des comptes clients répond à plusieurs problèmes. Tout d'abord, la banque DailyBank doit remplacer plusieurs outils obsolètes utilisés pour la gestion des comptes clients. Ces outils peuvent être peu efficaces, peu performants et ne répondent plus aux attentes des clients en termes de rapidité et de facilité d'utilisation. En développant une nouvelle application moderne et efficace, la banque pourra améliorer l'expérience client et renforcer sa compétitivité.
+
+En outre, la banque DailyBank cherche à moderniser ses services bancaires pour répondre aux attentes des clients en matière de rapidité et de facilité d'utilisation. L'application de gestion des comptes clients permettra à la banque de proposer des services bancaires plus modernes et plus pratiques pour les clients, comme la gestion des comptes à distance et les opérations de paiement en ligne. Cela permettra à la banque de mieux s'adapter aux nouveaux modes de consommation des services bancaires, notamment l'utilisation croissante des applications mobiles.
+
+Enfin, le développement de cette application de gestion des comptes clients s'inscrit dans une restructuration plus large des services bancaires proposés par la banque. La modernisation des outils de la banque permettra d'améliorer l'efficacité de l'ensemble des services bancaires et de renforcer la compétitivité de l'entreprise sur le marché.
+
+
+[[analyse-existant]]
+== Analyse de l'existant
+
+[[documents-version-existante]]
+=== Documents de la version existante (V0)
+
+[[description-documents]]
+==== Description des documents
+
+[[architecture-existant]]
+==== Architecture de l'application
+
+===== Package de la partie application
+
+- *application* : Main de l'application
+
+- *application.control* : C'est un ensemble de classes permettant de controler les dialogues et l'accès aux données.
+
+- *application.tools* : Utilitaires pour application.view et application.control
+
+- *application.view* : Controleurs de vues FXML avec controle des saisies effectuées en appelant au controleur de dialogue associé pour réaliser les actions
+
+===== Package de la partie model
+
+- *model.data* : Ce package se compose des classes permettant de stocker les informations de l'application en cours.  Chaque classe représente une table.
+Le package est définit par le diagramme de classe ci-dessous.
+
+.Diagramme de classe de la V0
+image::..\..\ressources\images\dc-initialv0.svg[alt=Diagramme de classe V0]
+
+- *model.orm* : Ce package est composé des classes permettant de faire des requêtes à la base de donnée de l'application. Chaque classe représente l'accès à une table.
+
+- *model.orm.exception* : On y définit dans ce package des exceptions personnalisé pour les accès à la base de données, elles sont levées par les classes de model.orm
+
+
+
+[[foncts-version-existante]]
+=== Fonctionnalitées de la version existante (V0)
+
+La version actuelle (V0) du logiciel bancaire permet aux guichetiers de modifier les informations des clients (adresse, téléphone, etc.), de créer un nouveau client, de consulter un compte et de débiter un compte. Les chefs d'agence peuvent rendre inactif un client.
+
+
+image::..\..\ressources\images\uc-initial-v0.svg[alt=UseCase V0]
+
+
+[[guichetierV0]]
+==== Un guichetier peut :
+
+Tous ces cas d'utilisation sont possible si le guichetier s'est authentifié avec son login et son mot de passe. 
+
+- Modifier les informations des clients : le guichetier peut accéder aux informations des clients existants et les modifier si nécessaire, par exemple, en mettant à jour leurs numéros de téléphone ou leurs adresses.
+
+- Inscrire un nouveau client : le guichetier peut enregistrer les informations personnelles d'un nouveau client dans le système, comme son nom, son adresse, son numéro de téléphone.
+
+- Consulter un compte : le guichetier peut accéder aux informations des comptes d'un client existant, comme le solde actuel et les transactions récentes.
+
+- Débiter un compte : le guichetier peut effectuer des opérations de débit sur le compte d'un client, par exemple, en retirant de l'argent liquide ou en effectuant un paiement. Pour cela le montant débité doit être supérieur à 0 et le solde après débit ne dois pas être inférieur au découvert autorisé et le compte client à qui appartient le compte ne doit pas être désactivé.
+
+[[chef-agenceV0]]
+==== Un chef d'agence peut :
+
+Tous ces cas d'utilisation sont possible si le chef d'agence s'est authentifié avec son login et son mot de passe. 
+
+- Faire les actions des guichetiers : Le chef d'agence peut faire toutes les actions d'un guichetier sous les mêmes conditions.
+
+- Rendre inactif un client : le chef d'agence peut désactiver le compte d'un client existant si nécessaire. Cela doit empêcher de faire des opérations sur son/ses compte(s).
+
+[[analyse-des-besoins]]
+== Analyse des besoins
+
+[[besoins]]
+=== Besoins exprimés
+
+[[guichetier-besoins]]
+==== Guichetier :
+
+- Permettre aux guichetiers de créer un nouveau compte client.
+- Permettre aux guichetiers de créditer ou débiter un compte client.
+- Permettre aux guichetiers d'effectuer des virements de compte à compte.
+- Permettre aux guichetiers de clôturer un compte client.
+
+[[chef-agence-besoins]]
+==== Chef d'Agence :
+
+- Permettre aux chefs d'agence de gérer les employés de son agence (créer, lire, mettre à jour, supprimer des comptes employés).
+
+[[cas-utilisation]]
+=== Cas d'utilisation à développer dans la Version 1 :
+
+[[guichetierV1]]
+==== Guichetier :
+
+- Créditer un compte (Java et BD avec procédure stockée) : le guichetier peut effectuer des opérations de crédit sur le compte d'un client. Pour cela le montant crédité doit être supérieur à 0 et le compte client à qui appartient le compte ne doit pas être désactivé.
+
+- Créer un compte : le guichetier peut créer un nouveau compte pour un client existant en générant un nouveau numéro de compte unique. Pour cela le compte du client ne doit pas être désactivé.
+
+- Effectuer un virement de compte à compte : le guichetier peut transférer de l'argent d'un compte à un autre en utilisant le numéro de compte du destinataire et le montant à transférer. Les comptes doivent appartenir à des clients de la DailyBank. Le montant transféré devra être supérieur à 0. Le solde après transfert du compte source ne dois pas être inférieur au découvert autorisé et les comptes clients à qui appartiennent les comptes ne doivent pas être désactivés.
+
+- Clôturer un compte : le guichetier peut clôturer le compte bancaire d'un client si nécessaire.
+
+[[chef-agenceV1]]
+==== Chef d'Agence :
+
+Tous ces cas d'utilisation sont possible si le chef d'agence s'est authentifié avec son login et son mot de passe. 
+
+- Gérer (faire le "CRUD") les employés (guichetier et chef d'agence) : le chef d'agence peut créer, lire, mettre à jour et supprimer les informations des employés de son agence. 
+
+
+[[analyse-des-contraintes]]
+== Analyse des contraintes
+
+[[contraintes-techniques]]
+=== Contraintes techniques
+
+- Le language utilisé pour implémenter l'application est le Java.
+- L'interface graphique utilise la librairie JavaFx.
+- La base de donnée doit être utiliser le langage SQL avec le SGBD Sql Developper.
+- L'outil de build utilisé est Maven.
+
+[[contraintes-juridiques-securite]]
+=== Contraintes juridiques et de sécurité
+
+[[contraintes-juridiques]]
+==== Contraintes juridiques :
+
+- *Conformité aux règlementations bancaires* : Cette partie inclut les exigences en matière de lutte contre le blanchiment d'argent et de prévention de la fraude. Cela signifie que l'application DailyBank doit être en mesure de détecter et de prévenir les activités suspectes, conformément aux règles bancaires.
+
+- *Protection des données personnelles* : Cette partie concerne les lois sur la protection des données personnelles, notamment le RGPD en Europe. Pour se conformer à ces règles, l'application doit obtenir le consentement des clients avant de recueillir leurs données et garantir la sécurité des informations stockées.
+
+[[contraintes-securite]]
+==== Contraintes de sécurité :
+
+- *Authentification et contrôle d'accès* : L'application pour DailyBank doit mettre en place un système d'authentification et de contrôle d'accès sécurisé pour tous les utilisateurs, y compris les guichetiers et les chefs d'agence. Chaque utilisateur doit disposer d'un identifiant unique et d'un mot de passe pour accéder à l'application. Les autorisations d'accès doivent être définies en fonction des rôles et des responsabilités de chaque utilisateur afin de garantir l'intégrité et la confidentialité des données.
+
+- *Sécurité des transactions et conservation des données* : Cette partie concerne la mise en place de mesures de sécurité pour protéger les transactions en ligne et garantir la confidentialité des données. Elle inclut également les exigences d'archivage et de conservation des données imposées par la réglementation bancaire, qui nécessitent que les données soient conservées de manière sûre et fiable.
+
+- *Protection contre les attaques par injection* :
+L'application doit mettre en place des mécanismes de protection contre les attaques par injection, telles que les injections SQL ou les injections de scripts. Pour ce faire, toutes les entrées utilisateur doivent être correctement validées, filtrées et échappées pour éviter l'exécution de code malveillant ou l'accès non autorisé aux données.
+
+- *Gestion des erreurs et des exceptions* :
+L'application doit être conçue pour gérer les erreurs et les exceptions de manière sécurisée. Les messages d'erreur générés par l'application ne doivent pas révéler d'informations sensibles ou d'indices sur la structure interne du système. Des mécanismes appropriés doivent être mis en place pour enregistrer et suivre les erreurs, afin de permettre une analyse et une correction ultérieures.
+
+[[contraintes-organisationnelles]]
+=== Contraintes organisationnelles
+
+- Le développement de la solution doit respecté les délais fixés.
+- Les livrables seront sur github.
+- Le moyen de communication priviligié est Discord.
+- Livraison V1 : prévue le 16/05/2023
+- Livraison V2 : prévue le 26/05/2023
+
+[[livrables]]
+=== Livrables attendus
+
+Les livrables du projet sont :
+
+* Pour la partie Gestion de projet : 
+** Un GANTT de la planification des taches lors du projet
+** Un CDCU (Cahier Des Charges Utilisateurs)
+** Une Documentation Utilisateur
+** Un chiffrage du projet
+
+* Pour la partie Developpement :
+** Le Jar (l'application fonctionnel)
+** Une Documentation Technique
+** Un Cahier de Recette (Tests)
+
+[[conclusion]]
+== Conclusion
+
+En conclusion,la banque DailyBank souhaitant développer une application de gestion des comptes clients pour remplacer plusieurs outils obsolètes. Ce projet permettra d'améliorer l'application de gestion des comptes clients et de moderniser les services bancaires proposés aux clients de la banque. La nouvelle version de l'application devra répondre aux <<besoins,besoins exprimés>>. En répondant à ces besoins, la banque DailyBank pourra améliorer l'expérience client.
+
+
+
