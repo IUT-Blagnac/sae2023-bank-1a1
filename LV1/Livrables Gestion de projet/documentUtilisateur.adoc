@@ -86,7 +86,7 @@ Rentrez les informations manquantes pour créer un nouveau compte client et cliq
 
 Si le client n'existe pas encore créer un nouveau client puis répetez les étapes d'au dessus.
 
-image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_NouveauClient1.png[créer]
+image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_NouveauCompteBancaire.png[créer]
 
 === Créditer/Débiter 
 [abstract]
