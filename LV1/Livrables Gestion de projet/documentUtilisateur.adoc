@@ -4,6 +4,21 @@
 [abstract]
 Ce document fournit des informations sur l'utilisation du logiciel bancaire qui permet la création et la modification de comptes bancaires, ainsi que des fonctionnalités de virement. Il décrit les cas d'utilisation à développer dans les différentes versions du logiciel. Il permet également de créer/modifier des employés dans des agences.
 
+== Sommaire 
+
+- Introduction 
+- Cas d'utilisation 
+- Guichetier  
+    . Créditer/débiter un compte
+    . Créer un compte
+    . Effectuer un virement
+    . Clôturer un compte
+- Chef d'agence
+    . Créer un employé
+    . Modifier un employé
+    . Lire les informations d'un employé
+    . Supprimer un employé 
+
 == Introduction
 
 Le logiciel bancaire est un outil puissant qui facilite la gestion des comptes bancaires et des opérations financières. Il permet aux utilisateurs de créer, modifier et clôturer des comptes, ainsi que d'effectuer des virements entre les comptes.
@@ -31,34 +46,67 @@ Le logiciel bancaire sera développé en plusieurs versions, avec des fonctionna
 |Clôturer un compte
 |Cette fonctionnalité permet au guichetier de clôturer un compte bancaire. Le guichetier doit fournir le numéro de compte du compte à clôturer.
 
-|Créer un
-|En tant que chef d'agence, cette fonctionnalité permet de gérer les employés du système bancaire. Elle inclut les opérations de création, lecture, mise à jour et suppression (CRUD) des employés, qu'ils soient guichetiers ou chefs d'agence.
+|Créer un employé 
+|Cette fonctionnalité permet au chef d'agence de créer un compte employé. Le chef d'agence doit fournir un nom,prenom,login et mot de passe pour l'employé.
+
+|Modifier un employé 
+|Cette fonctionnalité permet au chef d'agence de modifier les informations d'un employé qui est dans son agence.
+
+|Lire les informations d'un employé 
+|Cette fonctionnalité permet au chef d'agence de lire les informations d'un employé.
+
+|Supprimer un employé 
+|Cette fonctionnalité permet au chef d'agence de supprimer un employé de l'agence.
 
 |===
 
 === Se connecter 
-Voici les démarches à suivre pour se connecter au logiciel bancaire.
+Voici les démarches à suivre pour se connecter au logiciel bancaire : 
 
 === Créer un compte bancaire
-Voici les démarches à suivre pour se connecter au logiciel bancaire.
+[abstract]
+Développé par Kwadjani Bilon
+
+Voici les démarches à suivre pour créer un compte bancaire : 
 
 === Créditer/Débiter 
-Voici les démarches à suivre pour se connecter au logiciel bancaire.
+[abstract]
+Développé par Gabarra Illan 
+
+Voici les démarches pour créditer/débiter un compte bancaire : 
 
 === Effectuer un virement 
-Voici les démarches à suivre pour se connecter au logiciel bancaire.
+[abstract]
+Développé par Gabarra Illan 
+
+Voici les démarches à suivre pour effectuer un virement entre deux comptes : 
 
 === Clôturer un compte 
-Voici les démarches à suivre pour se connecter au logiciel bancaire.
+[abstract]
+Développé par Kwadjani Bilon
+
+Voici les démarches à suivre clôturer un compte bancaire : 
 
 === Créer un employé
-Voici les démarches à suivre pour se connecter au logiciel bancaire.
+[abstract]
+Développé par Mathéo Katbie 
+
+Voici les démarches à suivre pour créer un employé : 
 
 === Lire les informations employé 
-Voici les démarches à suivre pour se connecter au logiciel bancaire.
+[abstract]
+Développé par Mathéo Katbie 
+
+Voici les démarches à suivre pour lire les informations d'un employé : 
 
 === Modifier les informations employé 
-Voici les démarches à suivre pour se connecter au logiciel bancaire.
+[abstract]
+Développé par Mathéo Katbie 
+
+Voici les démarches à suivre pour modifier les informations d'un employé :
 
 === Supprimer un employé
-Voici les démarches à suivre pour se connecter au logiciel bancaire.
+[abstract]
+Développé par Mathéo Katbie 
+
+Voici les démarches à suivre pour supprimer un employé : 
