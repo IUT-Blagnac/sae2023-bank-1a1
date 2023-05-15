@@ -156,9 +156,7 @@ public class Access_BD_Operation {
 			call.execute();
 
 			int res = call.getInt(4);
-			
-			System.out.println(res);
-			
+
 			if (res != 0) { // Erreur applicative
 				throw new ManagementRuleViolation(Table.Operation, Order.INSERT,
 						"Erreur de règle de gestion : découvert autorisé dépassé", null);
@@ -175,8 +173,6 @@ public class Access_BD_Operation {
 	 * - Enregistre l'opération <BR />
 	 * - Met à jour le solde du compte. <BR />
 	 *
-	 * @author illan
-	 *
 	 * @param idNumCompte compte crédité
 	 * @param montant     montant crédité
 	 * @param typeOp      libellé de l'opération effectuée (cf TypeOperation)
@@ -186,7 +182,7 @@ public class Access_BD_Operation {
 	 * 
 	 */
 	public void insertCredit(int idNumCompte, double montant, String idTypeOp) 
-			throws DatabaseConnexionException, DataAccessException {
+			throws DatabaseConnexionException, ManagementRuleViolation, DataAccessException {
 		try {
 			Connection con = LogToDatabase.getConnexion();
 			CallableStatement call;
@@ -211,38 +207,8 @@ public class Access_BD_Operation {
 			throw new DataAccessException(Table.Operation, Order.INSERT, "Erreur accès", e);
 		}
 	}
-	
-	/**
-	 * Enregistrement d'un transfert.
-	 *
-	 * - Enregistre l'opération <BR />
-	 * - Met à jour le soldes des comptes. <BR />
-	 *
-	 * @author illan
-	 *
-	 * @param idNumCompte compte débité
-	 * @param idNumCompteDestinataire compte crédité
-	 * @param montant     montant du transfert
-	 * @param typeOp      libellé de l'opération effectuée (cf TypeOperation)
-	 * @throws DataAccessException        Erreur d'accès aux données (requête mal
-	 *                                    formée ou autre)
-	 * @throws DatabaseConnexionException Erreur de connexion
-	 * @throws ManagementRuleViolation    Si dépassement découvert autorisé sur le compte débité
-	 */
-	public void insertTransfert(int idNumCompte, int idNumCompteDestinataire, double montant, String idTypeOp) 
-			throws DatabaseConnexionException, ManagementRuleViolation, DataAccessException {
-		
-		System.out.println("InsertTransfert : "+ montant +" " +idTypeOp);
-		
-		
-		insertDebit(idNumCompte, montant, idTypeOp);
-		
-		System.out.println("Débit fait");
-		
-		insertCredit(idNumCompteDestinataire, montant, idTypeOp);
-		
-		System.out.println("Crédit fait");
-	}
+
+
 
 
 	/*
@@ -263,8 +229,6 @@ public class Access_BD_Operation {
 		sd = "TO_DATE( '" + sd + "' , 'DD/MM/YYYY')";
 		return sd;
 	}
-
-	
 
 
 
