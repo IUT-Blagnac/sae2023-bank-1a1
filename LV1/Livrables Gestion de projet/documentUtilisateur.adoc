@@ -8,6 +8,10 @@ Ce document fournit des informations sur l'utilisation du logiciel bancaire qui 
 
 - Introduction 
 - Cas d'utilisation 
+<<<<<<< HEAD
+=======
+- Lancement application 
+>>>>>>> e0970c3d64e2255f05d59add82d4d44941958bac
 - Guichetier  
     . Créditer/débiter un compte
     . Créer un compte
@@ -26,6 +30,10 @@ Le logiciel bancaire est un outil puissant qui facilite la gestion des comptes b
 == Cas d'utilisation à développer
 
 Le logiciel bancaire sera développé en plusieurs versions, avec des fonctionnalités spécifiques à chaque version. Voici l'ordre de développement des cas d'utilisation dans les différentes versions du logiciel :
+
+== Lancement application
+
+Pour lancer l'application exécuter le jar dans le dossier.
 
 === Version 1
 
@@ -62,51 +70,127 @@ Le logiciel bancaire sera développé en plusieurs versions, avec des fonctionna
 
 === Se connecter 
 Voici les démarches à suivre pour se connecter au logiciel bancaire : 
+<<<<<<< HEAD
+=======
+
+Cliquez sur : Utilisateur -> Connexion
+
+Rentrez votre login et mot de passe.
+
+image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_Connecter1.png[connecter]
+>>>>>>> e0970c3d64e2255f05d59add82d4d44941958bac
 
 === Créer un compte bancaire
 [abstract]
 Développé par Kwadjani Bilon
 
 Voici les démarches à suivre pour créer un compte bancaire : 
+<<<<<<< HEAD
+=======
+
+Cliquez sur : Gestion -> Clients -> Choisissez un client -> Comptes client -> Nouveau Compte
+
+Rentrez les informations manquantes pour créer un nouveau compte client et cliquez sur ajouter.
+
+Si le client n'existe pas encore créer un nouveau client puis répetez les étapes d'au dessus.
+
+image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_NouveauCompteBancaire.png[créer]
+>>>>>>> e0970c3d64e2255f05d59add82d4d44941958bac
 
 === Créditer/Débiter 
 [abstract]
 Développé par Gabarra Illan 
 
 Voici les démarches pour créditer/débiter un compte bancaire : 
+<<<<<<< HEAD
+=======
+
+Cliquez sur Gestion -> Clients -> Choisissez un client -> Comptes client -> Choisissez un compte client -> Voir opérations -> Choisissez Enregistrer débit/ Enregister crédit
+
+Rentrez les informations manquantes pour enregistrer un crédit/débit.
+
+image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_Crediter-debiter.png[crediter/debiter]
+>>>>>>> e0970c3d64e2255f05d59add82d4d44941958bac
 
 === Effectuer un virement 
 [abstract]
 Développé par Gabarra Illan 
 
 Voici les démarches à suivre pour effectuer un virement entre deux comptes : 
+<<<<<<< HEAD
+=======
+
+Cliquez sur : Gestion -> Clients -> Choisissez un client -> Comptes client -> Choisissez un compte client -> Voir opérations -> Enregistrer un Transfert
+
+Rentrez les informations manquantes pour enregistrer un transfert entre deux comptes.
+
+image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_Transferer.png[virement]
+>>>>>>> e0970c3d64e2255f05d59add82d4d44941958bac
 
 === Clôturer un compte 
 [abstract]
 Développé par Kwadjani Bilon
 
 Voici les démarches à suivre clôturer un compte bancaire : 
+<<<<<<< HEAD
+=======
+
+Cliquez sur : Gestion -> Clients -> Choisissez un client -> Désactiver Client
+
+image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_Cloturer.png[cloturer]
+>>>>>>> e0970c3d64e2255f05d59add82d4d44941958bac
 
 === Créer un employé
 [abstract]
 Développé par Mathéo Katbie 
 
 Voici les démarches à suivre pour créer un employé : 
+<<<<<<< HEAD
+=======
+
+Cliquez sur : Gestion -> Employés -> Nouveau employé 
+
+Rentrez les informations manquantes pour créer un nouveau employé dans l'agence
+
+image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_Cr%C3%A9erEmploye.png[creeremploye]
+>>>>>>> e0970c3d64e2255f05d59add82d4d44941958bac
 
 === Lire les informations employé 
 [abstract]
 Développé par Mathéo Katbie 
 
 Voici les démarches à suivre pour lire les informations d'un employé : 
+<<<<<<< HEAD
+=======
+
+Gestion -> Employés -> Double cliquez sur l'employé pour avoir ces informations 
+
+image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_VoirInformationEmploye.png[lire]
+>>>>>>> e0970c3d64e2255f05d59add82d4d44941958bac
 
 === Modifier les informations employé 
 [abstract]
 Développé par Mathéo Katbie 
 
 Voici les démarches à suivre pour modifier les informations d'un employé :
+<<<<<<< HEAD
+=======
+
+Gestion -> Employés -> Choisir un employé -> Modifier employé
+
+image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_ModifierEmploye.png[modifier]
+>>>>>>> e0970c3d64e2255f05d59add82d4d44941958bac
 
 === Supprimer un employé
 [abstract]
 Développé par Mathéo Katbie 
 
 Voici les démarches à suivre pour supprimer un employé : 
+<<<<<<< HEAD
+=======
+
+Gestion -> Employés -> Choisir un employé -> Désactiver employé
+
+image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_SupprimerEmploye.png[supprimer]
+
+>>>>>>> e0970c3d64e2255f05d59add82d4d44941958bac
