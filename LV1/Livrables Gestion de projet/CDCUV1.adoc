@@ -213,6 +213,8 @@ Tous ces cas d'utilisation sont possible si le chef d'agence s'est authentifié 
 [[cas-utilisation]]
 === Cas d'utilisation à développer dans la Version 1 :
 
+Nous ne priorisons aucune de ces tâches car à nos yeux elles sont parfaitement réalisable dans le temps impartis.
+
 [[guichetierV1]]
 ==== Guichetier :
 
