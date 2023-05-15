@@ -63,11 +63,15 @@ Le logiciel bancaire sera développé en plusieurs versions, avec des fonctionna
 === Se connecter 
 Voici les démarches à suivre pour se connecter au logiciel bancaire : 
 
+image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_Connecter1.png[connecter]
+
 === Créer un compte bancaire
 [abstract]
 Développé par Kwadjani Bilon
 
 Voici les démarches à suivre pour créer un compte bancaire : 
+
+image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_NouveauClient1.png[créer]
 
 === Créditer/Débiter 
 [abstract]
@@ -75,11 +79,15 @@ Développé par Gabarra Illan
 
 Voici les démarches pour créditer/débiter un compte bancaire : 
 
+image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_Crediter-debiter.png[crediter/debiter]
+
 === Effectuer un virement 
 [abstract]
 Développé par Gabarra Illan 
 
 Voici les démarches à suivre pour effectuer un virement entre deux comptes : 
+
+image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_Transferer.png[virement]
 
 === Clôturer un compte 
 [abstract]
@@ -87,11 +95,15 @@ Développé par Kwadjani Bilon
 
 Voici les démarches à suivre clôturer un compte bancaire : 
 
+image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_Cloturer.png[cloturer]
+
 === Créer un employé
 [abstract]
 Développé par Mathéo Katbie 
 
 Voici les démarches à suivre pour créer un employé : 
+
+image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_Cr%C3%A9erEmploye.png[creeremploye]
 
 === Lire les informations employé 
 [abstract]
@@ -99,14 +111,20 @@ Développé par Mathéo Katbie
 
 Voici les démarches à suivre pour lire les informations d'un employé : 
 
+image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_VoirInformationEmploye.png[lire]
+
 === Modifier les informations employé 
 [abstract]
 Développé par Mathéo Katbie 
 
 Voici les démarches à suivre pour modifier les informations d'un employé :
 
+image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_ModifierEmploye.png[modifier]
+
 === Supprimer un employé
 [abstract]
 Développé par Mathéo Katbie 
+
+image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_SupprimerEmploye.png[supprimer]
 
 Voici les démarches à suivre pour supprimer un employé : 
