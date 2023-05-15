@@ -55,13 +55,12 @@
 - <<analyse-des-contraintes,Analyse des contraintes>>
 
  ** <<contraintes-techniques,Contraintes techniques>>
-
- ** <<contraintes-organisationnelles,Contraintes organisationnelles>>
-
+ 
  ** <<contraintes-juridiques-securite,Contraintes juridiques et de sécurité>>
     *** <<contraintes-juridiques,Juridiques>>
     *** <<contraintes-juridiques,Sécurité>>
 
+ ** <<contraintes-organisationnelles,Contraintes organisationnelles>>
 - <<livrables,Livrables attendus>>
 
 - <<conclusion,Conclusion>>
