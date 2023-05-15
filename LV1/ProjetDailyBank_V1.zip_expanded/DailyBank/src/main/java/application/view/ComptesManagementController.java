@@ -97,6 +97,7 @@ public class ComptesManagementController {
 		if (selectedIndice >= 0) {
 			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
 			this.cmDialogController.gererOperationsDUnCompte(cpt);
+			
 		}
 		this.loadList();
 		this.validateComponentState();
@@ -107,7 +108,7 @@ public class ComptesManagementController {
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {
 			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
-			compte = this.cmDialogController.clôtureCc(cpt);
+			this.cmDialogController.Cloture(cpt);
 		}
 		this.loadList();
 		this.validateComponentState();
