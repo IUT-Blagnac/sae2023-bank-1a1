@@ -46,11 +46,17 @@
 
   		*** <<guichetier-besoins,Guichetier>>
   		*** <<chef-agence-besoins,Chef d'agence>>
+      *** <<batch-besoins,Tâches automatiques (Batch)>>
 
-  .. <<cas-utilisation,Cas d'utilisation à développer dans la Version 1>>
+  .. <<cas-utilisation-V1,Cas d'utilisation à développer dans la Version 1>>
   
       *** <<guichetierV1,Guichetier>>
       *** <<chef-agenceV1,Chef d'agence>>
+  .. <<cas-utilisation-V2,Cas d'utilisation à développer dans la Version 2>>
+  
+      *** <<guichetierV2,Guichetier>>
+      *** <<chef-agenceV2,Chef d'agence>>
+      *** <<batch-V2,Tâches automatiques (Batch)>>
 
 - <<analyse-des-contraintes,Analyse des contraintes>>
 
@@ -204,13 +210,24 @@ Tous ces cas d'utilisation sont possible si le chef d'agence s'est authentifié 
 - Permettre aux guichetiers de créditer ou débiter un compte client.
 - Permettre aux guichetiers d'effectuer des virements de compte à compte.
 - Permettre aux guichetiers de clôturer un compte client.
+- Permetre aux guichetiers de créer, voir, mettre à jour et effacer des prélèvements automatiques
+- Permettre au guichetier de générer un relevé PDF des opérations d'un compte.
 
 [[chef-agence-besoins]]
 ==== Chef d'Agence :
 
 - Permettre aux chefs d'agence de gérer les employés de son agence (créer, lire, mettre à jour, supprimer des comptes employés).
+- Permettre aux chefs d'agence de réaliser des débits exceptionnels sur des comptes.
+- Permettre aux chefs d'agence de simuler des emprunts.
+- Permettre aux chefs d'agence de simuler des assurances.
 
-[[cas-utilisation]]
+[[batch-besoins]]
+==== Tâches automatiques (Batch) :
+
+- Réaliser automatiquement des prélevement sur des comptes 
+- Générer automatiquement des relevés mensuels
+
+[[cas-utilisation-V1]]
 === Cas d'utilisation à développer dans la Version 1 :
 
 Nous ne priorisons aucune de ces tâches car à nos yeux elles sont parfaitement réalisable dans le temps impartis.
@@ -218,21 +235,71 @@ Nous ne priorisons aucune de ces tâches car à nos yeux elles sont parfaitement
 [[guichetierV1]]
 ==== Guichetier :
 
-- Créditer un compte (Java et BD avec procédure stockée) : le guichetier peut effectuer des opérations de crédit sur le compte d'un client. Pour cela le montant crédité doit être supérieur à 0 et le compte client à qui appartient le compte ne doit pas être désactivé.
+Tous ces cas d'utilisation sont possible si le guichetier s'est authentifié avec son login et son mot de passe. 
 
-- Créer un compte : le guichetier peut créer un nouveau compte pour un client existant en générant un nouveau numéro de compte unique. Pour cela le compte du client ne doit pas être désactivé.
+- *Créditer un compte* (Java et BD avec procédure stockée) : le guichetier peut effectuer des opérations de crédit sur le compte d'un client. Pour cela le montant crédité doit être supérieur à 0 et le compte client à qui appartient le compte ne doit pas être désactivé.
 
-- Effectuer un virement de compte à compte : le guichetier peut transférer de l'argent d'un compte à un autre en utilisant le numéro de compte du destinataire et le montant à transférer. Les comptes doivent appartenir à des clients de la DailyBank. Le montant transféré devra être supérieur à 0. Le solde après transfert du compte source ne dois pas être inférieur au découvert autorisé et les comptes clients à qui appartiennent les comptes ne doivent pas être désactivés.
+- *Créer un compte* : le guichetier peut créer un nouveau compte pour un client existant en générant un nouveau numéro de compte unique. Pour cela le compte du client ne doit pas être désactivé.
 
-- Clôturer un compte : le guichetier peut clôturer le compte bancaire d'un client si nécessaire.
+- *Effectuer un virement de compte à compte* : le guichetier peut transférer de l'argent d'un compte à un autre en utilisant le numéro de compte du destinataire et le montant à transférer. Les comptes doivent appartenir à des clients de la DailyBank. Le montant transféré devra être supérieur à 0. Le solde après transfert du compte source ne dois pas être inférieur au découvert autorisé et les comptes clients à qui appartiennent les comptes ne doivent pas être désactivés.
+
+- *Clôturer un compte* : le guichetier peut clôturer le compte bancaire d'un client si nécessaire.
 
 [[chef-agenceV1]]
 ==== Chef d'Agence :
 
 Tous ces cas d'utilisation sont possible si le chef d'agence s'est authentifié avec son login et son mot de passe. 
 
-- Gérer (faire le "CRUD") les employés (guichetier et chef d'agence) : le chef d'agence peut créer, lire, mettre à jour et supprimer les informations des employés de son agence. 
+- *Gérer* (faire le "CRUD") les employés (guichetier et chef d'agence) : le chef d'agence peut créer, lire, mettre à jour et supprimer les informations des employés de son agence. 
 
+[[cas-utilisation-V2]]
+=== Cas d'utilisation à développer dans la Version 2 :
+
+Nous prioriserons les fonctionnalitées à développer par Must/Should/Could/Will où Must est la tâche à faire en priorité et Will étant la moins importante fans l'ordre des fonctionnalités à développer
+
+[[guichetierV2]]
+==== Guichetier :
+
+Tous ces cas d'utilisation sont possible si le guichetier s'est authentifié avec son login et son mot de passe et que l'ensemble des fonctionnalités de V1 sont développés. 
+
+- *Création d'un prélévement automatique (Must)* : 
+Le guichetier doit pouvoir créer un prélevement automatique pour un compte client non clôturé, il sera définit par un nom et un montant.
+
+- *Lecture d'un prélévement automatique existant (Should)*
+Le guichetier doit pouvoir lire un prélevement automatique existant pour un compte client.
+
+- *Mise à jour d'un prélévement automatique existant (Could)* 
+Le guichetier doit pouvoir modifier un prélevement automatique existant pour un compte client non clôturé c'est à dire modifier le montant et son nom.
+
+- *Suppression d'un prélévement automatique (Should)*
+Le guichetier doit pouvoir supprimer un prélevement automatique pour un compte client non clôturé.
+
+- *Générer un relevé PDF des opérations d'un compte (Will)*
+Le guichetier doit pouvoir faire générer un relevé PDF pour un compte client.
+Il pemettra de voir l'ensemble des opérations du compte, son solde actuel mais aussi toutes les informations concernant ce compte telle que le découvert maximum autorisé.
+
+[[chef-agenceV2]]
+==== Chef d'Agence :
+
+Tous ces cas d'utilisation sont possible si le chef d'agence s'est authentifié avec son login et son mot de passe et que l'ensemble des fonctionnalités de V1 sont développés.
+
+- *Réaliser des débits exceptionnels sur des comptes (Must)*
+Le chef d'agence peut débiter sur des comptes clients un montant supérieur au solde en cours additionné au découvert (Ex : Solde = 500, Découvert Max : 200, Débit normal maximum autorisé : 700, Dans cet exemple le débit exceptionnel peut lui être autorisé malgrès qu'il soit supérieur à 700)
+
+- *Simuler des emprunts (Will)*
+Le chef d'agence peut simuler des emprunts à taux fixe pour des comptes courants clients existants, ces emprunts sont définit par un taux fixe annuel , le type (mensualités ou annuités), un montant , un nombre de périodes. Créant ainsi un tableau représentant, le capital restant du en début de période, le montant des intérêt, le montant du principal, le montant à rembourser et le capital restant du en fin de période et cela pour chacunes des périodes. Mais aussi donner le coût total de l'emprunt.
+
+- *Simuler des assurances (Could)*
+Le chef d'agence peut simuler des assurances à taux fixe pour des comptes courants clients existants, ces emprunts sont définit par un taux fixe par période , un montant , un nombre de périodes. Donnant ainsi le montant à rembourser à chaque période et le total à rembourser
+
+[[batch-V2]]
+==== Tâches automatiques :
+
+- *Réalisation de prélevement automatiques (Will)*
+Le logiciel fera automatiquement les prélevements automatiques pour chacun des comptes non clôturés si la date de prélèvement est passé. Il est nécessaire d'avoir développé la création de nouveaux prélevements automatiques.
+
+- *Généreration de relevés mensuels automatiquement (Will)*
+Le logiciel générera automatiquement les relevés mensuels de chacun des comptes non clôturé pour chaque mois depuis la création du compte. Il est nécessaire d'avoir développer la création d'un relevé au préalable.
 
 [[analyse-des-contraintes]]
 == Analyse des contraintes
@@ -289,7 +356,7 @@ Les livrables du projet sont :
 ** Un chiffrage du projet
 
 * Pour la partie Developpement :
-** Le Jar (l'application fonctionnel)
+** Le Jar
 ** Une Documentation Technique
 ** Un Cahier de Recette (Tests)
 
