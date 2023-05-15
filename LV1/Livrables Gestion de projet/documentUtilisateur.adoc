@@ -8,6 +8,7 @@ Ce document fournit des informations sur l'utilisation du logiciel bancaire qui 
 
 - Introduction 
 - Cas d'utilisation 
+- Lancement application 
 - Guichetier  
     . Créditer/débiter un compte
     . Créer un compte
@@ -27,7 +28,7 @@ Le logiciel bancaire est un outil puissant qui facilite la gestion des comptes b
 
 Le logiciel bancaire sera développé en plusieurs versions, avec des fonctionnalités spécifiques à chaque version. Voici l'ordre de développement des cas d'utilisation dans les différentes versions du logiciel :
 
-=== Lancement application
+== Lancement application
 
 Pour lancer l'application exécuter le jar dans le dossier.
 
