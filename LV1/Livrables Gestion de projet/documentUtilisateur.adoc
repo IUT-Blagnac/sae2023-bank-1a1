@@ -1,3 +1,4 @@
+
 = Documentation utilisateur : DailyBank
 
 [abstract]
@@ -36,4 +37,28 @@ Le logiciel bancaire sera développé en plusieurs versions, avec des fonctionna
 |===
 
 === Se connecter 
+Voici les démarches à suivre pour se connecter au logiciel bancaire.
+
+=== Créer un compte bancaire
+Voici les démarches à suivre pour se connecter au logiciel bancaire.
+
+=== Créditer/Débiter 
+Voici les démarches à suivre pour se connecter au logiciel bancaire.
+
+=== Effectuer un virement 
+Voici les démarches à suivre pour se connecter au logiciel bancaire.
+
+=== Clôturer un compte 
+Voici les démarches à suivre pour se connecter au logiciel bancaire.
+
+=== Créer un employé
+Voici les démarches à suivre pour se connecter au logiciel bancaire.
+
+=== Lire les informations employé 
+Voici les démarches à suivre pour se connecter au logiciel bancaire.
+
+=== Modifier les informations employé 
+Voici les démarches à suivre pour se connecter au logiciel bancaire.
+
+=== Supprimer un employé
 Voici les démarches à suivre pour se connecter au logiciel bancaire.
