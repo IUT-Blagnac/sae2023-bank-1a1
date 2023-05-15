@@ -68,23 +68,35 @@ public class EmployeEditorPaneController {
 			try {
 				con = LogToDatabase.getConnexion();
 				
-				String query = "INSERT INTO EMPLOYE VALUES (" + "?" + ", " + "?" + ", " + "?" + ", "
-						+ "?" + ", " + "?" + ", " + "?" + ", " + "?" + ")";
+				String query = "UPDATE EMPLOYE SET " + "nom = " + "? , " + "prenom = " + "? , " + "login = "
+						+ "? , " + "motpasse = " + "? " + " " + "WHERE idEmploye = ? ";
 				PreparedStatement pst = con.prepareStatement(query);
-				pst.setInt(1, getMaximumId() + 1);
-				pst.setString(2, this.txtNom.getText());
-				pst.setString(3, this.txtPrenom.getText());
-				pst.setString(4,"guichetier");
-				pst.setString(5, this.txtLogin.getText());
-				pst.setString(6, this.txtLogin.getText());
-				pst.setInt(7, GlobalSettings.currentChefAgence.idAg);
+				pst.setString(1,this.txtNom.getText());
+				pst.setString(2, this.txtPrenom.getText());
+				pst.setString(3, this.txtLogin.getText());
+				pst.setString(4, this.txtMotDePasse.getText());
+				pst.setInt(5, Integer.parseInt(this.txtIdEmploye.getText()));
 				
-				System.err.println(query);	
-
 				int result = pst.executeUpdate();
-				
 				pst.close();
+
+				if(result != 1) {
+					String query2 = "INSERT INTO EMPLOYE VALUES (" + "?" + ", " + "?" + ", " + "?" + ", "
+							+ "?" + ", " + "?" + ", " + "?" + ", " + "?" + ")";
+					PreparedStatement pst2 = con.prepareStatement(query2);
+					pst2.setInt(1, getMaximumId() + 1);
+					pst2.setString(2, this.txtNom.getText());
+					pst2.setString(3, this.txtPrenom.getText());
+					pst2.setString(4,"guichetier");
+					pst2.setString(5, this.txtLogin.getText());
+					pst2.setString(6, this.txtLogin.getText());
+					pst2.setInt(7, GlobalSettings.currentChefAgence.idAg);
+					
+					int result2 = pst2.executeUpdate();
+					pst2.close();					
+				}
 				
+				con.commit();
 				this.primaryStage.close();
 				
 			} catch (DatabaseConnexionException e) {

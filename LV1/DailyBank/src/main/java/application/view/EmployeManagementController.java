@@ -91,21 +91,16 @@ public class EmployeManagementController {
 		lvEmploye.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent click) {
-				if(click.getClickCount() == 2) {
-					System.out.println("DOUBLE CLICK");
-					EmployeRead emc = new EmployeRead(primaryStage,dailyBankState);
-					emc.doEmployeReadDialog(currentEmploye);
+				if(currentEmploye != null) {
+					if(click.getClickCount() == 2) {
+						System.out.println("DOUBLE CLICK");
+						EmployeRead emc = new EmployeRead(primaryStage,dailyBankState);
+						emc.doEmployeReadDialog(currentEmploye);
+					}
 				}
 			}
 			
 		});
-	}
-	
-	private void configure() {
-		this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
-		
-		this.oListEmploye = FXCollections.observableArrayList();
-		
 	}
 	
 	public void displayDialog()
@@ -113,13 +108,6 @@ public class EmployeManagementController {
 		updateListEmploye();
 		
 		primaryStage.showAndWait();
-	}
-	
-	private Object closeWindow(WindowEvent e)
-	{
-		this.doCancel();
-		e.consume();
-		return null;
 	}
 	
 	private ArrayList<Employe> getAllEmploye()
@@ -141,7 +129,7 @@ public class EmployeManagementController {
 				output.add(employe);
 			}
 
-			this.primaryStage.close();
+			// this.primaryStage.close();
 			
 		} catch (DatabaseConnexionException e) {
 			// TODO Auto-generated catch block
@@ -182,14 +170,18 @@ public class EmployeManagementController {
 	@FXML
 	private void doNouveauEmploye()
 	{
+		lvEmploye.getSelectionModel().clearSelection();
 		EmployeEditorPane edp = new EmployeEditorPane(this.primaryStage, this.dailyBankState);
 		edp.doEmployeManagementDialog(new Employe(edp.getEmployeMaxId() + 1,"","","","","",0));
+		this.updateListEmploye();
 	}
 	
 	@FXML
 	private void doModifierEmploye()
 	{
-		
+		EmployeEditorPane edp = new EmployeEditorPane(this.primaryStage, this.dailyBankState);
+		edp.doEmployeManagementDialog(new Employe(currentEmploye.idEmploye,currentEmploye.nom,currentEmploye.prenom,currentEmploye.droitsAccess,currentEmploye.login,currentEmploye.motPasse,currentEmploye.idAg));
+		this.updateListEmploye();
 	}
 	
 	@FXML
@@ -205,6 +197,7 @@ public class EmployeManagementController {
 			int result = pst.executeUpdate();
 			
 			pst.close();
+			con.commit();
 			
 		} catch (DatabaseConnexionException e) {
 			// TODO Auto-generated catch block
@@ -214,7 +207,7 @@ public class EmployeManagementController {
 			e.printStackTrace();
 		}
 		
-		updateListEmploye();
+		this.updateListEmploye();
 	}
 	
 	public Employe getCurrentUser() {
