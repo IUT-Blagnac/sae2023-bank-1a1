@@ -72,7 +72,7 @@ Cliquez sur : Utilisateur -> Connexion
 
 Rentrez votre login et mot de passe.
 
-image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_Connecter1.png[connecter]
+image::..\..\ressources\images\I_Connecter1.png[alt=connecter]
 
 === Créer un compte bancaire
 [abstract]
@@ -86,7 +86,7 @@ Rentrez les informations manquantes pour créer un nouveau compte client et cliq
 
 Si le client n'existe pas encore créer un nouveau client puis répetez les étapes d'au dessus.
 
-image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_NouveauCompteBancaire.png[créer]
+image::..\..\ressources\images\I_NouveauCompteBancaire.png[alt=Nouvel Compte]
 
 === Créditer/Débiter 
 [abstract]
@@ -98,7 +98,7 @@ Cliquez sur Gestion -> Clients -> Choisissez un client -> Comptes client -> Choi
 
 Rentrez les informations manquantes pour enregistrer un crédit/débit.
 
-image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_Crediter-debiter.png[crediter/debiter]
+image::..\..\ressources\images\I_Crediter-debiter.png[alt=crediter/debiter]
 
 === Effectuer un virement 
 [abstract]
@@ -110,17 +110,17 @@ Cliquez sur : Gestion -> Clients -> Choisissez un client -> Comptes client -> Ch
 
 Rentrez les informations manquantes pour enregistrer un transfert entre deux comptes.
 
-image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_Transferer.png[virement]
+image::..\..\ressources\images\I_Transferer.png[alt=virement]
 
 === Clôturer un compte 
 [abstract]
 Développé par Kwadjani Bilon
 
-Voici les démarches à suivre clôturer un compte bancaire : 
+Voici les démarches à suivre pour clôturer un compte bancaire : 
 
-Cliquez sur : Gestion -> Clients -> Choisissez un client -> Désactiver Client
+Cliquez sur : Gestion -> Clients -> Choisissez un client -> Cloturer Compte
 
-image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_Cloturer.png[cloturer]
+image::..\..\ressources\images\I_Cloturer.png[alt=cloturer]
 
 === Créer un employé
 [abstract]
@@ -132,7 +132,7 @@ Cliquez sur : Gestion -> Employés -> Nouveau employé
 
 Rentrez les informations manquantes pour créer un nouveau employé dans l'agence
 
-image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_Cr%C3%A9erEmploye.png[creeremploye]
+image::..\..\ressources\images\I_Cr%C3%A9erEmploye.png[alt=creeremploye]
 
 === Lire les informations employé 
 [abstract]
@@ -142,7 +142,7 @@ Voici les démarches à suivre pour lire les informations d'un employé :
 
 Gestion -> Employés -> Double cliquez sur l'employé pour avoir ces informations 
 
-image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_VoirInformationEmploye.png[lire]
+image::..\..\ressources\images\I_VoirInformationEmploye.png[alt=lire]
 
 === Modifier les informations employé 
 [abstract]
@@ -152,7 +152,7 @@ Voici les démarches à suivre pour modifier les informations d'un employé :
 
 Gestion -> Employés -> Choisir un employé -> Modifier employé
 
-image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_ModifierEmploye.png[modifier]
+image::..\..\ressources\images\I_ModifierEmploye.png[alt=modifier]
 
 === Supprimer un employé
 [abstract]
@@ -162,5 +162,4 @@ Voici les démarches à suivre pour supprimer un employé :
 
 Gestion -> Employés -> Choisir un employé -> Désactiver employé
 
-image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_SupprimerEmploye.png[supprimer]
-
+image::..\..\ressources\images\I_SupprimerEmploye.png[alt=supprimer]

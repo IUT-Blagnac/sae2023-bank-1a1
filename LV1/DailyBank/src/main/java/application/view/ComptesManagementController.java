@@ -26,7 +26,6 @@ public class ComptesManagementController {
 
 	// Fenêtre physique ou est la scène contenant le fichier xml contrôlé par this
 	private Stage primaryStage;
-	
 
 	// Données de la fenêtre
 	private Client clientDesComptes;
@@ -83,9 +82,6 @@ public class ComptesManagementController {
 	private Button btnModifierCompte;
 	@FXML
 	private Button btnSupprCompte;
-	@FXML
-	private Button btnClôtureCompte;
-	
 
 	@FXML
 	private void doCancel() {
@@ -98,20 +94,7 @@ public class ComptesManagementController {
 		if (selectedIndice >= 0) {
 			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
 			this.cmDialogController.gererOperationsDUnCompte(cpt);
-			
 		}
-		this.loadList();
-		this.validateComponentState();
-	}
-	
-	@FXML
-	private void doClôtureCompte() {
-		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
-		CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
-		if (selectedIndice >= 0) {
-			this.cmDialogController.Cloture(cpt);
-		}
-		
 		this.loadList();
 		this.validateComponentState();
 	}
@@ -139,14 +122,6 @@ public class ComptesManagementController {
 		this.oListCompteCourant.clear();
 		this.oListCompteCourant.addAll(listeCpt);
 	}
-	private void afficheText(CompteCourant cc) {
-
-		if(cc.estCloture.equals("O")) {
-			btnClôtureCompte.setText("ReOuvrir");
-		}else {
-			btnClôtureCompte.setText("Cloturer");
-		}
-	}
 
 	private void validateComponentState() {
 		// Non implémenté => désactivé
@@ -155,15 +130,8 @@ public class ComptesManagementController {
 
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {
-			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
-			afficheText(cpt);
-		}
-		
-		if (selectedIndice >= 0) {
 			this.btnVoirOpes.setDisable(false);
-			this.btnClôtureCompte.setDisable(false);
 		} else {
-			this.btnClôtureCompte.setDisable(true);
 			this.btnVoirOpes.setDisable(true);
 		}
 	}

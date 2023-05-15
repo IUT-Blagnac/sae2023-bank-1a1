@@ -23,7 +23,7 @@
       </Label>
    </top>
    <center>
-      <GridPane fx:id="gridPaneSaisies" prefWidth="509.0" styleClass="borderlight" BorderPane.alignment="CENTER">
+      <GridPane styleClass="borderlight" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.0" minWidth="10.0" percentWidth="0.0" prefWidth="190.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="303.0" minWidth="10.0" prefWidth="278.0" />
