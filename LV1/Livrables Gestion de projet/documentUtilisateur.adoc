@@ -143,7 +143,6 @@ Voici les démarches à suivre pour lire les informations d'un employé :
 Gestion -> Employés -> Double cliquez sur l'employé pour avoir ces informations 
 
 image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_VoirInformationEmploye.png[lire]
->>>>>>> e0970c3d64e2255f05d59add82d4d44941958bac
 
 === Modifier les informations employé 
 [abstract]
