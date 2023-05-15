@@ -4,13 +4,11 @@ import java.util.ArrayList;
 
 import application.DailyBankApp;
 import application.DailyBankState;
-import application.tools.AlertUtilities;
 import application.tools.EditionMode;
 import application.tools.StageManagement;
 import application.view.ComptesManagementController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -18,8 +16,10 @@ import model.data.Client;
 import model.data.CompteCourant;
 import model.orm.Access_BD_CompteCourant;
 import model.orm.exception.ApplicationException;
+import model.orm.exception.DataAccessException;
 import model.orm.exception.DatabaseConnexionException;
 import model.orm.exception.Order;
+import model.orm.exception.RowNotFoundOrTooManyRowsException;
 import model.orm.exception.Table;
 
 public class ComptesManagement {
@@ -65,23 +65,25 @@ public class ComptesManagement {
 				this.clientDesComptes, cpt);
 		om.doOperationsManagementDialog();
 	}
-
+	
+	/**
+	 * Cette methode permet de crée un nouveau compte pour un client et l'insert dans la Base de Donnée
+	 * Par Bilon KWADJANI
+	 */
 	public CompteCourant creerNouveauCompte() {
 		CompteCourant compte;
 		CompteEditorPane cep = new CompteEditorPane(this.primaryStage, this.dailyBankState);
 		compte = cep.doCompteEditorDialog(this.clientDesComptes, null, EditionMode.CREATION);
 		if (compte != null) {
 			try {
-				// Temporaire jusqu'à implémentation
+				/* Temporaire jusqu'à implémentation
 				compte = null;
 				AlertUtilities.showAlert(this.primaryStage, "En cours de développement", "Non implémenté",
 						"Enregistrement réel en BDD du compe non effectué\nEn cours de développement", AlertType.ERROR);
-
-				// TODO : enregistrement du nouveau compte en BDD (la BDD donne de nouvel id
-				// dans "compte")
-
-				// if JAMAIS vrai
-				// existe pour compiler les catchs dessous
+				 	*/
+				Access_BD_CompteCourant ac = new Access_BD_CompteCourant();
+				ac.insertCompteC(compte);
+				
 				if (Math.random() < -1) {
 					throw new ApplicationException(Table.CompteCourant, Order.INSERT, "todo : test exceptions", null);
 				}
@@ -115,4 +117,27 @@ public class ComptesManagement {
 		}
 		return listeCpt;
 	}
-}
+	public void Cloture(CompteCourant cc) {
+		try {
+			Access_BD_CompteCourant ac = new Access_BD_CompteCourant();
+			if("O".equals(cc.estCloture)){
+				ac.reOuvrirCompte(cc.idNumCompte);
+			}else {
+				ac.cloturerCompte(cc.idNumCompte);
+			}
+		} catch (RowNotFoundOrTooManyRowsException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		
+	} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (DatabaseConnexionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	
+	
+	}
+	}

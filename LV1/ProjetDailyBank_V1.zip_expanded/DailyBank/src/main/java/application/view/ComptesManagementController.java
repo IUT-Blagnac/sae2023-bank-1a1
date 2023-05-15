@@ -82,6 +82,9 @@ public class ComptesManagementController {
 	private Button btnModifierCompte;
 	@FXML
 	private Button btnSupprCompte;
+	@FXML
+	private Button btnClôtureCompte;
+	
 
 	@FXML
 	private void doCancel() {
@@ -94,6 +97,18 @@ public class ComptesManagementController {
 		if (selectedIndice >= 0) {
 			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
 			this.cmDialogController.gererOperationsDUnCompte(cpt);
+			
+		}
+		this.loadList();
+		this.validateComponentState();
+	}
+	
+	@FXML
+	private void doClôtureCompte() {
+		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
+		if (selectedIndice >= 0) {
+			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
+			this.cmDialogController.Cloture(cpt);
 		}
 		this.loadList();
 		this.validateComponentState();
@@ -131,7 +146,9 @@ public class ComptesManagementController {
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {
 			this.btnVoirOpes.setDisable(false);
+			this.btnClôtureCompte.setDisable(false);
 		} else {
+			this.btnClôtureCompte.setDisable(true);
 			this.btnVoirOpes.setDisable(true);
 		}
 	}
