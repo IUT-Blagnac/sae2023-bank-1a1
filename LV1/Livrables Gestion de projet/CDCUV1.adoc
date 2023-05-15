@@ -1,4 +1,4 @@
-== Cahier des charges utilisateur - Version 1
+== Cahier des charges utilisateur Daily Bank
 
 [cols="1,1", options="header"]
 |===
