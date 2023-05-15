@@ -53,6 +53,6 @@ public class EmployeReadController {
 	
 	@FXML
 	private void doCancel() {
-		
+		this.primaryStage.close();
 	}
 }
