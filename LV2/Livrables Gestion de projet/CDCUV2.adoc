@@ -4,7 +4,7 @@
 |===
 | Version | Date
 
-| V1 | 12 mai 2023 
+| V2 | 15 mai 2023 
 |===
 
 === Équipe : 1A1  
