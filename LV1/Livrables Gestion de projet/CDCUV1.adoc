@@ -1,4 +1,4 @@
-== Cahier des charges utilisateur - Version 1
+== Cahier des charges utilisateur Daily Bank
 
 [cols="1,1", options="header"]
 |===
@@ -22,13 +22,17 @@
 - <<introduction,Introduction>>
 
   .. <<contexte,Contexte>>
+  .. <<utilisateurs,Utilisateurs>>
   .. <<objectifs,Objectifs>>
   .. <<probleme,Problème>>
-  .. <<planification,Planification>>
-  .. <<livrables,Livrables attendus>>
 
 
 - <<analyse-existant,Analyse de l'existant>>
+
+  * <<documents-version-existante,Documents de la version existante (V0)>>
+
+    ** <<description-documents,Description des documents>>
+    ** <<architecture-existant,Architecture de l'application>>
 
   * <<foncts-version-existante,Fonctionnalitées de la version existante (V0)>>
   
@@ -39,6 +43,7 @@
 - <<analyse-des-besoins,Analyse des besoins>>
 
 	.. <<besoins,Besoins exprimés>>
+
   		*** <<guichetier-besoins,Guichetier>>
   		*** <<chef-agence-besoins,Chef d'agence>>
 
@@ -50,7 +55,14 @@
 - <<analyse-des-contraintes,Analyse des contraintes>>
 
  ** <<contraintes-techniques,Contraintes techniques>>
+
  ** <<contraintes-organisationnelles,Contraintes organisationnelles>>
+
+ ** <<contraintes-juridiques-securite,Contraintes juridiques et de sécurité>>
+    *** <<contraintes-juridiques,Juridiques>>
+    *** <<contraintes-juridiques,Sécurité>>
+
+- <<livrables,Livrables attendus>>
 
 - <<conclusion,Conclusion>>
 
@@ -67,6 +79,23 @@ Ces investissements majeurs ont été accompagnés de restructurations et d'une 
 Cette transformation numérique a également conduit à une révolution organisationnelle au sein des banques, qui évoluent vers une approche transversale et pluridisciplinaire pour suivre le client sans interruption et en temps réel. Des professionnels de diverses disciplines interagissent pour développer les parcours et les trajectoires de chaque client.
 
 Dans ce contexte, la banque DailyBank souhaite développer une application JAVA-Oracle de gestion des comptes clients pour remplacer plusieurs outils obsolètes. Cette application sera déployée dans les 100 agences que compte son réseau et permettra de gérer des comptes bancaires de dépôt pour des clients préalablement créés, de débiter ou créditer un compte soit par virement, soit par une personne physique se présentant devant un guichet. Ce développement s'inscrit dans le cadre de la restructuration des services bancaires de la banque DailyBank.
+
+[[utilisateurs]]
+=== Utilisateurs
+
+L'application est fait pour être utilisé par deux types d'utilisateurs ayant des droits d'accès différents, Le guichetier et le chef d'agence.
+
+Dans un but de sécurité et de suivi des opérations, les utilisateurs doivent se connecter via un nom d'utilisateur et un mot de passe qui leurs seront attribués. Sans cela aucune action n'est possible.
+
+==== Guichetier :
+
+Le guichetier est le premier niveau de droit d'accès, il peut faire toutes les opérations de base sur des clients de son agence : faire des débits/crédits, des transferts, créer de nouveaux clients et de nouveaux comptes. 
+
+==== Chef d'agence :
+
+Le chef d'agence est le deuxième niveau de droit d'accès et l'utilisateur avec le plus de droits. 
+Il peut faire toutes les actions d'un guichetier mais en plus de cela il peut gérer tous les employés de son agence.
+C'est à dire : Créer un nouvel employé, voir les informations d'un employé, mettre à jour les informations d'un employé et supprimer un employé.
 
 [[objectifs]]
 === Objectifs
@@ -92,35 +121,23 @@ En outre, la banque DailyBank cherche à moderniser ses services bancaires pour 
 
 Enfin, le développement de cette application de gestion des comptes clients s'inscrit dans une restructuration plus large des services bancaires proposés par la banque. La modernisation des outils de la banque permettra d'améliorer l'efficacité de l'ensemble des services bancaires et de renforcer la compétitivité de l'entreprise sur le marché.
 
-[[planification]]
-=== Planification
-
-* Livraison V1 : prévue le 17/05/2023
-* Livraison V2 : prévue le 26/05/2023
-
-[[livrables]]
-=== Livrables attendus
-
-Les livrables du projet sont :
-
-* Pour la partie Gestion de projet : 
-** Un GANTT de la planification des taches lors du projet
-** Un CDCU (Cahier Des Charges Utilisateurs)
-** Une Documentation Utilisateur
-** Un chiffrage du projet
-
-* Pour la partie Developpement :
-** Le Jar (l'application fonctionnel)
-** Une Documentation Technique
-** Un Cahier de Recette (Tests)
 
 [[analyse-existant]]
 == Analyse de l'existant
 
-La version actuelle (V0) du logiciel bancaire permet aux guichetiers de modifier les informations des clients (adresse, téléphone, etc.), de créer un nouveau client, de consulter un compte et de débiter un compte. Les chefs d'agence peuvent rendre inactif un client.
+[[documents-version-existante]]
+=== Documents de la version existante (V0)
+
+[[description-documents]]
+==== Description des documents
+
+[[architecture-existant]]
+==== Architecture de l'application
 
 [[foncts-version-existante]]
 === Fonctionnalitées de la version existante (V0)
+
+La version actuelle (V0) du logiciel bancaire permet aux guichetiers de modifier les informations des clients (adresse, téléphone, etc.), de créer un nouveau client, de consulter un compte et de débiter un compte. Les chefs d'agence peuvent rendre inactif un client.
 
 [[guichetierV0]]
 ==== Un guichetier peut :
@@ -189,19 +206,46 @@ Tous ces cas d'utilisation sont possible si le chef d'agence s'est authentifié 
 == Analyse des contraintes
 
 [[contraintes-techniques]]
-==== Contraintes techniques
+=== Contraintes techniques
 
 - Le language utilisé pour implémenter l'application est le Java.
 - L'interface graphique utilise la librairie JavaFx.
 - La base de donnée doit être utiliser le langage SQL avec le SGBD Sql Developper.
 - L'outil de build utilisé est Maven.
 
+[[contraintes-juridiques-securite]]
+=== Contraintes juridiques et de sécurité
+
+[[contraintes-juridiques]]
+==== Contraintes juridiques :
+
+[[contraintes-securite]]
+==== Contraintes de sécurité :
+
 [[contraintes-organisationnelles]]
-==== Contraintes organisationnelles
+=== Contraintes organisationnelles
 
 - Le développement de la solution doit respecté les délais fixés.
 - Les livrables seront sur github.
 - Le moyen de communication priviligié est Discord.
+- Livraison V1 : prévue le 16/05/2023
+- Livraison V2 : prévue le 26/05/2023
+
+[[livrables]]
+=== Livrables attendus
+
+Les livrables du projet sont :
+
+* Pour la partie Gestion de projet : 
+** Un GANTT de la planification des taches lors du projet
+** Un CDCU (Cahier Des Charges Utilisateurs)
+** Une Documentation Utilisateur
+** Un chiffrage du projet
+
+* Pour la partie Developpement :
+** Le Jar (l'application fonctionnel)
+** Une Documentation Technique
+** Un Cahier de Recette (Tests)
 
 [[conclusion]]
 == Conclusion

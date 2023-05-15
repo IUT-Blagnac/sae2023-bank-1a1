@@ -1,0 +1,166 @@
+
+= Documentation utilisateur : DailyBank
+
+[abstract]
+Ce document fournit des informations sur l'utilisation du logiciel bancaire qui permet la création et la modification de comptes bancaires, ainsi que des fonctionnalités de virement. Il décrit les cas d'utilisation à développer dans les différentes versions du logiciel. Il permet également de créer/modifier des employés dans des agences.
+
+== Sommaire 
+
+- Introduction 
+- Cas d'utilisation 
+- Lancement application 
+- Guichetier  
+    . Créditer/débiter un compte
+    . Créer un compte
+    . Effectuer un virement
+    . Clôturer un compte
+- Chef d'agence
+    . Créer un employé
+    . Modifier un employé
+    . Lire les informations d'un employé
+    . Supprimer un employé 
+
+== Introduction
+
+Le logiciel bancaire est un outil puissant qui facilite la gestion des comptes bancaires et des opérations financières. Il permet aux utilisateurs de créer, modifier et clôturer des comptes, ainsi que d'effectuer des virements entre les comptes.
+
+== Cas d'utilisation à développer
+
+Le logiciel bancaire sera développé en plusieurs versions, avec des fonctionnalités spécifiques à chaque version. Voici l'ordre de développement des cas d'utilisation dans les différentes versions du logiciel :
+
+== Lancement application
+
+Pour lancer l'application exécuter le jar dans le dossier.
+
+=== Version 1
+
+
+[options="header"]
+|===
+|Cas d'utilisation | Description
+
+|Créditer/débiter un compte
+|Cette fonctionnalité permet au guichetier de créditer ou débiter un compte bancaire. Elle est implémentée en utilisant le langage Java et en interagissant avec la base de données à l'aide d'une procédure stockée.
+
+|Créer un compte
+|Cette fonctionnalité permet au guichetier de créer un nouveau compte bancaire pour un client. Le guichetier doit fournir les informations nécessaires, telles que le nom du client, l'adresse, etc.
+
+|Effectuer un virement de compte à compte
+|Cette fonctionnalité permet aux utilisateurs de transférer des fonds d'un compte bancaire à un autre. Les utilisateurs doivent spécifier les comptes source et destinataire, ainsi que le montant à transférer.
+
+|Clôturer un compte
+|Cette fonctionnalité permet au guichetier de clôturer un compte bancaire. Le guichetier doit fournir le numéro de compte du compte à clôturer.
+
+|Créer un employé 
+|Cette fonctionnalité permet au chef d'agence de créer un compte employé. Le chef d'agence doit fournir un nom,prenom,login et mot de passe pour l'employé.
+
+|Modifier un employé 
+|Cette fonctionnalité permet au chef d'agence de modifier les informations d'un employé qui est dans son agence.
+
+|Lire les informations d'un employé 
+|Cette fonctionnalité permet au chef d'agence de lire les informations d'un employé.
+
+|Supprimer un employé 
+|Cette fonctionnalité permet au chef d'agence de supprimer un employé de l'agence.
+
+|===
+
+=== Se connecter 
+Voici les démarches à suivre pour se connecter au logiciel bancaire : 
+
+Cliquez sur : Utilisateur -> Connexion
+
+Rentrez votre login et mot de passe.
+
+image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_Connecter1.png[connecter]
+
+=== Créer un compte bancaire
+[abstract]
+Développé par Kwadjani Bilon
+
+Voici les démarches à suivre pour créer un compte bancaire : 
+
+Cliquez sur : Gestion -> Clients -> Choisissez un client -> Comptes client -> Nouveau Compte
+
+Rentrez les informations manquantes pour créer un nouveau compte client et cliquez sur ajouter.
+
+Si le client n'existe pas encore créer un nouveau client puis répetez les étapes d'au dessus.
+
+image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_NouveauCompteBancaire.png[créer]
+
+=== Créditer/Débiter 
+[abstract]
+Développé par Gabarra Illan 
+
+Voici les démarches pour créditer/débiter un compte bancaire : 
+
+Cliquez sur Gestion -> Clients -> Choisissez un client -> Comptes client -> Choisissez un compte client -> Voir opérations -> Choisissez Enregistrer débit/ Enregister crédit
+
+Rentrez les informations manquantes pour enregistrer un crédit/débit.
+
+image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_Crediter-debiter.png[crediter/debiter]
+
+=== Effectuer un virement 
+[abstract]
+Développé par Gabarra Illan 
+
+Voici les démarches à suivre pour effectuer un virement entre deux comptes : 
+
+Cliquez sur : Gestion -> Clients -> Choisissez un client -> Comptes client -> Choisissez un compte client -> Voir opérations -> Enregistrer un Transfert
+
+Rentrez les informations manquantes pour enregistrer un transfert entre deux comptes.
+
+image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_Transferer.png[virement]
+
+=== Clôturer un compte 
+[abstract]
+Développé par Kwadjani Bilon
+
+Voici les démarches à suivre clôturer un compte bancaire : 
+
+Cliquez sur : Gestion -> Clients -> Choisissez un client -> Désactiver Client
+
+image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_Cloturer.png[cloturer]
+
+=== Créer un employé
+[abstract]
+Développé par Mathéo Katbie 
+
+Voici les démarches à suivre pour créer un employé : 
+
+Cliquez sur : Gestion -> Employés -> Nouveau employé 
+
+Rentrez les informations manquantes pour créer un nouveau employé dans l'agence
+
+image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_Cr%C3%A9erEmploye.png[creeremploye]
+
+=== Lire les informations employé 
+[abstract]
+Développé par Mathéo Katbie 
+
+Voici les démarches à suivre pour lire les informations d'un employé : 
+
+Gestion -> Employés -> Double cliquez sur l'employé pour avoir ces informations 
+
+image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_VoirInformationEmploye.png[lire]
+
+=== Modifier les informations employé 
+[abstract]
+Développé par Mathéo Katbie 
+
+Voici les démarches à suivre pour modifier les informations d'un employé :
+
+Gestion -> Employés -> Choisir un employé -> Modifier employé
+
+image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_ModifierEmploye.png[modifier]
+
+=== Supprimer un employé
+[abstract]
+Développé par Mathéo Katbie 
+
+Voici les démarches à suivre pour supprimer un employé : 
+
+Gestion -> Employés -> Choisir un employé -> Désactiver employé
+
+image:https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/ressources/images/I_SupprimerEmploye.png[supprimer]
+
