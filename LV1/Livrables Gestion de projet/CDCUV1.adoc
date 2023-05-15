@@ -130,6 +130,9 @@ Enfin, le développement de cette application de gestion des comptes clients s'i
 [[description-documents]]
 ==== Description des documents
 
+- DailyBank : Un projet maven étant la version V0 du projet.
+
+
 [[architecture-existant]]
 ==== Architecture de l'application
 
