@@ -55,7 +55,7 @@
 - <<analyse-des-contraintes,Analyse des contraintes>>
 
  ** <<contraintes-techniques,Contraintes techniques>>
- 
+
  ** <<contraintes-juridiques-securite,Contraintes juridiques et de sécurité>>
     *** <<contraintes-juridiques,Juridiques>>
     *** <<contraintes-juridiques,Sécurité>>
@@ -149,7 +149,7 @@ Enfin, le développement de cette application de gestion des comptes clients s'i
 Le package est définit par le diagramme de classe ci-dessous.
 
 .Diagramme de classe de la V0
-image::..\ressources\images\dc-initialv0.svg[alt=Diagramme de classe V0]
+image::..\..\ressources\images\dc-initialv0.svg[alt=Diagramme de classe V0]
 
 - *model.orm* : Ce package est composé des classes permettant de faire des requêtes à la base de donnée de l'application. Chaque classe représente l'accès à une table.
 
@@ -163,7 +163,7 @@ image::..\ressources\images\dc-initialv0.svg[alt=Diagramme de classe V0]
 La version actuelle (V0) du logiciel bancaire permet aux guichetiers de modifier les informations des clients (adresse, téléphone, etc.), de créer un nouveau client, de consulter un compte et de débiter un compte. Les chefs d'agence peuvent rendre inactif un client.
 
 
-image::..\ressources\images\uc-initial-v0.svg[alt=UseCase V0]
+image::..\..\ressources\images\uc-initial-v0.svg[alt=UseCase V0]
 
 
 [[guichetierV0]]
