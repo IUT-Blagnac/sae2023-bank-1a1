@@ -116,9 +116,9 @@ image::..\..\ressources\images\I_Transferer.png[alt=virement]
 [abstract]
 Développé par Kwadjani Bilon
 
-Voici les démarches à suivre clôturer un compte bancaire : 
+Voici les démarches à suivre pour clôturer un compte bancaire : 
 
-Cliquez sur : Gestion -> Clients -> Choisissez un client -> Désactiver Client
+Cliquez sur : Gestion -> Clients -> Choisissez un client -> Cloturer Compte
 
 image::..\..\ressources\images\I_Cloturer.png[alt=cloturer]
 
