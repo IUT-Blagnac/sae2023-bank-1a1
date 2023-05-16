@@ -73,6 +73,13 @@ public class ClientsManagement {
 		return result;
 	}
 
+	/**
+	 * 
+	 * Crée un nouveau client en ouvrant une fenêtre de dialogue d'édition de client, 
+	 * puis en insérant le nouveau client dans la base de données si l'utilisateur a confirmé l'opération.
+	 * 
+	 * @return Le nouveau client créé, ou null si l'utilisateur a annulé l'opération ou s'il y a eu une erreur lors de la connexion à la base de données ou de l'exécution de l'opération.
+	 **/
 	public Client nouveauClient() {
 		Client client;
 		ClientEditorPane cep = new ClientEditorPane(this.primaryStage, this.dailyBankState);
@@ -96,11 +103,27 @@ public class ClientsManagement {
 		return client;
 	}
 
+	/**
+	 * Ouvre une fenêtre de gestion de comptes pour le client spécifié.
+	 * 
+	 * @param c Le client pour lequel la gestion des comptes doit être effectuée.
+	 **/
 	public void gererComptesClient(Client c) {
 		ComptesManagement cm = new ComptesManagement(this.primaryStage, this.dailyBankState, c);
 		cm.doComptesManagementDialog();
 	}
 
+	/**
+	 * Récupère une liste de clients à partir de la base de données en fonction des critères de recherche spécifiés.
+	 * Si le numéro de compte est égal à -1, ce critère de recherche est ignoré.
+	 * Si le début du nom est vide, ce critère de recherche est ignoré.
+	 * Si le début du prénom est vide, ce critère de recherche est ignoré.
+	 * 
+	 * @param _numCompte Le numéro de compte à rechercher, ou -1 pour ignorer ce critère de recherche.
+	 * @param _debutNom Le début du nom à rechercher, ou une chaîne vide pour ignorer ce critère de recherche.
+	 * @param _debutPrenom Le début du prénom à rechercher, ou une chaîne vide pour ignorer ce critère de recherche.
+	 * @return Une liste d'objets Client correspondant aux critères de recherche spécifiés, ou une liste vide si une erreur survient lors de la connexion à la base de données ou de l'exécution de la recherche.
+	 **/
 	public ArrayList<Client> getlisteComptes(int _numCompte, String _debutNom, String _debutPrenom) {
 		ArrayList<Client> listeCli = new ArrayList<>();
 		try {

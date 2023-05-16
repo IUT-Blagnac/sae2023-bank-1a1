@@ -65,7 +65,7 @@ public class ComptesManagement {
 				this.clientDesComptes, cpt);
 		om.doOperationsManagementDialog();
 	}
-	
+
 	/**
 	 * Cette methode permet de crée un nouveau compte pour un client et l'insert dans la Base de Donnée
 	 * Par Bilon KWADJANI
@@ -80,10 +80,10 @@ public class ComptesManagement {
 				compte = null;
 				AlertUtilities.showAlert(this.primaryStage, "En cours de développement", "Non implémenté",
 						"Enregistrement réel en BDD du compe non effectué\nEn cours de développement", AlertType.ERROR);
-				 	*/
+				 */
 				Access_BD_CompteCourant ac = new Access_BD_CompteCourant();
 				ac.insertCompteC(compte);
-				
+
 				if (Math.random() < -1) {
 					throw new ApplicationException(Table.CompteCourant, Order.INSERT, "todo : test exceptions", null);
 				}
@@ -99,6 +99,12 @@ public class ComptesManagement {
 		return compte;
 	}
 
+	/**
+	 *	Cette fonction permet de récupérer la liste des comptes courants associés à un client.
+	 *
+	 *	@return une liste d'objets CompteCourant contenant les informations sur chaque compte courant associé au client.
+	 *	Si aucun compte n'est associé au client, une liste vide est retournée.
+	 */
 	public ArrayList<CompteCourant> getComptesDunClient() {
 		ArrayList<CompteCourant> listeCpt = new ArrayList<>();
 
@@ -117,6 +123,16 @@ public class ComptesManagement {
 		}
 		return listeCpt;
 	}
+
+	/**
+	 * 
+	 *Clôture ou rouvre le compte courant spécifié en entrée en fonction de son état actuel.
+	 *
+	 *@param cc Le compte courant à clôturer ou rouvrir.
+	 *
+	 *@author Bilon
+	 *
+	 **/
 	public void Cloture(CompteCourant cc) {
 		try {
 			Access_BD_CompteCourant ac = new Access_BD_CompteCourant();
@@ -128,8 +144,8 @@ public class ComptesManagement {
 		} catch (RowNotFoundOrTooManyRowsException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		
-	} catch (DataAccessException e) {
+
+		} catch (DataAccessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (DatabaseConnexionException e) {
@@ -137,7 +153,7 @@ public class ComptesManagement {
 			e.printStackTrace();
 		}
 
-	
-	
+
+
 	}
-	}
+}

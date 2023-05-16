@@ -286,7 +286,7 @@ public class OperationEditorPaneController {
 			
 			try {
 				NumCompteDestinataire = Integer.parseInt(txtCompteDestinataire.getText().trim());
-				if (NumCompteDestinataire <= 0 | NumCompteDestinataire == this.compteEdite.idNumCompte)
+				if (NumCompteDestinataire <= 0 | NumCompteDestinataire == this.compteEdite.idNumCompte )
 					throw new NumberFormatException();
 				
 			} catch (NumberFormatException nfe) {
@@ -297,7 +297,16 @@ public class OperationEditorPaneController {
 			}
 			
 			try {
-				if (bdAccesComptes.getCompteCourant(NumCompteDestinataire) == null) {
+				boolean compteInvalide = false;
+				
+				CompteCourant compteDestinataire = bdAccesComptes.getCompteCourant(NumCompteDestinataire);
+				if (compteDestinataire == null) {
+					compteInvalide = true;
+				}
+				else if (compteDestinataire.estCloture.compareTo("O") == 0 ) {
+					compteInvalide = true;
+				}
+				if (compteInvalide) {
 					txtCompteDestinataire.getStyleClass().add("borderred");
 					lblCompteDestinataire.getStyleClass().add("borderred");
 					txtCompteDestinataire.requestFocus();

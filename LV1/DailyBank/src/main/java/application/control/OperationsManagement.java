@@ -135,10 +135,10 @@ public class OperationsManagement {
 	 * 
 	 * @author illan
 	 * 
-	 * @return L'operation de crédit créé
+	 * @return L'operation de transfert qui est créé
 	 */
-	public Operation enregistrerTransfert() {
-		
+	public OperationTransfert enregistrerTransfert() {
+
 		System.out.println("Création d'une page de dialog de saisie de transfert");
 
 		OperationEditorPane oep = new OperationEditorPane(this.primaryStage, this.dailyBankState);
@@ -167,6 +167,19 @@ public class OperationsManagement {
 		return op;
 	}
 
+	/**
+
+	 * Cette méthode permet de récupérer les opérations et le solde d'un compte courant spécifié.
+	 * 
+	 * Elle va récupérer la liste des opérations effectuées sur le compte à partir de la base de données, et va
+	 * également récupérer le solde du compte à partir de la base de données. Ces informations seront ensuite
+	 * renvoyées sous forme d'une paire de valeurs contenant le compte courant et la liste des opérations.
+	 * 
+	 * En cas d'erreur de connexion à la base de données ou d'exception de l'application, un message d'erreur
+	 * sera affiché à l'utilisateur sous forme de dialogue et une liste vide sera renvoyée.
+	 * 
+	 *@return PairesOfValue<CompteCourant, ArrayList<Operation>> la paire de valeurs contenant le compte courant et la liste des opérations.
+	 */
 	public PairsOfValue<CompteCourant, ArrayList<Operation>> operationsEtSoldeDunCompte() {
 		ArrayList<Operation> listeOP = new ArrayList<>();
 
