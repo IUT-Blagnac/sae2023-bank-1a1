@@ -52,6 +52,7 @@ Dans sa colonne il doit remplir la ligne correspondant à chaque partie qu'il a 
 |         | Doc User V1    |        |
 |         | Recette V1  |                      | 
 |         | Suivi projet V1|   | 
+|         | Jar V1 | https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/Livrable%20Dev/DailyBank-1.0%20.jar|
 | 26/05   | Gantt V2  réalisé    |       | 
 |         | Doc. Util. V2 |         |         
 |         | Doc. Tec. V2 |                |     
