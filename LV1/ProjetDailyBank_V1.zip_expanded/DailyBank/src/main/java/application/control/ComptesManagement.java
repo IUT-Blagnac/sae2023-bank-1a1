@@ -9,6 +9,8 @@ import application.tools.StageManagement;
 import application.view.ComptesManagementController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -123,7 +125,16 @@ public class ComptesManagement {
 			if("O".equals(cc.estCloture)){
 				ac.reOuvrirCompte(cc.idNumCompte);
 			}else {
-				ac.cloturerCompte(cc.idNumCompte);
+				if(cc.solde!=0){
+					System.out.println("1");
+					Alert soldepresent = new Alert(AlertType.INFORMATION);
+					soldepresent.setHeaderText("Information clôturer compte");
+					soldepresent.setContentText("Pour clôturer le compte votre solde doit être de 0 . ");
+					soldepresent.show();
+				}else {
+					System.out.println("2");
+					ac.cloturerCompte(cc.idNumCompte);
+				}
 			}
 		} catch (RowNotFoundOrTooManyRowsException e) {
 			// TODO Auto-generated catch block
