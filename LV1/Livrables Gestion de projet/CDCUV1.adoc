@@ -222,7 +222,7 @@ Nous ne priorisons aucune de ces tâches car à nos yeux elles sont parfaitement
 
 - Créer un compte : le guichetier peut créer un nouveau compte pour un client existant en générant un nouveau numéro de compte unique. Pour cela le compte du client ne doit pas être désactivé.
 
-- Effectuer un virement de compte à compte : le guichetier peut transférer de l'argent d'un compte à un autre en utilisant le numéro de compte du destinataire et le montant à transférer. Les comptes doivent appartenir à des clients de la DailyBank. Le montant transféré devra être supérieur à 0. Le solde après transfert du compte source ne dois pas être inférieur au découvert autorisé et les comptes clients à qui appartiennent les comptes ne doivent pas être désactivés.
+- Effectuer un virement de compte à compte : le guichetier peut transférer de l'argent d'un compte à un autre en utilisant le numéro de compte du destinataire et le montant à transférer. Les comptes doivent appartenir à des clients de la DailyBank. Le montant transféré devra être supérieur à 0. Le solde après transfert du compte source ne dois pas être inférieur au découvert autorisé et les comptes clients à qui appartiennent les comptes ne doivent pas être désactivés et les comptes non clôturés.
 
 - Clôturer un compte : le guichetier peut clôturer le compte bancaire d'un client si nécessaire.
 
