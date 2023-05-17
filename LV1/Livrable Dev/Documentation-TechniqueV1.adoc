@@ -434,13 +434,19 @@ Au même tire que debiter ou crediter, l'utilisateur clique sur le bouton "Enreg
 * package application.tools :
 ** classe ConstantesIH
 
-=== Rendre inactif un client :
+=== Rendre inactif/actif un client :
+
+[NOTE]
+====
+Développé par Illan GABARRA
+====
 
 *Classes impliquées dans chaque package :*
 
 * package application.control :
 ** ClientManagement.java
 * package application.tools : 
+** ConstantesIHM.java
 ** EditionMode.java
 * package application.view :
 ** ClienteManagementController.java
@@ -448,7 +454,15 @@ Au même tire que debiter ou crediter, l'utilisateur clique sur le bouton "Enreg
 ** Client.java
 * package model.orm :
 ** Access_BD_Client.java
-** Access_BD_CompteCourant.java
+
+===== Description 
+
+Cette fonctionnalité est lié au bouton "Desactiver client" ou "Activer client" selon l'état du client séclectionné. 
+
+Après clic sur ce bouton, la méthode doDesactiverClient est appeler afin de récupérer le client selectionné et modifie son atribut estInactif (les valeurs sont définit dans la classe ConstantesIHM) si le client était actif alors la valeur de estInactif devient ConstantesIHM.CLIENT_INACTIF et s'il ne l'était pas alors la valeur de estInactif devient ConstantesIHM.CLIENT_ACTIF.
+
+Puis ensuite via un accès à la BD par un objet Access_BD_Client on appelle la méthode updateClient avec comme paramètre le client modifié afin de mettre à jour les nouvelles informations du client dans la base de données.
+
 
 === Gérer (faire le "CRUD") les employés (guichetier et chef d'agence) :
 

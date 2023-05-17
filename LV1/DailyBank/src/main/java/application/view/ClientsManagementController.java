@@ -153,7 +153,7 @@ public class ClientsManagementController {
 
 	@FXML
 	/**
-	 * Réactivation ou activation d'un client
+	 * Réactivation ou activation d'un client selectionné
 	 * 
 	 * @author illan
 	 */

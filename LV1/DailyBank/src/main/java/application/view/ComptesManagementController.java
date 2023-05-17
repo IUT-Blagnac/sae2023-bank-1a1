@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import application.DailyBankState;
 import application.control.ComptesManagement;
+import application.tools.ConstantesIHM;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -88,6 +89,8 @@ public class ComptesManagementController {
 	private Button btnSupprCompte;
 	@FXML
 	private Button btnClôtureCompte;
+	@FXML
+	private Button btnNouveauCompte;
 	
 
 	@FXML
@@ -165,7 +168,12 @@ public class ComptesManagementController {
 		
 
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
-		if (selectedIndice >= 0) {
+		
+		if (!ConstantesIHM.estActif(this.clientDesComptes)) {
+			this.btnNouveauCompte.setDisable(true);
+		}
+		
+		if (selectedIndice >= 0 & ConstantesIHM.estActif(this.clientDesComptes) ) {
 			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
 			afficheText(cpt);
 			
