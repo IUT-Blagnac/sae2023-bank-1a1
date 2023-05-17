@@ -126,8 +126,23 @@ Validé
 
 5+|
 
-5+|Commentaire :
+5+|Commentaire :Fonctionnalité développé par Bilon Kwadjani
 Validé
+
+|====
+|====
+
+>|Cas de test 4+|Test-01-03-01
+>|Titre 4+|Crée un compte courant
+>|Objectif 4+| Vérifier qu'il est possible de crée un compte courant pour un client.
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+
+^|Gestion_T_CC_Cree.1  ^|Rentrer un montant 50 dans le champ "Decouvert Autoriser" et Rentrer un montant 10 dans le champ "solde(premier depot)" ^|Le découvert autorisé est -50euros le solde du compte est de 10. On a créé une nouveau compte dans la liste des compte avec son solde et son découvert autorisé ^| Le compte client n'est pas desactivé
+ ^|OK
+
 
 |====
 
