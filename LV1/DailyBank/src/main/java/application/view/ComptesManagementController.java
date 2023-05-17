@@ -7,6 +7,8 @@ import application.control.ComptesManagement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -104,14 +106,21 @@ public class ComptesManagementController {
 		this.validateComponentState();
 	}
 	
+	private void afficheText(CompteCourant cc) {
+		
+		if(cc.estCloture.equals("O")) {
+			btnClôtureCompte.setText("ReOuvrir");
+		}else {
+			btnClôtureCompte.setText("Cloturer");
+		}
+	}
 	@FXML
 	private void doClôtureCompte() {
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 		CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
 		if (selectedIndice >= 0) {
-			this.cmDialogController.Cloture(cpt);
-		}
-		
+				this.cmDialogController.Cloture(cpt);
+			}
 		this.loadList();
 		this.validateComponentState();
 	}
@@ -138,14 +147,6 @@ public class ComptesManagementController {
 		listeCpt = this.cmDialogController.getComptesDunClient();
 		this.oListCompteCourant.clear();
 		this.oListCompteCourant.addAll(listeCpt);
-	}
-	private void afficheText(CompteCourant cc) {
-
-		if(cc.estCloture.equals("O")) {
-			btnClôtureCompte.setText("ReOuvrir");
-		}else {
-			btnClôtureCompte.setText("Cloturer");
-		}
 	}
 
 	private void validateComponentState() {
