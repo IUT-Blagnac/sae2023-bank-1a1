@@ -43,12 +43,15 @@ L'exécution des tests spécifiés au chapitre suivant requiert :
 
 === 1. Éléments à tester :
 [.text-justify]
-Les éléments testés concernent les Use-Cases spécifiés dans la *documentation technique*.
+Les éléments testés concernent les Use-Cases spécifiés dans le 
+link:../Livrables_Gestion_de_projet/CDCUV1.adoc[cahier des charges utilisateur V1]
 
 
 === 2. Environnement de test :
 [.text-justify]
-Ordinateur sous Windows ou OS équivalent.
+
+- Ordinateur sous Windows ou OS équivalent.
+- Après identification par un login et un mot de passe d'un employé (Selon le test effectué et le niveau d'accès nécessaire. Exemple : Créer employé avec un compte *chef d'agence*, et créer client avec un compte *guichetier et chef d'agence*)
 
 
 
@@ -71,7 +74,8 @@ Ordinateur sous Windows ou OS équivalent.
 5+|
 
 5+|Commentaire :
-Compléter et si on ne valide pas, ...
+Validé
+
 |====
 
 
@@ -130,14 +134,62 @@ autorisé est de -100 euros.
 ^|All_G_COP.4  ^|Rentrer un montant 250 dans le champ "Montant". ^|Blocage ! + pop-up ^| Le compte sélectionné a un solde de +100 euros, le découvert
 autorisé est de -100 euros.
  ^|OK
-  
  
 
 |====
 
+|====
+
+>|Cas de test 4+|Test-01-03-02
+>|Titre 4+|Créditer un compte
+>|Objectif 4+| Vérifier qu'il est possible de créditer un compte
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|All_G_COP.1 ^|Cliquer sur le bouton "Enregistrer Crédit". ^|La page des crédits du compte s’affiche. ^| Un compte actif est sélectionné ^|OK
+^|All_G_COP.2  ^|Rentrer un montant 300 dans le champ "Montant". ^|Le nouveau solde est +350euros. On a créé une nouvelle opération dans la liste des opérations avec le bon montant et la bonne date ^| Le compte sélectionné a un solde de +50 euros
+ ^|OK
+^|All_G_COP.3  ^|Rentrer un montant -50 dans le champ "Montant". ^|Blocage ! La zone de saisie passe en rouge ^| Aucune
+ ^|OK
+  
+ 
+5+|Commentaire : Fonctionnalité développé par Illan GABARRA
+|====
+
+|====
+
+>|Cas de test 4+|Test-01-03-03
+>|Titre 4+|Faire un transfert de compte à compte
+>|Objectif 4+| Vérifier qu'il est possible de faire un transfert de compte à compte
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+
+^|All_G_COP.1 ^|Cliquer sur le bouton "Enregistrer Transfert". ^|La page d'édition de nouveau transfert s’affiche. ^| Un compte actif est sélectionné et on a cliqué sur voir les opérations  ^|OK
+
+^|All_G_COP.2  ^|Rentrer un montant 50 dans le champ "Montant", rentrer l'idendifiant du compte destinataire ^|Le nouveau solde du compte selectionné est +50euros et celui du compte destinataire est +300. On a créé une nouvelle opération dans la liste des opérations du compte selectionné et du compte destinataire avec le montant négatif (-50) pour le compte selectionné et positif pour le compte destinataire (+50) et la bonne date ^| Le compte sélectionné a un solde de +100 euros et le compte destinataire a un solde de 250.
+^|OK
+
+^|All_G_COP.3  ^|Rentrer un montant 250 dans le champ "Montant". ^|Blocage ! + pop-up ^| Le compte sélectionné a un solde de +100 euros, le découvert
+autorisé est de -100 euros.
+ ^|OK
+
+^|All_G_COP.4  ^|Rentrer l'identifiant du compte selectionné dans le champ "Compte destinataire". ^|Blocage ! La zone de saisie passe en rouge |
+ ^|OK
+
+^|All_G_COP.5  ^|Rentrer 10000 dans le champ "Compte destinataire". ^|Blocage ! La zone de saisie passe en rouge ^| Le compte d'identifiant 10000 ne doit pas exister
+ ^|OK
+
+^|All_G_COP.6  ^|Rentrer 10 dans le champ "Compte destinataire". ^|Blocage ! La zone de saisie passe en rouge ^| Le compte d'identifiant 10 doit être clôturé et le compte sélectionné ne doit pas être le 10
+ ^|OK
 
 
 
+
+5+|Commentaire : Fonctionnalité développé par Illan GABARRA
+|====
 
 
 === 2. Fonctionnalités des chefs d'agence :
@@ -155,11 +207,8 @@ Les chefs d'agence ont accès aux mêmes fonctionnalités que les guichetiers, a
 5+|
 
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|C_G_C.1    ^|Sélectionner le bouton "Inactif" et confirmer. ^|...  ^|Un client actif est sélectionné ... ^| ...
+^|C_G_C.1    ^|Cliquer sur modifier client puis sélectionner le bouton "Inactif" et confirmer. ^|...  ^|Un client actif est sélectionné et le test All_G_C.3 est validé ^| ...
 
 5+|
-
-5+|Commentaire : REVOIR AVEC
- *clôturés*.|
 
 |====
