@@ -167,10 +167,7 @@ public class ComptesManagementController {
 		}
 	}
 	
-	/**
-	 * Permet de crée un nouveau compte 
-	 * 
-	 */
+	
 	private void loadList() {
 		ArrayList<CompteCourant> listeCpt;
 		listeCpt = this.cmDialogController.getComptesDunClient();
