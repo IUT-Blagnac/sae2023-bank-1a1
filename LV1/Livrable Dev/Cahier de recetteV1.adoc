@@ -116,8 +116,8 @@ Validé
 |====
 
 >|Cas de test 4+|Test-01-01-01
->|Titre 4+|Création d'un nouveau client
->|Objectif 4+| Vérifier qu'il est possible de créer un nouveau client
+>|Titre 4+|Cloturer un compte courant .
+>|Objectif 4+| Vérifier qu'il est possible de créer un Compte courant pour un client .
 
 5+|
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
