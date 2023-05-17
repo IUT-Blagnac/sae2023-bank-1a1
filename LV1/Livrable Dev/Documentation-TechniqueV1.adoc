@@ -483,4 +483,4 @@ Puis ensuite via un accès à la BD par un objet Access_BD_Client on appelle la 
 
 == Conclusion :
 
-En conclusion, 
+En conclusion, la documentation technique de l'application "DailyBankApp" fournit une vue d'ensemble complète de l'application, de son contexte, de son utilisation, de son architecture et de ses composants. Elle constitue une ressource précieuse pour comprendre le fonctionnement et le développement de cette application de gestion des comptes clients pour la banque DailyBank.
