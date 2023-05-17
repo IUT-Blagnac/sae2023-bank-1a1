@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import application.DailyBankState;
 import application.control.ComptesManagement;
-import application.tools.ConstantesIHM;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -106,7 +105,11 @@ public class ComptesManagementController {
 		this.loadList();
 		this.validateComponentState();
 	}
-	
+	/**
+	 * Permet de changer le text du bouton cloturer et reouvrir 
+	 * 
+	 * @author Bilon
+	 */
 	private void afficheText(CompteCourant cc) {
 		
 		if(cc.estCloture.equals("O")) {
@@ -116,6 +119,11 @@ public class ComptesManagementController {
 		}
 	}
 	@FXML
+	/**
+	 * Permet de cloturer un compte 
+	 * 
+	 * @author Bilon
+	 */
 	private void doClôtureCompte() {
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 		CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
@@ -159,6 +167,10 @@ public class ComptesManagementController {
 		}
 	}
 	
+	/**
+	 * Permet de crée un nouveau compte 
+	 * 
+	 */
 	private void loadList() {
 		ArrayList<CompteCourant> listeCpt;
 		listeCpt = this.cmDialogController.getComptesDunClient();
