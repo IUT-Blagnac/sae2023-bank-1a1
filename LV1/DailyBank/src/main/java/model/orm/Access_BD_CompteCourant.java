@@ -220,7 +220,7 @@ public class Access_BD_CompteCourant {
 	 * @throws DataAccessException si une erreur d'accès à la base de données se produit.
 	 * @throws RowNotFoundOrTooManyRowsException 
 	 * @throws DatabaseConnexionException 
-	 * Par Bilon Kwadjani
+	 * @author Bilon
 	 */
 	public void cloturerCompte(int numCompte) throws DataAccessException, RowNotFoundOrTooManyRowsException, DatabaseConnexionException {
 	    try {

@@ -128,6 +128,7 @@ public class ComptesManagementController {
 
 	@FXML
 	private void doModifierCompte() {
+		
 	}
 
 	@FXML
@@ -145,6 +146,11 @@ public class ComptesManagementController {
 	}
 
 	@FXML
+	/**
+	 * Permet de crée un nouveau compte 
+	 * 
+	 * @author Bilon
+	 */
 	private void doNouveauCompte() {
 		CompteCourant compte;
 		compte = this.cmDialogController.creerNouveauCompte();
