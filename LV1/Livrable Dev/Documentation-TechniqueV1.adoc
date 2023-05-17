@@ -39,7 +39,7 @@ Cette transformation numérique a également conduit à une révolution organisa
 
 Dans ce contexte, la banque DailyBank souhaite développer une application JAVA-Oracle de gestion des comptes clients pour remplacer plusieurs outils obsolètes. Cette application sera déployée dans les 100 agences que compte son réseau et permettra de gérer des comptes bancaires de dépôt pour des clients préalablement créés, de débiter ou créditer un compte soit par virement, soit par une personne physique se présentant devant un guichet. Ce développement s'inscrit dans le cadre de la restructuration des services bancaires de la banque DailyBank.
 
-=== Use Case global
+=== Use case de l'application
 L'application de DailyBank est conçue pour être utilisée par différents acteurs au sein de la banque, ayant chacun des rôles spécifiques et des droits différents. Voici les utilisateurs du logiciel et les actions qui peuvent réaliser :
 
 image::../../ressources/images/uc-initialv1.svg[]
@@ -171,7 +171,7 @@ Le réseau bancaire est utilisé pour les opérations de virement entre comptes 
 ** Nous utilisons Maven qui est un outil pour la gestion et l'automatisation de production des projets logiciels Java en général. 
 
 * SceneBuilder
-** Nous utilisons SceneBuilder, qui est un outil de conception d'interfaces graphiques pour JavaFX. Il permet aux développeurs de créer des interfaces utilisateur (UI) en utilisant une approche de glisser-déposer (drag-and-drop) plutôt que de coder manuellement les éléments de l'interface
+** Nous utilisons SceneBuilder, qui est un outil de conception d'interfaces graphiques pour JavaFX.
 
 === Base de données
 
@@ -255,6 +255,31 @@ A part :
 * model.exception : pour ne pas mélanger classes de code et classes d’exception
 ** A voir sur le code lorsque de besoin.
 * application.tools : pour isoler des classes utilisées à plusieurs endroits et qui sont utilitaires par rapport aux objectifs de l’application.
+
+== Fonctionnalités 
+
+
+=== Modifier les informations des clients
+
+=== Inscrire un nouveau client
+
+=== Consulter un compte
+
+=== Débiter un compte
+
+=== Créditer un compte
+
+=== Créer un compte
+
+=== Effectuer un virement de compte à compte
+
+=== Clôturer un compte
+
+=== Rendre inactif un client
+
+=== Gérer (faire le "CRUD") les employés (guichetier et chef d'agence)*
+
+=== Créditer compte 
 
 == Conclusion
 
