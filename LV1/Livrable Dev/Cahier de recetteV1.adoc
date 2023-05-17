@@ -121,8 +121,7 @@ Validé
 
 5+|
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|1 ^|Cliquer sur le bouton "Cloturer". ^|La fenêtre de création des clients s'ouvre. ^| aucune ^|OK
-^|2 ^|Compléter les champs spécifiés et valider. ^|Un nouveau compte est créé. ^|aucune ^|OK
+^|1 ^|Cliquer sur le bouton "Cloturer". ^|Si le solde est different de 0 : Affichage du mesage de precondition sinon le compte passe de ouvert a clôturer. ^| aucune ^|OK
 
 
 5+|
