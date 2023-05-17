@@ -1,10 +1,11 @@
 = Documentation Technique - DailyBankApp
 :toc:
+:toc-position: preamble
 :toc-title: Sommaire
+:sectnums:
 
 :Entreprise: DailyBank
 :Equipe:  
-
 
 [cols="1,1", options="header"]
 |===
@@ -267,14 +268,14 @@ Chaque fonctionnalité est lié à un cas d'utilisation définit dans la partie 
 ** ClientEditorPane.java
 ** ClientManagement.java
 * package application.tools : 
-* EditionMode.java
+** EditionMode.java
 * package application.view :
 ** ClientEditorPaneController.java
 ** ClienteManagementController.java
 * package model.data :
 ** Client.java
 * package model.orm :
-** AccessClient.java
+** Access_BD_Client.java
 
 === Inscrire un nouveau client : 
 
@@ -284,23 +285,38 @@ Chaque fonctionnalité est lié à un cas d'utilisation définit dans la partie 
 ** ClientEditorPane.java
 ** ClientManagement.java
 * package application.tools : 
-* EditionMode.java
+** EditionMode.java
 * package application.view :
 ** ClientEditorPaneController.java
 ** ClienteManagementController.java
 * package model.data :
 ** Client.java
 * package model.orm :
-** AccessClient.java
+** Access_BD_Client.java
 
 === Consulter un compte : 
 
+*Classes impliquées dans chaque package :*
+
+* package application.control :
+** ClientManagement.java
+** ComptesManagement.java
+* package application.view :
+** ComptesManagementController.java
+* package model.orm :
+** Access_BD_CompteCourant.java
+
 === Débiter un compte  :
+
+[NOTE]
+====
+Expliqué par Illan GABARRA
+====
 
 *Classes impliquées dans chaque package:*
 
 * package model.orm :
-** classe AccessOperation
+** classe Access_BD_Operation
 * package application.view :
 ** classe OperationsManagementController
 ** classe OperationEditorPaneController
@@ -313,14 +329,23 @@ Chaque fonctionnalité est lié à un cas d'utilisation définit dans la partie 
 * package application.tools :
 ** classe ConstantesIHM
 ** classe CategorieOperation
+
+===== Description 
+
+Afin de réaliser une opération de débit, l'utilisateur clique sur le bouton "Enregistrer un débit" ce qui déclenche une méthode créant une page de dialogue demandant la saisie d'un montant et le choix d'un type d'opération, si la création de l'opération est validé par le clic sur le bouton "Effectuer débit" et que le montant est valide (montant supérieur à 0 et découvert non dépassé) alors l'opération est inscrite dans la base de donnée par un appel de la procédure SQL (DEBITER).
 
 
 === Créditer un compte :
 
+[NOTE]
+====
+Développé par Illan GABARRA
+====
+
 *Classes impliquées dans chaque package:*
 
 * package model.orm :
-** classe AccessOperation
+** classe Access_BD_Operation
 * package application.view :
 ** classe OperationsManagementController
 ** classe OperationEditorPaneController
@@ -334,6 +359,12 @@ Chaque fonctionnalité est lié à un cas d'utilisation définit dans la partie 
 ** classe ConstantesIHM
 ** classe CategorieOperation
 
+
+===== Description 
+
+Cette fonctionnalité a été faite en faisant des modifications dans plusieurs classes et en créant une procédure SQL (CREDITER) afin de pour voir inscrire les opérations de crédit. Cette fonctionnalité se base sur celle de débiter un compte.
+
+Afin de réaliser une opération de crédit, l'utilisateur clique sur le bouton "Enregistrer un crédit" ce qui déclenche une méthode créant une page de dialogue demandant la saisie d'un montant et le choix d'un type d'opération, si la création de l'opération est validé par le clic sur le bouton "Effectuer crédit" et que l'opération est valide alors l'opération est inscrite dans la base de donnée par la procédure SQL (CREDITER).
 
 === Créer un compte :
 
@@ -343,22 +374,27 @@ Chaque fonctionnalité est lié à un cas d'utilisation définit dans la partie 
 ** CompteEditorPane.java
 ** CompteManagement.java
 * package application.tools : 
-* EditionMode.java
+** EditionMode.java
 * package application.view :
 ** CompteEditorPaneController.java
 ** CompteManagementController.java
 * package model.data :
 ** CompteCourant.java
 * package model.orm :
-** AccessCompteCourant.java
+** Access_BD_CompteCourant.java
 
 === Effectuer un virement de compte à compte :
+
+[NOTE]
+====
+Développé par Illan GABARRA
+====
 
 *Classes impliquées dans chaque package :*
 
 * package model.orm :
-** classe AccessOperation
-** classe AccessCompteCourant
+** classe Access_BD_Operation
+** classe Access_BD_CompteCourant
 * package application.view :
 ** classe OperationsManagementController
 ** classe OperationEditorPaneController
@@ -373,13 +409,22 @@ Chaque fonctionnalité est lié à un cas d'utilisation définit dans la partie 
 ** classe ConstantesIHM
 ** classe CategorieOperation
 
+Description :
+
+Cette fonctionnalité a été faite en faisant des modifications dans plusieurs classes et en créant une nouvelle classe.
+Cependant elle se base sur les fonctionnalités Debiter et Crediter.
+
+Tout d'abord j'ai du créer la classe OperationTransfert héritant de la classe Opération afin de stocker le compte destinataire avec l'attribut public "idNumCompteDestinataire" avec l'objet Opération qui est créé afin de l'inscrire dans la base de données.
+
+Au même tire que debiter ou crediter, l'utilisateur clique sur le bouton "Enregistrer un transfert" ce qui déclenche une méthode créant une page de dialogue demandant la saisie d'un montant, le choix d'un type d'opération et le compte destinataire, si la création de l'opération est validé par le clic sur le bouton "Effectuer transfert", que le compte destinataire n'est pas clôturé et que l'opération est considéré comme valide (Les mêmes préconditions que débiter), alors dans la méthode Access_BD_Operation.insertTransfert
+
 
 === Clôturer un compte :
 
 *Classes impliquées dans chaque package :*
 
 * package model.orm :
-** classe AccessCompteCourant
+** classe Access_BD_CompteCourant
 * package application.view :
 ** classe ComptesManagementController
 * package application.control :
@@ -396,14 +441,14 @@ Chaque fonctionnalité est lié à un cas d'utilisation définit dans la partie 
 * package application.control :
 ** ClientManagement.java
 * package application.tools : 
-* EditionMode.java
+** EditionMode.java
 * package application.view :
 ** ClienteManagementController.java
 * package model.data :
 ** Client.java
 * package model.orm :
-** AccessClient.java
-** AccessCompteCourant.java
+** Access_BD_Client.java
+** Access_BD_CompteCourant.java
 
 === Gérer (faire le "CRUD") les employés (guichetier et chef d'agence) :
 
@@ -420,7 +465,7 @@ Chaque fonctionnalité est lié à un cas d'utilisation définit dans la partie 
 * package model.data :
 ** Employe.java
 * package model.orm :
-** AccessEmploye.java
+** Access_BD_Employe.java
 
 == Conclusion :
 
