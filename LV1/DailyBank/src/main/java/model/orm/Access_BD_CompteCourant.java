@@ -180,7 +180,9 @@ public class Access_BD_CompteCourant {
 	*/
 	public void insertCompteC(CompteCourant cc) throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {
 	    try {
-	    	cc.debitAutorise = -cc.debitAutorise;
+	    	if (cc.debitAutorise > 0) {
+				cc.debitAutorise = -cc.debitAutorise;
+			}
 	        Connection con = LogToDatabase.getConnexion();
 	        String query = "INSERT INTO CompteCourant (idNumCompte, debitAutorise, solde, idNumCli, estCloture) VALUES (seq_id_compte.NEXTVAL, ?, ?, ?, ?)";
 	        PreparedStatement pst = con.prepareStatement(query);
