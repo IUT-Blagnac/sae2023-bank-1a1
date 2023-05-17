@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import application.DailyBankState;
 import application.control.ComptesManagement;
+import application.tools.ConstantesIHM;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -17,7 +18,12 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.Client;
 import model.data.CompteCourant;
+<<<<<<< HEAD
 import application.view.ClientsManagementController;
+=======
+import model.orm.Access_BD_CompteCourant;
+
+>>>>>>> c8fb82e79f35050cf03516918841b323aa904ef7
 public class ComptesManagementController {
 
 	// Etat courant de l'application
@@ -121,7 +127,7 @@ public class ComptesManagementController {
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 		CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
 		if (selectedIndice >= 0) {
-				this.cmDialogController.Cloture(cpt);
+				this.cmDialogController.cloture(cpt);
 			}
 		this.loadList();
 		this.validateComponentState();
@@ -132,7 +138,17 @@ public class ComptesManagementController {
 	}
 
 	@FXML
+	/**
+	 * Permet de supprimer le compte selectionné 
+	 * 
+	 * @author illan
+	 */
 	private void doSupprimerCompte() {
+		
+		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
+		this.cmDialogController.suppressionCompte(this.oListCompteCourant.get(selectedIndice));
+		this.loadList();
+		validateComponentState();
 	}
 
 	@FXML
@@ -143,7 +159,7 @@ public class ComptesManagementController {
 			this.oListCompteCourant.add(compte);
 		}
 	}
-
+	
 	private void loadList() {
 		ArrayList<CompteCourant> listeCpt;
 		listeCpt = this.cmDialogController.getComptesDunClient();
@@ -153,10 +169,10 @@ public class ComptesManagementController {
 
 	private void validateComponentState() {
 		// Non implémenté => désactivé
-		this.btnModifierCompte.setDisable(true);
-		this.btnSupprCompte.setDisable(true);
+		
 
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
+<<<<<<< HEAD
 		if(ClientsManagementController.estInactif.equals("O")){
 			this.btnNouveauCompte.setDisable(true);
 		}else {
@@ -165,14 +181,31 @@ public class ComptesManagementController {
 		if (selectedIndice >= 0) {
 			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
 			afficheText(cpt);
+=======
+		
+		if (!ConstantesIHM.estActif(this.clientDesComptes)) {
+			this.btnNouveauCompte.setDisable(true);
+>>>>>>> c8fb82e79f35050cf03516918841b323aa904ef7
 		}
 		
-		if (selectedIndice >= 0) {
+		if (selectedIndice >= 0 & ConstantesIHM.estActif(this.clientDesComptes) ) {
+			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
+			afficheText(cpt);
+			
 			this.btnVoirOpes.setDisable(false);
 			this.btnClôtureCompte.setDisable(false);
+			this.btnModifierCompte.setDisable(false);
+			
+			if (cpt.estCloture.equals("O")) {
+				this.btnSupprCompte.setDisable(false);
+			}
+			
+			
 		} else {
 			this.btnClôtureCompte.setDisable(true);
 			this.btnVoirOpes.setDisable(true);
+			this.btnModifierCompte.setDisable(true);
+			this.btnSupprCompte.setDisable(true);
 		}
 	}
 }

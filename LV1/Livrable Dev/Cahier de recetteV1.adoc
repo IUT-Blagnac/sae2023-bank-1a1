@@ -100,7 +100,7 @@ Validé
 
 |====
 
->|Cas de test 4+|Test-01-02-03
+>|Cas de test 4+|Test-01-02-01
 >|Titre 4+|Consultation d'un compte
 >|Objectif 4+| Vérifier qu'il est possible de consulter un compte
 
@@ -115,19 +115,56 @@ Validé
 
 |====
 
->|Cas de test 4+|Test-01-01-01
+>|Cas de test 4+|Test-01-02-02
 >|Titre 4+|Cloturer un compte courant .
 >|Objectif 4+| Vérifier qu'il est possible de créer un Compte courant pour un client .
 
 5+|
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|1 ^|Cliquer sur le bouton "Cloturer". ^|Si le solde est different de 0 : Affichage du mesage de precondition sinon le compte passe de ouvert a clôturer. ^| aucune ^|OK
+^|Gestion_T_CC_Clt.1^|Cliquer sur le bouton "Cloturer". ^|pop-up avec message de précondition ^| Solde du compte different de 0. ^|OK
+^|Gestion_T_CC_Clt.2^|Cliquer sur le bouton "Cloturer". ^|Compte affiche cloturer + boutton cloturer affiche reouvrir ^| Solde du compte=0. ^|OK
 
 
 5+|
 
-5+|Commentaire :
+5+|Commentaire :Fonctionnalité développé par Bilon Kwadjani
 Validé
+
+|====
+
+|====
+
+>|Cas de test 4+|Test-01-02-03
+>|Titre 4+|ReOuvrir un compte courant .
+>|Objectif 4+| Vérifier qu'il est possible de Reouvrir un Compte courant pour un client .
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|Gestion_T_CC_Clt.1^|Cliquer sur le bouton "ReOuvrir". ^|Compte affiche Ouvert + boutton cloturer affiche cloturer^| Compte cloturer ^|OK
+
+
+
+5+|
+
+5+|Commentaire :Fonctionnalité développé par Bilon Kwadjani
+Validé
+
+|====
+
+|====
+
+>|Cas de test 4+|Test-01-02-04
+>|Titre 4+|Crée un compte courant
+>|Objectif 4+| Vérifier qu'il est possible de crée un compte courant pour un client.
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|Gestion_T_CC_Cree.1  ^|Cliquer sur le bouton "Nouveau compte". ^|Affichage d'une fenetre pour définir le solde et le découvert autorisé . ^| Le compte client n'est pas desactivé
+ ^|OK
+^|Gestion_T_CC_Cree.2  ^|Rentrer un montant 50 dans le champ "Decouvert Autoriser" et Rentrer un montant 10 dans le champ "solde(premier depot)" ^|Le découvert autorisé est -50euros le solde du compte est de 10. On a créé une nouveau compte dans la liste des compte avec son solde et son découvert autorisé ^| Montant>0
+ ^|OK
+
 
 |====
 

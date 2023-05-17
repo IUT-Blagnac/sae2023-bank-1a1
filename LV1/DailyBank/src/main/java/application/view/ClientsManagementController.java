@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import application.DailyBankState;
 import application.control.ClientsManagement;
+import application.tools.ConstantesIHM;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -14,6 +15,10 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.Client;
+import model.orm.Access_BD_Client;
+import model.orm.exception.DataAccessException;
+import model.orm.exception.DatabaseConnexionException;
+import model.orm.exception.RowNotFoundOrTooManyRowsException;
 
 public class ClientsManagementController {
 	//Etat du compte 
@@ -149,7 +154,31 @@ public class ClientsManagementController {
 	}
 
 	@FXML
+	/**
+	 * Réactivation ou activation d'un client selectionné
+	 * 
+	 * @author illan
+	 */
 	private void doDesactiverClient() {
+		int selectedIndice = this.lvClients.getSelectionModel().getSelectedIndex();
+		Client clientSelected = this.oListClients.get(selectedIndice);
+
+		if (ConstantesIHM.estActif(clientSelected)) {
+			clientSelected.estInactif = ConstantesIHM.CLIENT_INACTIF;
+		}
+		else {
+			clientSelected.estInactif = ConstantesIHM.CLIENT_ACTIF;
+		}
+
+		Access_BD_Client acClient = new Access_BD_Client();
+
+		try {
+			acClient.updateClient(clientSelected);
+		} catch (RowNotFoundOrTooManyRowsException | DataAccessException | DatabaseConnexionException e) {
+		}
+		doRechercher();
+		this.validateComponentState();
+
 	}
 
 	@FXML
@@ -163,7 +192,7 @@ public class ClientsManagementController {
 
 	private void validateComponentState() {
 		// Non implémenté => désactivé
-		this.btnDesactClient.setDisable(true);
+
 		int selectedIndice = this.lvClients.getSelectionModel().getSelectedIndex();
 		Client unC= this.oListClients.get(selectedIndice);
 		if(unC.estInactif.equals("O")) {
@@ -175,10 +204,24 @@ public class ClientsManagementController {
 			
 			this.btnModifClient.setDisable(false);
 			this.btnComptesClient.setDisable(false);
+			if (ConstantesIHM.isAdmin(dailyBankState.getEmployeActuel())) {
+
+				this.btnDesactClient.setDisable(false);
+				if (ConstantesIHM.estActif(this.oListClients.get(selectedIndice))) {
+					this.btnDesactClient.setText("Desactiver Client");
+				}
+				else {
+					this.btnDesactClient.setText("Activer Client");
+				}
+				
+			}
 		} else {
 			
 			this.btnModifClient.setDisable(true);
 			this.btnComptesClient.setDisable(true);
+			this.btnDesactClient.setDisable(true);
+			this.btnDesactClient.setText("Desactiver Client");
 		}
+
 	}
 }

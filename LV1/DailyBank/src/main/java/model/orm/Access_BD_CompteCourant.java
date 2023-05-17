@@ -243,6 +243,41 @@ public class Access_BD_CompteCourant {
 	    }
 	}
 	/**
+	 * Cette méthode permet de supprimer un compte courant clôturé dans la base de données.
+	 * @param compteSup Le compte à supprimer.
+	 * @throws DataAccessException si une erreur d'accès à la base de données se produit.
+	 * @throws RowNotFoundOrTooManyRowsException 
+	 * @throws DatabaseConnexionException 
+	 * @author Illan GABARRA
+	 */
+	public void supprimerCompte(CompteCourant compteSup) throws DataAccessException, RowNotFoundOrTooManyRowsException, DatabaseConnexionException {
+	    try {
+	    	
+	    	Access_BD_Operation accOperation = new Access_BD_Operation();
+	    	
+	    	accOperation.suppressionOperations(compteSup.idNumCompte);
+	    	
+	        Connection con = LogToDatabase.getConnexion();
+	        
+	        String query = "DELETE CompteCourant WHERE idNumCompte = ?";
+	        
+	        System.err.println(query);
+	        PreparedStatement pst = con.prepareStatement(query);
+	        pst.setInt(1, compteSup.idNumCompte);
+	        
+	        int result = pst.executeUpdate();
+	        pst.close();
+	        
+	        if (result != 1) {
+	            con.rollback();
+	            throw new RowNotFoundOrTooManyRowsException(Table.CompteCourant, Order.DELETE, "Suppression anormal ", null, result);
+	        }
+	        con.commit();
+	    } catch (SQLException e) {
+	        throw new DataAccessException(Table.CompteCourant, Order.UPDATE, "Erreur accès", e);
+	    }
+	}
+	/**
 	 * Cette méthode permet de clôturer un compte courant dans la base de données.
 	 * @param numCompte Le numéro du compte à clôturer.
 	 * @throws DataAccessException si une erreur d'accès à la base de données se produit.

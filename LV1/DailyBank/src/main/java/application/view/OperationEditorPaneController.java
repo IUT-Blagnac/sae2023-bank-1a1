@@ -122,9 +122,9 @@ public class OperationEditorPaneController {
 
 		}
 
-		// Paramétrages spécifiques pour les chefs d'agences
+		// Paramétragpour l'instantes spécifiques pour les chefs d'agences
 		if (ConstantesIHM.isAdmin(this.dailyBankState.getEmployeActuel())) {
-			// rien pour l'instant
+			// rien 
 		}
 
 		this.operationResultat = null;
