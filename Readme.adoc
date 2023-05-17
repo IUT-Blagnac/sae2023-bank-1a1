@@ -50,7 +50,7 @@ Dans sa colonne il doit remplir la ligne correspondant à chaque partie qu'il a 
 |         | Gantt V2 Prevu|https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV2/Livrables%20Gestion%20de%20projet/Planification%20GANTT%20V2.png|     
 |         | Doc. Tec. V1 |        |    
 |         | Doc User V1    |   https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/Livrables%20Gestion%20de%20projet/documentUtilisateur.adoc     |
-|         | Recette V1  |                      | 
+|         | Recette V1  |https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/Livrable%20Dev/Cahier%20de%20recetteV1.adoc| 
 |         | Suivi projet V1|   | 
 |         | Jar V1 | https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/Livrable%20Dev/DailyBank-1.0%20.jar|
 | 26/05   | Gantt V2  réalisé    |       | 
