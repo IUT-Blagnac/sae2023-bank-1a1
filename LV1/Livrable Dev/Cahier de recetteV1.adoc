@@ -1,0 +1,151 @@
+= Cahier De Recette - DailyBankApp
+:toc:
+:toc-title: Sommaire
+
+:Entreprise: DailyBank
+:Equipe:  
+
+Créé par : 
+Créé pour :  
+
+ 
+
+
+
+== I. Introduction
+=== 1. Objet :
+[.text-justify]
+Ce document a été produit dans le cadre d'un projet d'élaboration d'une application bancaire pour ...
+
+
+== II. Pre-Requis :
+[.text-justify]
+L'exécution des tests spécifiés au chapitre suivant requiert :
+
+* Une base de données installée (référence document technique).
+* L'environnement de test tel que spécifié dans la partie "Environnement de test" de ce document.
+* Les fiches de tests. *À vérifier*
+
+
+=== 1. Éléments à tester :
+[.text-justify]
+Les éléments testés concernent les Use-Cases spécifiés dans la *documentation technique*.
+
+
+=== 2. Environnement de test :
+[.text-justify]
+Ordinateur sous Windows ou OS équivalent.
+
+
+
+== III. Cas de test :
+=== 1. Fonctionnalités des guichetiers :
+==== 1.1 Gestion des clients :
+
+|====
+
+>|Cas de test 4+|Test-01-01-01
+>|Titre 4+|Création d'un nouveau client
+>|Objectif 4+| Vérifier qu'il est possible de créer un nouveau client
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|All_G_C.1 ^|Cliquer sur le bouton "Nouveau client". ^|La fenêtre de création des clients s'ouvre. ^| aucune ^|OK
+^|All_G_C.2 ^|Compléter les champs spécifiés et valider. ^|Un nouveau client est créé. ^|aucune ^|OK
+
+
+5+|
+
+5+|Commentaire :
+Compléter et si on ne valide pas, ...
+|====
+
+
+|====
+
+>|Cas de test 4+|Test-01-01-02
+>|Titre 4+|Modification d'un client
+>|Objectif 4+| Vérifier qu'il est possible de modifier un client
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|All_G_C.3 ^|Cliquer sur le bouton "Modifier client". ^|La fenêtre de modification des données du clients s'ouvre. ^|Le client est sélectionné ^|OK
+^|All_G_C.4 ^|Modifier les champs souhaités et confirmer. ^|Retour sur les informations du client. Le client est modifié. ^|La fenêtre modifier client est active ^|OK
+^|All_G_C.5 ^|Modifier les champs souhaités et annuler. ^|Retour sur les informations du client. Le client est inchangé. ^|La fenêtre modifier client est active ^|OK
+
+|====
+
+
+==== 1.2 Gestion des comptes bancaires :
+
+
+|====
+
+>|Cas de test 4+|Test-01-02-03
+>|Titre 4+|Consultation d'un compte
+>|Objectif 4+| Vérifier qu'il est possible de consulter un compte
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|All_G_CB.1 ^|Cliquer sur le bouton "Comptes client". ^|La page des comptes du client s’affiche. ^|Un client actif est sélectionné ^|OK
+^|All_G_CB.2 ^|Sélectionner le bouton "Voir opérations". ^|La page des opérations du compte s’affiche. ^|Un compte actif est sélectionné ^|OK
+...
+
+|====
+
+
+==== 1.3 Gestion des opérations :
+
+|====
+
+>|Cas de test 4+|Test-01-03-01
+>|Titre 4+|Débiter un compte
+>|Objectif 4+| Vérifier qu'il est possible de débiter un compte
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|All_G_COP.1 ^|Cliquer sur le bouton "Enregistrer Débit". ^|La page des débit du compte s’affiche. ^| Un compte actif est sélectionné ^|OK
+^|All_G_COP.2  ^|Rentrer un montant 50 dans le champ "Montant". ^|Le nouveau solde est +50euros. On a créé une nouvelle opération dans la liste des opérations avec le bon montant et la bonne date ^| Le compte sélectionné a un solde de +100 euros
+ ^|OK
+^|All_G_COP.3  ^|Rentrer un montant 150 dans le champ "Montant". ^|Le nouveau solde est -50 euros. On a créé une nouvelle opération dans la liste des opérations avec le bon montant et la bonne date ^| Le compte sélectionné a un solde de +100 euros, le découvert
+autorisé est de -100 euros.
+ ^|OK
+^|All_G_COP.4  ^|Rentrer un montant 250 dans le champ "Montant". ^|Blocage ! + pop-up ^| Le compte sélectionné a un solde de +100 euros, le découvert
+autorisé est de -100 euros.
+ ^|OK
+  
+ 
+
+|====
+
+
+
+
+
+
+=== 2. Fonctionnalités des chefs d'agence :
+[.text-justify]
+Les chefs d'agence ont accès aux mêmes fonctionnalités que les guichetiers, ainsi que d'autres qui leur sont réservées.
+
+==== 2.1 Gestion des clients :
+
+|====
+
+>|Cas de test 4+|Test-02-01-01
+>|Titre 4+|Rendre inactif un client
+>|Objectif 4+| Vérifier qu'il est possible de rendre un client inactif
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|C_G_C.1    ^|Sélectionner le bouton "Inactif" et confirmer. ^|...  ^|Un client actif est sélectionné ... ^| ...
+
+5+|
+
+5+|Commentaire : REVOIR AVEC
+ *clôturés*.|
+
+|====
