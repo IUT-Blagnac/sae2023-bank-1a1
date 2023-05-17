@@ -243,7 +243,38 @@ public class Access_BD_Operation {
 		
 		System.out.println("Crédit fait");
 	}
-
+	/**
+	 * Suppression toutes les opérations d'un compte.
+	 *
+	 *
+	 * @author Illan GABARRA
+	 *
+	 * @param idNumCompte Compte pour lequel supprimer les opérations
+	 * @throws DataAccessException        Erreur d'accès aux données (requête mal
+	 *                                    formée ou autre)
+	 * @throws DatabaseConnexionException Erreur de connexion
+	 * @throws ManagementRuleViolation    Si dépassement découvert autorisé sur le compte débité
+	 * @throws SQLException 
+	 * @throws RowNotFoundOrTooManyRowsException 
+	 */
+	public void suppressionOperations(int idNumCompte) 
+			throws DatabaseConnexionException, DataAccessException, SQLException, RowNotFoundOrTooManyRowsException {
+	
+        Connection con = LogToDatabase.getConnexion();
+        
+        String query = "DELETE Operation WHERE idNumCompte = ?";
+        
+        System.err.println(query);
+        
+        PreparedStatement pst = con.prepareStatement(query);
+        pst.setInt(1, idNumCompte);
+        
+        pst.executeUpdate();
+        
+        pst.close();
+        
+        con.commit();
+	}
 
 	/*
 	 * Fonction utilitaire qui retourne un ordre sql "to_date" pour mettre une date

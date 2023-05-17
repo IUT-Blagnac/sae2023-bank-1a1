@@ -163,8 +163,24 @@ public class ComptesManagement {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-
+	}
+	/**
+	 * 
+	 *Supprime un compte courant clôturé
+	 *
+	 *@param cc Le compte courant à clôturer ou rouvrir.
+	 *
+	 *@author Illan GABARRA
+	 *
+	 **/
+	public void suppressionCompte(CompteCourant cSup) {
+		Access_BD_CompteCourant acc = new Access_BD_CompteCourant();
+		if("O".equals(cSup.estCloture)){
+			try {
+				acc.supprimerCompte(cSup);
+			} catch (DataAccessException | RowNotFoundOrTooManyRowsException | DatabaseConnexionException e) {
+			}
+		}
 
 	}
 }

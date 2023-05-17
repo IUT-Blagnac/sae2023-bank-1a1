@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.Client;
 import model.data.CompteCourant;
+import model.orm.Access_BD_CompteCourant;
 
 public class ComptesManagementController {
 
@@ -130,7 +131,17 @@ public class ComptesManagementController {
 	}
 
 	@FXML
+	/**
+	 * Permet de supprimer le compte selectionné 
+	 * 
+	 * @author illan
+	 */
 	private void doSupprimerCompte() {
+		
+		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
+		this.cmDialogController.suppressionCompte(this.oListCompteCourant.get(selectedIndice));
+		this.loadList();
+		validateComponentState();
 	}
 
 	@FXML
@@ -141,7 +152,7 @@ public class ComptesManagementController {
 			this.oListCompteCourant.add(compte);
 		}
 	}
-
+	
 	private void loadList() {
 		ArrayList<CompteCourant> listeCpt;
 		listeCpt = this.cmDialogController.getComptesDunClient();
@@ -151,21 +162,27 @@ public class ComptesManagementController {
 
 	private void validateComponentState() {
 		// Non implémenté => désactivé
-		this.btnModifierCompte.setDisable(true);
-		this.btnSupprCompte.setDisable(true);
+		
 
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {
 			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
 			afficheText(cpt);
-		}
-		
-		if (selectedIndice >= 0) {
+			
 			this.btnVoirOpes.setDisable(false);
 			this.btnClôtureCompte.setDisable(false);
+			this.btnModifierCompte.setDisable(false);
+			
+			if (cpt.estCloture.equals("O")) {
+				this.btnSupprCompte.setDisable(false);
+			}
+			
+			
 		} else {
 			this.btnClôtureCompte.setDisable(true);
 			this.btnVoirOpes.setDisable(true);
+			this.btnModifierCompte.setDisable(true);
+			this.btnSupprCompte.setDisable(true);
 		}
 	}
 }
