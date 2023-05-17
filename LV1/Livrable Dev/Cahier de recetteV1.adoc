@@ -113,6 +113,24 @@ Validé
 
 |====
 
+|====
+
+>|Cas de test 4+|Test-01-01-01
+>|Titre 4+|Cloturer un compte courant .
+>|Objectif 4+| Vérifier qu'il est possible de créer un Compte courant pour un client .
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|1 ^|Cliquer sur le bouton "Cloturer". ^|Si le solde est different de 0 : Affichage du mesage de precondition sinon le compte passe de ouvert a clôturer. ^| aucune ^|OK
+
+
+5+|
+
+5+|Commentaire :
+Validé
+
+|====
+
 
 ==== 1.3 Gestion des opérations :
 
