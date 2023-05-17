@@ -1,21 +1,35 @@
 = Cahier De Recette - DailyBankApp
 :toc:
 :toc-title: Sommaire
-
 :Entreprise: DailyBank
 :Equipe:  
 
-Créé par : 
-Créé pour :  
+[cols="1,1", options="header"]
+|===
+| Version | Date
 
- 
+| V1 | 17 mai 2023 
+|===
+
+[discrete]
+=== Equipe : 1A1
+
+[discrete]
+=== Membres :
+[cols="1,1,1", options="header"]
+|===
+
+|Mathéo KATBIE | Bilon KWADJANI |Illan GABARRA
+
+|===
 
 
 
 == I. Introduction
+
 === 1. Objet :
 [.text-justify]
-Ce document a été produit dans le cadre d'un projet d'élaboration d'une application bancaire pour ...
+Ce document a été produit dans le cadre d'un projet d'élaboration d'une application bancaire pour la banque DailyBank souhaitant développer une application Java-Oracle pour gérer les comptes clients dans ses 100 agences. L'application sera utilisée par des guichetiers et des chefs d'agence avec des droits d'accès différents. L'objectif est de remplacer plusieurs outils obsolètes et de moderniser les services bancaires.
 
 
 == II. Pre-Requis :
@@ -24,7 +38,7 @@ L'exécution des tests spécifiés au chapitre suivant requiert :
 
 * Une base de données installée (référence document technique).
 * L'environnement de test tel que spécifié dans la partie "Environnement de test" de ce document.
-* Les fiches de tests. *À vérifier*
+* Les fiches de tests.
 
 
 === 1. Éléments à tester :
