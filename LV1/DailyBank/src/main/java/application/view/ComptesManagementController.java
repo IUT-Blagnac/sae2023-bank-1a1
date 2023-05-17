@@ -120,7 +120,7 @@ public class ComptesManagementController {
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 		CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
 		if (selectedIndice >= 0) {
-				this.cmDialogController.Cloture(cpt);
+				this.cmDialogController.cloture(cpt);
 			}
 		this.loadList();
 		this.validateComponentState();

@@ -135,7 +135,7 @@ public class ComptesManagement {
 	 *@author Bilon
 	 *
 	 **/
-	public void Cloture(CompteCourant cc) {
+	public void cloture(CompteCourant cc) {
 		try {
 			Access_BD_CompteCourant ac = new Access_BD_CompteCourant();
 			if("O".equals(cc.estCloture)){
