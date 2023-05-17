@@ -16,6 +16,8 @@ import javafx.stage.WindowEvent;
 import model.data.Client;
 
 public class ClientsManagementController {
+	//Etat du compte 
+	public static String estInactif ="";
 
 	// Etat courant de l'application
 	private DailyBankState dailyBankState;
@@ -163,10 +165,18 @@ public class ClientsManagementController {
 		// Non implémenté => désactivé
 		this.btnDesactClient.setDisable(true);
 		int selectedIndice = this.lvClients.getSelectionModel().getSelectedIndex();
+		Client unC= this.oListClients.get(selectedIndice);
+		if(unC.estInactif.equals("O")) {
+			estInactif="O";
+		}else {
+			estInactif="N";
+		}
 		if (selectedIndice >= 0) {
+			
 			this.btnModifClient.setDisable(false);
 			this.btnComptesClient.setDisable(false);
 		} else {
+			
 			this.btnModifClient.setDisable(true);
 			this.btnComptesClient.setDisable(true);
 		}

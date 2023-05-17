@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.Client;
 import model.data.CompteCourant;
-
+import application.view.ClientsManagementController;
 public class ComptesManagementController {
 
 	// Etat courant de l'application
@@ -87,6 +87,8 @@ public class ComptesManagementController {
 	private Button btnSupprCompte;
 	@FXML
 	private Button btnClôtureCompte;
+	@FXML
+	private Button btnNouveauCompte;
 	
 
 	@FXML
@@ -155,6 +157,11 @@ public class ComptesManagementController {
 		this.btnSupprCompte.setDisable(true);
 
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
+		if(ClientsManagementController.estInactif.equals("O")){
+			this.btnNouveauCompte.setDisable(true);
+		}else {
+			this.btnNouveauCompte.setDisable(false);
+		}
 		if (selectedIndice >= 0) {
 			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
 			afficheText(cpt);
