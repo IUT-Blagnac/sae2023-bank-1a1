@@ -409,14 +409,14 @@ Développé par Illan GABARRA
 ** classe ConstantesIHM
 ** classe CategorieOperation
 
-Description :
+===== Description 
 
 Cette fonctionnalité a été faite en faisant des modifications dans plusieurs classes et en créant une nouvelle classe.
 Cependant elle se base sur les fonctionnalités Debiter et Crediter.
 
 Tout d'abord j'ai du créer la classe OperationTransfert héritant de la classe Opération afin de stocker le compte destinataire avec l'attribut public "idNumCompteDestinataire" avec l'objet Opération qui est créé afin de l'inscrire dans la base de données.
 
-Au même tire que debiter ou crediter, l'utilisateur clique sur le bouton "Enregistrer un transfert" ce qui déclenche une méthode créant une page de dialogue demandant la saisie d'un montant, le choix d'un type d'opération et le compte destinataire, si la création de l'opération est validé par le clic sur le bouton "Effectuer transfert", que le compte destinataire n'est pas clôturé et que l'opération est considéré comme valide (Les mêmes préconditions que débiter), alors dans la méthode Access_BD_Operation.insertTransfert
+Au même tire que debiter ou crediter, l'utilisateur clique sur le bouton "Enregistrer un transfert" ce qui déclenche une méthode créant une page de dialogue demandant la saisie d'un montant, le choix d'un type d'opération et le compte destinataire, si la création de l'opération est validé par le clic sur le bouton "Effectuer transfert", que le compte destinataire n'est pas clôturé et que l'opération est considéré comme valide (Les mêmes préconditions que débiter), alors dans la méthode Access_BD_Operation.insertTransfert fait appel à la fonction Access_BD_Operation.insertDebit pour débiter le compte selectionné puis Access_BD_Operation.insertCrédit pour créditer le compte destinataire dans la base de donnée.
 
 
 === Clôturer un compte :
