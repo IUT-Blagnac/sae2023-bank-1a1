@@ -48,34 +48,34 @@ Tous ces cas d'utilisation sont possible si l'utilisateur s'est authentifié ave
 
 ==== Guichetier
 
-- Le guichetier est le premier niveau de droit d'accès, il peut lire toutes les informations sur les client (Comptes, opérations, informations personneles), faire toutes les opérations de base sur des clients de son agence, créer de nouveaux clients et de nouveaux comptes, cloturer des comptes et les réouvrir. 
+Le guichetier est le premier niveau de droit d'accès, il peut lire toutes les informations sur les client (Comptes, opérations, informations personneles), faire toutes les opérations de base sur des clients de son agence, créer de nouveaux clients et de nouveaux comptes, cloturer des comptes et les réouvrir. 
 
-- Modifier les informations des clients : le guichetier peut accéder aux informations des clients existants et les modifier si nécessaire, par exemple, en mettant à jour leurs numéros de téléphone ou leurs adresses.
+- *Modifier les informations des clients* : le guichetier peut accéder aux informations des clients existants et les modifier si nécessaire, par exemple, en mettant à jour leurs numéros de téléphone ou leurs adresses.
 
-- Inscrire un nouveau client : le guichetier peut enregistrer les informations personnelles d'un nouveau client dans le système, comme son nom, son adresse, son numéro de téléphone.
+- *Inscrire un nouveau client* : le guichetier peut enregistrer les informations personnelles d'un nouveau client dans le système, comme son nom, son adresse, son numéro de téléphone.
 
-- Consulter un compte : le guichetier peut accéder aux informations des comptes d'un client existant, comme le solde actuel et les transactions récentes.
+- *Consulter un compte* : le guichetier peut accéder aux informations des comptes d'un client existant, comme le solde actuel et les transactions récentes.
 
-- Débiter un compte : le guichetier peut effectuer des opérations de débit sur le compte d'un client, par exemple, en retirant de l'argent liquide ou en effectuant un paiement. Pour cela le montant débité doit être supérieur à 0 et le solde après débit ne dois pas être inférieur au découvert autorisé et le compte client à qui appartient le compte ne doit pas être désactivé.
+- *Débiter un compte* : le guichetier peut effectuer des opérations de débit sur le compte d'un client, par exemple, en retirant de l'argent liquide ou en effectuant un paiement. Pour cela le montant débité doit être supérieur à 0 et le solde après débit ne dois pas être inférieur au découvert autorisé et le compte client à qui appartient le compte ne doit pas être désactivé.
 
-- Créditer un compte (Java et BD avec procédure stockée) : le guichetier peut effectuer des opérations de crédit sur le compte d'un client. Pour cela le montant crédité doit être supérieur à 0 et le compte client à qui appartient le compte ne doit pas être désactivé.
+- *Créditer un compte* (Java et BD avec procédure stockée) : le guichetier peut effectuer des opérations de crédit sur le compte d'un client. Pour cela le montant crédité doit être supérieur à 0 et le compte client à qui appartient le compte ne doit pas être désactivé.
 
-- Créer un compte : le guichetier peut créer un nouveau compte pour un client existant en générant un nouveau numéro de compte unique. Pour cela le compte du client ne doit pas être désactivé.
+- *Créer un compte* : le guichetier peut créer un nouveau compte pour un client existant en générant un nouveau numéro de compte unique. Pour cela le compte du client ne doit pas être désactivé.
 
-- Effectuer un virement de compte à compte : le guichetier peut transférer de l'argent d'un compte à un autre en utilisant le numéro de compte du destinataire et le montant à transférer. Les comptes doivent appartenir à des clients de la DailyBank. Le montant transféré devra être supérieur à 0. Le solde après transfert du compte source ne dois pas être inférieur au découvert autorisé et les comptes clients à qui appartiennent les comptes ne doivent pas être désactivés et les comptes non clôturés.
+- *Effectuer un virement de compte à compte* : le guichetier peut transférer de l'argent d'un compte à un autre en utilisant le numéro de compte du destinataire et le montant à transférer. Les comptes doivent appartenir à des clients de la DailyBank. Le montant transféré devra être supérieur à 0. Le solde après transfert du compte source ne dois pas être inférieur au découvert autorisé et les comptes clients à qui appartiennent les comptes ne doivent pas être désactivés et les comptes non clôturés.
 
-- Clôturer un compte : le guichetier peut clôturer le compte bancaire d'un client si nécessaire.
+- *Clôturer un compte* : le guichetier peut clôturer le compte bancaire d'un client si nécessaire.
 
 ==== Chef d'Agence
 
-- Le chef d'agence est le deuxième niveau de droit d'accès et l'utilisateur avec le plus de droits. 
+Le chef d'agence est le deuxième niveau de droit d'accès et l'utilisateur avec le plus de droits. 
 Il peut faire toutes les actions d'un guichetier mais en plus de cela il peut gérer tous les employés de son agence.
 
-- Faire les actions des guichetiers : Le chef d'agence peut faire toutes les actions d'un guichetier sous les mêmes conditions.
+- *Faire les actions des guichetiers* : Le chef d'agence peut faire toutes les actions d'un guichetier sous les mêmes conditions.
 
-- Rendre inactif un client : le chef d'agence peut désactiver le compte d'un client existant si nécessaire. Cela doit empêcher de faire des opérations sur son/ses compte(s).
+- *Rendre inactif un client* : le chef d'agence peut désactiver le compte d'un client existant si nécessaire. Cela doit empêcher de faire des opérations sur son/ses compte(s).
 
-- Gérer (faire le "CRUD") les employés (guichetier et chef d'agence) : le chef d'agence peut créer, lire, mettre à jour et supprimer les informations des employés de son agence. 
+- *Gérer (faire le "CRUD") les employés (guichetier et chef d'agence)*: le chef d'agence peut créer, lire, mettre à jour et supprimer les informations des employés de son agence. 
 
 
 == Diagramme de classe des données global
