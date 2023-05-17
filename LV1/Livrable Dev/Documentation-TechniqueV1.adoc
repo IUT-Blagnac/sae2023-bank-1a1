@@ -39,6 +39,7 @@ Cette transformation numérique a également conduit à une révolution organisa
 
 Dans ce contexte, la banque DailyBank souhaite développer une application JAVA-Oracle de gestion des comptes clients pour remplacer plusieurs outils obsolètes. Cette application sera déployée dans les 100 agences que compte son réseau et permettra de gérer des comptes bancaires de dépôt pour des clients préalablement créés, de débiter ou créditer un compte soit par virement, soit par une personne physique se présentant devant un guichet. Ce développement s'inscrit dans le cadre de la restructuration des services bancaires de la banque DailyBank.
 
+[[use-case-general]]
 === Use case de l'application
 L'application de DailyBank est conçue pour être utilisée par différents acteurs au sein de la banque, ayant chacun des rôles spécifiques et des droits différents. Voici les utilisateurs du logiciel et les actions qui peuvent réaliser :
 
@@ -258,29 +259,169 @@ A part :
 
 == Fonctionnalités 
 
+Chaque fonctionnalité est lié à un cas d'utilisation définit dans la partie <<use-case-general,Use Case de l'application>>
 
-=== Modifier les informations des clients
+=== Modifier les informations des clients : 
 
-=== Inscrire un nouveau client
+* package application.control :
+** ClientEditorPane.java
+** ClientManagement.java
+* package application.tools : 
+* EditionMode.java
+* package application.view :
+** ClientEditorPaneController.java
+** ClienteManagementController.java
+* package model.data :
+** Client.java
+* package model.orm :
+** AccessClient.java
 
-=== Consulter un compte
+=== Inscrire un nouveau client : 
 
-=== Débiter un compte
+*Classes impliquées dans chaque package :*
 
-=== Créditer un compte
+* package application.control :
+** ClientEditorPane.java
+** ClientManagement.java
+* package application.tools : 
+* EditionMode.java
+* package application.view :
+** ClientEditorPaneController.java
+** ClienteManagementController.java
+* package model.data :
+** Client.java
+* package model.orm :
+** AccessClient.java
 
-=== Créer un compte
+=== Consulter un compte : 
 
-=== Effectuer un virement de compte à compte
+=== Débiter un compte  :
 
-=== Clôturer un compte
+*Classes impliquées dans chaque package:*
 
-=== Rendre inactif un client
+* package model.orm :
+** classe AccessOperation
+* package application.view :
+** classe OperationsManagementController
+** classe OperationEditorPaneController
+* package application.control :
+** classe OperationEditorPane
+** classe OperationsManagement
+* package model.data :
+** classe CompteCourant
+** classe Operation
+* package application.tools :
+** classe ConstantesIHM
+** classe CategorieOperation
 
-=== Gérer (faire le "CRUD") les employés (guichetier et chef d'agence)*
 
-=== Créditer compte 
+=== Créditer un compte :
 
-== Conclusion
+*Classes impliquées dans chaque package:*
+
+* package model.orm :
+** classe AccessOperation
+* package application.view :
+** classe OperationsManagementController
+** classe OperationEditorPaneController
+* package application.control :
+** classe OperationEditorPane
+** classe OperationsManagement
+* package model.data :
+** classe CompteCourant
+** classe Operation
+* package application.tools :
+** classe ConstantesIHM
+** classe CategorieOperation
+
+
+=== Créer un compte :
+
+*Classes impliquées dans chaque package :*
+
+* package application.control :
+** CompteEditorPane.java
+** CompteManagement.java
+* package application.tools : 
+* EditionMode.java
+* package application.view :
+** CompteEditorPaneController.java
+** CompteManagementController.java
+* package model.data :
+** CompteCourant.java
+* package model.orm :
+** AccessCompteCourant.java
+
+=== Effectuer un virement de compte à compte :
+
+*Classes impliquées dans chaque package :*
+
+* package model.orm :
+** classe AccessOperation
+** classe AccessCompteCourant
+* package application.view :
+** classe OperationsManagementController
+** classe OperationEditorPaneController
+* package application.control :
+** classe OperationEditorPane
+** classe OperationsManagement
+* package model.data :
+** classe CompteCourant
+** classe Operation
+** classe OperationTransfert
+* package application.tools :
+** classe ConstantesIHM
+** classe CategorieOperation
+
+
+=== Clôturer un compte :
+
+*Classes impliquées dans chaque package :*
+
+* package model.orm :
+** classe AccessCompteCourant
+* package application.view :
+** classe ComptesManagementController
+* package application.control :
+** classe ComptesManagement
+* package model.data :
+** classe CompteCourant
+* package application.tools :
+** classe ConstantesIH
+
+=== Rendre inactif un client :
+
+*Classes impliquées dans chaque package :*
+
+* package application.control :
+** ClientManagement.java
+* package application.tools : 
+* EditionMode.java
+* package application.view :
+** ClienteManagementController.java
+* package model.data :
+** Client.java
+* package model.orm :
+** AccessClient.java
+** AccessCompteCourant.java
+
+=== Gérer (faire le "CRUD") les employés (guichetier et chef d'agence) :
+
+*Classes impliquées dans chaque package :*
+
+* package application.control :
+** DailyBankMainFrame.java
+** EmployeManagement.java
+** EmployeEditorPane.java
+* package application.view :
+** DailyBankMainFrameController.java
+** EmployeEditorPaneController.java
+** EmployeManagementController.java
+* package model.data :
+** Employe.java
+* package model.orm :
+** AccessEmploye.java
+
+== Conclusion :
 
 En conclusion, 
