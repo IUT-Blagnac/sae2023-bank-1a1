@@ -8,8 +8,6 @@ import application.tools.ConstantesIHM;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -18,12 +16,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.Client;
 import model.data.CompteCourant;
-<<<<<<< HEAD
-import application.view.ClientsManagementController;
-=======
-import model.orm.Access_BD_CompteCourant;
 
->>>>>>> c8fb82e79f35050cf03516918841b323aa904ef7
 public class ComptesManagementController {
 
 	// Etat courant de l'application
@@ -172,7 +165,6 @@ public class ComptesManagementController {
 		
 
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
-<<<<<<< HEAD
 		if(ClientsManagementController.estInactif.equals("O")){
 			this.btnNouveauCompte.setDisable(true);
 		}else {
@@ -181,16 +173,10 @@ public class ComptesManagementController {
 		if (selectedIndice >= 0) {
 			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
 			afficheText(cpt);
-=======
 		
-		if (!ConstantesIHM.estActif(this.clientDesComptes)) {
-			this.btnNouveauCompte.setDisable(true);
->>>>>>> c8fb82e79f35050cf03516918841b323aa904ef7
-		}
-		
-		if (selectedIndice >= 0 & ConstantesIHM.estActif(this.clientDesComptes) ) {
-			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
-			afficheText(cpt);
+		if (selectedIndice >= 0 ) {
+			CompteCourant cpt1 = this.oListCompteCourant.get(selectedIndice);
+			afficheText(cpt1);
 			
 			this.btnVoirOpes.setDisable(false);
 			this.btnClôtureCompte.setDisable(false);
@@ -208,4 +194,5 @@ public class ComptesManagementController {
 			this.btnSupprCompte.setDisable(true);
 		}
 	}
+}
 }
