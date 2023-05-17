@@ -47,7 +47,7 @@ Dans sa colonne il doit remplir la ligne correspondant à chaque partie qu'il a 
 |         |Gantt V1 Prévu|  https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/Livrables%20Gestion%20de%20projet/Plannification%20Gant.png                             |Il manque des tâches notamment doc User et les jalons avec les dates de livrables.
 | 16/05  | CdC V2final|https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV2/Livrables%20Gestion%20de%20projet/CDCUV2.adoc                                     |  
 |         | Gantt V1 Réalisé |https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/Livrables%20Gestion%20de%20projet/Planification%20GANTT%20V1%20R%C3%A9alis%C3%A9%20.png|     
-|         | Gantt V2 Prevu|         |     
+|         | Gantt V2 Prevu|https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV2/Livrables%20Gestion%20de%20projet/Planification%20GANTT%20V2.png|     
 |         | Doc. Tec. V1 |        |    
 |         | Doc User V1    |   https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/Livrables%20Gestion%20de%20projet/documentUtilisateur.adoc     |
 |         | Recette V1  |                      | 
