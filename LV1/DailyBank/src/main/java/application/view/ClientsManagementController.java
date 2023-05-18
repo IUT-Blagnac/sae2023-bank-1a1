@@ -192,14 +192,11 @@ public class ClientsManagementController {
 
 	private void validateComponentState() {
 		// Non implémenté => désactivé
-
+		
+		
+		
 		int selectedIndice = this.lvClients.getSelectionModel().getSelectedIndex();
-		Client unC= this.oListClients.get(selectedIndice);
-		if(unC.estInactif.equals("O")) {
-			estInactif="O";
-		}else {
-			estInactif="N";
-		}
+		
 		if (selectedIndice >= 0) {
 			
 			this.btnModifClient.setDisable(false);
@@ -209,8 +206,10 @@ public class ClientsManagementController {
 				this.btnDesactClient.setDisable(false);
 				if (ConstantesIHM.estActif(this.oListClients.get(selectedIndice))) {
 					this.btnDesactClient.setText("Desactiver Client");
+					estInactif="N";
 				}
 				else {
+					estInactif="O";
 					this.btnDesactClient.setText("Activer Client");
 				}
 				
