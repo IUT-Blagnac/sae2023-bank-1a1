@@ -188,26 +188,40 @@ public class ComptesManagementController {
 		if (selectedIndice >= 0) {
 			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
 			afficheText(cpt);
-		
-		if (selectedIndice >= 0 ) {
-			CompteCourant cpt1 = this.oListCompteCourant.get(selectedIndice);
-			afficheText(cpt1);
+				CompteCourant cpt1 = this.oListCompteCourant.get(selectedIndice);
+				afficheText(cpt1);
 			
-			this.btnVoirOpes.setDisable(false);
-			this.btnClôtureCompte.setDisable(false);
-			this.btnModifierCompte.setDisable(false);
-			
-			if (cpt.estCloture.equals("O")) {
-				this.btnSupprCompte.setDisable(false);
-			}
-			
-			
-		} else {
-			this.btnClôtureCompte.setDisable(true);
-			this.btnVoirOpes.setDisable(true);
-			this.btnModifierCompte.setDisable(true);
-			this.btnSupprCompte.setDisable(true);
+				this.btnClôtureCompte.setDisable(false);
+				this.btnVoirOpes.setDisable(false);
+				//si le client est inactif
+				if(ClientsManagementController.estInactif.equals("O")){
+					this.btnModifierCompte.setDisable(true);
+					//si le compte est cloturer
+					if (cpt.estCloture.equals("O")) {
+						this.btnClôtureCompte.setDisable(true);
+					}else {
+						this.btnClôtureCompte.setDisable(false);
+					}
+				}
+					
+				
+					//si la liste est vide et le compte cloturer
+					if (cpt.estCloture.equals("O")) {
+						this.btnSupprCompte.setDisable(false);
+						
+						this.btnModifierCompte.setDisable(true);
+						
+					}else {
+						this.btnSupprCompte.setDisable(true);
+						if(ClientsManagementController.estInactif.equals("N")){
+							this.btnModifierCompte.setDisable(false);
+						}
+					}
+			} else {
+				this.btnClôtureCompte.setDisable(true);
+				this.btnVoirOpes.setDisable(true);
+				this.btnModifierCompte.setDisable(true);
+				this.btnSupprCompte.setDisable(true);
 		}
 	}
-}
 }
