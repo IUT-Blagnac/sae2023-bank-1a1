@@ -22,7 +22,7 @@
 |2    |Chef d’Agence     | Emprunt | Simuler emprunt|||D 
 |2    |Chef d’Agence     | Emprunt | Simuler assurance||D | 
 |2    |Guichetier     | Compte | Relevé PDF|| | 
-|2    |Guichetier     | CRUD Prélèvement | C|| | 
+|2    |Guichetier     | CRUD Prélèvement | C|D| | 
 |2    |Guichetier     | CRUD Prélèvement | R|| | 
 |2    |Guichetier     | CRUD Prélèvement | U|| | 
 |2    |Guichetier     | CRUD Prélèvement | D|| | 
