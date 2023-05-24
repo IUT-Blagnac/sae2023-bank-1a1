@@ -1,7 +1,5 @@
 package application.control;
 
-import java.util.ArrayList;
-
 import application.DailyBankApp;
 import application.DailyBankState;
 import application.tools.StageManagement;
@@ -12,10 +10,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import model.data.Employe;
-import model.orm.Access_BD_Client;
-import model.orm.exception.ApplicationException;
-import model.orm.exception.DatabaseConnexionException;
 
 public class EmployeManagement {
 	private Stage primaryStage;

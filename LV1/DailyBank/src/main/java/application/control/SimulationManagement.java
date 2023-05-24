@@ -1,11 +1,7 @@
 package application.control;
 
-import java.util.ArrayList;
-
 import application.DailyBankApp;
 import application.DailyBankState;
-import application.tools.CategorieOperation;
-import application.tools.PairsOfValue;
 import application.tools.StageManagement;
 import application.view.OperationsManagementController;
 import application.view.SimulationManagementController;
@@ -14,14 +10,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import model.data.Client;
-import model.data.CompteCourant;
-import model.data.Operation;
-import model.data.OperationTransfert;
-import model.orm.Access_BD_CompteCourant;
-import model.orm.Access_BD_Operation;
-import model.orm.exception.ApplicationException;
-import model.orm.exception.DatabaseConnexionException;
 
 public class SimulationManagement {
 

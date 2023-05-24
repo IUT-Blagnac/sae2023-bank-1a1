@@ -54,6 +54,7 @@ public class EmployeEditorPaneController {
 		this.dailyBankState = _dbstate;
 		txtIdAgence.setDisable(true);
 		txtIdEmploye.setDisable(true);
+		this.configure();
 	}
 	
 	private void configure() {

@@ -5,7 +5,6 @@ import application.DailyBankState;
 import application.tools.StageManagement;
 import application.view.ClientsManagementController;
 import application.view.EmployeEditorPaneController;
-import application.view.EmployeManagementController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
