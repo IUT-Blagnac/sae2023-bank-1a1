@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import application.DailyBankState;
 import application.control.ComptesManagement;
+import application.tools.ConstantesIHM;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -26,7 +27,7 @@ public class ComptesManagementController {
 
 	// Fenêtre physique ou est la scène contenant le fichier xml contrôlé par this
 	private Stage primaryStage;
-	
+
 
 	// Données de la fenêtre
 	private Client clientDesComptes;
@@ -87,7 +88,7 @@ public class ComptesManagementController {
 	private Button btnClôtureCompte;
 	@FXML
 	private Button btnNouveauCompte;
-	
+
 
 	@FXML
 	private void doCancel() {
@@ -100,7 +101,7 @@ public class ComptesManagementController {
 		if (selectedIndice >= 0) {
 			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
 			this.cmDialogController.gererOperationsDUnCompte(cpt);
-			
+
 		}
 		this.loadList();
 		this.validateComponentState();
@@ -111,7 +112,7 @@ public class ComptesManagementController {
 	 * @author Bilon
 	 */
 	private void afficheText(CompteCourant cc) {
-		
+
 		if(cc.estCloture.equals("O")) {
 			btnClôtureCompte.setText("ReOuvrir");
 		}else {
@@ -128,15 +129,15 @@ public class ComptesManagementController {
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 		CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
 		if (selectedIndice >= 0) {
-				this.cmDialogController.cloture(cpt);
-			}
+			this.cmDialogController.cloture(cpt);
+		}
 		this.loadList();
 		this.validateComponentState();
 	}
 
 	@FXML
 	private void doModifierCompte() {
-		
+
 	}
 
 	@FXML
@@ -146,7 +147,7 @@ public class ComptesManagementController {
 	 * @author illan
 	 */
 	private void doSupprimerCompte() {
-		
+
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 		this.cmDialogController.suppressionCompte(this.oListCompteCourant.get(selectedIndice));
 		this.loadList();
@@ -166,8 +167,8 @@ public class ComptesManagementController {
 			this.oListCompteCourant.add(compte);
 		}
 	}
-	
-	
+
+
 	private void loadList() {
 		ArrayList<CompteCourant> listeCpt;
 		listeCpt = this.cmDialogController.getComptesDunClient();
@@ -177,51 +178,49 @@ public class ComptesManagementController {
 
 	private void validateComponentState() {
 		// Non implémenté => désactivé
-		
+
 
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
-		if(ClientsManagementController.estInactif.equals("O")){
+
+		if(this.clientDesComptes.estInactif.equals(ConstantesIHM.CLIENT_INACTIF)){
 			this.btnNouveauCompte.setDisable(true);
+			this.btnModifierCompte.setDisable(true);
+			this.btnClôtureCompte.setDisable(true);
+			this.btnSupprCompte.setDisable(true);
 		}else {
 			this.btnNouveauCompte.setDisable(false);
-		}
-		if (selectedIndice >= 0) {
-			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
-			afficheText(cpt);
-				CompteCourant cpt1 = this.oListCompteCourant.get(selectedIndice);
-				afficheText(cpt1);
-			
-				this.btnClôtureCompte.setDisable(false);
-				this.btnVoirOpes.setDisable(false);
-				//si le client est inactif
-				if(ClientsManagementController.estInactif.equals("O")){
-					this.btnModifierCompte.setDisable(true);
-					//si le compte est cloturer
-					if (cpt.estCloture.equals("O")) {
-						this.btnClôtureCompte.setDisable(true);
-					}else {
-						this.btnClôtureCompte.setDisable(false);
-					}
+
+			if (selectedIndice >= 0) {
+				CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
+				afficheText(cpt);
+
+				//si le compte est cloturer
+				if (cpt.estCloture.equals("O")) {
+					this.btnClôtureCompte.setDisable(true);
+				}else {
+					this.btnClôtureCompte.setDisable(false);
 				}
-					
-				
-					//si la liste est vide et le compte cloturer
-					if (cpt.estCloture.equals("O")) {
-						this.btnSupprCompte.setDisable(false);
-						
-						this.btnModifierCompte.setDisable(true);
-						
-					}else {
-						this.btnSupprCompte.setDisable(true);
-						if(ClientsManagementController.estInactif.equals("N")){
-							this.btnModifierCompte.setDisable(false);
-						}
-					}
+
+
+
+				//si la liste est vide et le compte cloturer
+				if (cpt.estCloture.equals("O")) {
+					this.btnSupprCompte.setDisable(false);
+
+					this.btnModifierCompte.setDisable(true);
+
+				}else {
+					this.btnSupprCompte.setDisable(true);
+
+					this.btnModifierCompte.setDisable(false);
+
+				}
 			} else {
 				this.btnClôtureCompte.setDisable(true);
 				this.btnVoirOpes.setDisable(true);
 				this.btnModifierCompte.setDisable(true);
 				this.btnSupprCompte.setDisable(true);
+			}
 		}
 	}
 }

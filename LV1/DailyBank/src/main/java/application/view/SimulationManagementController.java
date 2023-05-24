@@ -27,9 +27,9 @@ import javafx.stage.WindowEvent;
 import model.data.LigneTableauEmprunt;
 import model.data.Simulation;
 
-/* Classe permettant de saisir de nouvelles simulation
+/** Classe permettant de saisir de nouvelles simulation
  * 
- * @author Illan GABARRA
+ * @author illan
  */
 public class SimulationManagementController {
 

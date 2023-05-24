@@ -15,7 +15,9 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.Client;
+import model.data.CompteCourant;
 import model.orm.Access_BD_Client;
+import model.orm.Access_BD_CompteCourant;
 import model.orm.exception.DataAccessException;
 import model.orm.exception.DatabaseConnexionException;
 import model.orm.exception.RowNotFoundOrTooManyRowsException;
@@ -138,6 +140,7 @@ public class ClientsManagementController {
 			Client client = this.oListClients.get(selectedIndice);
 			this.cmDialogController.gererComptesClient(client);
 		}
+		this.validateComponentState();
 	}
 
 	@FXML
@@ -151,11 +154,13 @@ public class ClientsManagementController {
 				this.oListClients.set(selectedIndice, result);
 			}
 		}
+		
+		this.validateComponentState();
 	}
 
 	@FXML
 	/**
-	 * Réactivation ou activation d'un client selectionné
+	 * Désactivation d'un client selectionné si il respecte les condition de désactivation
 	 * 
 	 * @author illan
 	 */
@@ -163,12 +168,19 @@ public class ClientsManagementController {
 		int selectedIndice = this.lvClients.getSelectionModel().getSelectedIndex();
 		Client clientSelected = this.oListClients.get(selectedIndice);
 
-		if (ConstantesIHM.estActif(clientSelected)) {
-			clientSelected.estInactif = ConstantesIHM.CLIENT_INACTIF;
+
+
+		// Vérification que le compte soit désactivable
+		
+		Access_BD_CompteCourant acCompteCourant = new Access_BD_CompteCourant();
+		
+		if (!acCompteCourant.isDesactivable(clientSelected)) {
+			return;
 		}
-		else {
-			clientSelected.estInactif = ConstantesIHM.CLIENT_ACTIF;
-		}
+
+
+		clientSelected.estInactif = ConstantesIHM.CLIENT_INACTIF;
+
 
 		Access_BD_Client acClient = new Access_BD_Client();
 
@@ -180,6 +192,8 @@ public class ClientsManagementController {
 		this.validateComponentState();
 
 	}
+	
+	
 
 	@FXML
 	private void doNouveauClient() {
@@ -192,34 +206,33 @@ public class ClientsManagementController {
 
 	private void validateComponentState() {
 		// Non implémenté => désactivé
-		
-		
-		
+
+
+
 		int selectedIndice = this.lvClients.getSelectionModel().getSelectedIndex();
-		
+
 		if (selectedIndice >= 0) {
-			
+
 			this.btnModifClient.setDisable(false);
 			this.btnComptesClient.setDisable(false);
 			if (ConstantesIHM.isAdmin(dailyBankState.getEmployeActuel())) {
+				
+				Access_BD_CompteCourant acCompteCourant = new Access_BD_CompteCourant();
+				
+				if (acCompteCourant.isDesactivable(this.oListClients.get(selectedIndice))) {
 
-				this.btnDesactClient.setDisable(false);
-				if (ConstantesIHM.estActif(this.oListClients.get(selectedIndice))) {
-					this.btnDesactClient.setText("Desactiver Client");
-					estInactif="N";
+					this.btnDesactClient.setDisable(false);
 				}
 				else {
-					estInactif="O";
-					this.btnDesactClient.setText("Activer Client");
+					this.btnDesactClient.setDisable(true);
 				}
-				
+
 			}
 		} else {
-			
+
 			this.btnModifClient.setDisable(true);
 			this.btnComptesClient.setDisable(true);
 			this.btnDesactClient.setDisable(true);
-			this.btnDesactClient.setText("Desactiver Client");
 		}
 
 	}

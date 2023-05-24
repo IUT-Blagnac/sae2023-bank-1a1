@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import application.tools.ConstantesIHM;
+import model.data.Client;
 import model.data.CompteCourant;
 import model.orm.exception.DataAccessException;
 import model.orm.exception.DatabaseConnexionException;
@@ -305,7 +307,35 @@ public class Access_BD_CompteCourant {
 	        throw new DataAccessException(Table.CompteCourant, Order.UPDATE, "Erreur accès", e);
 	    }
 	}
+	
+	/**
+	 * Vérifie si le compte clientADesactiver est désactivable
+	 * 
+	 * @author illan
+	 * 
+	 * @param clientADesactiver
+	 * 
+	 * @return
+	 */
+	public boolean isDesactivable(Client clientADesactiver) {
+		
+		if (!ConstantesIHM.estActif(clientADesactiver)) {
+			return false;
+		}
 
+		try {
+			for (CompteCourant compteDuClient : this.getCompteCourants(clientADesactiver.idNumCli)) {
+				if (compteDuClient.estCloture.equals("N")) {
+					return false;
+				}
+			}
+		} catch (DataAccessException | DatabaseConnexionException e1) {
+			e1.printStackTrace();
+			return false; 
+		}
+		
+		return true;
+	}
 }
 
 	
