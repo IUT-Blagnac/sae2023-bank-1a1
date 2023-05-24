@@ -107,8 +107,8 @@ public class ComptesManagementController {
 		this.validateComponentState();
 	}
 	/**
-	 * Permet de changer le text du bouton cloturer et reouvrir 
-	 * 
+	 * Permet de changer le text du bouton cloturer et reouvrir
+	 *
 	 * @author Bilon
 	 */
 	private void afficheText(CompteCourant cc) {
@@ -121,8 +121,8 @@ public class ComptesManagementController {
 	}
 	@FXML
 	/**
-	 * Permet de cloturer un compte 
-	 * 
+	 * Permet de cloturer un compte
+	 *
 	 * @author Bilon
 	 */
 	private void doClôtureCompte() {
@@ -142,8 +142,8 @@ public class ComptesManagementController {
 
 	@FXML
 	/**
-	 * Permet de supprimer le compte selectionné 
-	 * 
+	 * Permet de supprimer le compte selectionné
+	 *
 	 * @author illan
 	 */
 	private void doSupprimerCompte() {
@@ -156,8 +156,8 @@ public class ComptesManagementController {
 
 	@FXML
 	/**
-	 * Permet de crée un nouveau compte 
-	 * 
+	 * Permet de crée un nouveau compte
+	 *
 	 * @author Bilon
 	 */
 	private void doNouveauCompte() {

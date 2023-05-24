@@ -6,36 +6,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.itextpdf.text.List;
-
 import application.DailyBankState;
 import application.GlobalSettings;
-import application.control.ClientsManagement;
-import application.control.DailyBankMainFrame;
 import application.control.EmployeEditorPane;
 import application.control.EmployeManagement;
 import application.control.EmployeRead;
-import javafx.stage.Stage;
-import application.tools.AlertUtilities;
-import javafx.beans.InvalidationListener;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
-import model.data.AgenceBancaire;
-import model.data.Client;
 import model.data.Employe;
 import model.orm.Access_BD_Employe;
 import model.orm.LogToDatabase;
@@ -54,13 +40,13 @@ public class EmployeManagementController {
 
 	// Données de la fenêtre
 	private ObservableList<Employe> oListEmploye;
-	
+
 	private Employe chefAgence;
-	
+
 	private Access_BD_Employe accessBd;
-	
+
 	private Employe currentEmploye;
-	
+
 
 	// Manipulation de la fenêtre
 	public void initContext(Stage _containingStage, EmployeManagement _em, DailyBankState _dbstate) {
@@ -77,7 +63,7 @@ public class EmployeManagementController {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
+
 		lvEmploye.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Employe>() {
 			@Override
 			public void changed(ObservableValue<? extends Employe> observable, Employe oldValue, Employe newValue) {
@@ -87,7 +73,7 @@ public class EmployeManagementController {
 				System.out.println(currentEmploye);
 			}
 		});
-		
+
 		lvEmploye.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent click) {
@@ -99,38 +85,38 @@ public class EmployeManagementController {
 					}
 				}
 			}
-			
+
 		});
 	}
-	
+
 	public void displayDialog()
 	{
 		updateListEmploye();
-		
+
 		primaryStage.showAndWait();
 	}
-	
+
 	private ArrayList<Employe> getAllEmploye()
 	{
-		ArrayList<Employe> output = new ArrayList<Employe>();
-		
+		ArrayList<Employe> output = new ArrayList<>();
+
 		System.out.println("VALIDE");
 		Connection con;
 		try {
 			con = LogToDatabase.getConnexion();
-			
+
 			String query = "SELECT * FROM employe WHERE idag = " + chefAgence.idAg;
 			PreparedStatement pst = con.prepareStatement(query);
-			
+
 			ResultSet rs = pst.executeQuery();
-			
+
 			while(rs.next()) {
 				Employe employe = new Employe(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getInt(7));
 				output.add(employe);
 			}
 
 			// this.primaryStage.close();
-			
+
 		} catch (DatabaseConnexionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -138,15 +124,15 @@ public class EmployeManagementController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return output;
 	}
-	
+
 	public void updateListEmploye() {
 		oListEmploye = FXCollections.observableArrayList(this.getAllEmploye());
 		this.lvEmploye.setItems(this.oListEmploye);
 	}
-	
+
 	@FXML
 	private TextField txtNum;
 	@FXML
@@ -161,12 +147,12 @@ public class EmployeManagementController {
 	private Button btnModifEmploye;
 	@FXML
 	private Button btnNouveauEmploye;
-	
+
 	@FXML
 	private void doCancel() {
 		this.primaryStage.close();
 	}
-	
+
 	@FXML
 	private void doNouveauEmploye()
 	{
@@ -175,7 +161,7 @@ public class EmployeManagementController {
 		edp.doEmployeManagementDialog(new Employe(edp.getEmployeMaxId() + 1,"","","","","",0));
 		this.updateListEmploye();
 	}
-	
+
 	@FXML
 	private void doModifierEmploye()
 	{
@@ -183,22 +169,22 @@ public class EmployeManagementController {
 		edp.doEmployeManagementDialog(new Employe(currentEmploye.idEmploye,currentEmploye.nom,currentEmploye.prenom,currentEmploye.droitsAccess,currentEmploye.login,currentEmploye.motPasse,currentEmploye.idAg));
 		this.updateListEmploye();
 	}
-	
+
 	@FXML
 	private void doDesactiverEmploye(){
 		Connection con;
-		
+
 		try {
 			con = LogToDatabase.getConnexion();
-			
+
 			String query = "DELETE FROM employe WHERE idEmploye = " + currentEmploye.idEmploye;
 			PreparedStatement pst = con.prepareStatement(query);
-			
+
 			int result = pst.executeUpdate();
-			
+
 			pst.close();
 			con.commit();
-			
+
 		} catch (DatabaseConnexionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -206,10 +192,10 @@ public class EmployeManagementController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		this.updateListEmploye();
 	}
-	
+
 	public Employe getCurrentUser() {
 		return this.chefAgence;
 	}

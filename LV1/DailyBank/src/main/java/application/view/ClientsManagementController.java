@@ -15,7 +15,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.Client;
-import model.data.CompteCourant;
 import model.orm.Access_BD_Client;
 import model.orm.Access_BD_CompteCourant;
 import model.orm.exception.DataAccessException;
@@ -23,7 +22,7 @@ import model.orm.exception.DatabaseConnexionException;
 import model.orm.exception.RowNotFoundOrTooManyRowsException;
 
 public class ClientsManagementController {
-	//Etat du compte 
+	//Etat du compte
 	public static String estInactif ="";
 
 	// Etat courant de l'application
@@ -154,14 +153,14 @@ public class ClientsManagementController {
 				this.oListClients.set(selectedIndice, result);
 			}
 		}
-		
+
 		this.validateComponentState();
 	}
 
 	@FXML
 	/**
 	 * Désactivation d'un client selectionné si il respecte les condition de désactivation
-	 * 
+	 *
 	 * @author illan
 	 */
 	private void doDesactiverClient() {
@@ -171,9 +170,9 @@ public class ClientsManagementController {
 
 
 		// Vérification que le compte soit désactivable
-		
+
 		Access_BD_CompteCourant acCompteCourant = new Access_BD_CompteCourant();
-		
+
 		if (!acCompteCourant.isDesactivable(clientSelected)) {
 			return;
 		}
@@ -192,8 +191,8 @@ public class ClientsManagementController {
 		this.validateComponentState();
 
 	}
-	
-	
+
+
 
 	@FXML
 	private void doNouveauClient() {
@@ -216,9 +215,9 @@ public class ClientsManagementController {
 			this.btnModifClient.setDisable(false);
 			this.btnComptesClient.setDisable(false);
 			if (ConstantesIHM.isAdmin(dailyBankState.getEmployeActuel())) {
-				
+
 				Access_BD_CompteCourant acCompteCourant = new Access_BD_CompteCourant();
-				
+
 				if (acCompteCourant.isDesactivable(this.oListClients.get(selectedIndice))) {
 
 					this.btnDesactClient.setDisable(false);

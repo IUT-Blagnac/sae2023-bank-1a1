@@ -13,22 +13,16 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import model.data.LigneTableauEmprunt;
 import model.data.Simulation;
 
 /** Classe permettant de saisir de nouvelles simulation
- * 
+ *
  * @author illan
  */
 public class SimulationManagementController {
@@ -150,7 +144,7 @@ public class SimulationManagementController {
 		this.txtTaux.getStyleClass().remove("borderred");
 		this.lblTaux.getStyleClass().remove("borderred");
 
-		// Vérification du de la saisie du montant 
+		// Vérification du de la saisie du montant
 		try {
 			montant = Double.parseDouble(this.txtMontant.getText().trim());
 			if (montant <= 0)
@@ -163,7 +157,7 @@ public class SimulationManagementController {
 			return false;
 		}
 
-		// Vérification de la saisie du nombre de périodes 
+		// Vérification de la saisie du nombre de périodes
 		try {
 			nbPeriodes = Integer.parseInt(this.txtNbPeriodes.getText().trim());
 			if (nbPeriodes <= 0)

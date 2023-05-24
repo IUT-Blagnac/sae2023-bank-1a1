@@ -61,32 +61,32 @@ public class ConstantesIHM {
 	 * Liste des opérations de transfert possible en agence
 	 */
 	public static final String[] OPERATIONS_TRANSFERT_GUICHET = { ConstantesIHM.TYPE_OP_7 };
-	
-	
+
+
 	/*
 	 * Libellés des différents types de simulations.
 	 */
 	public static final String TYPE_SIMUL_1 = "Emprunt Taux fixe";
 	public static final String TYPE_SIMUL_2 = "Assurance Taux fixe";
-	
+
 	/**
 	 * Liste des simulations possible
 	 */
 	public static final String[] SIMULATIONS = { ConstantesIHM.TYPE_SIMUL_1, ConstantesIHM.TYPE_SIMUL_2 };
-	
-	
+
+
 	/*
 	 * Libellés des différents types de périodes
 	 */
 	public static final String TYPE_PERIODE_1 = "Mensualités";
 	public static final String TYPE_PERIODE_2 = "Annuités";
-	
+
 	/**
 	 * Liste des périodes possible
 	 */
 	public static final String[] PERIODES_SIMULATIONS = { ConstantesIHM.TYPE_PERIODE_1, ConstantesIHM.TYPE_PERIODE_2 };
-	
-	
+
+
 	// Méthodes utilitaires
 
 	/**

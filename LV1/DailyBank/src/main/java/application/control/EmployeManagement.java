@@ -15,7 +15,7 @@ public class EmployeManagement {
 	private Stage primaryStage;
 	private DailyBankState dailyBankState;
 	private EmployeManagementController emcViewController;
-	
+
 		public EmployeManagement(Stage _parentStage, DailyBankState _dbstate) {
 		this.dailyBankState = _dbstate;
 		try {
@@ -35,18 +35,18 @@ public class EmployeManagement {
 
 			this.emcViewController = loader.getController();
 			this.emcViewController.initContext(this.primaryStage, this, _dbstate);
-			
+
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-		
+
 	public void doEmployeManagementDialog()
 	{
 		emcViewController.displayDialog();
 	}
-	
+
 }
-		
-		
+
+

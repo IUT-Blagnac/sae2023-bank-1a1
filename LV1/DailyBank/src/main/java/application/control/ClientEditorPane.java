@@ -20,9 +20,9 @@ public class ClientEditorPane {
 	private DailyBankState dailyBankState;
 
 	/**
-	 * 
+	 *
 	 *Constructeur de la classe ClientEditorPane qui crée une fenêtre de gestion de client à partir d'un objet Stage parent et d'un état DailyBankState.
-	 *@param _parentStage : La stage parente 
+	 *@param _parentStage : La stage parente
 	 *@param _dbstate :  L'état courant de l'application
 	 **/
 	public ClientEditorPane(Stage _parentStage, DailyBankState _dbstate) {

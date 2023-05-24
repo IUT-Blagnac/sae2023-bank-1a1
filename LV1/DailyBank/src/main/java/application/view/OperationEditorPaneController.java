@@ -3,7 +3,6 @@ package application.view;
 import java.util.Locale;
 
 import application.DailyBankState;
-import application.tools.AlertUtilities;
 import application.tools.CategorieOperation;
 import application.tools.ConstantesIHM;
 import javafx.collections.FXCollections;
@@ -11,7 +10,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -99,17 +97,17 @@ public class OperationEditorPaneController {
 					+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
 					+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
 			this.lblMessage.setText(info);
-			
-			
+
+
 			Label lblCompteDestinataire = new Label("Compte destinataire");
-			
+
 			lblCompteDestinataire.setAlignment(Pos.CENTER_RIGHT);
 			lblCompteDestinataire.setMaxWidth(Double.MAX_VALUE);
 			lblCompteDestinataire.setPadding(new Insets(0, 20, 0, 0));
-			
+
 			this.gridPaneSaisies.addRow(2,lblCompteDestinataire);
 			this.gridPaneSaisies.addRow(2, new TextField());
-			
+
 			this.btnOk.setText("Effectuer Transfert");
 			this.btnCancel.setText("Annuler Transfert");
 
@@ -124,7 +122,7 @@ public class OperationEditorPaneController {
 
 		// Paramétragpour l'instantes spécifiques pour les chefs d'agences
 		if (ConstantesIHM.isAdmin(this.dailyBankState.getEmployeActuel())) {
-			// rien 
+			// rien
 		}
 
 		this.operationResultat = null;
@@ -145,7 +143,7 @@ public class OperationEditorPaneController {
 
 	@FXML
 	private GridPane gridPaneSaisies;
-	
+
 	@FXML
 	private Label lblMessage;
 	@FXML
@@ -243,8 +241,8 @@ public class OperationEditorPaneController {
 			this.primaryStage.close();
 			break;
 		case TRANSFERT:
-			
-			
+
+
 			// règles de validation d'un débit :
 			// - le montant doit être un nombre valide
 			// - et si l'utilisateur n'est pas chef d'agence,
@@ -253,17 +251,17 @@ public class OperationEditorPaneController {
 
 			int NumCompteDestinataire = -1000;
 
-			
+
 			TextField txtCompteDestinataire = (TextField) this.gridPaneSaisies.getChildren().get(5);
 			Label lblCompteDestinataire = (Label) this.gridPaneSaisies.getChildren().get(4);
-			
-			
+
+
 			this.txtMontant.getStyleClass().remove("borderred");
 			this.lblMontant.getStyleClass().remove("borderred");
 			this.lblMessage.getStyleClass().remove("borderred");
 			lblCompteDestinataire.getStyleClass().remove("borderred");
 			txtCompteDestinataire.getStyleClass().remove("borderred");
-			
+
 			Access_BD_CompteCourant bdAccesComptes = new Access_BD_CompteCourant();
 
 			info = "Cpt. : " + this.compteEdite.idNumCompte + "  "
@@ -281,24 +279,24 @@ public class OperationEditorPaneController {
 				this.txtMontant.requestFocus();
 				return;
 			}
-			
-			
-			
+
+
+
 			try {
 				NumCompteDestinataire = Integer.parseInt(txtCompteDestinataire.getText().trim());
 				if (NumCompteDestinataire <= 0 | NumCompteDestinataire == this.compteEdite.idNumCompte )
 					throw new NumberFormatException();
-				
+
 			} catch (NumberFormatException nfe) {
 				txtCompteDestinataire.getStyleClass().add("borderred");
 				lblCompteDestinataire.getStyleClass().add("borderred");
 				txtCompteDestinataire.requestFocus();
 				return;
 			}
-			
+
 			try {
 				boolean compteInvalide = false;
-				
+
 				CompteCourant compteDestinataire = bdAccesComptes.getCompteCourant(NumCompteDestinataire);
 				if (compteDestinataire == null) {
 					compteInvalide = true;
@@ -318,7 +316,7 @@ public class OperationEditorPaneController {
 				txtCompteDestinataire.requestFocus();
 				return;
 			}
-			
+
 			typeOp = this.cbTypeOpe.getValue();
 
 			this.operationResultat = new OperationTransfert(-1, montant, null, null, this.compteEdite.idNumCli, typeOp , NumCompteDestinataire);

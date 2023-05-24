@@ -4,7 +4,6 @@ import application.DailyBankApp;
 import application.DailyBankState;
 import application.tools.StageManagement;
 import application.view.ClientsManagementController;
-import application.view.EmployeEditorPaneController;
 import application.view.EmployeReadController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -14,11 +13,11 @@ import javafx.stage.Stage;
 import model.data.Employe;
 
 public class EmployeRead {
-	
+
 	private Stage primaryStage;
 	private DailyBankState dailyBankState;
 	private EmployeReadController emcReadController;
-	
+
 	public EmployeRead(Stage _parentStage, DailyBankState _dbstate) {
 		this.dailyBankState = _dbstate;
 		try {
@@ -43,7 +42,7 @@ public class EmployeRead {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void doEmployeReadDialog(Employe employe)
 	{
 		emcReadController.displayDialog(employe);

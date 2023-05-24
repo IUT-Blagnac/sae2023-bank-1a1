@@ -65,8 +65,8 @@ public class OperationsManagement {
 
 	/**
 	 * Permet de faire saisir à l'utilisateur une nouvelle opération de débit
-	 * 
-	 * 
+	 *
+	 *
 	 * @return L'operation de débit créé
 	 */
 	public Operation enregistrerDebit() {
@@ -95,9 +95,9 @@ public class OperationsManagement {
 
 	/**
 	 * Permet de faire saisir à l'utilisateur une nouvelle opération de crédit
-	 * 
+	 *
 	 * @author illan
-	 * 
+	 *
 	 * @return L'operation de crédit créé
 	 */
 	public Operation enregistrerCredit() {
@@ -132,9 +132,9 @@ public class OperationsManagement {
 
 	/**
 	 * Permet de faire saisir à l'utilisateur une nouvelle opération de transfert
-	 * 
+	 *
 	 * @author illan
-	 * 
+	 *
 	 * @return L'operation de transfert qui est créé
 	 */
 	public OperationTransfert enregistrerTransfert() {
@@ -170,14 +170,14 @@ public class OperationsManagement {
 	/**
 
 	 * Cette méthode permet de récupérer les opérations et le solde d'un compte courant spécifié.
-	 * 
+	 *
 	 * Elle va récupérer la liste des opérations effectuées sur le compte à partir de la base de données, et va
 	 * également récupérer le solde du compte à partir de la base de données. Ces informations seront ensuite
 	 * renvoyées sous forme d'une paire de valeurs contenant le compte courant et la liste des opérations.
-	 * 
+	 *
 	 * En cas d'erreur de connexion à la base de données ou d'exception de l'application, un message d'erreur
 	 * sera affiché à l'utilisateur sous forme de dialogue et une liste vide sera renvoyée.
-	 * 
+	 *
 	 *@return PairesOfValue<CompteCourant, ArrayList<Operation>> la paire de valeurs contenant le compte courant et la liste des opérations.
 	 */
 	public PairsOfValue<CompteCourant, ArrayList<Operation>> operationsEtSoldeDunCompte() {

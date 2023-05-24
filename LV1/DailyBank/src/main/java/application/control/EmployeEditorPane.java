@@ -13,11 +13,11 @@ import javafx.stage.Stage;
 import model.data.Employe;
 
 public class EmployeEditorPane {
-	
+
 	private Stage primaryStage;
 	private DailyBankState dailyBankState;
 	private EmployeEditorPaneController emcViewPaneController;
-	
+
 	public EmployeEditorPane(Stage _parentStage, DailyBankState _dbstate)
 	{
 		this.dailyBankState = _dbstate;
@@ -43,12 +43,12 @@ public class EmployeEditorPane {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void doEmployeManagementDialog(Employe employe)
 	{
 		emcViewPaneController.displayDialog(employe);
 	}
-	
+
 	public int getEmployeMaxId()
 	{
 		return emcViewPaneController.getMaximumId();

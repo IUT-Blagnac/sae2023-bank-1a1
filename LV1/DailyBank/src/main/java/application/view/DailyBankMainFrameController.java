@@ -212,7 +212,7 @@ public class DailyBankMainFrameController {
 
 		this.dbmfDialogController.gestionEmploye();
 	}
-	
+
 	@FXML
 	private void doSimulation() {
 		this.dbmfDialogController.gestionSimulation();

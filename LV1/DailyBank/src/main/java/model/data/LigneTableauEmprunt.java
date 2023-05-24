@@ -29,13 +29,13 @@ public class LigneTableauEmprunt {
 	public int periode;
 	public double capitalRestantDebut;
 	public double interets ;
-	public double principal; 
+	public double principal;
 	public double montantARembourser;
 	public double capitalRestantFin;
-	
+
 	public LigneTableauEmprunt(int periode, double capitalRestantDebut, double interets, double principal,
 			double montantARembourser, double capitalRestantFin) {
-		
+
 		this.periode = periode;
 		this.capitalRestantDebut = capitalRestantDebut;
 		this.interets = interets;
@@ -43,11 +43,11 @@ public class LigneTableauEmprunt {
 		this.montantARembourser = montantARembourser;
 		this.capitalRestantFin = capitalRestantFin;
 	}
-	
+
 	@Override
 	public String toString() {
-		return + this.periode + "     |  " + Math.round(this.capitalRestantDebut * 100.0) / 100.0 
-				+ "  |  " + Math.round(this.interets * 100.0) / 100.0  + "  |  " + Math.round(this.principal * 100.0)/ 100.0 + "  |  " 
+		return + this.periode + "     |  " + Math.round(this.capitalRestantDebut * 100.0) / 100.0
+				+ "  |  " + Math.round(this.interets * 100.0) / 100.0  + "  |  " + Math.round(this.principal * 100.0)/ 100.0 + "  |  "
 				+ Math.round(this.montantARembourser * 100.0)/ 100.0 + "  |  " + Math.round(this.capitalRestantFin * 100.0)/ 100.0;
 	}
 }

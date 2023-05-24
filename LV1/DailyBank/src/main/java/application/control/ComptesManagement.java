@@ -127,7 +127,7 @@ public class ComptesManagement {
 	}
 
 	/**
-	 * 
+	 *
 	 *Clôture ou rouvre le compte courant spécifié en entrée en fonction de son état actuel.
 	 *
 	 *@param cc Le compte courant à clôturer ou rouvrir.
@@ -165,7 +165,7 @@ public class ComptesManagement {
 		}
 	}
 	/**
-	 * 
+	 *
 	 *Supprime un compte courant clôturé
 	 *
 	 *@param cc Le compte courant à clôturer ou rouvrir.

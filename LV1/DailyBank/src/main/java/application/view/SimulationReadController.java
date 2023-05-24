@@ -14,7 +14,7 @@ import model.data.Simulation;
 
 
 /* Classe permettant de lire le résultat d'une simulation
- * 
+ *
  * @author illan
  */
 public class SimulationReadController {
@@ -22,7 +22,7 @@ public class SimulationReadController {
 	// Fenêtre physique ou est la scène contenant le fichier xml contrôlé par this
 	private Stage primaryStage;
 
-	// Données 
+	// Données
 
 	private Simulation simulationEnCours;
 
@@ -98,9 +98,9 @@ public class SimulationReadController {
 			tableView.getColumns().add(principalColonne);
 			tableView.getColumns().add(montantARembourserColonne);
 			tableView.getColumns().add(capitalRestantFinColonne);
-			
+
 			tableView.getItems().setAll(this.simulationEnCours.alSimulation);
-			
+
 			tableView.resizeColumn(tableView.getColumns().get(0), 80);
 			for (int i = 1 ; i < tableView.getColumns().size() ; i ++) {
 				tableView.resizeColumn(tableView.getColumns().get(i), 150);
@@ -112,8 +112,8 @@ public class SimulationReadController {
 			System.err.println("Assurance TODO");
 			return;
 		}
-		
-		
+
+
 
 		this.primaryStage.showAndWait();
 

@@ -20,7 +20,7 @@ public class SimulationManagement {
 	public SimulationManagement(Stage _parentStage, DailyBankState _dbstate) {
 
 		this.dailyBankState = _dbstate;
-		
+
 		try {
 			FXMLLoader loader = new FXMLLoader(
 					OperationsManagementController.class.getResource("simulationmanagement.fxml"));
@@ -32,9 +32,9 @@ public class SimulationManagement {
 			this.primaryStage = new Stage();
 			this.primaryStage.initModality(Modality.WINDOW_MODAL);
 			this.primaryStage.initOwner(_parentStage);
-			
+
 			StageManagement.manageCenteringStage(_parentStage, this.primaryStage);
-			
+
 			this.primaryStage.setScene(scene);
 			this.primaryStage.setTitle("Simulations d'emprunts/assurances");
 			this.primaryStage.setResizable(false);

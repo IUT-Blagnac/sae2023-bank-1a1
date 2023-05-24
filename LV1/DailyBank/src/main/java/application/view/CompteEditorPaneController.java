@@ -69,7 +69,7 @@ public class CompteEditorPaneController {
 		case MODIFICATION:
 			AlertUtilities.showAlert(this.primaryStage, "Non implémenté", "Modif de compte n'est pas implémenté", null,
 					AlertType.ERROR);
-			
+
 			break;
 		case SUPPRESSION:
 			AlertUtilities.showAlert(this.primaryStage, "Non implémenté", "Suppression de compte n'est pas implémenté",

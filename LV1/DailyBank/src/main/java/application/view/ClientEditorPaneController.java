@@ -85,8 +85,8 @@ public class ClientEditorPaneController {
 			this.txtMail.setDisable(false);
 			this.rbActif.setSelected(true);
 			this.rbInactif.setSelected(false);
-			
-			
+
+
 			Access_BD_CompteCourant acCompteCourant = new Access_BD_CompteCourant();
 			if (ConstantesIHM.isAdmin(this.dailyBankState.getEmployeActuel())& acCompteCourant.isDesactivable(this.clientEdite)) {
 				this.rbActif.setDisable(false);
@@ -95,7 +95,7 @@ public class ClientEditorPaneController {
 				this.rbActif.setDisable(true);
 				this.rbInactif.setDisable(true);
 			}
-			
+
 			this.lblMessage.setText("Informations client");
 			this.butOk.setText("Modifier");
 			this.butCancel.setText("Annuler");
