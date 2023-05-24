@@ -2,6 +2,12 @@ package model.data;
 
 import java.sql.Date;
 
+/**
+ * Classe héritant de Operation afin de stocker le numéro de compte du destinataire.
+ * 
+ * @author illan
+ *
+ */
 public class OperationTransfert extends Operation {
 
 	public int idNumCompteDestinataire;
