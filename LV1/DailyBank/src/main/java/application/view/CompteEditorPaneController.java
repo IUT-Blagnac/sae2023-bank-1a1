@@ -67,8 +67,13 @@ public class CompteEditorPaneController {
 			this.btnCancel.setText("Annuler");
 			break;
 		case MODIFICATION:
-			AlertUtilities.showAlert(this.primaryStage, "Non implémenté", "Modif de compte n'est pas implémenté", null,
-					AlertType.ERROR);
+
+			this.txtDecAutorise.setDisable(false);
+			this.txtSolde.setDisable(true);
+			this.lblMessage.setText("Informations sur le compte");
+			this.lblSolde.setText("Solde :");
+			this.btnOk.setText("Mofifier");
+			this.btnCancel.setText("Annuler");
 
 			break;
 		case SUPPRESSION:
@@ -187,6 +192,29 @@ public class CompteEditorPaneController {
 	}
 
 	private boolean isSaisieValide() {
+		
+		switch (this.editionMode) {
+		
+		case CREATION:
+
+			return true;
+
+		// Author Illan
+		case MODIFICATION:
+			double valAbsolue = Math.abs(this.compteEdite.debitAutorise);
+			if (this.compteEdite.solde < -valAbsolue) {
+				AlertUtilities.showAlert(this.primaryStage, "Solde inférieur au découvert", "Le solde est inférieur au découvert autorisé\nAnnulez la modification",
+						null, AlertType.WARNING);
+				return false;
+			}
+			
+			return true;
+			
+		case SUPPRESSION:
+
+			return true;
+
+		}
 
 		return true;
 	}

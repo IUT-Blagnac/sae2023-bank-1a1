@@ -136,8 +136,21 @@ public class ComptesManagementController {
 	}
 
 	@FXML
+	/**
+	 * 
+	 * @author illan
+	 */
 	private void doModifierCompte() {
-
+		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
+		CompteCourant compte = this.oListCompteCourant.get(selectedIndice);
+		
+		
+		compte = this.cmDialogController.modifierCompte(compte);
+		if (compte != null) {
+			this.loadList();
+			validateComponentState();
+		}
+		
 	}
 
 	@FXML
@@ -204,24 +217,16 @@ public class ComptesManagementController {
 
 				this.btnVoirOpes.setDisable(false);
 				
-				//si le compte est cloturer
-				if (cpt.estCloture.equals("O")) {
-					this.btnClôtureCompte.setDisable(true);
-				}else {
-					this.btnClôtureCompte.setDisable(false);
-				}
 
-
-
-				//si la liste est vide et le compte cloturer
+				//si le compte est cloturé
 				if (cpt.estCloture.equals("O")) {
 					this.btnSupprCompte.setDisable(false);
-
+					this.btnClôtureCompte.setDisable(true);
 					this.btnModifierCompte.setDisable(true);
 
 				}else {
 					this.btnSupprCompte.setDisable(true);
-
+					this.btnClôtureCompte.setDisable(false);
 					this.btnModifierCompte.setDisable(false);
 
 				}
