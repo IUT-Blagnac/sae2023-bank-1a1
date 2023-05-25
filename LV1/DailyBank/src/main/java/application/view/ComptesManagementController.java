@@ -1,5 +1,8 @@
 package application.view;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -118,13 +121,19 @@ public class ComptesManagementController {
 	 * @author illan
 	 */
 	private void doGenererReleve() {
-		
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
-		CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
+		CompteCourant compteSelected = this.oListCompteCourant.get(selectedIndice);
 
-		RelevesBancaire releveB = new RelevesBancaire(dailyBankState,primaryStage,clientDesComptes,cpt,new Date(), new Date());
-		releveB.genererReleveBancaire("Test.pdf");
+		RelevesBancaire releveB;
+		try {
+			releveB = new RelevesBancaire(dailyBankState,primaryStage,clientDesComptes,compteSelected,dateFormat.parse("01/01/2000"), dateFormat.parse("01/01/2050") );
+			releveB.genererReleveBancaire("Test.pdf");
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
 		
 		System.err.println("TODO - GENERER RELEVE - EN TEST");
 
