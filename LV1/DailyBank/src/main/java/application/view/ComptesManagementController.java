@@ -187,13 +187,23 @@ public class ComptesManagementController {
 			this.btnModifierCompte.setDisable(true);
 			this.btnClôtureCompte.setDisable(true);
 			this.btnSupprCompte.setDisable(true);
-		}else {
+			if (selectedIndice >= 0) {
+				CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
+				this.btnVoirOpes.setDisable(false);	
+			}
+			else {
+				this.btnVoirOpes.setDisable(true);	
+			}
+		}
+		else {
 			this.btnNouveauCompte.setDisable(false);
 
 			if (selectedIndice >= 0) {
 				CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
 				afficheText(cpt);
 
+				this.btnVoirOpes.setDisable(false);
+				
 				//si le compte est cloturer
 				if (cpt.estCloture.equals("O")) {
 					this.btnClôtureCompte.setDisable(true);
@@ -215,6 +225,7 @@ public class ComptesManagementController {
 					this.btnModifierCompte.setDisable(false);
 
 				}
+				
 			} else {
 				this.btnClôtureCompte.setDisable(true);
 				this.btnVoirOpes.setDisable(true);
