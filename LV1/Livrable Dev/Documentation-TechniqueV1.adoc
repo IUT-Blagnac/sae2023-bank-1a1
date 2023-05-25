@@ -390,8 +390,10 @@ Développé par Bilon Kwadjani
 ===== Description 
 Cette fonctionnalité a été faite en faisant des modifications dans plusieurs classes et en créant une nouvelle classe.
 Cependant elle se base sur les fonctionnalités inserer client.
+
 Pour creer un compte j'ai utilise la classe "CompteManagement" que j'ai modifier la methode "creerNouveauCompte" pour utiliser la methode "insertCompteC" que j'ai dévelloper dans la classe "Access_BD_CompteCourant" qui utilise une requete sql pour enregistrer les information du nouveau Compte.
-La création d'un nouveau compte se fait seuleument si le client est actif .
+
+La création d'un nouveau compte se fait seuleument si le client est actif sinon le boutton pour crée un nouveau compte est desactiver.
 
 
 === Effectuer un virement de compte à compte :
