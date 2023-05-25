@@ -67,7 +67,8 @@ public class CompteEditorPaneController {
 			this.btnCancel.setText("Annuler");
 			break;
 		case MODIFICATION:
-
+			// Author Illan GABARRA
+			
 			this.txtDecAutorise.setDisable(false);
 			this.txtSolde.setDisable(true);
 			this.lblMessage.setText("Informations sur le compte");
