@@ -367,6 +367,10 @@ Cette fonctionnalité a été faite en faisant des modifications dans plusieurs 
 Afin de réaliser une opération de crédit, l'utilisateur clique sur le bouton "Enregistrer un crédit" ce qui déclenche une méthode créant une page de dialogue demandant la saisie d'un montant et le choix d'un type d'opération, si la création de l'opération est validé par le clic sur le bouton "Effectuer crédit" et que l'opération est valide alors l'opération est inscrite dans la base de donnée par la procédure SQL (CREDITER).
 
 === Créer un compte :
+[NOTE]
+====
+Développé par Bilon Kwadjani
+====
 
 *Classes impliquées dans chaque package :*
 
@@ -382,6 +386,13 @@ Afin de réaliser une opération de crédit, l'utilisateur clique sur le bouton 
 ** CompteCourant.java
 * package model.orm :
 ** Access_BD_CompteCourant.java
+
+===== Description 
+Cette fonctionnalité a été faite en faisant des modifications dans plusieurs classes et en créant une nouvelle classe.
+Cependant elle se base sur les fonctionnalités inserer client.
+Pour creer un compte j'ai utilise la classe "CompteManagement" que j'ai modifier la methode "creerNouveauCompte" pour utiliser la methode "insertCompteC" que j'ai dévelloper dans la classe "Access_BD_CompteCourant" qui utilise une requete sql pour enregistrer les information du nouveau Compte.
+La création d'un nouveau compte se fait seuleument si le client est actif .
+
 
 === Effectuer un virement de compte à compte :
 
@@ -406,7 +417,6 @@ Développé par Illan GABARRA
 ** classe Operation
 ** classe OperationTransfert
 * package application.tools :
-** classe ConstantesIHM
 ** classe CategorieOperation
 
 ===== Description 
