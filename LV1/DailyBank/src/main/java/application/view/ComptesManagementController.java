@@ -1,10 +1,12 @@
 package application.view;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import application.DailyBankState;
 import application.control.ComptesManagement;
 import application.tools.ConstantesIHM;
+import application.tools.RelevesBancaire;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -81,6 +83,8 @@ public class ComptesManagementController {
 	@FXML
 	private Button btnVoirOpes;
 	@FXML
+	private Button btnGenererReleve;
+	@FXML
 	private Button btnModifierCompte;
 	@FXML
 	private Button btnSupprCompte;
@@ -105,6 +109,25 @@ public class ComptesManagementController {
 		}
 		this.loadList();
 		this.validateComponentState();
+	}
+
+	@FXML
+	/**
+	 * Permet de faire générer le relevé bancaire du compte selectionné pour des dates choisies dans une page de dialogue
+	 * 
+	 * @author illan
+	 */
+	private void doGenererReleve() {
+		
+
+		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
+		CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
+
+		RelevesBancaire releveB = new RelevesBancaire(dailyBankState,primaryStage,clientDesComptes,cpt,new Date(), new Date());
+		releveB.genererReleveBancaire("Test.pdf");
+		
+		System.err.println("TODO - GENERER RELEVE - EN TEST");
+
 	}
 	/**
 	 * Permet de changer le text du bouton cloturer et reouvrir
@@ -143,14 +166,14 @@ public class ComptesManagementController {
 	private void doModifierCompte() {
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 		CompteCourant compte = this.oListCompteCourant.get(selectedIndice);
-		
-		
+
+
 		compte = this.cmDialogController.modifierCompte(compte);
 		if (compte != null) {
 			this.loadList();
 			validateComponentState();
 		}
-		
+
 	}
 
 	@FXML
@@ -216,7 +239,7 @@ public class ComptesManagementController {
 				afficheText(cpt);
 
 				this.btnVoirOpes.setDisable(false);
-				
+
 
 				//si le compte est cloturé
 				if (cpt.estCloture.equals("O")) {
@@ -230,7 +253,7 @@ public class ComptesManagementController {
 					this.btnModifierCompte.setDisable(false);
 
 				}
-				
+
 			} else {
 				this.btnClôtureCompte.setDisable(true);
 				this.btnVoirOpes.setDisable(true);

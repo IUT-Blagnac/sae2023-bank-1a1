@@ -19,3 +19,6 @@ buildNumber.properties
 #Information d'un workspace
 .metadata
 .settings
+
+#PDF de relevés générés
+.pdf
