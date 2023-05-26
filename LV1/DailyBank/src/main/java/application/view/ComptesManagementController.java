@@ -6,17 +6,23 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import application.DailyBankApp;
 import application.DailyBankState;
 import application.control.ComptesManagement;
 import application.tools.ConstantesIHM;
 import application.tools.RelevesBancaire;
+import application.tools.StageManagement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.Client;
@@ -121,22 +127,36 @@ public class ComptesManagementController {
 	 * @author illan
 	 */
 	private void doGenererReleve() {
-		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 		CompteCourant compteSelected = this.oListCompteCourant.get(selectedIndice);
-
-		RelevesBancaire releveB;
+		
+		
 		try {
-			releveB = new RelevesBancaire(dailyBankState,primaryStage,clientDesComptes,compteSelected,dateFormat.parse("01/01/2000"), dateFormat.parse("01/01/2050") );
-			releveB.genererReleveBancaire("Test.pdf");
-		} catch (ParseException e) {
+			FXMLLoader loader = new FXMLLoader(
+					OperationEditorPaneController.class.getResource("releveeditorpane.fxml"));
+			BorderPane root = loader.load();
+
+			Scene scene = new Scene(root,900,500);
+			scene.getStylesheets().add(DailyBankApp.class.getResource("application.css").toExternalForm());
+
+			Stage releveStage = new Stage();
+			releveStage.initModality(Modality.WINDOW_MODAL);
+			releveStage.initOwner(this.primaryStage);
+			StageManagement.manageCenteringStage(this.primaryStage, releveStage);
+			releveStage.setScene(scene);
+			releveStage.setTitle("Création d'un relevé bancaire");
+			releveStage.setResizable(false);
+
+			ReleveEditorPaneController repController = loader.getController();
+			repController.initContext(this.dailyBankState, this.primaryStage, this.clientDesComptes , compteSelected);
+			releveStage.showAndWait();
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		
-		System.err.println("TODO - GENERER RELEVE - EN TEST");
-
+	
 	}
 	/**
 	 * Permet de changer le text du bouton cloturer et reouvrir
@@ -235,6 +255,7 @@ public class ComptesManagementController {
 			if (selectedIndice >= 0) {
 				CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
 				this.btnVoirOpes.setDisable(false);	
+				this.btnGenererReleve.setDisable(false);
 			}
 			else {
 				this.btnVoirOpes.setDisable(true);	
@@ -248,6 +269,7 @@ public class ComptesManagementController {
 				afficheText(cpt);
 
 				this.btnVoirOpes.setDisable(false);
+				this.btnGenererReleve.setDisable(false);
 
 
 				//si le compte est cloturé
@@ -265,6 +287,7 @@ public class ComptesManagementController {
 
 			} else {
 				this.btnClôtureCompte.setDisable(true);
+				this.btnGenererReleve.setDisable(true);
 				this.btnVoirOpes.setDisable(true);
 				this.btnModifierCompte.setDisable(true);
 				this.btnSupprCompte.setDisable(true);
