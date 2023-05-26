@@ -1,6 +1,5 @@
 package application.view;
 
-import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Optional;
 
@@ -12,11 +11,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-<<<<<<< HEAD
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Alert;
-=======
->>>>>>> cd50147b0bf9c385dc8c1ceb4a0d76a8744172d2
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
@@ -25,17 +21,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import model.data.AgenceBancaire;
 import model.data.CompteCourant;
-import model.data.Employe;
 import model.data.Operation;
 import model.data.OperationTransfert;
-import model.orm.Access_BD_Client;
 import model.orm.Access_BD_CompteCourant;
 import model.orm.exception.DataAccessException;
 import model.orm.exception.DatabaseConnexionException;
 import model.orm.exception.RowNotFoundOrTooManyRowsException;
-import model.orm.Access_BD_Client;
 
 public class OperationEditorPaneController {
 
