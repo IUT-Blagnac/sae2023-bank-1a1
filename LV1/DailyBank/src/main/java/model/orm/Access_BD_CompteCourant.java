@@ -279,7 +279,6 @@ public class Access_BD_CompteCourant {
 	        throw new DataAccessException(Table.CompteCourant, Order.UPDATE, "Erreur accès", e);
 	    }
 	}
-<<<<<<< HEAD
 //	/**
 //	 * Cette méthode permet de clôturer un compte courant dans la base de données.
 //	 * @param numCompte Le numéro du compte à clôturer.
@@ -308,7 +307,6 @@ public class Access_BD_CompteCourant {
 //	        throw new DataAccessException(Table.CompteCourant, Order.UPDATE, "Erreur accès", e);
 //	    }
 //	}
-=======
 	/**
 	 * Cette méthode permet de clôturer un compte courant dans la base de données.
 	 * @param numCompte Le numéro du compte à clôturer.
@@ -337,7 +335,6 @@ public class Access_BD_CompteCourant {
 	        throw new DataAccessException(Table.CompteCourant, Order.UPDATE, "Erreur accès", e);
 	    }
 	}
->>>>>>> cd50147b0bf9c385dc8c1ceb4a0d76a8744172d2
 
 	/**
 	 * Vérifie si le compte clientADesactiver est désactivable

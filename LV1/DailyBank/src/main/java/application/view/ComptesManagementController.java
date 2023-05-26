@@ -172,27 +172,25 @@ public class ComptesManagementController {
 	 * @author Bilon
 	 */
 	private void afficheText(CompteCourant cc) {
-<<<<<<< HEAD
 		
 //		if(cc.estCloture.equals("O")) {
 //			btnClôtureCompte.setText("ReOuvrir");
 //		}else {
-=======
 
 		if(cc.estCloture.equals("O")) {
 			btnClôtureCompte.setText("ReOuvrir");
 		}else {
->>>>>>> cd50147b0bf9c385dc8c1ceb4a0d76a8744172d2
 			btnClôtureCompte.setText("Cloturer");
-//		}
+			}
 	}
-	@FXML
+	
 	/**
 	 * Permet de cloturer un compte
 	 *
 	 * @author Bilon
 	 */
-	private void doClôtureCompte() {
+	@FXML
+	private void doClotureCompte() {
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 		CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
 		if (selectedIndice >= 0) {
@@ -292,7 +290,6 @@ public class ComptesManagementController {
 					this.btnSupprCompte.setDisable(false);
 					this.btnClôtureCompte.setDisable(true);
 					this.btnModifierCompte.setDisable(true);
-<<<<<<< HEAD
 					//si le compte est cloturer
 					if (cpt.estCloture.equals("O")) {
 						this.btnClôtureCompte.setDisable(true);
@@ -313,7 +310,6 @@ public class ComptesManagementController {
 							this.btnClôtureCompte.setDisable(false);
 						}
 					}
-=======
 
 				}else {
 					this.btnSupprCompte.setDisable(true);
@@ -322,14 +318,7 @@ public class ComptesManagementController {
 
 				}
 
->>>>>>> cd50147b0bf9c385dc8c1ceb4a0d76a8744172d2
-			} else {
-				this.btnClôtureCompte.setDisable(true);
-				this.btnGenererReleve.setDisable(true);
-				this.btnVoirOpes.setDisable(true);
-				this.btnModifierCompte.setDisable(true);
-				this.btnSupprCompte.setDisable(true);
-			}
+			
 		}
 	}
 }
