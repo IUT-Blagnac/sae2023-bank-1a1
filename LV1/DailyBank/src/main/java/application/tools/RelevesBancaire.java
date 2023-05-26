@@ -269,7 +269,7 @@ public class RelevesBancaire {
 
 			// Rajout du solde à la fin
 
-			createLine(table,"","",opDebut.idTypeOp,"","",String.format("%10.02f", opFin.montant),true);
+			createLine(table,"","",opFin.idTypeOp,"","",String.format("%10.02f", opFin.montant),true);
 
 
 
