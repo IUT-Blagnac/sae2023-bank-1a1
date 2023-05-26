@@ -172,141 +172,163 @@ public class Access_BD_CompteCourant {
 		}
 	}
 
-
 	/**
-	*
-    *Cette méthode permet d'insérer un nouveau compte courant dans la base de données.
-    *@param cc Le compte courant à insérer.
-    *@throws RowNotFoundOrTooManyRowsException si l'insertion ne concerne pas une seule ligne.
-    *@throws DataAccessException si une erreur d'accès à la base de données se produit.
-	*/
-	public void insertCompteC(CompteCourant cc) throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {
-	    try {
-	    	if (cc.debitAutorise > 0) {
+	 *
+	 * Cette méthode permet d'insérer un nouveau compte courant dans la base de
+	 * données.
+	 * 
+	 * @param cc Le compte courant à insérer.
+	 * @throws RowNotFoundOrTooManyRowsException si l'insertion ne concerne pas une
+	 *                                           seule ligne.
+	 * @throws DataAccessException               si une erreur d'accès à la base de
+	 *                                           données se produit.
+	 */
+	public void insertCompteC(CompteCourant cc)
+			throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {
+		try {
+			if (cc.debitAutorise > 0) {
 				cc.debitAutorise = -cc.debitAutorise;
 			}
-	        Connection con = LogToDatabase.getConnexion();
-	        String query = "INSERT INTO CompteCourant (idNumCompte, debitAutorise, solde, idNumCli, estCloture) VALUES (seq_id_compte.NEXTVAL, ?, ?, ?, ?)";
-	        PreparedStatement pst = con.prepareStatement(query);
+			Connection con = LogToDatabase.getConnexion();
+			String query = "INSERT INTO CompteCourant (idNumCompte, debitAutorise, solde, idNumCli, estCloture) VALUES (seq_id_compte.NEXTVAL, ?, ?, ?, ?)";
+			PreparedStatement pst = con.prepareStatement(query);
 
-	        pst.setInt(1, cc.debitAutorise);
-	        pst.setDouble(2, cc.solde);
-	        pst.setInt(3, cc.idNumCli);
-	        pst.setString(4, cc.estCloture);
+			pst.setInt(1, cc.debitAutorise);
+			pst.setDouble(2, cc.solde);
+			pst.setInt(3, cc.idNumCli);
+			pst.setString(4, cc.estCloture);
 
-	        System.err.println(query);
-	        int result = pst.executeUpdate();
-	        pst.close();
-	        if (result != 1) {
-	            con.rollback();
-	            throw new RowNotFoundOrTooManyRowsException(Table.CompteCourant, Order.INSERT, "Insert anormal (insert de moins ou plus d'une ligne)", null, result);
-	        }
+			System.err.println(query);
+			int result = pst.executeUpdate();
+			pst.close();
+			if (result != 1) {
+				con.rollback();
+				throw new RowNotFoundOrTooManyRowsException(Table.CompteCourant, Order.INSERT,
+						"Insert anormal (insert de moins ou plus d'une ligne)", null, result);
+			}
 
-	        query = "SELECT seq_id_compte.CURRVAL from DUAL";
-	        System.err.println(query);
-	        PreparedStatement pst2 = con.prepareStatement(query);
-	        ResultSet rs = pst2.executeQuery();
-	        rs.next();
-	        int numCliBase = rs.getInt(1);
-	        con.commit();
-	        rs.close();
-	        pst2.close();
-	        cc.idNumCompte = numCliBase;
-	    } catch (SQLException e) {
-	        throw new DataAccessException(Table.CompteCourant, Order.SELECT, "Erreur accès", e);
-	    }
+			query = "SELECT seq_id_compte.CURRVAL from DUAL";
+			System.err.println(query);
+			PreparedStatement pst2 = con.prepareStatement(query);
+			ResultSet rs = pst2.executeQuery();
+			rs.next();
+			int numCliBase = rs.getInt(1);
+			con.commit();
+			rs.close();
+			pst2.close();
+			cc.idNumCompte = numCliBase;
+		} catch (SQLException e) {
+			throw new DataAccessException(Table.CompteCourant, Order.SELECT, "Erreur accès", e);
+		}
 	}
+
 	/**
 	 * Cette méthode permet de clôturer un compte courant dans la base de données.
+	 * 
 	 * @param numCompte Le numéro du compte à clôturer.
-	 * @throws DataAccessException si une erreur d'accès à la base de données se produit.
+	 * @throws DataAccessException               si une erreur d'accès à la base de
+	 *                                           données se produit.
 	 * @throws RowNotFoundOrTooManyRowsException
 	 * @throws DatabaseConnexionException
 	 * @author Bilon
 	 */
-	public void cloturerCompte(int numCompte) throws DataAccessException, RowNotFoundOrTooManyRowsException, DatabaseConnexionException {
-	    try {
-	        Connection con = LogToDatabase.getConnexion();
-	        String query = "UPDATE CompteCourant SET estCloture = 'O' WHERE idNumCompte = ?";
-	        PreparedStatement pst = con.prepareStatement(query);
+	public void cloturerCompte(int numCompte)
+			throws DataAccessException, RowNotFoundOrTooManyRowsException, DatabaseConnexionException {
+		try {
+			Connection con = LogToDatabase.getConnexion();
+			String query = "UPDATE CompteCourant SET estCloture = 'O' WHERE idNumCompte = ?";
+			PreparedStatement pst = con.prepareStatement(query);
 
-	        pst.setInt(1, numCompte);
+			pst.setInt(1, numCompte);
 
-	        int result = pst.executeUpdate();
-	        pst.close();
+			int result = pst.executeUpdate();
+			pst.close();
 
-	        if (result != 1) {
-	            con.rollback();
-	            throw new RowNotFoundOrTooManyRowsException(Table.CompteCourant, Order.UPDATE, "Update anormal (update de moins ou plus d'une ligne)", null, result);
-	        }
-	        con.commit();
-	    } catch (SQLException e) {
-	        throw new DataAccessException(Table.CompteCourant, Order.UPDATE, "Erreur accès", e);
-	    }
+			if (result != 1) {
+				con.rollback();
+				throw new RowNotFoundOrTooManyRowsException(Table.CompteCourant, Order.UPDATE,
+						"Update anormal (update de moins ou plus d'une ligne)", null, result);
+			}
+			con.commit();
+		} catch (SQLException e) {
+			throw new DataAccessException(Table.CompteCourant, Order.UPDATE, "Erreur accès", e);
+		}
 	}
+
 	/**
-	 * Cette méthode permet de supprimer un compte courant clôturé dans la base de données.
+	 * Cette méthode permet de supprimer un compte courant clôturé dans la base de
+	 * données.
+	 * 
 	 * @param compteSup Le compte à supprimer.
-	 * @throws DataAccessException si une erreur d'accès à la base de données se produit.
+	 * @throws DataAccessException               si une erreur d'accès à la base de
+	 *                                           données se produit.
 	 * @throws RowNotFoundOrTooManyRowsException
 	 * @throws DatabaseConnexionException
 	 * @author Illan GABARRA
 	 */
-	public void supprimerCompte(CompteCourant compteSup) throws DataAccessException, RowNotFoundOrTooManyRowsException, DatabaseConnexionException {
-	    try {
+	public void supprimerCompte(CompteCourant compteSup)
+			throws DataAccessException, RowNotFoundOrTooManyRowsException, DatabaseConnexionException {
+		try {
 
-	    	Access_BD_Operation accOperation = new Access_BD_Operation();
+			Access_BD_Operation accOperation = new Access_BD_Operation();
 
-	    	accOperation.suppressionOperations(compteSup.idNumCompte);
+			accOperation.suppressionOperations(compteSup.idNumCompte);
 
-	        Connection con = LogToDatabase.getConnexion();
+			Connection con = LogToDatabase.getConnexion();
 
-	        String query = "DELETE CompteCourant WHERE idNumCompte = ?";
+			String query = "DELETE CompteCourant WHERE idNumCompte = ?";
 
-	        System.err.println(query);
-	        PreparedStatement pst = con.prepareStatement(query);
-	        pst.setInt(1, compteSup.idNumCompte);
+			System.err.println(query);
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setInt(1, compteSup.idNumCompte);
 
-	        int result = pst.executeUpdate();
-	        pst.close();
+			int result = pst.executeUpdate();
+			pst.close();
 
-	        if (result != 1) {
-	            con.rollback();
-	            throw new RowNotFoundOrTooManyRowsException(Table.CompteCourant, Order.DELETE, "Suppression anormal ", null, result);
-	        }
-	        con.commit();
-	    } catch (SQLException e) {
-	        throw new DataAccessException(Table.CompteCourant, Order.UPDATE, "Erreur accès", e);
-	    }
+			if (result != 1) {
+				con.rollback();
+				throw new RowNotFoundOrTooManyRowsException(Table.CompteCourant, Order.DELETE, "Suppression anormal ",
+						null, result);
+			}
+			con.commit();
+		} catch (SQLException e) {
+			throw new DataAccessException(Table.CompteCourant, Order.UPDATE, "Erreur accès", e);
+		}
 	}
-	/**
-	 * Cette méthode permet de clôturer un compte courant dans la base de données.
-	 * @param numCompte Le numéro du compte à clôturer.
-	 * @throws DataAccessException si une erreur d'accès à la base de données se produit.
-	 * @throws RowNotFoundOrTooManyRowsException
-	 * @throws DatabaseConnexionException
-	 * Par Bilon Kwadjani
-	 */
-	public void reOuvrirCompte(int numCompte) throws DataAccessException, RowNotFoundOrTooManyRowsException, DatabaseConnexionException {
-	    try {
-	        Connection con = LogToDatabase.getConnexion();
-	        String query = "UPDATE CompteCourant SET estCloture = 'N' WHERE idNumCompte = ?";
-	        PreparedStatement pst = con.prepareStatement(query);
-
-	        pst.setInt(1, numCompte);
-
-	        int result = pst.executeUpdate();
-	        pst.close();
-
-	        if (result != 1) {
-	            con.rollback();
-	            throw new RowNotFoundOrTooManyRowsException(Table.CompteCourant, Order.UPDATE, "Update anormal (update de moins ou plus d'une ligne)", null, result);
-	        }
-	        con.commit();
-	    } catch (SQLException e) {
-	        throw new DataAccessException(Table.CompteCourant, Order.UPDATE, "Erreur accès", e);
-	    }
-	}
+	// /**
+	// * Cette méthode permet de clôturer un compte courant dans la base de données.
+	// * @param numCompte Le numéro du compte à clôturer.
+	// * @throws DataAccessException si une erreur d'accès à la base de données se
+	// produit.
+	// * @throws RowNotFoundOrTooManyRowsException
+	// * @throws DatabaseConnexionException
+	// * @author Bilon Kwadjani
+	// */
+	// public void reOuvrirCompte(int numCompte) throws DataAccessException,
+	// RowNotFoundOrTooManyRowsException, DatabaseConnexionException {
+	// try {
+	// Connection con = LogToDatabase.getConnexion();
+	// String query = "UPDATE CompteCourant SET estCloture = 'N' WHERE idNumCompte =
+	// ?";
+	// PreparedStatement pst = con.prepareStatement(query);
+	//
+	// pst.setInt(1, numCompte);
+	//
+	// int result = pst.executeUpdate();
+	// pst.close();
+	//
+	// if (result != 1) {
+	// con.rollback();
+	// throw new RowNotFoundOrTooManyRowsException(Table.CompteCourant,
+	// Order.UPDATE, "Update anormal (update de moins ou plus d'une ligne)", null,
+	// result);
+	// }
+	// con.commit();
+	// } catch (SQLException e) {
+	// throw new DataAccessException(Table.CompteCourant, Order.UPDATE, "Erreur
+	// accès", e);
+	// }
+	// }
 
 	/**
 	 * Vérifie si le compte clientADesactiver est désactivable
@@ -337,11 +359,3 @@ public class Access_BD_CompteCourant {
 		return true;
 	}
 }
-
-
-
-
-
-
-
-

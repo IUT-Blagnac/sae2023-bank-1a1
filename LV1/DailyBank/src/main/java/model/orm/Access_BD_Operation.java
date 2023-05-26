@@ -65,6 +65,14 @@ public class Access_BD_Operation {
 		}
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * Recherche d'une opération par son id.
 	 *
@@ -118,6 +126,48 @@ public class Access_BD_Operation {
 			throw new DataAccessException(Table.Operation, Order.SELECT, "Erreur accès", e);
 		}
 	}
+	
+	/**
+	 * methode qui enregistre un debit dans meme lorsque le debit depasse le découvert autoriser
+	 * donnée même si le débit dépasse le découvert autoriser
+	 * @param idNumCompte
+	 * @param montant
+	 * @param typeOp
+	 * @author Kwadjani Bilon
+	 */
+	public void insertDebitExeptionnel(int idNumCompte, double montant, String typeOp) {
+		
+		try {
+            // Appel de la procédure stockée
+            Connection con = LogToDatabase.getConnexion();
+			CallableStatement call;
+
+			String q = "{call Debit_Exceptionnel(?, ?, ?, ?)}";
+			// les ? correspondent aux paramètres : cf. déf procédure (4 paramètres)
+			call = con.prepareCall(q);
+			// Paramètres in
+			call.setInt(1, idNumCompte);
+			// 1 -> valeur du premier paramètre, cf. déf procédure
+			call.setDouble(2, montant);
+			call.setString(3, typeOp);
+			// Paramètres out
+			call.registerOutParameter(4, java.sql.Types.INTEGER);
+			// 4 type du quatrième paramètre qui est déclaré en OUT, cf. déf procédure
+
+			call.execute();
+
+			int res = call.getInt(4);
+			
+			System.out.println(res);
+			
+			
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    
+	}
+	
+	
 
 	/**
 	 * Enregistrement d'un débit.

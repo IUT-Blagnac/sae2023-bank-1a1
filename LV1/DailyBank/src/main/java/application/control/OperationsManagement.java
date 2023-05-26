@@ -1,6 +1,7 @@
 package application.control;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import application.DailyBankApp;
 import application.DailyBankState;
@@ -10,11 +11,16 @@ import application.tools.StageManagement;
 import application.view.OperationsManagementController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.data.AgenceBancaire;
 import model.data.Client;
 import model.data.CompteCourant;
+import model.data.Employe;
 import model.data.Operation;
 import model.data.OperationTransfert;
 import model.orm.Access_BD_CompteCourant;
@@ -26,10 +32,29 @@ public class OperationsManagement {
 
 	private Stage primaryStage;
 	private DailyBankState dailyBankState;
-	private OperationsManagementController omcViewController;
 	private Client clientDuCompte;
+	private OperationsManagementController omcViewController;
 	private CompteCourant compteConcerne;
-
+	
+	
+	
+//	/**
+//	 * methode qui prend en parametre un agence Bancaire et un Employe . 
+//	 * @param unAg
+//	 * @param unEmploye
+//	 * @return true si l'employer est chef d'agence sinon false
+//	 * @author Kwadjani Bilon
+//	 */
+//	private boolean estChefAg(AgenceBancaire unAg ,Employe unEmploye) {
+//		boolean estChef =false;
+//		
+//		if((unAg.idEmployeChefAg==unEmploye.idEmploye )&&(unAg.idAg==unEmploye.idAg)) {
+//			estChef=true;
+//		}
+//		return estChef;
+//	}
+	
+	
 	public OperationsManagement(Stage _parentStage, DailyBankState _dbstate, Client client, CompteCourant compte) {
 
 		this.clientDuCompte = client;
@@ -76,8 +101,19 @@ public class OperationsManagement {
 		if (op != null) {
 			try {
 				Access_BD_Operation ao = new Access_BD_Operation();
-
-				ao.insertDebit(this.compteConcerne.idNumCompte, op.montant, op.idTypeOp);
+				
+				double nSolde =this.compteConcerne.solde-op.montant;
+				
+				System.out.println(""+this.compteConcerne.solde);
+				System.out.println(""+op.montant);
+				System.out.println(""+nSolde);
+				System.out.println(""+this.compteConcerne.debitAutorise);
+				
+				if((this.dailyBankState.isChefDAgence()==true) && (this.compteConcerne.debitAutorise>nSolde)) {
+					    ao.insertDebitExeptionnel(this.compteConcerne.idNumCompte,op.montant, op.idTypeOp);
+				}else {
+					ao.insertDebit(this.compteConcerne.idNumCompte, op.montant, op.idTypeOp);
+				}
 
 			} catch (DatabaseConnexionException e) {
 				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);
