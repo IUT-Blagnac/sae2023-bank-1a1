@@ -75,15 +75,15 @@ public class OperationsManagementController {
 	private Label lblInfosCompte;
 	@FXML
 	private ListView<Operation> lvOperations;
-	
+
 	@FXML
 	private Button btnDebit;
 	@FXML
 	private Button btnCredit;
 	@FXML
 	private Button btnTransfert;
-	
-	
+
+
 	@FXML
 	private void doCancel() {
 		this.primaryStage.close();
@@ -100,12 +100,12 @@ public class OperationsManagementController {
 
 	@FXML
 	private void doCredit() {
-		
+
 		Operation op = this.omDialogController.enregistrerCredit();
 		if (op != null) {
 			this.updateInfoCompteClient();
 		}
-		
+
 	}
 
 	@FXML
@@ -115,16 +115,16 @@ public class OperationsManagementController {
 			this.updateInfoCompteClient();
 		}
 	}
-	
+
 
 	private void validateComponentState() {
-		
+
 		if (this.compteConcerne.estCloture.compareTo("O") == 0) {
 
 			this.btnCredit.setDisable(true);
 			this.btnDebit.setDisable(true);
 			this.btnTransfert.setDisable(true);
-			
+
 		}
 		else {
 			this.btnCredit.setDisable(false);

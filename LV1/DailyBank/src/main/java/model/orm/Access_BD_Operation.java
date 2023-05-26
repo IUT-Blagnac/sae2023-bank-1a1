@@ -206,9 +206,9 @@ public class Access_BD_Operation {
 			call.execute();
 
 			int res = call.getInt(4);
-			
+
 			System.out.println(res);
-			
+
 			if (res != 0) { // Erreur applicative
 				throw new ManagementRuleViolation(Table.Operation, Order.INSERT,
 						"Erreur de règle de gestion : découvert autorisé dépassé", null);
@@ -233,9 +233,9 @@ public class Access_BD_Operation {
 	 * @throws DataAccessException        Erreur d'accès aux données (requête mal
 	 *                                    formée ou autre)
 	 * @throws DatabaseConnexionException Erreur de connexion
-	 * 
+	 *
 	 */
-	public void insertCredit(int idNumCompte, double montant, String idTypeOp) 
+	public void insertCredit(int idNumCompte, double montant, String idTypeOp)
 			throws DatabaseConnexionException, DataAccessException {
 		try {
 			Connection con = LogToDatabase.getConnexion();
@@ -254,14 +254,14 @@ public class Access_BD_Operation {
 			// 4 type du quatrième paramètre qui est déclaré en OUT, cf. déf procédure
 
 			System.err.println(q);
-			
+
 			call.execute();
 
 		} catch (SQLException e) {
 			throw new DataAccessException(Table.Operation, Order.INSERT, "Erreur accès", e);
 		}
 	}
-	
+
 	/**
 	 * Enregistrement d'un transfert.
 	 *
@@ -279,18 +279,18 @@ public class Access_BD_Operation {
 	 * @throws DatabaseConnexionException Erreur de connexion
 	 * @throws ManagementRuleViolation    Si dépassement découvert autorisé sur le compte débité
 	 */
-	public void insertTransfert(int idNumCompte, int idNumCompteDestinataire, double montant, String idTypeOp) 
+	public void insertTransfert(int idNumCompte, int idNumCompteDestinataire, double montant, String idTypeOp)
 			throws DatabaseConnexionException, ManagementRuleViolation, DataAccessException {
-		
+
 		System.out.println("InsertTransfert : "+ montant +" " +idTypeOp);
-		
-		
+
+
 		insertDebit(idNumCompte, montant, idTypeOp);
-		
+
 		System.out.println("Débit fait");
-		
+
 		insertCredit(idNumCompteDestinataire, montant, idTypeOp);
-		
+
 		System.out.println("Crédit fait");
 	}
 	/**
@@ -304,25 +304,25 @@ public class Access_BD_Operation {
 	 *                                    formée ou autre)
 	 * @throws DatabaseConnexionException Erreur de connexion
 	 * @throws ManagementRuleViolation    Si dépassement découvert autorisé sur le compte débité
-	 * @throws SQLException 
-	 * @throws RowNotFoundOrTooManyRowsException 
+	 * @throws SQLException
+	 * @throws RowNotFoundOrTooManyRowsException
 	 */
-	public void suppressionOperations(int idNumCompte) 
+	public void suppressionOperations(int idNumCompte)
 			throws DatabaseConnexionException, DataAccessException, SQLException, RowNotFoundOrTooManyRowsException {
-	
+
         Connection con = LogToDatabase.getConnexion();
-        
+
         String query = "DELETE Operation WHERE idNumCompte = ?";
-        
+
         System.err.println(query);
-        
+
         PreparedStatement pst = con.prepareStatement(query);
         pst.setInt(1, idNumCompte);
-        
+
         pst.executeUpdate();
-        
+
         pst.close();
-        
+
         con.commit();
 	}
 
@@ -345,7 +345,7 @@ public class Access_BD_Operation {
 		return sd;
 	}
 
-	
+
 
 
 

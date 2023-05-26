@@ -3,50 +3,51 @@ package application.control;
 import application.DailyBankApp;
 import application.DailyBankState;
 import application.tools.StageManagement;
-import application.view.ClientsManagementController;
-import application.view.EmployeManagementController;
+import application.view.OperationsManagementController;
+import application.view.SimulationManagementController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class EmployeManagement {
+public class SimulationManagement {
+
 	private Stage primaryStage;
 	private DailyBankState dailyBankState;
-	private EmployeManagementController emcViewController;
+	private SimulationManagementController smcViewController;
 
-		public EmployeManagement(Stage _parentStage, DailyBankState _dbstate) {
+	public SimulationManagement(Stage _parentStage, DailyBankState _dbstate) {
+
 		this.dailyBankState = _dbstate;
+
 		try {
-			FXMLLoader loader = new FXMLLoader(ClientsManagementController.class.getResource("employesmanagement.fxml"));
+			FXMLLoader loader = new FXMLLoader(
+					OperationsManagementController.class.getResource("simulationmanagement.fxml"));
 			BorderPane root = loader.load();
 
-			Scene scene = new Scene(root, root.getPrefWidth() + 50, root.getPrefHeight() + 10);
+			Scene scene = new Scene(root, 550 + 20, 390 + 10);
 			scene.getStylesheets().add(DailyBankApp.class.getResource("application.css").toExternalForm());
 
 			this.primaryStage = new Stage();
 			this.primaryStage.initModality(Modality.WINDOW_MODAL);
 			this.primaryStage.initOwner(_parentStage);
+
 			StageManagement.manageCenteringStage(_parentStage, this.primaryStage);
+
 			this.primaryStage.setScene(scene);
-			this.primaryStage.setTitle("Gestion des employes");
+			this.primaryStage.setTitle("Simulations d'emprunts/assurances");
 			this.primaryStage.setResizable(false);
 
-			this.emcViewController = loader.getController();
-			this.emcViewController.initContext(this.primaryStage, this, _dbstate);
-
+			this.smcViewController = loader.getController();
+			this.smcViewController.initContext(this.primaryStage, this, _dbstate);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	public void doEmployeManagementDialog()
-	{
-		emcViewController.displayDialog();
+	public void doSimulationManagementDialog() {
+		this.smcViewController.displayDialog();
 	}
-
 }
-
-

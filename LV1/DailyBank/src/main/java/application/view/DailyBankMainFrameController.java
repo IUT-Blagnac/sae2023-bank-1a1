@@ -1,7 +1,5 @@
 package application.view;
 
-import java.time.LocalDate;
-
 import application.DailyBankState;
 import application.control.DailyBankMainFrame;
 import application.tools.AlertUtilities;
@@ -95,6 +93,8 @@ public class DailyBankMainFrameController {
 	@FXML
 	private MenuItem mitemEmploye;
 	@FXML
+	private MenuItem mitemSimulation;
+	@FXML
 	private MenuItem mitemConnexion;
 	@FXML
 	private MenuItem mitemDeConnexion;
@@ -168,8 +168,10 @@ public class DailyBankMainFrameController {
 			this.lblEmpPrenom.setText(e.prenom);
 			if (this.dailyBankState.isChefDAgence()) {
 				this.mitemEmploye.setDisable(false);
+				this.mitemSimulation.setDisable(false);
 			} else {
 				this.mitemEmploye.setDisable(true);
+				this.mitemSimulation.setDisable(true);
 			}
 			this.mitemClient.setDisable(false);
 			this.mitemConnexion.setDisable(true);
@@ -184,6 +186,7 @@ public class DailyBankMainFrameController {
 
 			this.mitemClient.setDisable(true);
 			this.mitemEmploye.setDisable(true);
+			this.mitemSimulation.setDisable(true);
 			this.mitemConnexion.setDisable(false);
 			this.mitemDeConnexion.setDisable(true);
 			this.btnConn.setVisible(true);
@@ -208,6 +211,11 @@ public class DailyBankMainFrameController {
 	private void doEmployeOption() {
 
 		this.dbmfDialogController.gestionEmploye();
+	}
+
+	@FXML
+	private void doSimulation() {
+		this.dbmfDialogController.gestionSimulation();
 	}
 
 	/*

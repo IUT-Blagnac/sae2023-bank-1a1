@@ -86,9 +86,6 @@ public class ComptesManagement {
 				Access_BD_CompteCourant ac = new Access_BD_CompteCourant();
 				ac.insertCompteC(compte);
 
-				if (Math.random() < -1) {
-					throw new ApplicationException(Table.CompteCourant, Order.INSERT, "todo : test exceptions", null);
-				}
 			} catch (DatabaseConnexionException e) {
 				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);
 				ed.doExceptionDialog();
@@ -101,6 +98,29 @@ public class ComptesManagement {
 		return compte;
 	}
 
+	
+	public CompteCourant modifierCompte(CompteCourant cptAModifier) {
+		CompteCourant compteModifie;
+		CompteEditorPane cep = new CompteEditorPane(this.primaryStage, this.dailyBankState);
+		compteModifie = cep.doCompteEditorDialog(this.clientDesComptes, cptAModifier , EditionMode.MODIFICATION);
+		if (compteModifie != null) {
+			try {
+
+				Access_BD_CompteCourant ac = new Access_BD_CompteCourant();
+				ac.updateCompteCourant(compteModifie);
+
+			} catch (DatabaseConnexionException e) {
+				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);
+				ed.doExceptionDialog();
+				this.primaryStage.close();
+			} catch (ApplicationException ae) {
+				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, ae);
+				ed.doExceptionDialog();
+			}
+		}
+		return compteModifie;
+	}
+	
 	/**
 	 *	Cette fonction permet de récupérer la liste des comptes courants associés à un client.
 	 *
@@ -127,7 +147,7 @@ public class ComptesManagement {
 	}
 
 	/**
-	 * 
+	 *
 	 *Clôture ou rouvre le compte courant spécifié en entrée en fonction de son état actuel.
 	 *
 	 *@param cc Le compte courant à clôturer ou rouvrir.
@@ -165,7 +185,7 @@ public class ComptesManagement {
 		}
 	}
 	/**
-	 * 
+	 *
 	 *Supprime un compte courant clôturé
 	 *
 	 *@param cc Le compte courant à clôturer ou rouvrir.

@@ -17,6 +17,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.Client;
+import model.orm.Access_BD_CompteCourant;
 import model.orm.exception.ApplicationException;
 import model.orm.exception.Order;
 import model.orm.exception.Table;
@@ -84,13 +85,17 @@ public class ClientEditorPaneController {
 			this.txtMail.setDisable(false);
 			this.rbActif.setSelected(true);
 			this.rbInactif.setSelected(false);
-			if (ConstantesIHM.isAdmin(this.dailyBankState.getEmployeActuel())) {
+
+
+			Access_BD_CompteCourant acCompteCourant = new Access_BD_CompteCourant();
+			if (ConstantesIHM.isAdmin(this.dailyBankState.getEmployeActuel())& acCompteCourant.isDesactivable(this.clientEdite)) {
 				this.rbActif.setDisable(false);
 				this.rbInactif.setDisable(false);
 			} else {
 				this.rbActif.setDisable(true);
 				this.rbInactif.setDisable(true);
 			}
+
 			this.lblMessage.setText("Informations client");
 			this.butOk.setText("Modifier");
 			this.butCancel.setText("Annuler");

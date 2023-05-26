@@ -1,16 +1,28 @@
 package application.view;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
+import application.DailyBankApp;
 import application.DailyBankState;
 import application.control.ComptesManagement;
+import application.tools.ConstantesIHM;
+import application.tools.RelevesBancaire;
+import application.tools.StageManagement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.AgenceBancaire;
@@ -29,7 +41,7 @@ public class ComptesManagementController {
 
 	// Fenêtre physique ou est la scène contenant le fichier xml contrôlé par this
 	private Stage primaryStage;
-	
+
 
 	// Données de la fenêtre
 	private Client clientDesComptes;
@@ -88,6 +100,8 @@ public class ComptesManagementController {
 	@FXML
 	private Button btnVoirOpes;
 	@FXML
+	private Button btnGenererReleve;
+	@FXML
 	private Button btnModifierCompte;
 	@FXML
 	private Button btnSupprCompte;
@@ -95,7 +109,7 @@ public class ComptesManagementController {
 	private Button btnClôtureCompte;
 	@FXML
 	private Button btnNouveauCompte;
-	
+
 
 	@FXML
 	private void doCancel() {
@@ -108,53 +122,112 @@ public class ComptesManagementController {
 		if (selectedIndice >= 0) {
 			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
 			this.cmDialogController.gererOperationsDUnCompte(cpt);
-			
+
 		}
 		this.loadList();
 		this.validateComponentState();
 	}
+
+	@FXML
 	/**
-	 * Permet de changer le text du bouton cloturer et reouvrir 
+	 * Permet de faire générer le relevé bancaire du compte selectionné pour des dates choisies dans une page de dialogue
 	 * 
+	 * @author illan
+	 */
+	private void doGenererReleve() {
+
+		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
+		CompteCourant compteSelected = this.oListCompteCourant.get(selectedIndice);
+		
+		
+		try {
+			FXMLLoader loader = new FXMLLoader(
+					OperationEditorPaneController.class.getResource("releveeditorpane.fxml"));
+			BorderPane root = loader.load();
+
+			Scene scene = new Scene(root,900,500);
+			scene.getStylesheets().add(DailyBankApp.class.getResource("application.css").toExternalForm());
+
+			Stage releveStage = new Stage();
+			releveStage.initModality(Modality.WINDOW_MODAL);
+			releveStage.initOwner(this.primaryStage);
+			StageManagement.manageCenteringStage(this.primaryStage, releveStage);
+			releveStage.setScene(scene);
+			releveStage.setTitle("Création d'un relevé bancaire");
+			releveStage.setResizable(false);
+
+			ReleveEditorPaneController repController = loader.getController();
+			repController.initContext(this.dailyBankState, this.primaryStage, this.clientDesComptes , compteSelected);
+			releveStage.showAndWait();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	
+	}
+	/**
+	 * Permet de changer le text du bouton cloturer et reouvrir
+	 *
 	 * @author Bilon
 	 */
 	private void afficheText(CompteCourant cc) {
+<<<<<<< HEAD
 		
 //		if(cc.estCloture.equals("O")) {
 //			btnClôtureCompte.setText("ReOuvrir");
 //		}else {
+=======
+
+		if(cc.estCloture.equals("O")) {
+			btnClôtureCompte.setText("ReOuvrir");
+		}else {
+>>>>>>> cd50147b0bf9c385dc8c1ceb4a0d76a8744172d2
 			btnClôtureCompte.setText("Cloturer");
 //		}
 	}
 	@FXML
 	/**
-	 * Permet de cloturer un compte 
-	 * 
+	 * Permet de cloturer un compte
+	 *
 	 * @author Bilon
 	 */
 	private void doClôtureCompte() {
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 		CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
 		if (selectedIndice >= 0) {
-				this.cmDialogController.cloture(cpt);
-			}
+			this.cmDialogController.cloture(cpt);
+		}
 		this.loadList();
 		this.validateComponentState();
 	}
 
 	@FXML
+	/**
+	 * 
+	 * @author illan
+	 */
 	private void doModifierCompte() {
-		
+		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
+		CompteCourant compte = this.oListCompteCourant.get(selectedIndice);
+
+
+		compte = this.cmDialogController.modifierCompte(compte);
+		if (compte != null) {
+			this.loadList();
+			validateComponentState();
+		}
+
 	}
 
 	@FXML
 	/**
-	 * Permet de supprimer le compte selectionné 
-	 * 
+	 * Permet de supprimer le compte selectionné
+	 *
 	 * @author illan
 	 */
 	private void doSupprimerCompte() {
-		
+
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 		this.cmDialogController.suppressionCompte(this.oListCompteCourant.get(selectedIndice));
 		this.loadList();
@@ -163,8 +236,8 @@ public class ComptesManagementController {
 
 	@FXML
 	/**
-	 * Permet de crée un nouveau compte 
-	 * 
+	 * Permet de crée un nouveau compte
+	 *
 	 * @author Bilon
 	 */
 	private void doNouveauCompte() {
@@ -174,8 +247,8 @@ public class ComptesManagementController {
 			this.oListCompteCourant.add(compte);
 		}
 	}
-	
-	
+
+
 	private void loadList() {
 		ArrayList<CompteCourant> listeCpt;
 		listeCpt = this.cmDialogController.getComptesDunClient();
@@ -185,25 +258,41 @@ public class ComptesManagementController {
 
 	private void validateComponentState() {
 		// Non implémenté => désactivé
-		
+
 
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
-		if(ClientsManagementController.estInactif.equals("O")){
+
+		if(this.clientDesComptes.estInactif.equals(ConstantesIHM.CLIENT_INACTIF)){
 			this.btnNouveauCompte.setDisable(true);
-		}else {
-			this.btnNouveauCompte.setDisable(false);
+			this.btnModifierCompte.setDisable(true);
+			this.btnClôtureCompte.setDisable(true);
+			this.btnSupprCompte.setDisable(true);
+			if (selectedIndice >= 0) {
+				CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
+				this.btnVoirOpes.setDisable(false);	
+				this.btnGenererReleve.setDisable(false);
+			}
+			else {
+				this.btnVoirOpes.setDisable(true);	
+			}
 		}
-		if (selectedIndice >= 0) {
-			CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
-			afficheText(cpt);
-				CompteCourant cpt1 = this.oListCompteCourant.get(selectedIndice);
-				afficheText(cpt1);
-			
-				this.btnClôtureCompte.setDisable(false);
+		else {
+			this.btnNouveauCompte.setDisable(false);
+
+			if (selectedIndice >= 0) {
+				CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
+				afficheText(cpt);
+
 				this.btnVoirOpes.setDisable(false);
-				//si le client est inactif
-				if(ClientsManagementController.estInactif.equals("O")){
+				this.btnGenererReleve.setDisable(false);
+
+
+				//si le compte est cloturé
+				if (cpt.estCloture.equals("O")) {
+					this.btnSupprCompte.setDisable(false);
+					this.btnClôtureCompte.setDisable(true);
 					this.btnModifierCompte.setDisable(true);
+<<<<<<< HEAD
 					//si le compte est cloturer
 					if (cpt.estCloture.equals("O")) {
 						this.btnClôtureCompte.setDisable(true);
@@ -224,11 +313,23 @@ public class ComptesManagementController {
 							this.btnClôtureCompte.setDisable(false);
 						}
 					}
+=======
+
+				}else {
+					this.btnSupprCompte.setDisable(true);
+					this.btnClôtureCompte.setDisable(false);
+					this.btnModifierCompte.setDisable(false);
+
+				}
+
+>>>>>>> cd50147b0bf9c385dc8c1ceb4a0d76a8744172d2
 			} else {
 				this.btnClôtureCompte.setDisable(true);
+				this.btnGenererReleve.setDisable(true);
 				this.btnVoirOpes.setDisable(true);
 				this.btnModifierCompte.setDisable(true);
 				this.btnSupprCompte.setDisable(true);
+			}
 		}
 	}
 }

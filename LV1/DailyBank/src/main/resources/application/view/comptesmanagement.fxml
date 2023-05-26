@@ -42,6 +42,11 @@
                               <Insets bottom="10.0" top="10.0" />
                            </GridPane.margin>
                         </Button>
+                        <Button fx:id="btnGenererReleve" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doGenererReleve" text="Générer Relevé PDF" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </GridPane.margin></Button>
+                        <Button fx:id="btnClôtureCompte" layoutX="10.0" layoutY="140.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doClôtureCompte" text="Clôturer" GridPane.rowIndex="2" />
                         <Button fx:id="btnModifierCompte" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doModifierCompte" text="Modifier compte" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets bottom="10.0" top="10.0" />
@@ -52,12 +57,6 @@
                               <Insets bottom="10.0" top="10.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button" visible="false" GridPane.rowIndex="1">
-                           <GridPane.margin>
-                              <Insets bottom="10.0" top="10.0" />
-                           </GridPane.margin>
-                        </Button>
-                        <Button fx:id="btnClôtureCompte" layoutX="10.0" layoutY="140.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doClôtureCompte" text="Clôturer" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                </children>

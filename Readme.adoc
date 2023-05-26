@@ -19,15 +19,15 @@
 |1    |Guichetier     | Compte | Effectuer un virement|| |F
 |1    |Guichetier     | Compte | Clôturer|  | F | 
 |2    |Chef d’Agence     | Compte | Débit exceptionnel||D | 
-|2    |Chef d’Agence     | Emprunt | Simuler emprunt|||D 
+|2    |Chef d’Agence     | Emprunt | Simuler emprunt|||F 
 |2    |Chef d’Agence     | Emprunt | Simuler assurance||D | 
-|2    |Guichetier     | Compte | Relevé PDF|| | 
+|2    |Guichetier     | Compte | Relevé PDF|| | F
 |2    |Guichetier     | CRUD Prélèvement | C|D| | 
 |2    |Guichetier     | CRUD Prélèvement | R|| | 
 |2    |Guichetier     | CRUD Prélèvement | U|| | 
 |2    |Guichetier     | CRUD Prélèvement | D|| | 
-|2    |Batch     | Prélèvements automatiques | || | 
-|2    |Batch     | Reléves mensuels | || | 
+|2    |Batch     | Prélèvements automatiques | || | D
+|2    |Batch     | Reléves mensuels | || |D 
 
 |=======================
 

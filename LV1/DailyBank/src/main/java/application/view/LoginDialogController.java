@@ -25,9 +25,9 @@ public class LoginDialogController {
 
 	// Fenêtre physique ou est la scène contenant le fichier xml contrôlé par this
 	private Stage primaryStage;
-	
+
 	// private String login,password;
-	
+
 
 	// Données de la fenêtre
 
@@ -118,7 +118,7 @@ public class LoginDialogController {
 			}
 		}
 	}
-	
+
 	/*
 	 * Affichage d'un message d'erreur
 	 *
