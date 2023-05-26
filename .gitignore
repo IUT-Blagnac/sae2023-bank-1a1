@@ -22,3 +22,4 @@ buildNumber.properties
 
 #PDF de relevés générés
 .pdf
+*.pdf

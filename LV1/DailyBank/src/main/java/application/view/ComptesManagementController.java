@@ -149,7 +149,7 @@ public class ComptesManagementController {
 			releveStage.setResizable(false);
 
 			ReleveEditorPaneController repController = loader.getController();
-			repController.initContext(this.dailyBankState, this.primaryStage, this.clientDesComptes , compteSelected);
+			repController.initContext(this.dailyBankState, releveStage, this.clientDesComptes , compteSelected);
 			releveStage.showAndWait();
 
 		} catch (Exception e) {
@@ -278,6 +278,7 @@ public class ComptesManagementController {
 					this.btnClôtureCompte.setDisable(true);
 					this.btnModifierCompte.setDisable(true);
 
+					
 				}else {
 					this.btnSupprCompte.setDisable(true);
 					this.btnClôtureCompte.setDisable(false);

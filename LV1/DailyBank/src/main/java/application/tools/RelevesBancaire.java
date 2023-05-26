@@ -138,7 +138,7 @@ public class RelevesBancaire {
 			document.add(new Paragraph("Adresse : " + this.client.adressePostale));
 			document.add(new Paragraph("Email : " + this.client.email));
 
-			// Ajouter les opérations du relevé bancaire
+			// Ajouter le tableau des opérations du relevé bancaire
 
 
 			document.add(barre);
@@ -160,11 +160,13 @@ public class RelevesBancaire {
 			Paragraph footer = new Paragraph("DailyBank\n"
 					+ "La banque DailyBank n'est pas responsable en cas de mauvaise affichage des opérations de votre compte\n"
 					+ "Si vous pensez constater une erreur dans votre relevé bancaire veuillez contacter votre conseiller\n"
-					+ "Relevé bancaire généré par ordinateur par le programme DailyBankApp"
+					+ "Relevé bancaire généré par ordinateur par le programme DailyBankApp le : " + dateFormat.format(new Date())
 					,FontFactory.getFont(FontFactory.HELVETICA_BOLD,PETIT_TEXTE));
 			footer.setAlignment(Element.ALIGN_CENTER);
 			document.add(footer);
 
+			
+			// Fermeture du document et du writer
 
 			document.close();
 			pdfWriter.close();
@@ -190,7 +192,7 @@ public class RelevesBancaire {
 	}
 
 	/**
-	 * Méthode permettant de créé le tableau des operations d'un relevé bancaire
+	 * Méthode permettant de créer le tableau des operations d'un relevé bancaire
 	 *
 	 * @return tableau d'opération
 	 */
