@@ -13,8 +13,11 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import model.data.AgenceBancaire;
 import model.data.Client;
 import model.data.CompteCourant;
+import model.data.Employe;
+import model.orm.Access_BD_AgenceBancaire;
 
 public class ComptesManagementController {
 
@@ -31,6 +34,11 @@ public class ComptesManagementController {
 	// Données de la fenêtre
 	private Client clientDesComptes;
 	private ObservableList<CompteCourant> oListCompteCourant;
+	public AgenceBancaire unAg;
+	public Employe unEmploye;
+	
+	
+	
 
 	// Manipulation de la fenêtre
 	public void initContext(Stage _containingStage, ComptesManagement _cm, DailyBankState _dbstate, Client client) {
@@ -112,11 +120,11 @@ public class ComptesManagementController {
 	 */
 	private void afficheText(CompteCourant cc) {
 		
-		if(cc.estCloture.equals("O")) {
-			btnClôtureCompte.setText("ReOuvrir");
-		}else {
+//		if(cc.estCloture.equals("O")) {
+//			btnClôtureCompte.setText("ReOuvrir");
+//		}else {
 			btnClôtureCompte.setText("Cloturer");
-		}
+//		}
 	}
 	@FXML
 	/**
@@ -199,8 +207,6 @@ public class ComptesManagementController {
 					//si le compte est cloturer
 					if (cpt.estCloture.equals("O")) {
 						this.btnClôtureCompte.setDisable(true);
-					}else {
-						this.btnClôtureCompte.setDisable(false);
 					}
 				}
 					
@@ -208,13 +214,14 @@ public class ComptesManagementController {
 					//si la liste est vide et le compte cloturer
 					if (cpt.estCloture.equals("O")) {
 						this.btnSupprCompte.setDisable(false);
-						
+						this.btnClôtureCompte.setDisable(true);
 						this.btnModifierCompte.setDisable(true);
 						
 					}else {
 						this.btnSupprCompte.setDisable(true);
 						if(ClientsManagementController.estInactif.equals("N")){
 							this.btnModifierCompte.setDisable(false);
+							this.btnClôtureCompte.setDisable(false);
 						}
 					}
 			} else {

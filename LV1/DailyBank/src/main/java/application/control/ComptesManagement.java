@@ -138,9 +138,9 @@ public class ComptesManagement {
 	public void cloture(CompteCourant cc) {
 		try {
 			Access_BD_CompteCourant ac = new Access_BD_CompteCourant();
-			if("O".equals(cc.estCloture)){
-				ac.reOuvrirCompte(cc.idNumCompte);
-			}else {
+//			if("O".equals(cc.estCloture)){
+//				ac.reOuvrirCompte(cc.idNumCompte);
+//			}else {
 				if(cc.solde!=0){
 					System.out.println("1");
 					Alert soldepresent = new Alert(AlertType.INFORMATION);
@@ -151,7 +151,7 @@ public class ComptesManagement {
 					System.out.println("2");
 					ac.cloturerCompte(cc.idNumCompte);
 				}
-			}
+//			}
 		} catch (RowNotFoundOrTooManyRowsException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

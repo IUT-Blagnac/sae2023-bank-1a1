@@ -277,34 +277,34 @@ public class Access_BD_CompteCourant {
 	        throw new DataAccessException(Table.CompteCourant, Order.UPDATE, "Erreur accès", e);
 	    }
 	}
-	/**
-	 * Cette méthode permet de clôturer un compte courant dans la base de données.
-	 * @param numCompte Le numéro du compte à clôturer.
-	 * @throws DataAccessException si une erreur d'accès à la base de données se produit.
-	 * @throws RowNotFoundOrTooManyRowsException 
-	 * @throws DatabaseConnexionException 
-	 * Par Bilon Kwadjani
-	 */
-	public void reOuvrirCompte(int numCompte) throws DataAccessException, RowNotFoundOrTooManyRowsException, DatabaseConnexionException {
-	    try {
-	        Connection con = LogToDatabase.getConnexion();
-	        String query = "UPDATE CompteCourant SET estCloture = 'N' WHERE idNumCompte = ?";
-	        PreparedStatement pst = con.prepareStatement(query);
-	        
-	        pst.setInt(1, numCompte);
-	        
-	        int result = pst.executeUpdate();
-	        pst.close();
-	        
-	        if (result != 1) {
-	            con.rollback();
-	            throw new RowNotFoundOrTooManyRowsException(Table.CompteCourant, Order.UPDATE, "Update anormal (update de moins ou plus d'une ligne)", null, result);
-	        }
-	        con.commit();
-	    } catch (SQLException e) {
-	        throw new DataAccessException(Table.CompteCourant, Order.UPDATE, "Erreur accès", e);
-	    }
-	}
+//	/**
+//	 * Cette méthode permet de clôturer un compte courant dans la base de données.
+//	 * @param numCompte Le numéro du compte à clôturer.
+//	 * @throws DataAccessException si une erreur d'accès à la base de données se produit.
+//	 * @throws RowNotFoundOrTooManyRowsException 
+//	 * @throws DatabaseConnexionException 
+//	 * @author Bilon Kwadjani
+//	 */
+//	public void reOuvrirCompte(int numCompte) throws DataAccessException, RowNotFoundOrTooManyRowsException, DatabaseConnexionException {
+//	    try {
+//	        Connection con = LogToDatabase.getConnexion();
+//	        String query = "UPDATE CompteCourant SET estCloture = 'N' WHERE idNumCompte = ?";
+//	        PreparedStatement pst = con.prepareStatement(query);
+//	        
+//	        pst.setInt(1, numCompte);
+//	        
+//	        int result = pst.executeUpdate();
+//	        pst.close();
+//	        
+//	        if (result != 1) {
+//	            con.rollback();
+//	            throw new RowNotFoundOrTooManyRowsException(Table.CompteCourant, Order.UPDATE, "Update anormal (update de moins ou plus d'une ligne)", null, result);
+//	        }
+//	        con.commit();
+//	    } catch (SQLException e) {
+//	        throw new DataAccessException(Table.CompteCourant, Order.UPDATE, "Erreur accès", e);
+//	    }
+//	}
 
 }
 

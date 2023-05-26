@@ -1,6 +1,8 @@
 package application.view;
 
+import java.util.ArrayList;
 import java.util.Locale;
+import java.util.Optional;
 
 import application.DailyBankState;
 import application.tools.AlertUtilities;
@@ -12,20 +14,26 @@ import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import model.data.AgenceBancaire;
 import model.data.CompteCourant;
+import model.data.Employe;
 import model.data.Operation;
 import model.data.OperationTransfert;
+import model.orm.Access_BD_Client;
 import model.orm.Access_BD_CompteCourant;
 import model.orm.exception.DataAccessException;
 import model.orm.exception.DatabaseConnexionException;
 import model.orm.exception.RowNotFoundOrTooManyRowsException;
+import model.orm.Access_BD_Client;
 
 public class OperationEditorPaneController {
 
@@ -50,13 +58,16 @@ public class OperationEditorPaneController {
 	private void configure() {
 		this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
 	}
+	
+	
 
 	public Operation displayDialog(CompteCourant cpte, CategorieOperation mode) {
 
 		String info;
 
 		ObservableList<String> listTypesOpesPossibles = FXCollections.observableArrayList();
-
+		
+		
 		this.categorieOperation = mode;
 		this.compteEdite = cpte;
 
@@ -198,21 +209,58 @@ public class OperationEditorPaneController {
 				this.txtMontant.requestFocus();
 				return;
 			}
-			if (this.compteEdite.solde - montant < this.compteEdite.debitAutorise) {
-				info = "Dépassement du découvert ! - Cpt. : " + this.compteEdite.idNumCompte + "  "
-						+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
-						+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
-				this.lblMessage.setText(info);
-				this.txtMontant.getStyleClass().add("borderred");
-				this.lblMontant.getStyleClass().add("borderred");
-				this.lblMessage.getStyleClass().add("borderred");
-				this.txtMontant.requestFocus();
-				return;
+			
+			
+			
+			if((this.dailyBankState.isChefDAgence()==true) && (this.compteEdite.solde - montant < this.compteEdite.debitAutorise)) {
+				Alert soldepresent = new Alert(AlertType.CONFIRMATION);
+
+				soldepresent.setHeaderText("Information Débit Exeptionnel");
+				soldepresent.setContentText("Le montant de débit dépasse le découvert autorisé\n Êtes-vous sûr de vouloir continuer ce débit ?");
+
+				// Set the alert's title (optional)
+				soldepresent.setTitle("Confirmation");
+
+				// Set the button types for the confirmation dialog
+				ButtonType ouiButton = new ButtonType("Oui");
+				ButtonType nonButton = new ButtonType("Non");
+
+				// Add the button types to the dialog
+				soldepresent.getButtonTypes().setAll(ouiButton, nonButton);
+
+				// Show the alert and wait for the user's response
+				Optional<ButtonType> result = soldepresent.showAndWait();
+
+				if (result.isPresent() && result.get() == ouiButton) {
+
+					typeOp = this.cbTypeOpe.getValue();
+					this.operationResultat = new Operation(-1, montant, null, null, this.compteEdite.idNumCli, typeOp);
+				} else {
+					return;
+				}
+			}else {
+				if (this.compteEdite.solde - montant < this.compteEdite.debitAutorise) {
+					info = "Dépassement du découvert ! - Cpt. : " + this.compteEdite.idNumCompte + "  "
+							+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
+							+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
+					this.lblMessage.setText(info);
+					this.txtMontant.getStyleClass().add("borderred");
+					this.lblMontant.getStyleClass().add("borderred");
+					this.lblMessage.getStyleClass().add("borderred");
+					this.txtMontant.requestFocus();
+					return;
+				}
+				typeOp = this.cbTypeOpe.getValue();
+				this.operationResultat = new Operation(-1, montant, null, null, this.compteEdite.idNumCli, typeOp);
+				
 			}
 			typeOp = this.cbTypeOpe.getValue();
 			this.operationResultat = new Operation(-1, montant, null, null, this.compteEdite.idNumCli, typeOp);
+
 			this.primaryStage.close();
 			break;
+			
+			
 		case CREDIT:
 
 			// règles de validation d'un crédit :

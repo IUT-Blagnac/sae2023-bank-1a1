@@ -44,7 +44,7 @@ public class OperationsManagementController {
 		this.clientDuCompte = client;
 		this.compteConcerne = compte;
 		this.configure();
-		
+
 	}
 
 	private void configure() {
