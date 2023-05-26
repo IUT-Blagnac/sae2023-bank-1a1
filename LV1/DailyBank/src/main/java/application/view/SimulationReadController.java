@@ -67,7 +67,7 @@ public class SimulationReadController {
 			strLbl = "Montant des annuités";
 		}
 
-		if (simulationEnCours.typeSimulation.equals(ConstantesIHM.TYPE_SIMUL_1)) {
+		if (simulationEnCours.typeSimulation.equals(ConstantesIHM.TYPE_SIMUL_1)) { // Emprunt
 
 
 
@@ -108,8 +108,11 @@ public class SimulationReadController {
 
 			this.paneRoot.setCenter(tableView);
 		}
-		else {
-			System.err.println("Assurance TODO");
+		else { // Assurance
+			System.err.println("Assurance TODO - Partie Bilon");
+			
+			//DOIT FINIR PAR ça 
+			//this.paneRoot.setCenter(CONTENU PRINCIPAL);
 			return;
 		}
 

@@ -183,6 +183,20 @@ Le réseau bancaire est utilisé pour les opérations de virement entre comptes 
 
 == Structuration des packages 
 
+La structuration de l'application est répartie en plusieurs packages que voici : 
+
+[source]
+----
+├── application
+    │   ├── application.control
+    │   ├── application.tools
+    │   └── application.view
+    └── model
+        ├── model.data
+        └── model.orm
+            └── model.orm.exception
+----
+
 === Package de la partie application
 
 - *application* : Main de l'application
@@ -332,7 +346,7 @@ Expliqué par Illan GABARRA
 
 ===== Description 
 
-Afin de réaliser une opération de débit, l'utilisateur clique sur le bouton "Enregistrer un débit" ce qui déclenche une méthode créant une page de dialogue demandant la saisie d'un montant et le choix d'un type d'opération, si la création de l'opération est validé par le clic sur le bouton "Effectuer débit" et que le montant est valide (montant supérieur à 0 et découvert non dépassé) alors l'opération est inscrite dans la base de donnée par un appel de la procédure SQL (DEBITER).
+Afin de réaliser une opération de débit, l'utilisateur clique sur le bouton "Enregistrer un débit" ce qui déclenche la méthode doDebit() créant une page de dialogue OperationEditorPane demandant la saisie d'un montant et le choix d'un type d'opération, si la création de l'opération est validé par le clic sur le bouton "Effectuer débit" et que le montant est valide (montant supérieur à 0 et découvert non dépassé) alors l'opération est inscrite dans la base de donnée par un appel de la procédure SQL (DEBITER).
 
 
 === Créditer un compte :
