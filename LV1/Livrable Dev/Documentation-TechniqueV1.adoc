@@ -464,7 +464,6 @@ Développé par Bilon Kwadjani
 * package model.data :
 ** classe CompteCourant
 * package application.tools :
-** classe ConstantesIH
 
 ===== Description 
 Cette fonctionnalité est lié au bouton "Cloturer". 
