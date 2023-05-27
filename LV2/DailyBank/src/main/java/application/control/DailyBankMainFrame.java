@@ -2,6 +2,7 @@ package application.control;
 
 import application.DailyBankApp;
 import application.DailyBankState;
+import application.tools.Batch;
 import application.view.DailyBankMainFrameController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -131,5 +132,12 @@ public class DailyBankMainFrame extends Application {
 	public void gestionSimulation() {
 		SimulationManagement sm = new SimulationManagement(primaryStage, dailyBankState);
 		sm.doSimulationManagementDialog();
+	}
+	public void runBatch() {
+		Batch batch = new Batch(dailyBankState);
+		
+		Thread threadBatch = new Thread(batch);
+		threadBatch.start();
+		
 	}
 }

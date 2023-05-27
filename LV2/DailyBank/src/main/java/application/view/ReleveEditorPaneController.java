@@ -6,6 +6,7 @@ import java.time.ZoneId;
 import java.util.Date;
 
 import application.DailyBankState;
+import application.control.ExceptionDialog;
 import application.tools.AlertUtilities;
 import application.tools.RelevesBancaire;
 import javafx.fxml.FXML;
@@ -89,7 +90,7 @@ public class ReleveEditorPaneController {
 	private Button btnAnnuler;
 
 
-	private File cheminFichier;
+	private File fichierChoisit;
 
 	@FXML
 	private void doChemin() {
@@ -99,19 +100,19 @@ public class ReleveEditorPaneController {
 		fileChooser.getExtensionFilters().add(new ExtensionFilter("Fichier PDF", "*.pdf"));
 
 
-		if (cheminFichier == null) {
+		if (fichierChoisit == null) {
 			fileChooser.setInitialFileName("Relevé-Bancaire-Compte-" +this.compte.idNumCompte+ ".pdf");
 			fileChooser.setInitialDirectory(new File("."));
 		}
 		else {
-			fileChooser.setInitialFileName(cheminFichier.getName());
-			fileChooser.setInitialDirectory(cheminFichier.getParentFile());
+			fileChooser.setInitialFileName(fichierChoisit.getName());
+			fileChooser.setInitialDirectory(fichierChoisit.getParentFile());
 		}
 
-		this.cheminFichier = fileChooser.showSaveDialog(primaryStage);
+		this.fichierChoisit = fileChooser.showSaveDialog(primaryStage);
 
-		if (this.cheminFichier != null) {
-			this.txtChemin.setText(this.cheminFichier.getName());
+		if (this.fichierChoisit != null) {
+			this.txtChemin.setText(this.fichierChoisit.getName());
 		}
 	}
 
@@ -182,7 +183,7 @@ public class ReleveEditorPaneController {
 
 		// Test Chemin
 
-		if (cheminFichier == null) {
+		if (fichierChoisit == null) {
 
 			this.lblChemin.getStyleClass().add("borderred");
 			this.txtChemin.getStyleClass().add("borderred");
@@ -196,13 +197,18 @@ public class ReleveEditorPaneController {
 			return;
 		}
 
-		this.releveResultat = new RelevesBancaire( this.dbState, primaryStage, clientDuCompte, compte, dateDebut, dateFin);
-		if (this.releveResultat.genererReleveBancaire(cheminFichier.getAbsolutePath()) == null) {
+		this.releveResultat = new RelevesBancaire( this.dbState, clientDuCompte, compte, dateDebut, dateFin);
+		try {
+			if (this.releveResultat.genererReleveBancaire(fichierChoisit) == null) {
+				throw new Exception();
+			}
+			else {
+				AlertUtilities.showAlert(primaryStage, "Génération du relevé", "Votre relevé a bien été généré", "Vous pouvez trouver le relevé à l'emplacement suivant\n"+fichierChoisit, AlertType.INFORMATION);
+			}
+		} catch (Exception e) {
 			AlertUtilities.showAlert(primaryStage, "Erreur dans la génération du relevé", "Le relevé n'a pas pu être généré", "Vous pouvez essayer de changer le nom du fichier ou son emplacement\n"
 					+ "pour résoudre le problème", AlertType.ERROR);
 		}
-		else {
-			AlertUtilities.showAlert(primaryStage, "Génération du relevé", "Votre relevé a bien été généré", "Vous pouvez trouver le relevé à l'emplacement suivant\n"+cheminFichier, AlertType.INFORMATION);
-		}
+		
 	}
 }

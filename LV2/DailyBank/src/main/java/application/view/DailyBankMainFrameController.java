@@ -128,7 +128,7 @@ public class DailyBankMainFrameController {
 	 */
 	@FXML
 	private void doActionAide() {
-		String contenu = "DailyBank v1.01\nSAE 2.01 Développement\nIUT-Blagnac";
+		String contenu = "DailyBank V2\nSAE 2.01 Développement d'application\nIUT-Blagnac\nEquipe : 1A, Bilon KWADJANI, Mathéo KATBIE, Illan GABARRA";
 		AlertUtilities.showAlert(this.primaryStage, "Aide", null, contenu, AlertType.INFORMATION);
 	}
 
@@ -171,9 +171,11 @@ public class DailyBankMainFrameController {
 			if (this.dailyBankState.isChefDAgence()) {
 				this.mitemEmploye.setDisable(false);
 				this.mitemSimulation.setDisable(false);
+				this.mitemBatch.setDisable(false);
 			} else {
 				this.mitemEmploye.setDisable(true);
 				this.mitemSimulation.setDisable(true);
+				this.mitemBatch.setDisable(true);
 			}
 			this.mitemClient.setDisable(false);
 			this.mitemConnexion.setDisable(true);
@@ -221,7 +223,7 @@ public class DailyBankMainFrameController {
 	}
 	@FXML
 	private void doBatch() {
-		System.err.println("TODO-BATCH");
+		this.dbmfDialogController.runBatch();
 	}
 
 	/*

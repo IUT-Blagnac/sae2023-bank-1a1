@@ -21,5 +21,8 @@ buildNumber.properties
 .settings
 
 #PDF de relevés générés
-.pdf
 *.pdf
+logBatch.txt
+
+#Relevé automatique généré par Batch
+Relevés-PDF_DAILYBANK*

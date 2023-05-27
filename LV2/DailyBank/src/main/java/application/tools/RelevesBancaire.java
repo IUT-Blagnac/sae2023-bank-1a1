@@ -1,5 +1,6 @@
 package application.tools;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.text.DateFormat;
@@ -38,7 +39,6 @@ import model.orm.exception.DatabaseConnexionException;
 public class RelevesBancaire {
 
 	private DailyBankState dailyBankState;
-	private Stage primaryStage;
 
 	private Client client;
 	private CompteCourant compteCourant;
@@ -53,9 +53,8 @@ public class RelevesBancaire {
 	private static float PETIT_TEXTE = 8;
 
 
-	public RelevesBancaire(DailyBankState _dailyBankState , Stage _primaryStage,Client client, CompteCourant compteCourant ,Date dateDebut, Date dateFin) {
+	public RelevesBancaire(DailyBankState _dailyBankState , Client client, CompteCourant compteCourant ,Date dateDebut, Date dateFin) {
 		this.dailyBankState = _dailyBankState;
-		this.primaryStage = _primaryStage;
 		this.client = client;
 		this.compteCourant = compteCourant;
 		this.dateDebut = dateDebut;
@@ -67,219 +66,202 @@ public class RelevesBancaire {
 	 *
 	 * @param nomFichier
 	 * @return
+	 * @throws DocumentException 
+	 * @throws FileNotFoundException 
+	 * @throws DatabaseConnexionException 
+	 * @throws DataAccessException 
 	 */
-	public Document genererReleveBancaire(String nomFichier) {
+	public Document genererReleveBancaire(File fichierAcreer) throws DocumentException, FileNotFoundException, DataAccessException, DatabaseConnexionException {
 
 		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
 		Paragraph barre = new Paragraph("_____________________________________________________________________________\n");
 		barre.setAlignment(Element.ALIGN_CENTER);
 
-		try {
-			// Initialiser le document PDF
+		// Initialiser le document PDF
 
-			Document document = new Document();
-			PdfWriter pdfWriter = PdfWriter.getInstance(document, new FileOutputStream(nomFichier));
-
-
-			document.addTitle("Relevé Bancaire");
-			document.addSubject("Relevé Bancaire");
-			document.addCreator(dailyBankState.getEmployeActuel().nom +" "+ dailyBankState.getEmployeActuel().prenom);
-			document.addCreationDate();
-			document.addHeader("Relevé Bancaire"
-					, "Relevé bancaire compte : " + this.compteCourant.idNumCompte
-					+ " du "+dateFormat.format(dateDebut)+" au "+dateFormat.format(this.dateFin));
-
-			// Ouvrir le document
-			document.open();
+		Document document = new Document();
+		PdfWriter pdfWriter = PdfWriter.getInstance(document, new FileOutputStream(fichierAcreer));
 
 
-			// Ajouter le titre
-			Paragraph titre = new Paragraph("Relevé bancaire",FontFactory.getFont(FontFactory.HELVETICA_BOLD, TITRE));
-			titre.setAlignment(Element.ALIGN_CENTER);
-			document.add(titre);
+		document.addTitle("Relevé Bancaire");
+		document.addSubject("Relevé Bancaire");
+		document.addCreator(dailyBankState.getEmployeActuel().nom +" "+ dailyBankState.getEmployeActuel().prenom);
+		document.addCreationDate();
+		document.addHeader("Relevé Bancaire"
+				, "Relevé bancaire compte : " + this.compteCourant.idNumCompte
+				+ " du "+dateFormat.format(dateDebut)+" au "+dateFormat.format(this.dateFin));
 
-			// Ajouter le sous-titre avec les informations de période
-			String periode = "Période : " + dateFormat.format(dateDebut) + " - " + dateFormat.format(this.dateFin);
-			Paragraph sousTitre = new Paragraph(periode,FontFactory.getFont(FontFactory.HELVETICA_BOLD, SOUS_TITRE));
-			sousTitre.setAlignment(Element.ALIGN_CENTER);
-			document.add(sousTitre);
-
-			document.add(new Paragraph("\n"));
-			document.add(barre);
-
-			// Ajouter les informations du compte bancaire
-			document.add(new Paragraph("Informations du compte",FontFactory.getFont(FontFactory.HELVETICA_BOLD, SOUS_TITRE))) ;
-			document.add(new Paragraph("Numéro de compte : " + this.compteCourant.idNumCompte));
-			document.add(new Paragraph("Découvert autorisé : " + this.compteCourant.debitAutorise));
-			document.add(new Paragraph("Solde actuel : " + this.compteCourant.solde));
-
-			String tmpCloturerOuOuvert = "Ouvert";
-			if (this.compteCourant.estCloture.equals("O")) {
-				tmpCloturerOuOuvert = "Clôturé";
-			}
-			document.add(new Paragraph("Etat du compte : " + tmpCloturerOuOuvert));
-
-			document.add(barre);
-
-			// Ajouter les informations du client
-			document.add(new Paragraph("Informations du client",FontFactory.getFont(FontFactory.HELVETICA_BOLD, SOUS_TITRE))) ;
-			document.add(new Paragraph("Numéro client : " + this.client.idNumCli));
-
-			String tmpActifouInactif = "Inactif";
-			if (ConstantesIHM.estActif(this.client)) {
-				tmpActifouInactif = "Actif";
-			}
-			document.add(new Paragraph("Etat du client : " + tmpActifouInactif));
+		// Ouvrir le document
+		document.open();
 
 
-			document.add(new Paragraph("Nom : " + this.client.nom));
-			document.add(new Paragraph("Prenom : " + this.client.prenom));
-			document.add(new Paragraph("Adresse : " + this.client.adressePostale));
-			document.add(new Paragraph("Email : " + this.client.email));
+		// Ajouter le titre
+		Paragraph titre = new Paragraph("Relevé bancaire",FontFactory.getFont(FontFactory.HELVETICA_BOLD, TITRE));
+		titre.setAlignment(Element.ALIGN_CENTER);
+		document.add(titre);
 
-			// Ajouter le tableau des opérations du relevé bancaire
+		// Ajouter le sous-titre avec les informations de période
+		String periode = "Période : " + dateFormat.format(dateDebut) + " - " + dateFormat.format(this.dateFin);
+		Paragraph sousTitre = new Paragraph(periode,FontFactory.getFont(FontFactory.HELVETICA_BOLD, SOUS_TITRE));
+		sousTitre.setAlignment(Element.ALIGN_CENTER);
+		document.add(sousTitre);
 
+		document.add(new Paragraph("\n"));
+		document.add(barre);
 
-			document.add(barre);
-			document.add(new Paragraph("\n"));
+		// Ajouter les informations du compte bancaire
+		document.add(new Paragraph("Informations du compte",FontFactory.getFont(FontFactory.HELVETICA_BOLD, SOUS_TITRE))) ;
+		document.add(new Paragraph("Numéro de compte : " + this.compteCourant.idNumCompte));
+		document.add(new Paragraph("Découvert autorisé : " + this.compteCourant.debitAutorise));
+		document.add(new Paragraph("Solde actuel : " + this.compteCourant.solde));
 
-			titre = new Paragraph("Opérations du compte durant la période",FontFactory.getFont(FontFactory.HELVETICA_BOLD, TITRE));
-			titre.setAlignment(Element.ALIGN_CENTER);
-			document.add(titre) ;
-
-			document.add(new Paragraph("\n"));
-
-			document.add(creaTabOperations());
-
-			document.add(barre);
-			document.add(new Paragraph("\n\n"));
-
-			// Ajout du pied de page
-
-			Paragraph footer = new Paragraph("DailyBank\n"
-					+ "La banque DailyBank n'est pas responsable en cas de mauvaise affichage des opérations de votre compte\n"
-					+ "Si vous pensez constater une erreur dans votre relevé bancaire veuillez contacter votre conseiller\n"
-					+ "Relevé bancaire généré par ordinateur par le programme DailyBankApp le : " + dateFormat.format(new Date())
-					,FontFactory.getFont(FontFactory.HELVETICA_BOLD,PETIT_TEXTE));
-			footer.setAlignment(Element.ALIGN_CENTER);
-			document.add(footer);
-
-			
-			// Fermeture du document et du writer
-
-			document.close();
-			pdfWriter.close();
-
-			return document;
-
+		String tmpCloturerOuOuvert = "Ouvert";
+		if (this.compteCourant.estCloture.equals("O")) {
+			tmpCloturerOuOuvert = "Clôturé";
 		}
-		catch (DocumentException e ) {
-			AlertUtilities.showAlert(primaryStage, "Erreur dans la création du fichier"
-					,"Le fichier n'a pas pu être créé"
-					, "Votre fichier de relevé : " + nomFichier + "n'a pas pu être créé"
-					, AlertType.ERROR);
-			
+		document.add(new Paragraph("Etat du compte : " + tmpCloturerOuOuvert));
+
+		document.add(barre);
+
+		// Ajouter les informations du client
+		document.add(new Paragraph("Informations du client",FontFactory.getFont(FontFactory.HELVETICA_BOLD, SOUS_TITRE))) ;
+		document.add(new Paragraph("Numéro client : " + this.client.idNumCli));
+
+		String tmpActifouInactif = "Inactif";
+		if (ConstantesIHM.estActif(this.client)) {
+			tmpActifouInactif = "Actif";
 		}
-		catch(FileNotFoundException e) {
-			AlertUtilities.showAlert(primaryStage, "Erreur dans la création du fichier"
-					,"Le chemin du fichier n'a pas été trouvé"
-					, "Votre fichier de relevé : " + nomFichier + "n'a pas pu être créé"
-					, AlertType.ERROR);
-			
-		}
-		return null;
+		document.add(new Paragraph("Etat du client : " + tmpActifouInactif));
+
+
+		document.add(new Paragraph("Nom : " + this.client.nom));
+		document.add(new Paragraph("Prenom : " + this.client.prenom));
+		document.add(new Paragraph("Adresse : " + this.client.adressePostale));
+		document.add(new Paragraph("Email : " + this.client.email));
+
+		// Ajouter le tableau des opérations du relevé bancaire
+
+
+		document.add(barre);
+		document.add(new Paragraph("\n"));
+
+		titre = new Paragraph("Opérations du compte durant la période",FontFactory.getFont(FontFactory.HELVETICA_BOLD, TITRE));
+		titre.setAlignment(Element.ALIGN_CENTER);
+		document.add(titre) ;
+
+		document.add(new Paragraph("\n"));
+
+		document.add(creaTabOperations());
+
+		document.add(barre);
+		document.add(new Paragraph("\n\n"));
+
+		// Ajout du pied de page
+
+		Paragraph footer = new Paragraph("DailyBank\n"
+				+ "La banque DailyBank n'est pas responsable en cas de mauvaise affichage des opérations de votre compte\n"
+				+ "Si vous pensez constater une erreur dans votre relevé bancaire veuillez contacter votre conseiller\n"
+				+ "Relevé bancaire généré par ordinateur par le programme DailyBankApp le : " + dateFormat.format(new Date())
+				,FontFactory.getFont(FontFactory.HELVETICA_BOLD,PETIT_TEXTE));
+		footer.setAlignment(Element.ALIGN_CENTER);
+		document.add(footer);
+
+
+		// Fermeture du document et du writer
+
+		document.close();
+		pdfWriter.close();
+
+		return document;
 	}
 
 	/**
 	 * Méthode permettant de créer le tableau des operations d'un relevé bancaire
 	 *
 	 * @return tableau d'opération
+	 * @throws DatabaseConnexionException 
+	 * @throws DataAccessException 
 	 */
-	private PdfPTable creaTabOperations () {
-		try {
-			DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+	private PdfPTable creaTabOperations () throws DataAccessException, DatabaseConnexionException {
 
-			// Créer le tableau des opérations
-			PdfPTable table = new PdfPTable(new float[]{2, 2, 4, 2, 2,2});
-			table.setWidthPercentage(100);
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
-			// En-têtes du tableau
-			table.addCell(createCell("Date opération", true));
-			table.addCell(createCell("Date Valeur", true));
-			table.addCell(createCell("Type d'opération", true));
-			table.addCell(createCell("Crédit", true));
-			table.addCell(createCell("Débit", true));
-			table.addCell(createCell("Solde", true));
+		// Créer le tableau des opérations
+		PdfPTable table = new PdfPTable(new float[]{2, 2, 4, 2, 2,2});
+		table.setWidthPercentage(100);
 
-
-			// Récupération de toutes les opérations de la période
-			ArrayList<Operation> alOperationsPeriode = this.getOperationsPeriode();
-			Operation opDebut = alOperationsPeriode.get(0);
-			Operation opFin = alOperationsPeriode.get(alOperationsPeriode.size()-1);
-
-			// Somme des crédits/débits
-
-			double sommeDebits = 0 ;
-			double sommeCredits = 0;
-			double soldeActuel = opDebut.montant;
+		// En-têtes du tableau
+		table.addCell(createCell("Date opération", true));
+		table.addCell(createCell("Date Valeur", true));
+		table.addCell(createCell("Type d'opération", true));
+		table.addCell(createCell("Crédit", true));
+		table.addCell(createCell("Débit", true));
+		table.addCell(createCell("Solde", true));
 
 
-			// Rajout du solde initial
+		// Récupération de toutes les opérations de la période
+		ArrayList<Operation> alOperationsPeriode = this.getOperationsPeriode();
+		Operation opDebut = alOperationsPeriode.get(0);
+		Operation opFin = alOperationsPeriode.get(alOperationsPeriode.size()-1);
 
-			createLine(table,"","",opDebut.idTypeOp,"","",String.format("%10.02f", opDebut.montant),true);
+		// Somme des crédits/débits
 
-
-
-			// Création des lignes pour chaque opération
-			for (int i = 1 ; i < alOperationsPeriode.size()-1 ; i++) {
-
-				Operation tmpOperation = alOperationsPeriode.get(i);
-
-				soldeActuel += tmpOperation.montant;
-
-				if (tmpOperation.montant >= 0) {
-
-					createLine(table
-							,dateFormat.format(tmpOperation.dateOp),dateFormat.format(tmpOperation.dateValeur)
-							,tmpOperation.idTypeOp,String.format("%10.02f", tmpOperation.montant),""
-							,String.format("%10.02f", soldeActuel),false)
-					;
+		double sommeDebits = 0 ;
+		double sommeCredits = 0;
+		double soldeActuel = opDebut.montant;
 
 
-					sommeCredits += tmpOperation.montant;
-				}
-				else {
+		// Rajout du solde initial
 
-					createLine(table
-							,dateFormat.format(tmpOperation.dateOp),dateFormat.format(tmpOperation.dateValeur)
-							,tmpOperation.idTypeOp,"",String.format("%10.02f", tmpOperation.montant)
-							,String.format("%10.02f", soldeActuel),false)
-					;
-					sommeDebits += tmpOperation.montant;
-				}
+		createLine(table,"","",opDebut.idTypeOp,"","",String.format("%10.02f", opDebut.montant),true);
 
+
+
+		// Création des lignes pour chaque opération
+		for (int i = 1 ; i < alOperationsPeriode.size()-1 ; i++) {
+
+			Operation tmpOperation = alOperationsPeriode.get(i);
+
+			soldeActuel += tmpOperation.montant;
+
+			if (tmpOperation.montant >= 0) {
+
+				createLine(table
+						,dateFormat.format(tmpOperation.dateOp),dateFormat.format(tmpOperation.dateValeur)
+						,tmpOperation.idTypeOp,String.format("%10.02f", tmpOperation.montant),""
+						,String.format("%10.02f", soldeActuel),false)
+				;
+
+
+				sommeCredits += tmpOperation.montant;
+			}
+			else {
+
+				createLine(table
+						,dateFormat.format(tmpOperation.dateOp),dateFormat.format(tmpOperation.dateValeur)
+						,tmpOperation.idTypeOp,"",String.format("%10.02f", tmpOperation.montant)
+						,String.format("%10.02f", soldeActuel),false)
+				;
+				sommeDebits += tmpOperation.montant;
 			}
 
-			//Rajout du total des opérations
-
-			createLine(table,"","","Total des opérations : "
-					,String.format("%10.02f", sommeCredits),String.format("%10.02f", sommeDebits)
-					,"",true);
-
-			// Rajout du solde à la fin
-
-			createLine(table,"","",opDebut.idTypeOp,"","",String.format("%10.02f", opFin.montant),true);
-
-
-
-			return table;
 		}
-		catch (DataAccessException |DatabaseConnexionException e ) {
-			ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dailyBankState, e);
-			ed.doExceptionDialog();
-			return null;
-		}
+
+		//Rajout du total des opérations
+
+		createLine(table,"","","Total des opérations : "
+				,String.format("%10.02f", sommeCredits),String.format("%10.02f", sommeDebits)
+				,"",true);
+
+		// Rajout du solde à la fin
+
+		createLine(table,"","",opFin.idTypeOp,"","",String.format("%10.02f", opFin.montant),true);
+
+
+
+		return table;
+
 	}
 
 	/**
