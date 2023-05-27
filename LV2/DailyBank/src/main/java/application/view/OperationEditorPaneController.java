@@ -1,5 +1,6 @@
 package application.view;
 
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Optional;
 
@@ -21,13 +22,17 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import model.data.AgenceBancaire;
 import model.data.CompteCourant;
+import model.data.Employe;
 import model.data.Operation;
 import model.data.OperationTransfert;
+import model.orm.Access_BD_Client;
 import model.orm.Access_BD_CompteCourant;
 import model.orm.exception.DataAccessException;
 import model.orm.exception.DatabaseConnexionException;
 import model.orm.exception.RowNotFoundOrTooManyRowsException;
+import model.orm.Access_BD_Client;
 
 public class OperationEditorPaneController {
 
@@ -52,78 +57,73 @@ public class OperationEditorPaneController {
 	private void configure() {
 		this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
 	}
-	
-	
 
 	public Operation displayDialog(CompteCourant cpte, CategorieOperation mode) {
 
 		String info;
 
 		ObservableList<String> listTypesOpesPossibles = FXCollections.observableArrayList();
-		
-		
+
 		this.categorieOperation = mode;
 		this.compteEdite = cpte;
 
 		switch (mode) {
-		case DEBIT:
+			case DEBIT:
 
-			info = "Cpt. : " + this.compteEdite.idNumCompte + "  "
-					+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
-					+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
-			this.lblMessage.setText(info);
+				info = "Cpt. : " + this.compteEdite.idNumCompte + "  "
+						+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
+						+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
+				this.lblMessage.setText(info);
 
-			this.btnOk.setText("Effectuer Débit");
-			this.btnCancel.setText("Annuler Débit");
+				this.btnOk.setText("Effectuer Débit");
+				this.btnCancel.setText("Annuler Débit");
 
+				listTypesOpesPossibles.addAll(ConstantesIHM.OPERATIONS_DEBIT_GUICHET);
 
-			listTypesOpesPossibles.addAll(ConstantesIHM.OPERATIONS_DEBIT_GUICHET);
+				this.cbTypeOpe.setItems(listTypesOpesPossibles);
+				this.cbTypeOpe.getSelectionModel().select(0);
+				break;
+			case CREDIT:
 
-			this.cbTypeOpe.setItems(listTypesOpesPossibles);
-			this.cbTypeOpe.getSelectionModel().select(0);
-			break;
-		case CREDIT:
+				info = "Cpt. : " + this.compteEdite.idNumCompte + "  "
+						+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
+						+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
+				this.lblMessage.setText(info);
 
-			info = "Cpt. : " + this.compteEdite.idNumCompte + "  "
-					+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
-					+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
-			this.lblMessage.setText(info);
+				this.btnOk.setText("Effectuer Crédit");
+				this.btnCancel.setText("Annuler Crédit");
 
-			this.btnOk.setText("Effectuer Crédit");
-			this.btnCancel.setText("Annuler Crédit");
+				listTypesOpesPossibles.addAll(ConstantesIHM.OPERATIONS_CREDIT_GUICHET);
 
-			listTypesOpesPossibles.addAll(ConstantesIHM.OPERATIONS_CREDIT_GUICHET);
+				this.cbTypeOpe.setItems(listTypesOpesPossibles);
+				this.cbTypeOpe.getSelectionModel().select(0);
 
-			this.cbTypeOpe.setItems(listTypesOpesPossibles);
-			this.cbTypeOpe.getSelectionModel().select(0);
+				break;
+			case TRANSFERT:
 
-			break;
-		case TRANSFERT:
+				info = "Cpt. : " + this.compteEdite.idNumCompte + "  "
+						+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
+						+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
+				this.lblMessage.setText(info);
 
-			info = "Cpt. : " + this.compteEdite.idNumCompte + "  "
-					+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
-					+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
-			this.lblMessage.setText(info);
+				Label lblCompteDestinataire = new Label("Compte destinataire");
 
+				lblCompteDestinataire.setAlignment(Pos.CENTER_RIGHT);
+				lblCompteDestinataire.setMaxWidth(Double.MAX_VALUE);
+				lblCompteDestinataire.setPadding(new Insets(0, 20, 0, 0));
 
-			Label lblCompteDestinataire = new Label("Compte destinataire");
+				this.gridPaneSaisies.addRow(2, lblCompteDestinataire);
+				this.gridPaneSaisies.addRow(2, new TextField());
 
-			lblCompteDestinataire.setAlignment(Pos.CENTER_RIGHT);
-			lblCompteDestinataire.setMaxWidth(Double.MAX_VALUE);
-			lblCompteDestinataire.setPadding(new Insets(0, 20, 0, 0));
+				this.btnOk.setText("Effectuer Transfert");
+				this.btnCancel.setText("Annuler Transfert");
 
-			this.gridPaneSaisies.addRow(2,lblCompteDestinataire);
-			this.gridPaneSaisies.addRow(2, new TextField());
+				listTypesOpesPossibles.addAll(ConstantesIHM.OPERATIONS_TRANSFERT_GUICHET);
 
-			this.btnOk.setText("Effectuer Transfert");
-			this.btnCancel.setText("Annuler Transfert");
+				this.cbTypeOpe.setItems(listTypesOpesPossibles);
+				this.cbTypeOpe.getSelectionModel().select(0);
 
-			listTypesOpesPossibles.addAll(ConstantesIHM.OPERATIONS_TRANSFERT_GUICHET);
-
-			this.cbTypeOpe.setItems(listTypesOpesPossibles);
-			this.cbTypeOpe.getSelectionModel().select(0);
-
-			break;
+				break;
 
 		}
 
@@ -178,194 +178,189 @@ public class OperationEditorPaneController {
 		String typeOp;
 
 		switch (this.categorieOperation) {
-		case DEBIT:
-			// règles de validation d'un débit :
-			// - le montant doit être un nombre valide
-			// - et si l'utilisateur n'est pas chef d'agence,
-			// - le débit ne doit pas amener le compte en dessous de son découvert autorisé
+			case DEBIT:
+				// règles de validation d'un débit :
+				// - le montant doit être un nombre valide
+				// - et si l'utilisateur n'est pas chef d'agence,
+				// - le débit ne doit pas amener le compte en dessous de son découvert autorisé
 
-			this.txtMontant.getStyleClass().remove("borderred");
-			this.lblMontant.getStyleClass().remove("borderred");
-			this.lblMessage.getStyleClass().remove("borderred");
+				this.txtMontant.getStyleClass().remove("borderred");
+				this.lblMontant.getStyleClass().remove("borderred");
+				this.lblMessage.getStyleClass().remove("borderred");
 
-			info = "Cpt. : " + this.compteEdite.idNumCompte + "  "
-					+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
-					+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
-			this.lblMessage.setText(info);
+				info = "Cpt. : " + this.compteEdite.idNumCompte + "  "
+						+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
+						+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
+				this.lblMessage.setText(info);
 
-			try {
-				montant = Double.parseDouble(this.txtMontant.getText().trim());
-				if (montant <= 0)
-					throw new NumberFormatException();
-			} catch (NumberFormatException nfe) {
-				this.txtMontant.getStyleClass().add("borderred");
-				this.lblMontant.getStyleClass().add("borderred");
-				this.txtMontant.requestFocus();
-				return;
-			}
-			
-			
-			
-			if((this.dailyBankState.isChefDAgence()==true) && (this.compteEdite.solde - montant < this.compteEdite.debitAutorise)) {
-				Alert soldepresent = new Alert(AlertType.CONFIRMATION);
-
-				soldepresent.setHeaderText("Information Débit Exeptionnel");
-				soldepresent.setContentText("Le montant de débit dépasse le découvert autorisé\n Êtes-vous sûr de vouloir continuer ce débit ?");
-
-				// Set the alert's title (optional)
-				soldepresent.setTitle("Confirmation");
-
-				// Set the button types for the confirmation dialog
-				ButtonType ouiButton = new ButtonType("Oui");
-				ButtonType nonButton = new ButtonType("Non");
-
-				// Add the button types to the dialog
-				soldepresent.getButtonTypes().setAll(ouiButton, nonButton);
-
-				// Show the alert and wait for the user's response
-				Optional<ButtonType> result = soldepresent.showAndWait();
-
-				if (result.isPresent() && result.get() == ouiButton) {
-
-					typeOp = this.cbTypeOpe.getValue();
-					this.operationResultat = new Operation(-1, montant, null, null, this.compteEdite.idNumCli, typeOp);
-				} else {
-					return;
-				}
-			}else {
-				if (this.compteEdite.solde - montant < this.compteEdite.debitAutorise) {
-					info = "Dépassement du découvert ! - Cpt. : " + this.compteEdite.idNumCompte + "  "
-							+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
-							+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
-					this.lblMessage.setText(info);
+				try {
+					montant = Double.parseDouble(this.txtMontant.getText().trim());
+					if (montant <= 0)
+						throw new NumberFormatException();
+				} catch (NumberFormatException nfe) {
 					this.txtMontant.getStyleClass().add("borderred");
 					this.lblMontant.getStyleClass().add("borderred");
-					this.lblMessage.getStyleClass().add("borderred");
 					this.txtMontant.requestFocus();
 					return;
 				}
+
+				if ((this.dailyBankState.isChefDAgence() == true)
+						&& (this.compteEdite.solde - montant < this.compteEdite.debitAutorise)) {
+					Alert soldepresent = new Alert(AlertType.CONFIRMATION);
+
+					soldepresent.setHeaderText("Information Débit Exeptionnel");
+					soldepresent.setContentText(
+							"Le montant de débit dépasse le découvert autorisé\n Êtes-vous sûr de vouloir continuer ce débit ?");
+
+					// Set the alert's title (optional)
+					soldepresent.setTitle("Confirmation");
+
+					// Set the button types for the confirmation dialog
+					ButtonType ouiButton = new ButtonType("Oui");
+					ButtonType nonButton = new ButtonType("Non");
+
+					// Add the button types to the dialog
+					soldepresent.getButtonTypes().setAll(ouiButton, nonButton);
+
+					// Show the alert and wait for the user's response
+					Optional<ButtonType> result = soldepresent.showAndWait();
+
+					if (result.isPresent() && result.get() == ouiButton) {
+
+						typeOp = this.cbTypeOpe.getValue();
+						this.operationResultat = new Operation(-1, montant, null, null, this.compteEdite.idNumCli,
+								typeOp);
+					} else {
+						return;
+					}
+				} else {
+					if (this.compteEdite.solde - montant < this.compteEdite.debitAutorise) {
+						info = "Dépassement du découvert ! - Cpt. : " + this.compteEdite.idNumCompte + "  "
+								+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
+								+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
+						this.lblMessage.setText(info);
+						this.txtMontant.getStyleClass().add("borderred");
+						this.lblMontant.getStyleClass().add("borderred");
+						this.lblMessage.getStyleClass().add("borderred");
+						this.txtMontant.requestFocus();
+						return;
+					}
+					typeOp = this.cbTypeOpe.getValue();
+					this.operationResultat = new Operation(-1, montant, null, null, this.compteEdite.idNumCli, typeOp);
+
+				}
 				typeOp = this.cbTypeOpe.getValue();
 				this.operationResultat = new Operation(-1, montant, null, null, this.compteEdite.idNumCli, typeOp);
-				
-			}
-			typeOp = this.cbTypeOpe.getValue();
-			this.operationResultat = new Operation(-1, montant, null, null, this.compteEdite.idNumCli, typeOp);
 
-			this.primaryStage.close();
-			break;
-			
-			
-		case CREDIT:
+				this.primaryStage.close();
+				break;
 
-			// règles de validation d'un crédit :
-			// - le montant doit être un nombre valide
+			case CREDIT:
 
-			this.txtMontant.getStyleClass().remove("borderred");
-			this.lblMontant.getStyleClass().remove("borderred");
-			this.lblMessage.getStyleClass().remove("borderred");
+				// règles de validation d'un crédit :
+				// - le montant doit être un nombre valide
 
-			info = "Cpt. : " + this.compteEdite.idNumCompte + "  "
-					+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
-					+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
-			this.lblMessage.setText(info);
+				this.txtMontant.getStyleClass().remove("borderred");
+				this.lblMontant.getStyleClass().remove("borderred");
+				this.lblMessage.getStyleClass().remove("borderred");
 
-			try {
-				montant = Double.parseDouble(this.txtMontant.getText().trim());
-				if (montant <= 0)
-					throw new NumberFormatException();
-			} catch (NumberFormatException nfe) {
-				this.txtMontant.getStyleClass().add("borderred");
-				this.lblMontant.getStyleClass().add("borderred");
-				this.txtMontant.requestFocus();
-				return;
-			}
+				info = "Cpt. : " + this.compteEdite.idNumCompte + "  "
+						+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
+						+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
+				this.lblMessage.setText(info);
 
-			typeOp = this.cbTypeOpe.getValue();
-			this.operationResultat = new Operation(-1, montant, null, null, this.compteEdite.idNumCli, typeOp);
-			this.primaryStage.close();
-			break;
-		case TRANSFERT:
-
-
-			// règles de validation d'un débit :
-			// - le montant doit être un nombre valide
-			// - et si l'utilisateur n'est pas chef d'agence,
-			// - le débit ne doit pas amener le compte en dessous de son découvert autorisé
-			// - Le compte destinataire doit exister
-
-			int NumCompteDestinataire = -1000;
-
-
-			TextField txtCompteDestinataire = (TextField) this.gridPaneSaisies.getChildren().get(5);
-			Label lblCompteDestinataire = (Label) this.gridPaneSaisies.getChildren().get(4);
-
-
-			this.txtMontant.getStyleClass().remove("borderred");
-			this.lblMontant.getStyleClass().remove("borderred");
-			this.lblMessage.getStyleClass().remove("borderred");
-			lblCompteDestinataire.getStyleClass().remove("borderred");
-			txtCompteDestinataire.getStyleClass().remove("borderred");
-
-			Access_BD_CompteCourant bdAccesComptes = new Access_BD_CompteCourant();
-
-			info = "Cpt. : " + this.compteEdite.idNumCompte + "  "
-					+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
-					+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
-			this.lblMessage.setText(info);
-
-			try {
-				montant = Double.parseDouble(this.txtMontant.getText().trim());
-				if (montant <= 0)
-					throw new NumberFormatException();
-			} catch (NumberFormatException nfe) {
-				this.txtMontant.getStyleClass().add("borderred");
-				this.lblMontant.getStyleClass().add("borderred");
-				this.txtMontant.requestFocus();
-				return;
-			}
-
-
-
-			try {
-				NumCompteDestinataire = Integer.parseInt(txtCompteDestinataire.getText().trim());
-				if (NumCompteDestinataire <= 0 | NumCompteDestinataire == this.compteEdite.idNumCompte )
-					throw new NumberFormatException();
-
-			} catch (NumberFormatException nfe) {
-				txtCompteDestinataire.getStyleClass().add("borderred");
-				lblCompteDestinataire.getStyleClass().add("borderred");
-				txtCompteDestinataire.requestFocus();
-				return;
-			}
-
-			try {
-				boolean compteInvalide = false;
-
-				CompteCourant compteDestinataire = bdAccesComptes.getCompteCourant(NumCompteDestinataire);
-				if (compteDestinataire == null) {
-					compteInvalide = true;
+				try {
+					montant = Double.parseDouble(this.txtMontant.getText().trim());
+					if (montant <= 0)
+						throw new NumberFormatException();
+				} catch (NumberFormatException nfe) {
+					this.txtMontant.getStyleClass().add("borderred");
+					this.lblMontant.getStyleClass().add("borderred");
+					this.txtMontant.requestFocus();
+					return;
 				}
-				else if (compteDestinataire.estCloture.compareTo("O") == 0 ) {
-					compteInvalide = true;
+
+				typeOp = this.cbTypeOpe.getValue();
+				this.operationResultat = new Operation(-1, montant, null, null, this.compteEdite.idNumCli, typeOp);
+				this.primaryStage.close();
+				break;
+			case TRANSFERT:
+
+				// règles de validation d'un débit :
+				// - le montant doit être un nombre valide
+				// - et si l'utilisateur n'est pas chef d'agence,
+				// - le débit ne doit pas amener le compte en dessous de son découvert autorisé
+				// - Le compte destinataire doit exister
+
+				int NumCompteDestinataire = -1000;
+
+				TextField txtCompteDestinataire = (TextField) this.gridPaneSaisies.getChildren().get(5);
+				Label lblCompteDestinataire = (Label) this.gridPaneSaisies.getChildren().get(4);
+
+				this.txtMontant.getStyleClass().remove("borderred");
+				this.lblMontant.getStyleClass().remove("borderred");
+				this.lblMessage.getStyleClass().remove("borderred");
+				lblCompteDestinataire.getStyleClass().remove("borderred");
+				txtCompteDestinataire.getStyleClass().remove("borderred");
+
+				Access_BD_CompteCourant bdAccesComptes = new Access_BD_CompteCourant();
+
+				info = "Cpt. : " + this.compteEdite.idNumCompte + "  "
+						+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
+						+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
+				this.lblMessage.setText(info);
+
+				try {
+					montant = Double.parseDouble(this.txtMontant.getText().trim());
+					if (montant <= 0)
+						throw new NumberFormatException();
+				} catch (NumberFormatException nfe) {
+					this.txtMontant.getStyleClass().add("borderred");
+					this.lblMontant.getStyleClass().add("borderred");
+					this.txtMontant.requestFocus();
+					return;
 				}
-				if (compteInvalide) {
+
+				try {
+					NumCompteDestinataire = Integer.parseInt(txtCompteDestinataire.getText().trim());
+					if (NumCompteDestinataire <= 0 | NumCompteDestinataire == this.compteEdite.idNumCompte)
+						throw new NumberFormatException();
+
+				} catch (NumberFormatException nfe) {
 					txtCompteDestinataire.getStyleClass().add("borderred");
 					lblCompteDestinataire.getStyleClass().add("borderred");
 					txtCompteDestinataire.requestFocus();
 					return;
 				}
-			} catch (RowNotFoundOrTooManyRowsException | DataAccessException | DatabaseConnexionException e) {
-				txtCompteDestinataire.getStyleClass().add("borderred");
-				lblCompteDestinataire.getStyleClass().add("borderred");
-				txtCompteDestinataire.requestFocus();
-				return;
-			}
 
-			typeOp = this.cbTypeOpe.getValue();
+				try {
+					boolean compteInvalide = false;
 
-			this.operationResultat = new OperationTransfert(-1, montant, null, null, this.compteEdite.idNumCli, typeOp , NumCompteDestinataire);
-			this.primaryStage.close();
-			break;
+					CompteCourant compteDestinataire = bdAccesComptes.getCompteCourant(NumCompteDestinataire);
+					if (compteDestinataire == null) {
+						compteInvalide = true;
+					} else if (compteDestinataire.estCloture.compareTo("O") == 0) {
+						compteInvalide = true;
+					}
+					if (compteInvalide) {
+						txtCompteDestinataire.getStyleClass().add("borderred");
+						lblCompteDestinataire.getStyleClass().add("borderred");
+						txtCompteDestinataire.requestFocus();
+						return;
+					}
+				} catch (RowNotFoundOrTooManyRowsException | DataAccessException | DatabaseConnexionException e) {
+					txtCompteDestinataire.getStyleClass().add("borderred");
+					lblCompteDestinataire.getStyleClass().add("borderred");
+					txtCompteDestinataire.requestFocus();
+					return;
+				}
+
+				typeOp = this.cbTypeOpe.getValue();
+
+				this.operationResultat = new OperationTransfert(-1, montant, null, null, this.compteEdite.idNumCli,
+						typeOp, NumCompteDestinataire);
+				this.primaryStage.close();
+				break;
 		}
 	}
 }

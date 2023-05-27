@@ -147,6 +147,10 @@ public class ReleveEditorPaneController {
 			LocalDate localDateDebut = dpDateDebut.getValue();
 
 			dateDebut = Date.from(localDateDebut.atStartOfDay(ZoneId.systemDefault()).toInstant());
+			
+			if (dateDebut.after(new Date())) {
+				throw new IllegalArgumentException();
+			}
 
 		}
 		catch (IllegalArgumentException e) {
@@ -164,7 +168,7 @@ public class ReleveEditorPaneController {
 
 			dateFin = Date.from(localDateFin.atStartOfDay(ZoneId.systemDefault()).toInstant());
 			if (dateFin != null) {
-				if (dateFin.compareTo(dateDebut) <= 0) {
+				if (dateFin.compareTo(dateDebut) <= 0 | dateFin.compareTo(new Date()) > 0 ) {
 					throw new IllegalArgumentException();
 				}
 			}
@@ -198,7 +202,7 @@ public class ReleveEditorPaneController {
 					+ "pour résoudre le problème", AlertType.ERROR);
 		}
 		else {
-			AlertUtilities.showAlert(primaryStage, "Génération du relevé", "Votre relevé a bien été généré", "Vous pouvez retoruver votre relevé à l'emplacement suivant\n"+cheminFichier, AlertType.INFORMATION);
+			AlertUtilities.showAlert(primaryStage, "Génération du relevé", "Votre relevé a bien été généré", "Vous pouvez trouver le relevé à l'emplacement suivant\n"+cheminFichier, AlertType.INFORMATION);
 		}
 	}
 }

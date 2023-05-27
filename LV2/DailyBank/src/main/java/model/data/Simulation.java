@@ -79,7 +79,7 @@ public class Simulation {
 			break;
 		case ConstantesIHM.TYPE_SIMUL_2: // Assurance taux fixe
 			// TODO
-			System.err.println("TODO - Assurance taux fixe");
+			System.err.println("TODO - Assurance taux fixe - Partie Bilon");
 			break;
 
 		default:
