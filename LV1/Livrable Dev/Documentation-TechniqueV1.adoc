@@ -402,8 +402,10 @@ Développé par Bilon Kwadjani
 ** Access_BD_CompteCourant.java
 
 ===== Description 
-Cette fonctionnalité a été faite en faisant des modifications dans plusieurs classes et en créant une nouvelle classe.
-Cependant elle se base sur les fonctionnalités inserer client.
+
+Cette fonctionnalité est lié au bouton "Nouveau compte".
+Cette fonctionnalité a été faite en faisant des modifications dans plusieurs classes .
+La création d'un compte se base sur les fonctionnalités inserer client.
 
 Pour creer un compte j'ai utilise la classe "CompteManagement" que j'ai modifier la methode "creerNouveauCompte" pour utiliser la methode "insertCompteC" que j'ai dévelloper dans la classe "Access_BD_CompteCourant" qui utilise une requete sql pour enregistrer les information du nouveau Compte.
 
@@ -446,6 +448,10 @@ Au même tire que debiter ou crediter, l'utilisateur clique sur le bouton "Enreg
 
 
 === Clôturer un compte :
+[NOTE]
+====
+Développé par Bilon Kwadjani
+====
 
 *Classes impliquées dans chaque package :*
 
@@ -459,6 +465,15 @@ Au même tire que debiter ou crediter, l'utilisateur clique sur le bouton "Enreg
 ** classe CompteCourant
 * package application.tools :
 ** classe ConstantesIH
+
+===== Description 
+Cette fonctionnalité est lié au bouton "Cloturer". 
+Cette fonctionnalité a été faite en faisant des modifications dans plusieurs classes .
+
+Pour creer un compte j'ai utilise la classe "CompteManagement" que j'ai ajouter la methode "cloturerC" qui verifie si le sodle du compte est à 0 pour utiliser la methode "cloturerC" que j'ai dévelloper dans la classe "Access_BD_CompteCourant" qui utilise une requete sql pour modifier la valeur de l'attribu estCloturer dans la base de donnée.
+
+La clôturation d'un compte se fait seuleument si le le solde du compte est de 0 sinon on reçoit un message d'erreur.
+
 
 === Rendre inactif/actif un client :
 
