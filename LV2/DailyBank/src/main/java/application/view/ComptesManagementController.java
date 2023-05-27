@@ -9,6 +9,7 @@ import java.util.Date;
 import application.DailyBankApp;
 import application.DailyBankState;
 import application.control.ComptesManagement;
+import application.control.PrelevementsManagementPane;
 import application.tools.ConstantesIHM;
 import application.tools.RelevesBancaire;
 import application.tools.StageManagement;
@@ -236,9 +237,14 @@ public class ComptesManagementController {
 		}
 	}
 	
+	/**
+	 * 
+	 * 
+	 * @author Mathéo
+	 */
 	@FXML
 	private void doVoirPrelevements() {
-		
+		PrelevementsManagementPane pmp = new PrelevementsManagementPane(primaryStage,dailyBankState);
 	}
 
 	private void loadList() {
