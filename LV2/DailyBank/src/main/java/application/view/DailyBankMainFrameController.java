@@ -95,6 +95,8 @@ public class DailyBankMainFrameController {
 	@FXML
 	private MenuItem mitemSimulation;
 	@FXML
+	private MenuItem mitemBatch;
+	@FXML
 	private MenuItem mitemConnexion;
 	@FXML
 	private MenuItem mitemDeConnexion;
@@ -216,6 +218,10 @@ public class DailyBankMainFrameController {
 	@FXML
 	private void doSimulation() {
 		this.dbmfDialogController.gestionSimulation();
+	}
+	@FXML
+	private void doBatch() {
+		System.err.println("TODO-BATCH");
 	}
 
 	/*

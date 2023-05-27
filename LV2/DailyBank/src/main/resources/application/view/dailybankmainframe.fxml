@@ -36,6 +36,7 @@
                         <SeparatorMenuItem mnemonicParsing="false" />
                         <MenuItem fx:id="mitemEmploye" disable="true" mnemonicParsing="false" onAction="#doEmployeOption" text="Employés" />
                         <MenuItem fx:id="mitemSimulation" disable="true" mnemonicParsing="false" onAction="#doSimulation" text="Simulations" />
+                        <MenuItem fx:id="mitemBatch" disable="true" mnemonicParsing="false" onAction="#doBatch" text="Lancer Batch" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="?">
