@@ -235,6 +235,11 @@ public class ComptesManagementController {
 			this.oListCompteCourant.add(compte);
 		}
 	}
+	
+	@FXML
+	private void doVoirPrelevements() {
+		
+	}
 
 	private void loadList() {
 		ArrayList<CompteCourant> listeCpt;

@@ -32,6 +32,7 @@
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
@@ -42,21 +43,22 @@
                               <Insets bottom="10.0" top="10.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button fx:id="btnGenererReleve" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doGenererReleve" text="Générer Relevé PDF" GridPane.rowIndex="1">
+                        <Button fx:id="btnGenererReleve" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doGenererReleve" text="Générer Relevé PDF" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets bottom="10.0" top="10.0" />
                            </GridPane.margin></Button>
-                        <Button fx:id="btnClôtureCompte" layoutX="10.0" layoutY="140.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doClôtureCompte" text="Clôturer" GridPane.rowIndex="2" />
-                        <Button fx:id="btnModifierCompte" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doModifierCompte" text="Modifier compte" GridPane.rowIndex="3">
+                        <Button fx:id="btnClôtureCompte" layoutX="10.0" layoutY="140.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doClôtureCompte" text="Clôturer" GridPane.rowIndex="3" />
+                        <Button fx:id="btnModifierCompte" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doModifierCompte" text="Modifier compte" GridPane.rowIndex="4">
                            <GridPane.margin>
                               <Insets bottom="10.0" top="10.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button fx:id="btnSupprCompte" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doSupprimerCompte" text="Supprimer compte" GridPane.rowIndex="4">
+                        <Button fx:id="btnSupprCompte" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doSupprimerCompte" text="Supprimer compte" GridPane.rowIndex="5">
                            <GridPane.margin>
                               <Insets bottom="10.0" top="10.0" />
                            </GridPane.margin>
                         </Button>
+                        <Button fx:id="btnVoirOpes1" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doVoirPrelevements" text="Voir prélèvements " GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                </children>
