@@ -27,7 +27,7 @@
 |2    |Guichetier     | CRUD Prélèvement | U|D| | 
 |2    |Guichetier     | CRUD Prélèvement | D|D| | 
 |2    |Batch     | Prélèvements automatiques | || | D
-|2    |Batch     | Reléves mensuels | || |D 
+|2    |Batch     | Reléves mensuels | || |F 
 
 |=======================
 
