@@ -18,7 +18,7 @@
 |1    |Guichetier     | Compte | Créditer/Débiter|| |F
 |1    |Guichetier     | Compte | Effectuer un virement|| |F
 |1    |Guichetier     | Compte | Clôturer|  | F | 
-|2    |Chef d’Agence     | Compte | Débit exceptionnel||D | 
+|2    |Chef d’Agence     | Compte | Débit exceptionnel||F | 
 |2    |Chef d’Agence     | Emprunt | Simuler emprunt|||F 
 |2    |Chef d’Agence     | Emprunt | Simuler assurance||D | 
 |2    |Guichetier     | Compte | Relevé PDF|| | F
