@@ -22,6 +22,8 @@ buildNumber.properties
 
 #PDF de relevés générés
 *.pdf
+
+#Logs du batch
 logBatch.txt
 
 #Relevé automatique généré par Batch
