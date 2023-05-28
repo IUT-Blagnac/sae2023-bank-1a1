@@ -13,13 +13,14 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.data.CompteCourant;
 import model.data.Operation;
+import model.data.PrelevementAutomatique;
 
 public class PrelevementEditorPane {
 	private Stage primaryStage;
 	private PrelevementEditorController pmc;
 	private DailyBankState dailyBankStage;
 	
-	public PrelevementEditorPane(Stage _parentStage, DailyBankState _dbstage, CompteCourant _compte,Operation _operation,String modifier) {
+	public PrelevementEditorPane(Stage _parentStage, DailyBankState _dbstage, CompteCourant _compte,PrelevementAutomatique _prelevement,String modifier) {
 		this.dailyBankStage = _dbstage;
 		try {
 			FXMLLoader loader = new FXMLLoader(ComptesManagementController.class.getResource("prelevementseditor.fxml"));
@@ -37,7 +38,7 @@ public class PrelevementEditorPane {
 			this.primaryStage.setResizable(false);
 			
 			this.pmc = loader.getController();
-			pmc.initContext(primaryStage, dailyBankStage,_compte,_operation, modifier);
+			pmc.initContext(primaryStage, dailyBankStage,_compte,_prelevement, modifier);
 			pmc.displayDialog();
 		} catch (Exception e) {
 			e.printStackTrace();
