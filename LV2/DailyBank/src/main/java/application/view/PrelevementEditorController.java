@@ -7,12 +7,14 @@ import java.sql.SQLException;
 import java.util.Date;
 
 import application.DailyBankState;
+import application.tools.AlertUtilities;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import model.data.CompteCourant;
 import model.data.Operation;
@@ -72,28 +74,67 @@ public class PrelevementEditorController {
 			String idCompte = this.compte.idNumCompte + "";
 			int idCompteNormalize = Integer.parseInt(idCompte.replaceFirst("0", ""));
 			
-			Connection con;
-			try {
-				con = LogToDatabase.getConnexion();
-				
-				if(this.prelevement != null && modifier == "O") {
-					Access_BD_PrelevementAutomatique prelevement = new Access_BD_PrelevementAutomatique();
-					prelevement.deletePrelevement(idCompteNormalize);
-				}
-				
-				Access_BD_PrelevementAutomatique prelevement = new Access_BD_PrelevementAutomatique();
-				prelevement.insertPrelevement(Double.parseDouble(this.txtMontant.getText()),Integer.parseInt(this.txtDateRecurrente.getText()), this.txtBeneficiaire.getText(), this.compte.idNumCompte);
-
-				this.primaryStage.close();
-
-			} catch (DatabaseConnexionException e) {
-				// TODO Auto-generated catch block
-				//e.printStackTrace();
-			}
+			if(this.validateComponent()) {
+				Connection con;
+				try {
+					con = LogToDatabase.getConnexion();
+					
+					if(this.prelevement != null && modifier == "O") {
+						Access_BD_PrelevementAutomatique prelevement = new Access_BD_PrelevementAutomatique();
+						prelevement.deletePrelevement(idCompteNormalize);
 					}
+					
+					Access_BD_PrelevementAutomatique prelevement = new Access_BD_PrelevementAutomatique();
+					prelevement.insertPrelevement(Double.parseDouble(this.txtMontant.getText()),Integer.parseInt(this.txtDateRecurrente.getText()), this.txtBeneficiaire.getText(), this.compte.idNumCompte);
+
+					this.primaryStage.close();
+
+				} catch (DatabaseConnexionException e) {
+					// TODO Auto-generated catch block
+					//e.printStackTrace();
+				}
+			}
+			
+		}
 		
 		@FXML
 		private void doCancel() {
 			this.primaryStage.close();
+		}
+		
+		private boolean validateComponent() {
+			if(this.txtMontant.getText().isEmpty()) {
+				AlertUtilities.showAlert(this.primaryStage, "Erreur de saisie", null, "Le montant ne peux pas être vide",
+						AlertType.WARNING);
+				return false;
+			}
+			
+			int montant = Integer.parseInt(this.txtMontant.getText());
+			if(montant <= 0) {
+				AlertUtilities.showAlert(this.primaryStage, "Erreur de saisie", null, "Le montant ne peux pas être négatif ou égale à 0",
+						AlertType.WARNING);
+				return false;
+			}
+			
+			if(this.txtDateRecurrente.getText().isEmpty()) {
+				AlertUtilities.showAlert(this.primaryStage, "Erreur de saisie", null, "La date recurrente ne peux pas être vide",
+						AlertType.WARNING);
+				return false;
+			}
+			
+			if(this.txtBeneficiaire.getText().isEmpty()) {
+				AlertUtilities.showAlert(this.primaryStage, "Erreur de saisie", null, "Le bénéficiaire ne peux pas être vide",
+						AlertType.WARNING);
+				return false;
+			}
+			
+			int currentDate = Integer.parseInt(this.txtDateRecurrente.getText());
+			if(currentDate < 1 || currentDate > 28) {
+				AlertUtilities.showAlert(this.primaryStage, "Erreur de saisie", null, "La date recurrente doit être entre 1 et 28",
+						AlertType.WARNING);
+				return false;
+			}
+			
+			return true;
 		}
 }
