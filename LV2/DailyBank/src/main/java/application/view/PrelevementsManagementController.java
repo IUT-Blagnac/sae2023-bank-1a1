@@ -23,6 +23,7 @@ import model.data.Client;
 import model.data.CompteCourant;
 import model.data.Operation;
 import model.data.PrelevementAutomatique;
+import model.orm.Access_BD_PrelevementAutomatique;
 import model.orm.LogToDatabase;
 import model.orm.exception.DatabaseConnexionException;
 
@@ -104,55 +105,15 @@ public class PrelevementsManagementController {
 	
 	@FXML
 	private void doSupprimerPrelevement() {
-		Connection con;
-		try {
-			con = LogToDatabase.getConnexion();
+		Access_BD_PrelevementAutomatique prelevement = new Access_BD_PrelevementAutomatique();
+		prelevement.deletePrelevement(this.prelevement.idPrelevement);
+		updateListPrelevements();
 
-			String query = "DELETE FROM prelevementautomatique WHERE idprelev = " + this.prelevement.idPrelevement;
-			PreparedStatement pst = con.prepareStatement(query);
-
-			ResultSet rs = pst.executeQuery();
-			
-			this.updateListPrelevements();
-
-		} catch (DatabaseConnexionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 	
 	public ArrayList<PrelevementAutomatique> getAllOperation() {
-		ArrayList<PrelevementAutomatique> output = new ArrayList<PrelevementAutomatique>();
+		Access_BD_PrelevementAutomatique prelevement = new Access_BD_PrelevementAutomatique();
 		
-		String idCompte = this.compte.idNumCompte + "";
-		int idCompteNormalize = Integer.parseInt(idCompte.replaceFirst("0", ""));
-		System.out.println(idCompteNormalize);
-		
-		Connection con;
-		try {
-			con = LogToDatabase.getConnexion();
-
-			String query = "SELECT * FROM prelevementautomatique WHERE idnumcompte = " + idCompteNormalize;
-			PreparedStatement pst = con.prepareStatement(query);
-
-			ResultSet rs = pst.executeQuery();
-
-			while(rs.next()) {
-				PrelevementAutomatique prelevement = new PrelevementAutomatique(rs.getInt(1),rs.getDouble(2),rs.getInt(3),rs.getString(4),rs.getInt(5));
-				output.add(prelevement);
-			}
-
-		} catch (DatabaseConnexionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return output;
+		return prelevement.getAllPrelevements(this.compte.idNumCompte);
 	}
 }
