@@ -19,7 +19,7 @@ Le logiciel bancaire sera développé en plusieurs versions, avec des fonctionna
 
 Pour lancer l'application exécuter le jar dans le dossier.
 
-=== Version 1
+== Version 1
 
 
 [options="header"]
@@ -52,7 +52,7 @@ Pour lancer l'application exécuter le jar dans le dossier.
 
 |===
 
-=== Version 2
+== Version 2
 
 [options="header"]
 |===
@@ -84,6 +84,8 @@ Pour lancer l'application exécuter le jar dans le dossier.
 
 [[se_connecter]]
 |===
+
+== Documentation Version 1
 
 === Se connecter 
 Voici les démarches à suivre pour se connecter au logiciel bancaire : 
@@ -208,6 +210,50 @@ Cliquez sur : Gestion -> Clients -> Choisissez un client -> Cloturer Compte
 
 image::..\..\ressources\images\I_Cloturer.png[alt=cloturer]
 
+=== Créer un employé
+[abstract]
+Développé par Mathéo Katbie 
+
+Voici les démarches à suivre pour créer un employé : 
+
+Cliquez sur : Gestion -> Employés -> Nouveau employé 
+
+Rentrez les informations manquantes pour créer un nouveau employé dans l'agence
+
+image::..\..\ressources\images\I_Cr%C3%A9erEmploye.png[alt=creeremploye]
+
+=== Lire les informations employé 
+[abstract]
+Développé par Mathéo Katbie 
+
+Voici les démarches à suivre pour lire les informations d'un employé : 
+
+Gestion -> Employés -> Double cliquez sur l'employé pour avoir ces informations 
+
+image::..\..\ressources\images\I_VoirInformationEmploye.png[alt=lire]
+
+=== Modifier les informations employé 
+[abstract]
+Développé par Mathéo Katbie 
+
+Voici les démarches à suivre pour modifier les informations d'un employé :
+
+Gestion -> Employés -> Choisir un employé -> Modifier employé
+
+image::..\..\ressources\images\I_ModifierEmploye.png[alt=modifier]
+
+=== Supprimer un employé
+[abstract]
+Développé par Mathéo Katbie 
+
+Voici les démarches à suivre pour supprimer un employé : 
+
+Gestion -> Employés -> Choisir un employé -> Désactiver employé
+
+image::..\..\ressources\images\I_SupprimerEmploye.png[alt=supprimer]
+
+== Documentation Version 2 
+
 === Créer un prélèvement automatique 
 [abstract]
 [NOTE]
@@ -297,47 +343,7 @@ Les boutons permettant la création de ces opérations seront désactivés s'il 
 
 image::https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/594253ef2e32557f2a3237c3d6465bbcb17e6022/ressources/images/I_SupprimerPrelevement.png[alt=supprimerprelevement]
 
-=== Créer un employé
-[abstract]
-Développé par Mathéo Katbie 
 
-Voici les démarches à suivre pour créer un employé : 
-
-Cliquez sur : Gestion -> Employés -> Nouveau employé 
-
-Rentrez les informations manquantes pour créer un nouveau employé dans l'agence
-
-image::..\..\ressources\images\I_Cr%C3%A9erEmploye.png[alt=creeremploye]
-
-=== Lire les informations employé 
-[abstract]
-Développé par Mathéo Katbie 
-
-Voici les démarches à suivre pour lire les informations d'un employé : 
-
-Gestion -> Employés -> Double cliquez sur l'employé pour avoir ces informations 
-
-image::..\..\ressources\images\I_VoirInformationEmploye.png[alt=lire]
-
-=== Modifier les informations employé 
-[abstract]
-Développé par Mathéo Katbie 
-
-Voici les démarches à suivre pour modifier les informations d'un employé :
-
-Gestion -> Employés -> Choisir un employé -> Modifier employé
-
-image::..\..\ressources\images\I_ModifierEmploye.png[alt=modifier]
-
-=== Supprimer un employé
-[abstract]
-Développé par Mathéo Katbie 
-
-Voici les démarches à suivre pour supprimer un employé : 
-
-Gestion -> Employés -> Choisir un employé -> Désactiver employé
-
-image::..\..\ressources\images\I_SupprimerEmploye.png[alt=supprimer]
 
 === Générer un relevé PDF
 [abstract]
@@ -441,5 +447,5 @@ C'est à dire que dans "Relevés-PDF_DAILYBANK-NomAgence" il y a un répertoire 
 image::..\..\ressources\images\I_Batch-3.png[alt=Batch-3-RepertoiresClient_Créés]
 image::..\..\ressources\images\I_Batch-4.png[alt=Batch-4-ReleverPdf_Créés]
 
-=== BESOIN D'AIDE 
+== Besoin d'aide 
 Si besoin d'aide contactez votre responsable informatique.
