@@ -46,6 +46,7 @@ public class ComptesManagementController {
 	// Données de la fenêtre
 	private Client clientDesComptes;
 	private ObservableList<CompteCourant> oListCompteCourant;
+	private CompteCourant currentCompte;
 	public AgenceBancaire unAg;
 	public Employe unEmploye;
 
@@ -72,6 +73,7 @@ public class ComptesManagementController {
 		info = this.clientDesComptes.nom + "  " + this.clientDesComptes.prenom + "  (id : "
 				+ this.clientDesComptes.idNumCli + ")";
 		this.lblInfosClient.setText(info);
+		this.btnVoirPrelevements.setDisable(true);
 
 		this.loadList();
 		this.validateComponentState();
@@ -106,6 +108,8 @@ public class ComptesManagementController {
 	private Button btnClôtureCompte;
 	@FXML
 	private Button btnNouveauCompte;
+	@FXML
+	private Button btnVoirPrelevements;
 
 	@FXML
 	private void doCancel() {
@@ -244,7 +248,7 @@ public class ComptesManagementController {
 	 */
 	@FXML
 	private void doVoirPrelevements() {
-		PrelevementsManagementPane pmp = new PrelevementsManagementPane(primaryStage,dailyBankState);
+		PrelevementsManagementPane pmp = new PrelevementsManagementPane(primaryStage,dailyBankState,this.currentCompte);
 	}
 
 	private void loadList() {
@@ -258,9 +262,11 @@ public class ComptesManagementController {
 		// Non implémenté => désactivé
 
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
+		this.currentCompte = this.lvComptes.getSelectionModel().getSelectedItem();
 
 		if (this.clientDesComptes.estInactif.equals(ConstantesIHM.CLIENT_INACTIF)) {
 			this.btnNouveauCompte.setDisable(true);
+			this.btnVoirPrelevements.setDisable(true);
 			this.btnModifierCompte.setDisable(true);
 			this.btnClôtureCompte.setDisable(true);
 			this.btnSupprCompte.setDisable(true);
@@ -268,6 +274,7 @@ public class ComptesManagementController {
 				CompteCourant cpt = this.oListCompteCourant.get(selectedIndice);
 				this.btnVoirOpes.setDisable(false);
 				this.btnGenererReleve.setDisable(false);
+				this.btnVoirPrelevements.setDisable(false);
 			} else {
 				this.btnVoirOpes.setDisable(true);
 			}
@@ -286,11 +293,13 @@ public class ComptesManagementController {
 					this.btnSupprCompte.setDisable(false);
 					this.btnClôtureCompte.setDisable(true);
 					this.btnModifierCompte.setDisable(true);
+					this.btnVoirPrelevements.setDisable(true);
 
 				} else {
 					this.btnSupprCompte.setDisable(true);
 					this.btnClôtureCompte.setDisable(false);
 					this.btnModifierCompte.setDisable(false);
+					this.btnVoirPrelevements.setDisable(false);
 
 				}
 
@@ -300,6 +309,7 @@ public class ComptesManagementController {
 				this.btnVoirOpes.setDisable(true);
 				this.btnModifierCompte.setDisable(true);
 				this.btnSupprCompte.setDisable(true);
+				this.btnVoirPrelevements.setDisable(true);
 			}
 		}
 	}

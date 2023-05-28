@@ -58,7 +58,7 @@
                               <Insets bottom="10.0" top="10.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button fx:id="btnVoirOpes1" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doVoirPrelevements" text="Voir prélèvements " GridPane.rowIndex="1" />
+                        <Button fx:id="btnVoirPrelevements" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doVoirPrelevements" text="Voir prélèvements " GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                </children>

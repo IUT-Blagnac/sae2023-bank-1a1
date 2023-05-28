@@ -28,19 +28,21 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="btnVoirOpes" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doNouveauPrelevement" text="Nouveau prélèvement ">
+                        <Button fx:id="btnNouveauPrelevement" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doNouveauPrelevement" text="Nouveau prélèvement ">
                            <GridPane.margin>
                               <Insets bottom="10.0" top="10.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button fx:id="btnSupprCompte" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doSupprimerPrelevement" text="Supprimer prélèvement" GridPane.rowIndex="3">
+                        <Button fx:id="btnModifierPrelevement" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doSupprimerPrelevement" text="Supprimer prélèvement" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets bottom="10.0" top="10.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button fx:id="btnVoirOpes1" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doModifierPrelevement" text="Modifier prélèvement" GridPane.rowIndex="1" />
+                        <Button fx:id="btnSupprimerPrelevement" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doModifierPrelevement" text="Modifier prélèvement" GridPane.rowIndex="1" />
+                        <Button fx:id="btnLirePrelevement" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doModifierPrelevement" text="Voir prélèvement" GridPane.rowIndex="5" />
                      </children>
                   </GridPane>
                </children>
@@ -65,7 +67,7 @@
             </HBox>
          </bottom>
          <center>
-            <ListView fx:id="lvComptes" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <ListView fx:id="lvPrelevements" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
                </BorderPane.margin>

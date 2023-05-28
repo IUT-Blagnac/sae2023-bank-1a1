@@ -1,5 +1,7 @@
 package model.data;
 
+import java.util.ArrayList;
+
 /*
  * Attributs mis en public car cette classe ne fait que "véhiculer" des données.
  */
@@ -9,12 +11,14 @@ public class CompteCourant {
 	public int idNumCompte;
 	public int debitAutorise;
 	public double solde;
+	public ArrayList<Operation> prelevements;
 	public String estCloture; // "O" ou "N"
 
 	public int idNumCli;
 
 	public CompteCourant(int idNumCompte, int debitAutorise, double solde, String estCloture, int idNumCli) {
 		super();
+		this.prelevements = new ArrayList<Operation>();
 		this.idNumCompte = idNumCompte;
 		this.debitAutorise = debitAutorise;
 		this.solde = solde;
