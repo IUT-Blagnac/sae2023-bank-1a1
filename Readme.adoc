@@ -66,7 +66,7 @@ Dans sa colonne il doit remplir la ligne correspondant à chaque partie qu'il a 
 |         | Suivi projet V2|https://github.com/orgs/IUT-Blagnac/projects/7/views/1 |
 |         | Doc. Tec. V2 |   https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV2/Livrables%20Developpement/Documentation-TechniqueV2.adoc             |     
 |         | Code V2    |    https://github.com/IUT-Blagnac/sae2023-bank-1a1/tree/main/LV2/DailyBank                 | 
-|         | Javadoc V2 |  https://github.com/IUT-Blagnac/sae2023-bank-1a1/tree/main/LV2/Livrable%20Dev/javadoc  |
+|         | Javadoc V2 | https://github.com/IUT-Blagnac/sae2023-bank-1a1/tree/main/LV2/Livrables%20Developpement/javadoc  |
 |         | Recette V2 |   https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV2/Livrables%20Developpement/Cahier%20de%20recetteV2.adoc                   | 
 |         | `jar` projet | https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV2/Livrables%20Developpement/DailyBank-2.0.jar   | 
 
