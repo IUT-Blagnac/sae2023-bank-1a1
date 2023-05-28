@@ -19,6 +19,16 @@ Ce document fournit des informations sur l'utilisation du logiciel bancaire qui 
     . Modifier un employé
     . Lire les informations d'un employé
     . Supprimer un employé 
+- V2 
+    . Faire un débit exceptionnel
+    . Créer un prélèvement automatique
+    . Modifier un prélèvement automatique
+    . Lire un prélèvement automatique
+    . Supprimer un prélèvement automatique 
+    . Simuler un emprunt 
+    . Générer un relevé PDF
+    . Générer un relevé PDF (Batch)
+- Besoin d'aide 
 
 == Introduction
 
@@ -67,20 +77,24 @@ Pour lancer l'application exécuter le jar dans le dossier.
 
 === Version 2
 
-|Faire un débit exceptionnel
+[options="header"]
+|===
+|Cas d'utilisation | Description
+
+| Faire un débit exceptionnel
 |
 
 |Créer un prélevement automatique  
-|
+|Cette fonctionnalité permet à un guichetier ou un chef d'agence de créer un prélèvement automatique tout les mois d'un montant donné et à un jour donné.
 
 |Modifier un prélevement automatique  
-|
+|Cette fonctionnalité permet à un guichetier ou un chef d'agence de modifier un prélèvement automatique existant.
 
-|Lire les un prélevement automatique 
-|
+|Lire un prélevement automatique 
+|Cette fonctionnalité permet à un guichetier ou chef d'agence de lire les informations d'un prélèvement automatique. 
 
 |Supprimer un prélevement automatique 
-|
+|Cette fonctionnalité permet à un guichetier ou chef d'agence de supprimer un prélèvement automatique existant.
 
 |Simuler un emprunt
 |Cette fonctionnalité permet au chef d'agence de créer un tableau d'emprunt pour un montant, une période, à un taux d'intérêts choisit. 
@@ -92,6 +106,8 @@ Pour lancer l'application exécuter le jar dans le dossier.
 |Cette fonctionnalité permet la génération de tous les relevés de tous les comptes de l'agence de l'employé en cours de façon automatique (Pour le moment après clic sur un bouton par un chef d'agence)
 
 [[se_connecter]]
+|===
+
 === Se connecter 
 Voici les démarches à suivre pour se connecter au logiciel bancaire : 
 
@@ -113,7 +129,7 @@ Rentrez les informations manquantes pour créer un nouveau compte client et cliq
 
 Si le client n'existe pas encore créer un nouveau client puis répetez les étapes d'au dessus.
 
-image::..\..\ressources\images\I_NouveauCompteBancaire.png[alt=Nouvel Compte]
+image::..\..\ressources\images\I_NouveauCompteBancaire.png[alt=Nouveau Compte]
 
 === Créditer/Débiter 
 [abstract]
@@ -214,6 +230,95 @@ Voici les démarches à suivre pour clôturer un compte bancaire :
 Cliquez sur : Gestion -> Clients -> Choisissez un client -> Cloturer Compte
 
 image::..\..\ressources\images\I_Cloturer.png[alt=cloturer]
+
+=== Créer un prélèvement automatique 
+[abstract]
+[NOTE]
+====
+Développé par Mathéo KATBIE 
+====
+
+Tout d'abord il faudra faire les actions de base suivantes : 
+
+Se connecter -> Clic sur "Gestion" -> Clic sur "Clients" -> Choissisez un client -> Clic sur "Comptes clients" -> Choissisez un compte où créer un prélèvement automatique -> Clic sur "Voir prélèvements" -> Clic sur "Nouveau prélèvement"
+
+Indiquer le montant du prélèvement par mois, la date recurrente (quel jour du mois on débite le compte) et le bénéficiaire du prélèvement automatique.
+
+[IMPORTANT]
+====
+La réalisation de ces actions n'est possible que si le compte sélectionné n'est pas clôturé !
+Les boutons permettant la création de ces opérations seront désactivés s'il l'est.
+====
+
+Cliquez sur "Valider"
+
+image::https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/594253ef2e32557f2a3237c3d6465bbcb17e6022/ressources/images/I_CreerPrelevement.png[alt=creerprelevement]
+
+=== Modifier un prélèvement automatique 
+[abstract]
+[NOTE]
+====
+Développé par Mathéo KATBIE 
+====
+
+Tout d'abord il faudra faire les actions de base suivantes : 
+
+Se connecter -> Clic sur "Gestion" -> Clic sur "Clients" -> Choisissez un client -> Clic sur "Comptes clients" -> Choisissez un compte où créer un prélèvement automatique -> Clic sur "Voir prélèvements" -> Choisissez un prélèvement existant -> Clic sur "Modifier prélèvement"
+
+Indiquer le nouveau montant, la nouvelle date recurrente (quel jour du mois on débite le compte) et le nouveau bénéficiaire du prélèvement automatique.
+
+[IMPORTANT]
+====
+La réalisation de ces actions n'est possible que si le compte sélectionné n'est pas clôturé !
+Les boutons permettant la création de ces opérations seront désactivés s'il l'est.
+====
+
+Cliquez sur "Valider"
+
+image::https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/594253ef2e32557f2a3237c3d6465bbcb17e6022/ressources/images/I_ModifierPrelevement.png[alt=modifierprelevement]
+
+=== Voir un prélèvement automatique 
+[abstract]
+[NOTE]
+====
+Développé par Mathéo KATBIE 
+====
+
+Tout d'abord il faudra faire les actions de base suivantes : 
+
+Se connecter -> Clic sur "Gestion" -> Clic sur "Clients" -> Choisissez un client -> Clic sur "Comptes clients" -> Choisissez un compte où créer un prélèvement automatique -> Clic sur "Voir prélèvements" -> Choisissez un prélèvement existant -> Clic sur "Voir prélèvement"
+
+[IMPORTANT]
+====
+La réalisation de ces actions n'est possible que si le compte sélectionné n'est pas clôturé !
+Les boutons permettant la création de ces opérations seront désactivés s'il l'est.
+====
+
+Cliquez sur "Valider" pour fermer la fenêtre.
+
+[IMPORTANT]
+====
+Fonctionnalité non fonctionnelle.
+====
+
+=== Supprimer un prélèvement automatique 
+[abstract]
+[NOTE]
+====
+Développé par Mathéo KATBIE 
+====
+
+Tout d'abord il faudra faire les actions de base suivantes : 
+
+Se connecter -> Clic sur "Gestion" -> Clic sur "Clients" -> Choisissez un client -> Clic sur "Comptes clients" -> Choisissez un compte où créer un prélèvement automatique -> Clic sur "Voir prélèvements" -> Choisissez un prélèvement existant -> Clic sur "Supprimer prélèvement"
+
+[IMPORTANT]
+====
+La réalisation de ces actions n'est possible que si le compte sélectionné n'est pas clôturé !
+Les boutons permettant la création de ces opérations seront désactivés s'il l'est.
+====
+
+image::https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/594253ef2e32557f2a3237c3d6465bbcb17e6022/ressources/images/I_SupprimerPrelevement.png[alt=supprimerprelevement]
 
 === Créer un employé
 [abstract]
@@ -358,3 +463,7 @@ C'est à dire que dans "Relevés-PDF_DAILYBANK-NomAgence" il y a un répertoire 
 
 image::..\..\ressources\images\I_Batch-3.png[alt=Batch-2-RepertoiresClient_Créés]
 image::..\..\ressources\images\I_Batch-4.png[alt=Batch-2-ReleverPdf_Créés]
+image::..\..\ressources\images\I_Generer-relevePDF-6.png[alt=generer-RelevePDF-6-affichage]
+
+=== BESOIN D'AIDE 
+Si besoin d'aide contactez votre responsable informatique.
