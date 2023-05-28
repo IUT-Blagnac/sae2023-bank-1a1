@@ -553,6 +553,84 @@ Puis ensuite via un accès à la BD par un objet Access_BD_Client on appelle la 
 
 === Version 2
 
+==== Créer un prélèvement automatique 
+[NOTE]
+====
+Développé par Mathéo KATBIE
+====
+
+*Classes impliquées dans chaque package :*
+
+* package application.control :
+** PrelevementEditorPane.java
+** PrelevementsManagementPane.java
+* package application.view : 
+** PrelevementEditorController.java
+** PrelevementsManagementController.java
+* package applications.tools :
+** AlertUtilities.java
+* package model.data :
+** CompteCourant.java
+** PrelevementAutomatique.java
+* package model.orm
+** Access_BD_PrelevementAutomatique.java
+
+==== Modifier un prélèvement automatique 
+[NOTE]
+====
+Développé par Mathéo KATBIE
+====
+
+*Classes impliquées dans chaque package :*
+
+* package application.control :
+** PrelevementEditorPane.java
+** PrelevementsManagementPane.java
+* package application.view : 
+** PrelevementEditorController.java
+** PrelevementsManagementController.java
+* package applications.tools :
+** AlertUtilities.java
+* package model.data :
+** CompteCourant.java
+** PrelevementAutomatique.java
+* package model.orm
+** Access_BD_PrelevementAutomatique.java
+
+==== Lire un prélèvement automatique 
+[NOTE]
+====
+Développé par Mathéo KATBIE
+====
+
+*Classes impliquées dans chaque package :*
+
+* package application.control :
+** PrelevementEditorPane.java
+** PrelevementsManagementPane.java
+* package application.view : 
+** PrelevementEditorController.java
+** PrelevementsManagementController.java
+* package applications.tools :
+** CompteCourant.java
+** PrelevementAutomatique.java
+
+==== Supprimer un prélèvement automatique 
+[NOTE]
+====
+Développé par Mathéo KATBIE
+====
+
+*Classes impliquées dans chaque package :*
+
+* package application.control :
+** PrelevementsManagementPane.java
+* package application.view : 
+** PrelevementsManagementController.java
+* package model.data :
+** CompteCourant.java
+** PrelevementAutomatique.java
+
 
 == Conclusion :
 
