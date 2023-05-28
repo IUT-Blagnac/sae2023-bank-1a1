@@ -117,27 +117,93 @@ image::..\..\ressources\images\I_NouveauCompteBancaire.png[alt=Nouvel Compte]
 
 === Créditer/Débiter 
 [abstract]
-Développé par Gabarra Illan 
+[NOTE]
+====
+Créditer développé par Illan GABARRA
+====
 
-Voici les démarches pour créditer/débiter un compte bancaire : 
+Tout d'abord il faudra faire les actions de base suivantes : 
 
-Cliquez sur Gestion -> Clients -> Choisissez un client -> Comptes client -> Choisissez un compte client -> Voir opérations -> Choisissez Enregistrer débit/ Enregister crédit
+Se connecter -> Clic sur "Gestion" -> Clic sur "Clients" -> Choissisez un client -> Clic sur "Comptes clients" -> Choissisez un compte à crediter/debiter -> Clic sur "Voir opérations"
 
-Rentrez les informations manquantes pour enregistrer un crédit/débit.
+[IMPORTANT]
+====
+La réalisation de ces actions n'est possible que si le compte sélectionné n'est pas clôturé !
+Les boutons permettant la création de ces opérations seront désactivés s'il l'est.
+====
 
-image::..\..\ressources\images\I_Crediter-debiter.png[alt=crediter/debiter]
+Vous devez ensuite choisir une des deux opérations en cliquant sur le bouton associé :
+
+image::..\..\ressources\images\I_Crediter-debiter-1.png[alt=crediter/debiter_image1_Choix_Opération]
+
+Après avoir fait cela vous aurez une interface vous demandant un type d'opération et un montant :
+
+===== _Pour créditer_ : 
+
+image::..\..\ressources\images\I_Crediter-debiter-2.png[alt=crediter_image2_saisie]
+
+Indiquer le type de l'opération via le menu déroulant type d'opération puis le montant de l'opération dans la partie montant *le montant doit être supérieur à 0* si vous ne le respectez pas la case montant passera au rouge pour vous inviter à resaisir .
+
+Enfin cliquez sur "Effectuer Crédit" pour réaliser l'opération
+Ou cliquez sur "Annuler Crédit" pour annuler l'opération
+
+===== _Pour débiter_ : 
+
+image::..\..\ressources\images\I_Crediter-debiter-3.png[alt=debiter_image3_saisie]
+
+Indiquer le type de l'opération via le menu déroulant type d'opération puis le montant de l'opération dans la partie montant *le montant doit être supérieur à 0 et le solde après le débit supérieur au découvert autorisé (ici : supérieur à -200, le découvert autorisé est indiqué dans la case supérieur au coté du solde actuel )* si vous ne respectez pas cela la case montant passera au rouge pour vous inviter à resaisir .
+
+Enfin cliquez sur "Effectuer Débit" pour réaliser l'opération
+Ou cliquez sur "Annuler Débit" pour annuler l'opération
+
+
+===== *_Vérification de l'existance de la nouvelle opération_*
+
+Vous pourrez vérifier que l'opération a bien été créé s'il est affiché dans le tableau des opérations du compte 
+
+image::..\..\ressources\images\I_Crediter-debiter-4.png[alt=crediter/debiter_image4_Vérification]
 
 === Effectuer un virement 
 [abstract]
-Développé par Gabarra Illan 
+[NOTE]
+====
+Développé par Illan GABARRA
+====
 
-Voici les démarches à suivre pour effectuer un virement entre deux comptes : 
+Tout d'abord il faudra faire les actions de base suivantes : 
 
-Cliquez sur : Gestion -> Clients -> Choisissez un client -> Comptes client -> Choisissez un compte client -> Voir opérations -> Enregistrer un Transfert
+Se connecter -> Clic sur "Gestion" -> Clic sur "Clients" -> Choissisez un client -> Clic sur "Comptes clients" -> Choissisez un compte à crediter/debiter -> Clic sur "Voir opérations"
 
-Rentrez les informations manquantes pour enregistrer un transfert entre deux comptes.
+[IMPORTANT]
+====
+La réalisation de ces actions n'est possible que si le compte sélectionné n'est pas clôturé !
+Les boutons permettant la création de ces opérations seront désactivés s'il l'est.
+====
 
-image::..\..\ressources\images\I_Transferer.png[alt=virement]
+Cliquez sur "Enregistrer Transfert"
+
+image::..\..\ressources\images\I_Transferer-1.png[alt=virement-Image-1-Bouton-op-Transfert]
+
+Indiquer  le montant de l'opération dans la partie montant *le montant doit être supérieur à 0 et le solde après le débit supérieur au découvert autorisé (ici : supérieur à -200, le découvert autorisé est indiqué dans la case supérieur au coté du solde actuel )* si vous ne respectez pas cela la case montant passera au rouge pour vous inviter à resaisir .
+
+[IMPORTANT]
+====
+Le compte destinataire doit être un compte valide c'est à dire existant et non clôturé.
+si vous ne respectez pas cela la case "Compte destinataire" passera au rouge pour vous inviter à resaisir .
+====
+
+Enfin cliquez sur "Effectuer transfert" pour réaliser l'opération
+Ou cliquez sur "Annuler transfert" pour annuler l'opération
+
+===== *_Vérification de l'existance de la nouvelle opération_*
+
+Vous pourrez vérifier que l'opération a bien été créé s'il est affiché dans le tableau des opérations du compte source et celui du destinataire :
+
+===== Vérification compte source
+image::..\..\ressources\images\I_Transferer-3.png[alt=virement-Image-3-Vérification-Source]
+
+===== Vérification compte destinataire
+image::..\..\ressources\images\I_Transferer-4.png[alt=virement-Image-3-Vérification-Destination]
 
 === Clôturer un compte 
 [abstract]
