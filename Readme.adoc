@@ -10,7 +10,7 @@ Responsable du document : Documentation utilisateur
 Responsable des documents : Cahier des charges utilisateur, documentation technique
 
 - Kwadjani Bilon 
-Responsable du document : Planification gant
+Responsable du document : Planification gant, cahier de recette
 
 ==== Répartition des tâches et état d'avancement
 [options="header,footer"]
