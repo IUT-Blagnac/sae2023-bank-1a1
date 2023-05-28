@@ -246,6 +246,77 @@ autorisé est de -100 euros.
 5+|Commentaire : Fonctionnalité développé par Illan GABARRA
 |====
 
+|====
+
+>|Cas de test 4+|Test-01-04-01
+>|Titre 4+|Créer un nouveau prélèvement automatique
+>|Objectif 4+| Vérifier qu'il est possible de créer un nouveau prélèvement automatique
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+
+^|All_G_COP.1 ^|Cliquer sur le bouton "Nouveau prélèvement". ^|La page d'édition de nouveau prélèvement s’affiche. ^| Un compte actif est sélectionné et on a cliqué sur voir les prélèvements  ^|OK
+
+^|All_G_COP.2  ^|Rentrer un montant de 200 dans "Montant" et EDF dans bénéficiaire^| On a créé un nouveau prélèvement automatique de 200€ vers EDF avec la date recurrente du 1er ^| Le compte sélectionné est actif
+^|OK
+
+^|All_G_COP.3  ^|Rentrer un montant -250 dans le champ "Montant". ^|Blocage ! + pop-up ^| Le compte sélectionné est actif 
+ ^|OK
+
+^|All_G_COP.4  ^|Rentrer une date récurrente inférieure à 1 ou supérieure à 28 ^|Blocage ! + pop up ^|
+ ^|OK
+
+^|All_G_COP.5  ^|Ne rien mettre dans bénéficiaire ^|Blocage ! + pop up ^| Le compte sélectionné est actif
+ ^|OK
+
+5+|Commentaire : Fonctionnalité développé par Mathéo KATBIE
+|====
+
+|====
+>|Cas de test 4+|Test-01-04-02
+>|Titre 4+|Modifier un prélèvement automatique
+>|Objectif 4+| Vérifier qu'il est possible de modifier un prélèvement automatique
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+
+^|All_G_COP.1 ^|Cliquer sur le bouton "Modifier prélèvement". ^|La page d'édition de modifier prélèvement s’affiche. ^| Un prélèvement automatique est sélectionné  ^|OK
+
+^|All_G_COP.2  ^|Rentrer un montant de 200 dans "Montant" et EDF dans bénéficiaire^| On a créé un nouveau prélèvement automatique de 200€ vers EDF avec la date recurrente du 1er ^| Le compte sélectionné est actif
+^|OK
+
+^|All_G_COP.3  ^|Rentrer un montant -250 dans le champ "Montant". ^|Blocage ! + pop-up ^| Le compte sélectionné est actif 
+ ^|OK
+
+^|All_G_COP.4  ^|Rentrer une date récurrente inférieure à 1 ou supérieure à 28 ^|Blocage ! + pop up ^|
+ ^|OK
+
+^|All_G_COP.5  ^|Ne rien mettre dans bénéficiaire ^|Blocage ! + pop up ^| Le compte sélectionné est actif
+ ^|OK
+
+5+|Commentaire : Fonctionnalité développé par Mathéo KATBIE
+|====
+
+|====
+
+>|Cas de test 4+|Test-01-04-03
+>|Titre 4+|Supprimer un nouveau prélèvement automatique
+>|Objectif 4+| Vérifier qu'il est possible de supprimer un prélèvement automatique 
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+
+^|All_G_COP.1 ^|Cliquer sur le bouton "Supprimer prélèvement". ^| Blocage !  ^| Ne pas avoir sélectionné de prélèvement  ^|OK
+
+^|All_G_COP.2  ^|Cliquer sur le bouton "Supprimer prélèvement" ^| On a supprimé le prélèvement automatique dans la base de données ^| Un prélèvement automatique est sélectionné 
+^|OK
+
+5+|Commentaire : Fonctionnalité développé par Mathéo KATBIE
+|====
+
 
 === 2. Fonctionnalités des chefs d'agence :
 [.text-justify]
