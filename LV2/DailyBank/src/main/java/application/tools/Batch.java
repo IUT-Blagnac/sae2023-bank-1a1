@@ -102,18 +102,21 @@ public class Batch implements Runnable{
 		// Date actuelle
 		LocalDate dateActuelle = LocalDate.now();
 
-		// Mois précédent
-		LocalDate moisPrecedent = dateActuelle.minusMonths(1);
+		// Mois précédent d'il ya un mois
+		LocalDate moisPrecedent1 = dateActuelle.minusMonths(1);
+		
+		// Mois d'il y a deux mois
+		LocalDate moisPrecedent2 = dateActuelle.minusMonths(2);
 
 		// Premier jour du mois précédent
-		LocalDate premierJour = moisPrecedent.withDayOfMonth(1);
-		LocalDateTime premierJourDateTime = premierJour.atStartOfDay();
-		Date premierJourDate = Date.from(premierJourDateTime.atZone(ZoneId.systemDefault()).toInstant());
+		LocalDate debutJour = moisPrecedent2.withDayOfMonth(moisPrecedent2.lengthOfMonth());
+		LocalDateTime debutJourDateTime = debutJour.atTime(23, 59, 59);;
+		Date debutJourDate = Date.from(debutJourDateTime.atZone(ZoneId.systemDefault()).toInstant());
 
 		// Dernier jour du mois précédent
-		LocalDate dernierJour = moisPrecedent.withDayOfMonth(moisPrecedent.lengthOfMonth());
-		LocalDateTime dernierJourDateTime = dernierJour.atTime(23, 59, 59);
-		Date dernierJourDate = Date.from(dernierJourDateTime.atZone(ZoneId.systemDefault()).toInstant());
+		LocalDate finJour = moisPrecedent1.withDayOfMonth(moisPrecedent1.lengthOfMonth());
+		LocalDateTime finJourDateTime = finJour.atTime(23, 59, 59);
+		Date finJourDate = Date.from(finJourDateTime.atZone(ZoneId.systemDefault()).toInstant());
 
 		ArrayList<Client> alClient = ac_BD_Client.getClients(dailyBankState.getAgenceActuelle().idAg, -1, "", "");
 
@@ -123,7 +126,7 @@ public class Batch implements Runnable{
 		for (Client clientDeLagence : alClient) {
 			for(CompteCourant compteDuClient : ac_BD_CompteCourant.getCompteCourants(clientDeLagence.idNumCli)) {
 				File fichierReleveACreer = new File("Relevés-PDF_DAILYBANK-"+dailyBankState.getAgenceActuelle().nomAg+"/Client-"+clientDeLagence.idNumCli+"-"+clientDeLagence.nom+"_"+clientDeLagence.prenom+"/Compte-"+compteDuClient.idNumCompte+".pdf");
-				releveTmp = new RelevesBancaire(dailyBankState, clientDeLagence, compteDuClient, premierJourDate, dernierJourDate);
+				releveTmp = new RelevesBancaire(dailyBankState, clientDeLagence, compteDuClient, debutJourDate, finJourDate);
 				releveTmp.genererReleveBancaire(fichierReleveACreer);
 			}
 		}

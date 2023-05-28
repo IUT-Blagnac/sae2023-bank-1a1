@@ -256,3 +256,51 @@ Voici les démarches à suivre pour supprimer un employé :
 Gestion -> Employés -> Choisir un employé -> Désactiver employé
 
 image::..\..\ressources\images\I_SupprimerEmploye.png[alt=supprimer]
+
+=== Générer un relevé PDF
+[abstract]
+[NOTE]
+====
+Développé par Illan GABARRA
+====
+
+Cette fonctionnalité permet de générer le relevé PDF d'un compte, à partir d'une date de début non comprise à une date de fin comprise dans le relevé, tout deux sont saisit par vous utilisateur.
+
+Tout d'abord il faudra faire les actions de base suivantes : 
+
+Se connecter -> Clic sur "Gestion" -> Clic sur "Clients" -> Choissisez un client -> Clic sur "Comptes clients"
+
+Choisissez un compte pour lequel vous voulez générer le relevé puis cliquez sur "Générer Relevé PDF"
+
+image::..\..\ressources\images\I_Generer-relevePDF-1.png[alt=generer-RelevePDF-1-Choisir-Compte]
+
+Vous arriverez à une page ou l'on vous demandera une saisie :
+
+image::..\..\ressources\images\I_Generer-relevePDF-2.png[alt=generer-RelevePDF-2-PageSaisie]
+
+Choisissez ensuite une date correspondant à la date de début de période puis une date de fin de période.
+
+[TIP]
+====
+Cliquez sur le symbole de calendrier pour saisir les dates.
+====
+
+[IMPORTANT]
+====
+Le date doit être valide c'est à dire que la date de début doit être avant la date de fin et la date de fin peut être au maximum la date du jour.
+====
+image::..\..\ressources\images\I_Generer-relevePDF-3.png[alt=generer-RelevePDF-3-PageSaisie-Date]
+
+Ensuite cliquez sur le bouton "Modifier l'emplacement et le nom du fichier" pour chosir où sera sauvegarder le relevé PDF du compte. Vous pouvez même changer le nom du fichier
+
+image::..\..\ressources\images\I_Generer-relevePDF-4.png[alt=generer-RelevePDF-4-Saisie-Fichier]
+
+Cliquez sur enregistrer 
+
+Enfin cliquez sur générer 
+
+image::..\..\ressources\images\I_Generer-relevePDF-5.png[alt=generer-RelevePDF-5-ClicGenerer]
+
+Si le relevé s'affiche à l'écran alors le fichier a bien été généré et sauvegardé ! 
+
+image::..\..\ressources\images\I_Generer-relevePDF-6.png[alt=generer-RelevePDF-6-affichage]
