@@ -6,7 +6,7 @@ public class PrelevementAutomatique {
 	public int dateRecurrente;
 	public String beneficiaire;
 	public int idNumCompte;
-	
+
 	public PrelevementAutomatique() {
 		this.idPrelevement = -1000;
 		this.montant = 0;
@@ -14,7 +14,7 @@ public class PrelevementAutomatique {
 		this.beneficiaire = "";
 		this.idNumCompte = -1000;
 	}
-	
+
 	public PrelevementAutomatique(int idPrelevement, double montant, int dateRecurrente, String beneficiaire, int idNumCompte) {
 		this.idPrelevement = idPrelevement;
 		this.montant = montant;
@@ -22,7 +22,8 @@ public class PrelevementAutomatique {
 		this.beneficiaire = beneficiaire;
 		this.idNumCompte = idNumCompte;
 	}
-	
+
+	@Override
 	public String toString() {
 		return "[" + this.idPrelevement + "]" + this.montant + " - " + this.beneficiaire;
 	}

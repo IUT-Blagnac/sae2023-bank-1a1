@@ -16,13 +16,13 @@ public class PrelevementsManagementPane {
 	private Stage primaryStage;
 	private PrelevementsManagementController pmc;
 	private DailyBankState dailyBankStage;
-	
+
 	public PrelevementsManagementPane(Stage _parentStage, DailyBankState _dbstage, CompteCourant _compte) {
 		this.dailyBankStage = _dbstage;
 		try {
 			FXMLLoader loader = new FXMLLoader(ComptesManagementController.class.getResource("prelevementsmanagement.fxml"));
 			BorderPane root = loader.load();
-			
+
 			Scene scene = new Scene(root, root.getPrefWidth() + 20, root.getPrefHeight() + 10);
 			scene.getStylesheets().add(DailyBankApp.class.getResource("application.css").toExternalForm());
 
@@ -33,7 +33,7 @@ public class PrelevementsManagementPane {
 			this.primaryStage.setScene(scene);
 			this.primaryStage.setTitle("Gestion des prélèvements");
 			this.primaryStage.setResizable(false);
-			
+
 			this.pmc = loader.getController();
 			pmc.initContext(primaryStage, dailyBankStage,_compte);
 			pmc.displayDialog();

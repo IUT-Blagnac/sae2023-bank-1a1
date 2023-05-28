@@ -1,17 +1,12 @@
 package application.view;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 import application.DailyBankApp;
 import application.DailyBankState;
 import application.control.ComptesManagement;
 import application.control.PrelevementsManagementPane;
 import application.tools.ConstantesIHM;
-import application.tools.RelevesBancaire;
 import application.tools.StageManagement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -30,7 +25,6 @@ import model.data.AgenceBancaire;
 import model.data.Client;
 import model.data.CompteCourant;
 import model.data.Employe;
-import model.orm.Access_BD_AgenceBancaire;
 
 public class ComptesManagementController {
 
@@ -132,7 +126,7 @@ public class ComptesManagementController {
 	/**
 	 * Permet de faire générer le relevé bancaire du compte selectionné pour des
 	 * dates choisies dans une page de dialogue
-	 * 
+	 *
 	 * @author illan
 	 */
 	private void doGenererReleve() {
@@ -198,7 +192,7 @@ public class ComptesManagementController {
 
 	@FXML
 	/**
-	 * 
+	 *
 	 * @author illan
 	 */
 	private void doModifierCompte() {
@@ -240,10 +234,10 @@ public class ComptesManagementController {
 			this.oListCompteCourant.add(compte);
 		}
 	}
-	
+
 	/**
-	 * 
-	 * 
+	 *
+	 *
 	 * @author Mathéo
 	 */
 	@FXML

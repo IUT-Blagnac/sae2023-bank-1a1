@@ -176,7 +176,7 @@ public class Access_BD_CompteCourant {
 	 *
 	 * Cette méthode permet d'insérer un nouveau compte courant dans la base de
 	 * données.
-	 * 
+	 *
 	 * @param cc Le compte courant à insérer.
 	 * @throws RowNotFoundOrTooManyRowsException si l'insertion ne concerne pas une
 	 *                                           seule ligne.
@@ -224,7 +224,7 @@ public class Access_BD_CompteCourant {
 
 	/**
 	 * Cette méthode permet de clôturer un compte courant dans la base de données.
-	 * 
+	 *
 	 * @param numCompte Le numéro du compte à clôturer.
 	 * @throws DataAccessException               si une erreur d'accès à la base de
 	 *                                           données se produit.
@@ -258,7 +258,7 @@ public class Access_BD_CompteCourant {
 	/**
 	 * Cette méthode permet de supprimer un compte courant clôturé dans la base de
 	 * données.
-	 * 
+	 *
 	 * @param compteSup Le compte à supprimer.
 	 * @throws DataAccessException               si une erreur d'accès à la base de
 	 *                                           données se produit.

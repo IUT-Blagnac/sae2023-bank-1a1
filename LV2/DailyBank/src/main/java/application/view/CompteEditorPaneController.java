@@ -68,7 +68,7 @@ public class CompteEditorPaneController {
 			break;
 		case MODIFICATION:
 			// Author Illan GABARRA
-			
+
 			this.txtDecAutorise.setDisable(false);
 			this.txtSolde.setDisable(true);
 			this.lblMessage.setText("Informations sur le compte");
@@ -193,9 +193,9 @@ public class CompteEditorPaneController {
 	}
 
 	private boolean isSaisieValide() {
-		
+
 		switch (this.editionMode) {
-		
+
 		case CREATION:
 
 			return true;
@@ -208,9 +208,9 @@ public class CompteEditorPaneController {
 						null, AlertType.WARNING);
 				return false;
 			}
-			
+
 			return true;
-			
+
 		case SUPPRESSION:
 
 			return true;

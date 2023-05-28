@@ -15,7 +15,7 @@ public class Access_BD_PrelevementAutomatique {
 	}
 
 	public ArrayList<PrelevementAutomatique> getAllPrelevements(int idCompte){
-		ArrayList<PrelevementAutomatique> output = new ArrayList<PrelevementAutomatique>();
+		ArrayList<PrelevementAutomatique> output = new ArrayList<>();
 
 
 		String idNumCompte = idCompte + "";
@@ -93,28 +93,28 @@ public class Access_BD_PrelevementAutomatique {
 	}
 	/**
 	 * Exécute les prélevements automatiques du jour
-	 * 
+	 *
 	 * @author illan
-	 * 
+	 *
 	 * @throws DatabaseConnexionException Si la connexion à la BD est interrompu ou impossible
 	 */
 	public void executerPrelevement() throws DatabaseConnexionException {
-		
+
 		try {
 			Connection con = LogToDatabase.getConnexion();
 
 			String query = "{call ExecuterPrelevAuto(?)}";
-			
+
 			CallableStatement call;
 			call = con.prepareCall(query);
 			call.registerOutParameter(1, java.sql.Types.INTEGER);
 			call.execute();
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		
+
 
 	}
 }

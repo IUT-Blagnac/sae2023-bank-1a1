@@ -26,10 +26,10 @@ import model.orm.exception.DatabaseConnexionException;
 
 /**
  * Classe permettant de réaliser toutes les opération du Batch c'est à dire, générer l'ensemble des relevés des comptes de l'agence de l'employé en cours
- * 
- * 
- * Pour cela un fichier de logs est créé afin de pouvoir y noter toutes les actions réalisé et les erreurs si il y en a 
- * 
+ *
+ *
+ * Pour cela un fichier de logs est créé afin de pouvoir y noter toutes les actions réalisé et les erreurs si il y en a
+ *
  * @author illan
  *
  */
@@ -44,11 +44,11 @@ public class Batch implements Runnable{
 
 	@Override
 	/**
-	 * Méthode permettant de lancer le programme batch et de sauvegarder dans le fichier fichierLogs des logs des différentes actions réalisés et de leurs prolèmes éventuels 
-	 * 
+	 * Méthode permettant de lancer le programme batch et de sauvegarder dans le fichier fichierLogs des logs des différentes actions réalisés et de leurs prolèmes éventuels
+	 *
 	 * <BR>
-	 * 
-	 * Si il est impossible de créer le fichier de logs alors un message est affiché dans la console, le fichier de logs n'est pas créé et le programme s'arrête 
+	 *
+	 * Si il est impossible de créer le fichier de logs alors un message est affiché dans la console, le fichier de logs n'est pas créé et le programme s'arrête
 	 */
 	public void run() {
 		try {
@@ -59,43 +59,43 @@ public class Batch implements Runnable{
 			File fichierLogs = new File("logBatch.txt");
 			FileOutputStream fichierLogsOutputStream = new FileOutputStream(fichierLogs, true); // true est pour que le fichier n'écrase pas le fichier existant
 			PrintStream outputLogs = new PrintStream(fichierLogsOutputStream);
-			
+
 			try {
 				Access_BD_PrelevementAutomatique acc_BD_Prelev = new Access_BD_PrelevementAutomatique();
-				
+
 				outputLogs.println(formatterDateEnFr.format(LocalDateTime.now())+"\n");
 				outputLogs.println("Exécution de tous les prélevements automatiques du jour\n\n");
-				
+
 				acc_BD_Prelev.executerPrelevement();
-				
+
 				outputLogs.println(formatterDateEnFr.format(LocalDateTime.now())+"\n");
 				outputLogs.println("Les prélevements on bien été réalisés !\n\n");
 			} catch (DatabaseConnexionException e) {
-				
+
 				outputLogs.println(new Date()+"\n");
 				outputLogs.println("Une erreur a eut lieu durant l'exécution des prélevements !\n");
 				outputLogs.println(e.getStackTrace());
 				outputLogs.println("\n\n");
-				
+
 			}
-			
+
 			try {
 				outputLogs.println(formatterDateEnFr.format(LocalDateTime.now())+"\n");
 				outputLogs.println("Création pour l'agence "+dailyBankState.getAgenceActuelle().nomAg+" de tous les relevés de tous les comptes pour le mois précédent\n\n");
-				
+
 				this.creationReleves();
-				
+
 				outputLogs.println(formatterDateEnFr.format(LocalDateTime.now())+"\n");
 				outputLogs.println("Les relevés ont bien été créés\n\n");
 			} catch (DataAccessException | DatabaseConnexionException | IOException | DocumentException e) {
-				
+
 				outputLogs.println(new Date()+"\n");
 				outputLogs.println("Une erreur a eut lieu durant la création des relevés !\n");
 				outputLogs.println(e.getStackTrace());
 				outputLogs.println("\n\n");
 			}
-			
-			
+
+
 			outputLogs.close();
 
 		} catch (FileNotFoundException e1) {
@@ -104,16 +104,16 @@ public class Batch implements Runnable{
 		}
 	}
 
-	
-	
+
+
 	/**
-	 * Méthode permettant de génrer les relevés de tous les comptes de l'agence de l'employé en cours 
-	 * 
+	 * Méthode permettant de génrer les relevés de tous les comptes de l'agence de l'employé en cours
+	 *
 	 * @throws DatabaseConnexionException  Si une erreur de connexion à lieu
 	 * @throws DataAccessException  S'il est impossible d'accéder à une donnée
 	 * @throws IOException S'il une erreur a lieu lors la création des fichier ou répertoire des relevés
 	 * @throws DocumentException S'il y a eut une erreur lors de l'écriture d'un document
-	 * 
+	 *
 	 */
 	private void creationReleves() throws DataAccessException, DatabaseConnexionException, IOException, DocumentException {
 		Access_BD_Client ac_BD_Client = new Access_BD_Client();
@@ -125,13 +125,13 @@ public class Batch implements Runnable{
 
 		// Mois précédent d'il ya un mois
 		LocalDate moisPrecedent1 = dateActuelle.minusMonths(1);
-		
+
 		// Mois d'il y a deux mois
 		LocalDate moisPrecedent2 = dateActuelle.minusMonths(2);
 
 		// Premier jour du mois précédent
 		LocalDate debutJour = moisPrecedent2.withDayOfMonth(moisPrecedent2.lengthOfMonth());
-		LocalDateTime debutJourDateTime = debutJour.atTime(23, 59, 59);;
+		LocalDateTime debutJourDateTime = debutJour.atTime(23, 59, 59);
 		Date debutJourDate = Date.from(debutJourDateTime.atZone(ZoneId.systemDefault()).toInstant());
 
 		// Dernier jour du mois précédent
@@ -156,13 +156,13 @@ public class Batch implements Runnable{
 	/**
 	 * Créateur de l'arborescence de répertoires où seront enregistré l'ensemble des relevés bancaires de tous les clients d'une agence <BR>
 	 * S'il existait une arborescence elle est remplacé.<BR>
-	 * 
+	 *
 	 * Elle est constitué d'un répertoire racine "Relevés-PDF_DAILYBANK" et pour chaque client un répertoire "Client-idClient-nomClient_prenomClient"
-	 * 
+	 *
 	 * @param clients Clients de l'agence
-	 * 
+	 *
 	 * @throws IOException Si il y a un problème lors de la création de l'arborescence
-	 * 
+	 *
 	 */
 	private void creationArbo(ArrayList<Client> clients) throws IOException{
 
@@ -170,7 +170,7 @@ public class Batch implements Runnable{
 			return;
 		}
 
-		ArrayList<File> tabFolderAcreer  = new ArrayList<File>();
+		ArrayList<File> tabFolderAcreer  = new ArrayList<>();
 
 		File rootDirectory = new File("Relevés-PDF_DAILYBANK-"+dailyBankState.getAgenceActuelle().nomAg);
 		tabFolderAcreer.add(rootDirectory);
@@ -191,12 +191,12 @@ public class Batch implements Runnable{
 
 			if (!folder.mkdirs()) {
 				throw new IOException("Impossible de créer le fichier "+folder);
-			} 
+			}
 		}
 	}
 	/**
 	 * Méthode récursive permettant de supprimer les fichier et si c'est un répertoire tous les fichier qu'il contient
-	 * 
+	 *
 	 * @param fichier Fichier à supprimer
 	 * @throws IOException S'il est impossible de supprimer le fichier
 	 */

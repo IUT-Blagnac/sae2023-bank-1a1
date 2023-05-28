@@ -18,7 +18,7 @@ public class CompteCourant {
 
 	public CompteCourant(int idNumCompte, int debitAutorise, double solde, String estCloture, int idNumCli) {
 		super();
-		this.prelevements = new ArrayList<Operation>();
+		this.prelevements = new ArrayList<>();
 		this.idNumCompte = idNumCompte;
 		this.debitAutorise = debitAutorise;
 		this.solde = solde;

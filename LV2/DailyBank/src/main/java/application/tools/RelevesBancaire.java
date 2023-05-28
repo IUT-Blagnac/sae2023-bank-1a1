@@ -63,10 +63,10 @@ public class RelevesBancaire {
 	 *
 	 * @param nomFichier
 	 * @return
-	 * @throws DocumentException 
-	 * @throws FileNotFoundException 
-	 * @throws DatabaseConnexionException 
-	 * @throws DataAccessException 
+	 * @throws DocumentException
+	 * @throws FileNotFoundException
+	 * @throws DatabaseConnexionException
+	 * @throws DataAccessException
 	 */
 	public Document genererReleveBancaire(File fichierAcreer) throws DocumentException, FileNotFoundException, DataAccessException, DatabaseConnexionException {
 
@@ -177,8 +177,8 @@ public class RelevesBancaire {
 	 * Méthode permettant de créer le tableau des operations d'un relevé bancaire
 	 *
 	 * @return tableau d'opération
-	 * @throws DatabaseConnexionException 
-	 * @throws DataAccessException 
+	 * @throws DatabaseConnexionException
+	 * @throws DataAccessException
 	 */
 	private PdfPTable creaTabOperations () throws DataAccessException, DatabaseConnexionException {
 

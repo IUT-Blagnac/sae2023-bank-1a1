@@ -6,10 +6,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 
-import com.itextpdf.text.Document;
-
 import application.DailyBankState;
-import application.control.ExceptionDialog;
 import application.tools.AlertUtilities;
 import application.tools.RelevesBancaire;
 import javafx.fxml.FXML;
@@ -36,7 +33,7 @@ public class ReleveEditorPaneController {
 	private Stage primaryStage;
 
 
-	// Données de la fenêtre 
+	// Données de la fenêtre
 	private Client clientDuCompte;
 	private CompteCourant compte;
 
@@ -56,7 +53,7 @@ public class ReleveEditorPaneController {
 		this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
 
 		this.txtNumCompte.setText(""+this.compte.idNumCompte);
-		
+
 		dpDateDebut.requestFocus();
 
 	}
@@ -126,11 +123,11 @@ public class ReleveEditorPaneController {
 	@FXML
 	private void doValider() {
 		Date dateDebut = null;
-		Date dateFin = null;	
+		Date dateFin = null;
 
 		boolean isSaisieValide = true;
 
-		// Suppression de l'affichage en rouge des erreurs 
+		// Suppression de l'affichage en rouge des erreurs
 
 		this.lblDateDebut.getStyleClass().remove("borderred");
 		this.dpDateDebut.getStyleClass().remove("borderred");
@@ -151,7 +148,7 @@ public class ReleveEditorPaneController {
 			LocalDate localDateDebut = dpDateDebut.getValue();
 
 			dateDebut = Date.from(localDateDebut.atStartOfDay(ZoneId.systemDefault()).toInstant());
-			
+
 			if (dateDebut.after(new Date())) {
 				throw new IllegalArgumentException();
 			}
@@ -212,6 +209,6 @@ public class ReleveEditorPaneController {
 			AlertUtilities.showAlert(primaryStage, "Erreur dans la génération du relevé", "Le relevé n'a pas pu être généré", "Vous pouvez essayer de changer le nom du fichier ou son emplacement\n"
 					+ "pour résoudre le problème", AlertType.ERROR);
 		}
-		
+
 	}
 }

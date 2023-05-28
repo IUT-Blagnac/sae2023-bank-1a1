@@ -135,9 +135,9 @@ public class DailyBankMainFrame extends Application {
 	}
 	public void runBatch() {
 		Batch batch = new Batch(dailyBankState);
-		
+
 		Thread threadBatch = new Thread(batch);
 		threadBatch.start();
-		
+
 	}
 }

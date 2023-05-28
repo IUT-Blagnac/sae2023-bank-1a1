@@ -65,14 +65,14 @@ public class Access_BD_Operation {
 		}
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
 	/**
 	 * Recherche d'une opération par son id.
 	 *
@@ -126,7 +126,7 @@ public class Access_BD_Operation {
 			throw new DataAccessException(Table.Operation, Order.SELECT, "Erreur accès", e);
 		}
 	}
-	
+
 	/**
 	 * methode qui enregistre un debit dans meme lorsque le debit depasse le découvert autoriser
 	 * donnée même si le débit dépasse le découvert autoriser
@@ -136,7 +136,7 @@ public class Access_BD_Operation {
 	 * @author Kwadjani Bilon
 	 */
 	public void insertDebitExeptionnel(int idNumCompte, double montant, String typeOp) {
-		
+
 		try {
             // Appel de la procédure stockée
             Connection con = LogToDatabase.getConnexion();
@@ -157,17 +157,17 @@ public class Access_BD_Operation {
 			call.execute();
 
 			int res = call.getInt(4);
-			
+
 			System.out.println(res);
-			
-			
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-    
+
 	}
-	
-	
+
+
 
 	/**
 	 * Enregistrement d'un débit.

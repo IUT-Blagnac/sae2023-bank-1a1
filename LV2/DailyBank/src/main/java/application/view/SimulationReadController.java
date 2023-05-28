@@ -110,8 +110,8 @@ public class SimulationReadController {
 		}
 		else { // Assurance
 			System.err.println("Assurance TODO - Partie Bilon");
-			
-			//DOIT FINIR PAR ça 
+
+			//DOIT FINIR PAR ça
 			//this.paneRoot.setCenter(CONTENU PRINCIPAL);
 			return;
 		}

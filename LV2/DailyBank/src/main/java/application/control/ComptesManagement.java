@@ -20,9 +20,7 @@ import model.orm.Access_BD_CompteCourant;
 import model.orm.exception.ApplicationException;
 import model.orm.exception.DataAccessException;
 import model.orm.exception.DatabaseConnexionException;
-import model.orm.exception.Order;
 import model.orm.exception.RowNotFoundOrTooManyRowsException;
-import model.orm.exception.Table;
 
 public class ComptesManagement {
 
@@ -98,7 +96,7 @@ public class ComptesManagement {
 		return compte;
 	}
 
-	
+
 	public CompteCourant modifierCompte(CompteCourant cptAModifier) {
 		CompteCourant compteModifie;
 		CompteEditorPane cep = new CompteEditorPane(this.primaryStage, this.dailyBankState);
@@ -120,7 +118,7 @@ public class ComptesManagement {
 		}
 		return compteModifie;
 	}
-	
+
 	/**
 	 *	Cette fonction permet de récupérer la liste des comptes courants associés à un client.
 	 *
