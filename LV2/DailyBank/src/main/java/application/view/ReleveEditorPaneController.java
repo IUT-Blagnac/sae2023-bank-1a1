@@ -1,9 +1,12 @@
 package application.view;
 
+import java.awt.Desktop;
 import java.io.File;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
+
+import com.itextpdf.text.Document;
 
 import application.DailyBankState;
 import application.control.ExceptionDialog;
@@ -203,7 +206,7 @@ public class ReleveEditorPaneController {
 				throw new Exception();
 			}
 			else {
-				AlertUtilities.showAlert(primaryStage, "Génération du relevé", "Votre relevé a bien été généré", "Vous pouvez trouver le relevé à l'emplacement suivant\n"+fichierChoisit, AlertType.INFORMATION);
+				Desktop.getDesktop().open(fichierChoisit);
 			}
 		} catch (Exception e) {
 			AlertUtilities.showAlert(primaryStage, "Erreur dans la génération du relevé", "Le relevé n'a pas pu être généré", "Vous pouvez essayer de changer le nom du fichier ou son emplacement\n"

@@ -19,9 +19,6 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import application.DailyBankState;
-import application.control.ExceptionDialog;
-import javafx.scene.control.Alert.AlertType;
-import javafx.stage.Stage;
 import model.data.Client;
 import model.data.CompteCourant;
 import model.data.Operation;
