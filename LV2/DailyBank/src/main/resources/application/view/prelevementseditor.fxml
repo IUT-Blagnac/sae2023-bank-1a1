@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="179.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.PrelevementEditorController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.PrelevementEditorController">
    <top>
       <Label fx:id="lblMessage" alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="borderlight" text="Informations sur le nouveau prélèvement" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -47,6 +47,18 @@
                </GridPane.margin>
             </Label>
             <TextField fx:id="txtMontant" layoutX="171.0" layoutY="128.0" GridPane.columnIndex="1" />
+            <Label fx:id="lblDateRecurrente" alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Date recurrente" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets right="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="lblBeneficiaire" alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Beneficiaire " GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets right="20.0" />
+               </GridPane.margin>
+            </Label>
+            <TextField fx:id="txtDateRecurrente" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtBeneficiaire" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
    </center>

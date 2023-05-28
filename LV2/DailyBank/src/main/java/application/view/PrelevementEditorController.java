@@ -16,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.data.CompteCourant;
 import model.data.Operation;
+import model.data.PrelevementAutomatique;
 import model.orm.LogToDatabase;
 import model.orm.exception.DatabaseConnexionException;
 
@@ -28,23 +29,27 @@ public class PrelevementEditorController {
 			
 			private CompteCourant compte;
 			
-			private Operation operation;
+			private PrelevementAutomatique prelevement;
 			
 			private String modifier;
 									
-		public void initContext(Stage _containingStage, DailyBankState _dbstate, CompteCourant _compte, Operation _operation, String modifier) {
+		public void initContext(Stage _containingStage, DailyBankState _dbstate, CompteCourant _compte, PrelevementAutomatique _prelevement, String modifier) {
 			this.primaryStage = _containingStage;
 			this.dailyBankState = _dbstate;
 			this.compte = _compte;
-			this.operation = _operation;
+			this.prelevement = _prelevement;
 			this.modifier = modifier;
 		}
 		
 		public void displayDialog() {
-			if(operation == null) {
+			if(prelevement == null) {
 				this.txtMontant.setText("0");
+				this.txtBeneficiaire.setText("Prélèvement automatique");
+				this.txtDateRecurrente.setText("" + 1);
 			} else {
-				this.txtMontant.setText(this.operation.montant + "");
+				this.txtMontant.setText(this.prelevement.montant + "");
+				this.txtBeneficiaire.setText(this.prelevement.beneficiaire);
+				this.txtDateRecurrente.setText(this.prelevement.dateRecurrente + "");
 			}
 			this.primaryStage.showAndWait();
 		}
@@ -55,12 +60,13 @@ public class PrelevementEditorController {
 		private Button btnCancel;
 		@FXML
 		private TextField txtMontant;
+		@FXML
+		private TextField txtDateRecurrente;
+		@FXML
+		private TextField txtBeneficiaire;
 		
 		@FXML
 		private void doAjouter() {
-			
-			Date date = new Date();
-			java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 			
 			String idCompte = this.compte.idNumCompte + "";
 			int idCompteNormalize = Integer.parseInt(idCompte.replaceFirst("0", ""));
@@ -69,23 +75,21 @@ public class PrelevementEditorController {
 			try {
 				con = LogToDatabase.getConnexion();
 				
-				if(this.operation != null && modifier == "O") {
-					String query = "DELETE FROM operation WHERE idoperation = " + this.operation.idOperation;
+				if(this.prelevement != null && modifier == "O") {
+					String query = "DELETE FROM prelevementautomatique WHERE idprelev = " + this.prelevement.idPrelevement;
 					PreparedStatement pst = con.prepareStatement(query);
 					ResultSet rs = pst.executeQuery();
 				}
 				
-				String query2 = "INSERT INTO operation VALUES(seq_id_operation.NEXTVAL,?,?,?,?,?)";
+				String query2 = "INSERT INTO prelevementautomatique VALUES(seq_id_prelevauto.NEXTVAL,?,?,?,?)";
 				PreparedStatement pst2 = con.prepareStatement(query2);
 				
-				pst2.setDouble(1, Double.parseDouble(txtMontant.getText()));
-				pst2.setDate(2, sqlDate);
-				pst2.setDate(3, sqlDate);
+				pst2.setDouble(1, Double.parseDouble(this.txtMontant.getText()));
+				pst2.setInt(2, Integer.parseInt(this.txtDateRecurrente.getText()));
+				pst2.setString(3, this.txtBeneficiaire.getText());
 				pst2.setInt(4,idCompteNormalize);
-				pst2.setString(5, "Prélèvement automatique");
 
 				ResultSet rs2 = pst2.executeQuery();
-
 
 				this.primaryStage.close();
 

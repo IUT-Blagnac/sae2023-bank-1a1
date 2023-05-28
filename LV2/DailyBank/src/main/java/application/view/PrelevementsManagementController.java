@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 import model.data.Client;
 import model.data.CompteCourant;
 import model.data.Operation;
+import model.data.PrelevementAutomatique;
 import model.orm.LogToDatabase;
 import model.orm.exception.DatabaseConnexionException;
 
@@ -33,11 +34,11 @@ public class PrelevementsManagementController {
 		// Fenêtre physique ou est la scène contenant le fichier xml contrôlé par this
 		private Stage primaryStage;
 		
-		private ObservableList<Operation> oListOperation;
+		private ObservableList<PrelevementAutomatique> oListPrelevements;
 		
 		private CompteCourant compte;
 		
-		private Operation operation;
+		private PrelevementAutomatique prelevement;
 		
 	public void initContext(Stage _containingStage, DailyBankState _dbstate, CompteCourant _compte) {
 		this.primaryStage = _containingStage;
@@ -45,15 +46,16 @@ public class PrelevementsManagementController {
 		this.compte = _compte;
 		this.btnModifierPrelevement.setDisable(true);
 		this.btnSupprimerPrelevement.setDisable(true);
+		updateListPrelevements();
 		
-		lvPrelevements.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Operation>() {
+		lvPrelevements.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<PrelevementAutomatique>() {
 
 			@Override
-			public void changed(ObservableValue<? extends Operation> observable, Operation oldValue,
-					Operation newValue) {
+			public void changed(ObservableValue<? extends PrelevementAutomatique> observable, PrelevementAutomatique oldValue,
+					PrelevementAutomatique newValue) {
 				btnModifierPrelevement.setDisable(false);
 				btnSupprimerPrelevement.setDisable(false);
-				operation = lvPrelevements.getSelectionModel().getSelectedItem();
+				prelevement = lvPrelevements.getSelectionModel().getSelectedItem();
 			}
 			
 		});
@@ -63,13 +65,13 @@ public class PrelevementsManagementController {
 	public void displayDialog() {
 		updateListPrelevements();
 		System.out.println(this.compte);
-		System.out.println(this.oListOperation);
+		System.out.println(this.oListPrelevements);
 		this.primaryStage.showAndWait();
 	}
 	
 	public void updateListPrelevements() {
-		oListOperation = FXCollections.observableArrayList(this.getAllOperation());
-		this.lvPrelevements.setItems(oListOperation);
+		oListPrelevements = FXCollections.observableArrayList(this.getAllOperation());
+		this.lvPrelevements.setItems(oListPrelevements);
 	}
 	
 	@FXML
@@ -81,7 +83,7 @@ public class PrelevementsManagementController {
 	@FXML
 	private Button btnLirePrelevement;
 	@FXML
-	private ListView<Operation> lvPrelevements;
+	private ListView<PrelevementAutomatique> lvPrelevements;
 	
 	@FXML
 	private void doCancel() {
@@ -90,13 +92,13 @@ public class PrelevementsManagementController {
 	
 	@FXML
 	private void doNouveauPrelevement() {
-		PrelevementEditorPane pen = new PrelevementEditorPane(primaryStage, dailyBankState, compte,operation,"N");
+		PrelevementEditorPane pen = new PrelevementEditorPane(primaryStage, dailyBankState, compte,prelevement,"N");
 		updateListPrelevements();
 	}
 	
 	@FXML
 	private void doModifierPrelevement() {
-		PrelevementEditorPane pen = new PrelevementEditorPane(primaryStage, dailyBankState, compte,operation,"O");
+		PrelevementEditorPane pen = new PrelevementEditorPane(primaryStage, dailyBankState, compte,prelevement,"O");
 		updateListPrelevements();
 	}
 	
@@ -106,7 +108,7 @@ public class PrelevementsManagementController {
 		try {
 			con = LogToDatabase.getConnexion();
 
-			String query = "DELETE FROM operation WHERE idoperation = " + this.operation.idOperation;
+			String query = "DELETE FROM prelevementautomatique WHERE idprelev = " + this.prelevement.idPrelevement;
 			PreparedStatement pst = con.prepareStatement(query);
 
 			ResultSet rs = pst.executeQuery();
@@ -122,8 +124,8 @@ public class PrelevementsManagementController {
 		}
 	}
 	
-	public ArrayList<Operation> getAllOperation() {
-		ArrayList<Operation> output = new ArrayList<Operation>();
+	public ArrayList<PrelevementAutomatique> getAllOperation() {
+		ArrayList<PrelevementAutomatique> output = new ArrayList<PrelevementAutomatique>();
 		
 		String idCompte = this.compte.idNumCompte + "";
 		int idCompteNormalize = Integer.parseInt(idCompte.replaceFirst("0", ""));
@@ -133,14 +135,14 @@ public class PrelevementsManagementController {
 		try {
 			con = LogToDatabase.getConnexion();
 
-			String query = "SELECT * FROM operation WHERE idnumcompte = " + idCompteNormalize + " AND idtypeop = 'Prélèvement automatique'";
+			String query = "SELECT * FROM prelevementautomatique WHERE idnumcompte = " + idCompteNormalize;
 			PreparedStatement pst = con.prepareStatement(query);
 
 			ResultSet rs = pst.executeQuery();
 
 			while(rs.next()) {
-				Operation operation = new Operation(rs.getInt(1),rs.getDouble(2),rs.getDate(3),rs.getDate(4),rs.getInt(5),rs.getString(6));
-				output.add(operation);
+				PrelevementAutomatique prelevement = new PrelevementAutomatique(rs.getInt(1),rs.getDouble(2),rs.getInt(3),rs.getString(4),rs.getInt(5));
+				output.add(prelevement);
 			}
 
 		} catch (DatabaseConnexionException e) {
