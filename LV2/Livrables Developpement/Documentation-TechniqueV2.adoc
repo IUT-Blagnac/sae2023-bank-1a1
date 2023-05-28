@@ -665,6 +665,92 @@ Cela passe ensuite à la deuxième étape, le tableau d'emprunt est généré en
 
 Pour ce qui est de la troisième étape, Une nouvelle page est créé SimulationRead représenant le tableau en utilisant l'objet Simulation.
 
+==== Générer Relevé PDF
+[NOTE]
+====
+Développé par Illan GABARRA
+====
+
+*Classes impliquées dans chaque package :*
+
+* package application.control :
+** CompteManagement.java
+
+* package application.view : 
+** CompteManagementController.java
+** ReleveEditorPaneController.java
+
+* package application.tools :
+** RelevesBancaire.java
+
+* package model.data :
+** Client.java
+** CompteCourant.java
+** Operation.java
+
+* package model.orm :
+** Access_BD_Operation.java
+
+
+===== Description
+
+La génération d'un relevé bancaire se divise en 3 parties
+
+* La sélection par l'utilisateur du compte auquel on veut faire un relevé
+* La saisie par l'utilisateur des informations sur le relevé voulu
+* La création d'un fichier .pdf avec le relevé bancaire du compte
+
+
+Pour la première cela se passe dans CompteManagement après avoir selectionné un compte l'utilisateur clique sur générer relevé PDF
+
+Cela passe ensuite à la deuxième étape, une page de saisie ReleveEditorPane est lancé afin de faire saisir à l'utilisateur la date de début et de fin de la période voulu ainsi que l'emplacement du fichier qui sera généré au clic sur le bouton généré
+
+Au clic cela passe à la troisième étape, le relevé PDF est créé à partir des informations sur les opération contenu de la base de donnée récupéré via la classe Access_BD_Operation.
+Suite à la création du fichier le pdf est affiché à l'écran via une librairie *_awt_* (Je sais c'est pas le top mais c'était le plus facile)
+
+==== Actions Batch
+[NOTE]
+====
+Développé par Illan GABARRA
+====
+
+*Classes impliquées dans chaque package :*
+
+* package application.control :
+** CompteManagement.java
+
+* package application.view : 
+** CompteManagementController.java
+** ReleveEditorPaneController.java
+
+* package application.tools :
+** RelevesBancaire.java
+
+* package model.data :
+** Client.java
+** CompteCourant.java
+** Operation.java
+
+* package model.orm :
+** Access_BD_Operation.java
+
+
+===== Description
+
+La génération d'un relevé bancaire se divise en 3 parties
+
+* La sélection par l'utilisateur du compte auquel on veut faire un relevé
+* La saisie par l'utilisateur des informations sur le relevé voulu
+* La création d'un fichier .pdf avec le relevé bancaire du compte
+
+
+Pour la première cela se passe dans CompteManagement après avoir selectionné un compte l'utilisateur clique sur générer relevé PDF
+
+Cela passe ensuite à la deuxième étape, une page de saisie ReleveEditorPane est lancé afin de faire saisir à l'utilisateur la date de début et de fin de la période voulu ainsi que l'emplacement du fichier qui sera généré au clic sur le bouton généré
+
+Au clic cela passe à la troisième étape, le relevé PDF est créé à partir des informations sur les opération contenu de la base de donnée récupéré via la classe Access_BD_Operation.
+Suite à la création du fichier le pdf est affiché à l'écran via une librairie *_awt_* (Je sais c'est pas le top mais c'était le plus facile)
+
 == Conclusion :
 
 En conclusion, la documentation technique de l'application "DailyBankApp" fournit une vue d'ensemble complète de l'application, de son contexte, de son utilisation, de son architecture et de ses composants. Elle constitue une ressource précieuse pour comprendre le fonctionnement et le développement de cette application de gestion des comptes clients pour la banque DailyBank.
