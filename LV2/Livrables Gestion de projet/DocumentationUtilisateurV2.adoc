@@ -74,17 +74,17 @@ Pour lancer l'application exécuter le jar dans le dossier.
 | Faire un débit exceptionnel
 |
 
-| Créer un prélevement automatique  
-|
+|Créer un prélevement automatique  
+|Cette fonctionnalité permet à un guichetier ou un chef d'agence de créer un prélèvement automatique tout les mois d'un montant donné et à un jour donné.
 
-| Modifier un prélevement automatique  
-|
+|Modifier un prélevement automatique  
+|Cette fonctionnalité permet à un guichetier ou un chef d'agence de modifier un prélèvement automatique existant.
 
-| Lire les un prélevement automatique 
-|
+|Lire un prélevement automatique 
+|Cette fonctionnalité permet à un guichetier ou chef d'agence de lire les informations d'un prélèvement automatique. 
 
-| Supprimer un prélevement automatique 
-|
+|Supprimer un prélevement automatique 
+|Cette fonctionnalité permet à un guichetier ou chef d'agence de supprimer un prélèvement automatique existant.
 
 |Simuler un emprunt
 |Cette fonctionnalité permet au chef d'agence de créer un tableau d'emprunt pour un montant, une période, à un taux d'intérêts choisit. 
@@ -117,7 +117,7 @@ Rentrez les informations manquantes pour créer un nouveau compte client et cliq
 
 Si le client n'existe pas encore créer un nouveau client puis répetez les étapes d'au dessus.
 
-image::..\..\ressources\images\I_NouveauCompteBancaire.png[alt=Nouvel Compte]
+image::..\..\ressources\images\I_NouveauCompteBancaire.png[alt=Nouveau Compte]
 
 === Créditer/Débiter 
 [abstract]
@@ -218,6 +218,95 @@ Voici les démarches à suivre pour clôturer un compte bancaire :
 Cliquez sur : Gestion -> Clients -> Choisissez un client -> Cloturer Compte
 
 image::..\..\ressources\images\I_Cloturer.png[alt=cloturer]
+
+=== Créer un prélèvement automatique 
+[abstract]
+[NOTE]
+====
+Développé par Mathéo KATBIE 
+====
+
+Tout d'abord il faudra faire les actions de base suivantes : 
+
+Se connecter -> Clic sur "Gestion" -> Clic sur "Clients" -> Choissisez un client -> Clic sur "Comptes clients" -> Choissisez un compte où créer un prélèvement automatique -> Clic sur "Voir prélèvements" -> Clic sur "Nouveau prélèvement"
+
+Indiquer le montant du prélèvement par mois, la date recurrente (quel jour du mois on débite le compte) et le bénéficiaire du prélèvement automatique.
+
+[IMPORTANT]
+====
+La réalisation de ces actions n'est possible que si le compte sélectionné n'est pas clôturé !
+Les boutons permettant la création de ces opérations seront désactivés s'il l'est.
+====
+
+Cliquez sur "Valider"
+
+IMAGE
+
+=== Modifier un prélèvement automatique 
+[abstract]
+[NOTE]
+====
+Développé par Mathéo KATBIE 
+====
+
+Tout d'abord il faudra faire les actions de base suivantes : 
+
+Se connecter -> Clic sur "Gestion" -> Clic sur "Clients" -> Choisissez un client -> Clic sur "Comptes clients" -> Choisissez un compte où créer un prélèvement automatique -> Clic sur "Voir prélèvements" -> Choisissez un prélèvement existant -> Clic sur "Modifier prélèvement"
+
+Indiquer le nouveau montant, la nouvelle date recurrente (quel jour du mois on débite le compte) et le nouveau bénéficiaire du prélèvement automatique.
+
+[IMPORTANT]
+====
+La réalisation de ces actions n'est possible que si le compte sélectionné n'est pas clôturé !
+Les boutons permettant la création de ces opérations seront désactivés s'il l'est.
+====
+
+Cliquez sur "Valider"
+
+IMAGE
+
+=== Voir un prélèvement automatique 
+[abstract]
+[NOTE]
+====
+Développé par Mathéo KATBIE 
+====
+
+Tout d'abord il faudra faire les actions de base suivantes : 
+
+Se connecter -> Clic sur "Gestion" -> Clic sur "Clients" -> Choisissez un client -> Clic sur "Comptes clients" -> Choisissez un compte où créer un prélèvement automatique -> Clic sur "Voir prélèvements" -> Choisissez un prélèvement existant -> Clic sur "Voir prélèvement"
+
+[IMPORTANT]
+====
+La réalisation de ces actions n'est possible que si le compte sélectionné n'est pas clôturé !
+Les boutons permettant la création de ces opérations seront désactivés s'il l'est.
+====
+
+Cliquez sur "Valider" pour fermer la fenêtre.
+
+[IMPORTANT]
+====
+Fonctionnalité non fonctionnelle.
+====
+
+=== Supprimer un prélèvement automatique 
+[abstract]
+[NOTE]
+====
+Développé par Mathéo KATBIE 
+====
+
+Tout d'abord il faudra faire les actions de base suivantes : 
+
+Se connecter -> Clic sur "Gestion" -> Clic sur "Clients" -> Choisissez un client -> Clic sur "Comptes clients" -> Choisissez un compte où créer un prélèvement automatique -> Clic sur "Voir prélèvements" -> Choisissez un prélèvement existant -> Clic sur "Supprimer prélèvement"
+
+[IMPORTANT]
+====
+La réalisation de ces actions n'est possible que si le compte sélectionné n'est pas clôturé !
+Les boutons permettant la création de ces opérations seront désactivés s'il l'est.
+====
+
+IMAGE
 
 === Créer un employé
 [abstract]
