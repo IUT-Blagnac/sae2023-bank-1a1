@@ -240,7 +240,7 @@ Les boutons permettant la création de ces opérations seront désactivés s'il 
 
 Cliquez sur "Valider"
 
-IMAGE
+image::https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/594253ef2e32557f2a3237c3d6465bbcb17e6022/ressources/images/I_CreerPrelevement.png[alt=creerprelevement]
 
 === Modifier un prélèvement automatique 
 [abstract]
@@ -263,7 +263,7 @@ Les boutons permettant la création de ces opérations seront désactivés s'il 
 
 Cliquez sur "Valider"
 
-IMAGE
+image::https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/594253ef2e32557f2a3237c3d6465bbcb17e6022/ressources/images/I_ModifierPrelevement.png[alt=modifierprelevement]
 
 === Voir un prélèvement automatique 
 [abstract]
@@ -306,7 +306,7 @@ La réalisation de ces actions n'est possible que si le compte sélectionné n'e
 Les boutons permettant la création de ces opérations seront désactivés s'il l'est.
 ====
 
-IMAGE
+image::https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/594253ef2e32557f2a3237c3d6465bbcb17e6022/ressources/images/I_SupprimerPrelevement.png[alt=supprimerprelevement]
 
 === Créer un employé
 [abstract]
