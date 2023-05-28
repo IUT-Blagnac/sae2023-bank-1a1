@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import model.data.CompteCourant;
 import model.data.Operation;
 import model.data.PrelevementAutomatique;
+import model.orm.Access_BD_PrelevementAutomatique;
 import model.orm.LogToDatabase;
 import model.orm.exception.DatabaseConnexionException;
 
@@ -76,27 +77,16 @@ public class PrelevementEditorController {
 				con = LogToDatabase.getConnexion();
 				
 				if(this.prelevement != null && modifier == "O") {
-					String query = "DELETE FROM prelevementautomatique WHERE idprelev = " + this.prelevement.idPrelevement;
-					PreparedStatement pst = con.prepareStatement(query);
-					ResultSet rs = pst.executeQuery();
+					Access_BD_PrelevementAutomatique prelevement = new Access_BD_PrelevementAutomatique();
+					prelevement.deletePrelevement(idCompteNormalize);
 				}
 				
-				String query2 = "INSERT INTO prelevementautomatique VALUES(seq_id_prelevauto.NEXTVAL,?,?,?,?)";
-				PreparedStatement pst2 = con.prepareStatement(query2);
-				
-				pst2.setDouble(1, Double.parseDouble(this.txtMontant.getText()));
-				pst2.setInt(2, Integer.parseInt(this.txtDateRecurrente.getText()));
-				pst2.setString(3, this.txtBeneficiaire.getText());
-				pst2.setInt(4,idCompteNormalize);
-
-				ResultSet rs2 = pst2.executeQuery();
+				Access_BD_PrelevementAutomatique prelevement = new Access_BD_PrelevementAutomatique();
+				prelevement.insertPrelevement(Double.parseDouble(this.txtMontant.getText()),Integer.parseInt(this.txtDateRecurrente.getText()), this.txtBeneficiaire.getText(), this.compte.idNumCompte);
 
 				this.primaryStage.close();
 
 			} catch (DatabaseConnexionException e) {
-				// TODO Auto-generated catch block
-				//e.printStackTrace();
-			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				//e.printStackTrace();
 			}
