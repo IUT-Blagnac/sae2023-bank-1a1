@@ -66,6 +66,6 @@ Dans sa colonne il doit remplir la ligne correspondant à chaque partie qu'il a 
 |         | Doc. Tec. V2 |   https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV2/Livrables%20Developpement/Documentation-TechniqueV2.adoc             |     
 |         | Code V2    |    https://github.com/IUT-Blagnac/sae2023-bank-1a1/tree/main/LV2/DailyBank                 | 
 |         | Recette V2 |   https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV2/Livrables%20Developpement/Cahier%20de%20recetteV2.adoc                   | 
-|         | `jar` projet |    | 
+|         | `jar` projet | https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV2/Livrables%20Developpement/DailyBank-1.0-shaded.jar   | 
 
 |===
