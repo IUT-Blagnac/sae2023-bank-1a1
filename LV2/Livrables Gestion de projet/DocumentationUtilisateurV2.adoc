@@ -91,7 +91,7 @@ Pour lancer l'application exécuter le jar dans le dossier.
 |Générer un relevé PDF (BATCH)
 |Cette fonctionnalité permet la génération de tous les relevés de tous les comptes de l'agence de l'employé en cours de façon automatique (Pour le moment après clic sur un bouton par un chef d'agence)
 
-
+[[se_connecter]]
 === Se connecter 
 Voici les démarches à suivre pour se connecter au logiciel bancaire : 
 
@@ -272,11 +272,11 @@ Se connecter -> Clic sur "Gestion" -> Clic sur "Clients" -> Choissisez un client
 
 Choisissez un compte pour lequel vous voulez générer le relevé puis cliquez sur "Générer Relevé PDF"
 
-image::..\..\ressources\images\I_Generer-relevePDF-1.png[alt=generer-RelevePDF-1-Choisir-Compte]
+image::..\..\ressources\images\I_Generer-RelevePDF-1.png[alt=generer-RelevePDF-1-Choisir-Compte]
 
 Vous arriverez à une page ou l'on vous demandera une saisie :
 
-image::..\..\ressources\images\I_Generer-relevePDF-2.png[alt=generer-RelevePDF-2-PageSaisie]
+image::..\..\ressources\images\I_Generer-RelevePDF-2.png[alt=generer-RelevePDF-2-PageSaisie]
 
 Choisissez ensuite une date correspondant à la date de début de période puis une date de fin de période.
 
@@ -289,18 +289,72 @@ Cliquez sur le symbole de calendrier pour saisir les dates.
 ====
 Le date doit être valide c'est à dire que la date de début doit être avant la date de fin et la date de fin peut être au maximum la date du jour.
 ====
-image::..\..\ressources\images\I_Generer-relevePDF-3.png[alt=generer-RelevePDF-3-PageSaisie-Date]
+image::..\..\ressources\images\I_Generer-RelevePDF-3.png[alt=generer-RelevePDF-3-PageSaisie-Date]
 
 Ensuite cliquez sur le bouton "Modifier l'emplacement et le nom du fichier" pour chosir où sera sauvegarder le relevé PDF du compte. Vous pouvez même changer le nom du fichier
 
-image::..\..\ressources\images\I_Generer-relevePDF-4.png[alt=generer-RelevePDF-4-Saisie-Fichier]
+image::..\..\ressources\images\I_Generer-RelevePDF-4.png[alt=generer-RelevePDF-4-Saisie-Fichier]
 
 Cliquez sur enregistrer 
 
 Enfin cliquez sur générer 
 
-image::..\..\ressources\images\I_Generer-relevePDF-5.png[alt=generer-RelevePDF-5-ClicGenerer]
+image::..\..\ressources\images\I_Generer-RelevePDF-5.png[alt=generer-RelevePDF-5-ClicGenerer]
 
 Si le relevé s'affiche à l'écran alors le fichier a bien été généré et sauvegardé ! 
 
-image::..\..\ressources\images\I_Generer-relevePDF-6.png[alt=generer-RelevePDF-6-affichage]
+image::..\..\ressources\images\I_Generer-RelevePDF-6.png[alt=generer-RelevePDF-6-affichage]
+
+=== Actions Batch
+[NOTE]
+====
+Développé par Illan GABARRA
+====
+
+Afin de réaliser toutes les actions Batch
+
+* Prélevements automatique du jour
+* Génération des relevés PDF du mois précédent pour tous les comptes de l'agence de l'employé actuel
+
+Tout d'abord il faut que vous vous connectiez en tant que chef d'agence je vous invite à voir la <<se-connecter,documentation>> pour faire cela.
+
+Ensuite cliquez sur "Gestion" puis "Lancer Batch"
+
+image::..\..\ressources\images\I_Batch-1.png[alt=Batch-1-Lancement]
+
+Après cette action votre batch est lancé, la réalisation du batch peut être plutôt longue mais elle ne vous empêche pas de travailler car tant que vous avez l'application d'ouvert, le programme batch tourne tout en vous laissant travailler sur l'application et faire toute sorte de manipulations.
+
+Dans votre navigateur de fichier vous verrez apparaitre un répertoire "Relevés-PDF_DAILYBANK" suivit du nom votre agence et un fichier logBatch.txt.
+
+[NOTE]
+====
+Si ces fichiers ne sont pas généré il est probable que vous n'ayez pas le droit de créér des fichier à l'endroit où est stocké le programme. Je vous invite à contacter votre Administrateur système pour lui faire part de ce problème.
+====
+
+[IMPORTANT]
+====
+A moins d'être l'administrateur système je vous invite à ne pas toucher au fichier logBatch.txt
+Il permet une sauvegarde du déroulé du batch permettant ainsi de détecter d'eventuel problème plus compliqué tel qu'un problème dans l'écriture d'un fichier spécifiquement.
+====
+
+image::..\..\ressources\images\I_Batch-2.png[alt=Batch-2-Fichier_Créés]
+
+
+Le répertoire a une arborescence de ce type :
+
+[source]
+----
+├── Relevés-PDF_DAILYBANK-NomAgence
+    └── client-idClient1-Nom1_Prenom1
+        ├── Compte-idCompte1.pdf
+        └── Compte-idCompte2.pdf
+    └── client-idClient2-Nom2_Prenom2
+        ├── Compte-idCompte3.pdf
+        ├── Compte-idCompte3.pdf
+        └── Compte-idCompte4.pdf
+----
+
+C'est à dire que dans "Relevés-PDF_DAILYBANK-NomAgence" il y a un répertoire pour chaque client de l'agence de l'employé où sont stocké tous les relevés du mois précédent pour chacun de ses comptes
+
+image::..\..\ressources\images\I_Batch-3.png[alt=Batch-2-RepertoiresClient_Créés]
+image::..\..\ressources\images\I_Batch-4.png[alt=Batch-2-ReleverPdf_Créés]
