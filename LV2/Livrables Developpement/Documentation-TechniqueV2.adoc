@@ -575,6 +575,14 @@ Développé par Mathéo KATBIE
 * package model.orm
 ** Access_BD_PrelevementAutomatique.java
 
+===== Description 
+
+Cette fonctionnalité est lié au bouton "Nouveau prélèvement". Cette fonctionnalité à été faite en créant plusieurs classes. La création d'un prélèvement automatique se base sur les fonctionnalités insérer prélèvement automatique.
+Pour créer un nouveau prélèvement j'ai utiliser la classe "PrelevementEditorPaneController" ou j'ai modifier la méthode doAjouter pour utiliser InsererPrelevement dans la base de données en utilisant la classe "Access_BD_PrelevementAutomatique" 
+qui utilise une requête SQL pour insérer les données dans la table.
+
+La création du nouveau prélèvement se fait seulement si le compte est actif.
+
 ==== Modifier un prélèvement automatique 
 [NOTE]
 ====
@@ -597,6 +605,11 @@ Développé par Mathéo KATBIE
 * package model.orm
 ** Access_BD_PrelevementAutomatique.java
 
+===== Description 
+
+Cette fonctionnalité est lié au bouton "Modifier prélèvement". Cette fonctionnalité à été faite en modifiant la methode doAjouter, tout simplement on supprime les anciennes données dans la table et on créé un nouveau prélèvement avec les nouvelles informations.
+Ceci est fait en utilisant les classes "Access_BD_PrelevementAutomatique" et "PrelevementsEditorController".
+
 ==== Lire un prélèvement automatique 
 [NOTE]
 ====
@@ -615,6 +628,10 @@ Développé par Mathéo KATBIE
 ** CompteCourant.java
 ** PrelevementAutomatique.java
 
+===== Description
+
+Cette fonctionnalité n'a pas été développée.
+
 ==== Supprimer un prélèvement automatique 
 [NOTE]
 ====
@@ -631,6 +648,11 @@ Développé par Mathéo KATBIE
 ** CompteCourant.java
 ** PrelevementAutomatique.java
 
+===== Description 
+
+Cette fonctionnalité est lié au bouton "Supprimer prélèvement". Cette fonctionnalité à été faite en modifiant la méthode doSupprimerPrélèvement, tout simplement cela supprime le prélèvement sélectionné par l'utilisateur en faisant une requête SQL dans la base de données en utilisant la classe "Access_BD_PrelevementAutomatique" et la méthode deletePrelevement.
+
+La création du nouveau prélèvement se fait seulement si le compte est actif.
 
 == Conclusion :
 
