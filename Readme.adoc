@@ -32,7 +32,7 @@ Responsable des documents : Planification gant, cahier de recette
 |2    |Guichetier     | CRUD Prélèvement | R|F| | 
 |2    |Guichetier     | CRUD Prélèvement | U|F| | 
 |2    |Guichetier     | CRUD Prélèvement | D|F| | 
-|2    |Batch     | Prélèvements automatiques | || | D
+|2    |Batch     | Prélèvements automatiques | || | F
 |2    |Batch     | Reléves mensuels | || |F 
 
 |=======================
