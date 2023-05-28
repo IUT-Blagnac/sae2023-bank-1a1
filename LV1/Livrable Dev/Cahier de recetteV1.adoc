@@ -262,10 +262,20 @@ Les chefs d'agence ont accès aux mêmes fonctionnalités que les guichetiers, a
 5+|
 
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|C_G_C.1    ^|Cliquer sur modifier client puis sélectionner le bouton "Inactif" et confirmer. ^|...  ^|Un client actif est sélectionné et le test All_G_C.3 est validé ^| ...
 
-5+|
+^|C_G_C.1    ^|Cliquer sur modifier client puis sélectionner le bouton "Inactif" et confirmer. ^|...  ^|Un client actif est sélectionné et le test All_G_C.3 est validé, et tous ses comptes sont cloturés ^| OK
 
+^|C_G_C.2    ^|Sur la page de gestion de client ^|le bouton "Desactiver client" doit être activé  ^|Un client actif est sélectionné et tous ses comptes sont cloturés  ^| OK
+
+^|C_G_C.3    ^|Cliquer sur modifier client ^|le bouton "Inactif" doit être désactivé  ^|Un client désactif est sélectionné et le test All_G_C.3 est validé ^| OK
+
+^|C_G_C.4    ^|Sur la page de gestion de client ^|le bouton "Desactiver client" doit être désactivé  ^|Un client désactif est sélectionné ^| OK
+
+^|C_G_C.5    ^|Cliquer sur modifier client le bouton "Inactif" doit être désactivé ^|...  ^|Un client actif est sélectionné et le test All_G_C.3 est validé mais tous ses comptes ne sont pas clôturés ^| OK
+
+^|C_G_C.6    ^|Sur la page de gestion de client ^|le bouton "Desactiver client" doit être désactivé  ^|Un client désactif est sélectionné mais tous ses comptes ne sont pas clôturés ^| OK
+
+5+|Commentaire : Fonctionnalité amélioré par Illan GABARRA
 |====
 
 ==== 2.1 Gestion des employés : 
