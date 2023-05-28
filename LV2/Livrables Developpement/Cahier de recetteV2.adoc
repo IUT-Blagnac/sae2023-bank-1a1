@@ -319,6 +319,7 @@ autorisé est de -100 euros.
 
 
 === 2. Fonctionnalités des chefs d'agence :
+
 [.text-justify]
 Les chefs d'agence ont accès aux mêmes fonctionnalités que les guichetiers, ainsi que d'autres qui leur sont réservées.
 
@@ -399,3 +400,46 @@ Les chefs d'agence ont accès aux mêmes fonctionnalités que les guichetiers, a
 5+|Commentaire : Fonctionnalité développé par Mathéo KATBIE
 |====
 
+==== Simulation 
+
+|====
+
+>|Cas de test 4+|Test-01-03-03
+>|Titre 4+|Faire une simulation d'emprunt
+>|Objectif 4+| Vérifier qu'il est possible de faire une simulation d'emprunt
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+
+^|All_G_COP.1 
+^|Cliquer sur le bouton "Valider". 
+^|La page avec le tableau d'emprunt s'affiche et correspond avec les valeurs du TD de Gestion de projet sur les emprunts
+^| Avoir saisit un nombre de période de 120, un taux de 3, un montant de 40 000
+^|OK
+
+^|All_G_COP.2  ^| 
+^| La saisie du nombre de période passe en rouge, l'emprunt n'est pas simulé
+^| Saisir un nombre de période de 0, un taux de 3, un montant de 40 000
+^|OK
+
+^|All_G_COP.3  ^| 
+^| La saisie du nombre du taux passe en rouge, l'emprunt n'est pas simulé
+^| Saisir un nombre de période de 120, un taux de 0, un montant de 40 000
+^|OK
+
+^|All_G_COP.4  ^| 
+^| La saisie du nombre du taux passe en rouge, l'emprunt n'est pas simulé
+^| Saisir un nombre de période de 120, un taux de 101, un montant de 40 000
+^|OK
+
+^|All_G_COP.5  ^| 
+^| La saisie du montant passe en rouge, l'emprunt n'est pas simulé
+^| Saisir un nombre de période de 120, un taux de 3, un montant de 0
+^|OK
+
+
+
+
+5+|Commentaire : Fonctionnalité développé par Illan GABARRA
+|====
