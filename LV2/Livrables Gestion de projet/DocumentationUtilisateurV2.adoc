@@ -1,7 +1,7 @@
 = Documentation utilisateur : DailyBank
 :toc:
 :toc-position: preamble
-:toc-title: Sommaire
+:toc-title: 
 :sectnums:
 
 [abstract]
