@@ -688,6 +688,40 @@ Cela passe ensuite à la deuxième étape, le tableau d'emprunt est généré en
 
 Pour ce qui est de la troisième étape, Une nouvelle page est créé SimulationRead représenant le tableau en utilisant l'objet Simulation.
 
+
+==== Débit Exceptionnel :
+[NOTE]
+====
+Développé par Bilon Kwadjani
+====
+
+*Classes impliquées dans chaque package :*
+
+* package application.control :
+** OperationManagement.java
+** OperationEditor.java
+
+* package application.view : 
+** OperationManagementController.java
+
+* package applications.tools :
+** CategorieOperation.java
+
+* package model.data :
+** Opération.java
+
+* package model.orm
+** Access_BD_Operation.java
+
+===== Description
+
+Pour faire un débit Exceptionnel on utilise une methode donner dans la base de donnée qui ce nomme "Débit_Exceptionnel" dans la methode "insertDebitExceptionnel".
+
+Avant de faire un debit on fait une verification si l'employer actuel est chef d'agence .le test se fait dans la classe "OperationManagement" dans la methode "enregistrerDebit" et dans la classe Operation Management.
+
+Si le debit depasse le decouvert autoriser et que l'employer actuel est chef d'agence un message de confirmation du debit s'affiche .
+
+
 ==== Générer Relevé PDF
 [NOTE]
 ====
