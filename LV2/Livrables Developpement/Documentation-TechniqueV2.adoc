@@ -8,7 +8,7 @@
 |===
 | Version | Date
 
-| V1 | 17 mai 2023 
+| V2 | 28 mai 2023 
 |===
 
 [discrete]
@@ -41,13 +41,15 @@ Dans ce contexte, la banque DailyBank souhaite développer une application JAVA-
 === Use case de l'application
 L'application de DailyBank est conçue pour être utilisée par différents acteurs au sein de la banque, ayant chacun des rôles spécifiques et des droits différents. Voici les utilisateurs du logiciel et les actions qui peuvent réaliser :
 
-image::../../ressources/images/uc-initialv1.svg[]
+image::../../ressources/images/uc-initialv2.svg[]
 
 Tous ces cas d'utilisation sont possible si l'utilisateur s'est authentifié avec son login et son mot de passe. 
 
 ==== Guichetier
 
 Le guichetier est le premier niveau de droit d'accès, il peut lire toutes les informations sur les client (Comptes, opérations, informations personneles), faire toutes les opérations de base sur des clients de son agence, créer de nouveaux clients et de nouveaux comptes, cloturer des comptes et les réouvrir. 
+
+===== Version 0
 
 - *Modifier les informations des clients* : le guichetier peut accéder aux informations des clients existants et les modifier si nécessaire, par exemple, en mettant à jour leurs numéros de téléphone ou leurs adresses.
 
@@ -57,30 +59,47 @@ Le guichetier est le premier niveau de droit d'accès, il peut lire toutes les i
 
 - *Débiter un compte* : le guichetier peut effectuer des opérations de débit sur le compte d'un client, par exemple, en retirant de l'argent liquide ou en effectuant un paiement. Pour cela le montant débité doit être supérieur à 0 et le solde après débit ne dois pas être inférieur au découvert autorisé et le compte client à qui appartient le compte ne doit pas être désactivé.
 
-- *Créditer un compte* (Java et BD avec procédure stockée) : le guichetier peut effectuer des opérations de crédit sur le compte d'un client. Pour cela le montant crédité doit être supérieur à 0 et le compte client à qui appartient le compte ne doit pas être désactivé.
+===== Version 1
 
-- *Créer un compte* : le guichetier peut créer un nouveau compte pour un client existant en générant un nouveau numéro de compte unique. Pour cela le compte du client ne doit pas être désactivé.
+- *Créditer un compte* (Java et BD avec procédure stockée) : Le guichetier peut effectuer des opérations de crédit sur le compte d'un client. Pour cela le montant crédité doit être supérieur à 0 et le compte client à qui appartient le compte ne doit pas être désactivé.
 
-- *Effectuer un virement de compte à compte* : le guichetier peut transférer de l'argent d'un compte à un autre en utilisant le numéro de compte du destinataire et le montant à transférer. Les comptes doivent appartenir à des clients de la DailyBank. Le montant transféré devra être supérieur à 0. Le solde après transfert du compte source ne dois pas être inférieur au découvert autorisé et les comptes clients à qui appartiennent les comptes ne doivent pas être désactivés et les comptes non clôturés.
+- *Créer un compte* : Le guichetier peut créer un nouveau compte pour un client existant en générant un nouveau numéro de compte unique. Pour cela le compte du client ne doit pas être désactivé.
 
-- *Clôturer un compte* : le guichetier peut clôturer le compte bancaire d'un client si nécessaire.
+- *Effectuer un virement de compte à compte* : Le guichetier peut transférer de l'argent d'un compte à un autre en utilisant le numéro de compte du destinataire et le montant à transférer. Les comptes doivent appartenir à des clients de la DailyBank. Le montant transféré devra être supérieur à 0. Le solde après transfert du compte source ne dois pas être inférieur au découvert autorisé et les comptes clients à qui appartiennent les comptes ne doivent pas être désactivés et les comptes non clôturés.
+
+- *Clôturer un compte* : Le guichetier peut clôturer le compte bancaire d'un client si nécessaire, le compte doit avoir un solde de 0.
+
+===== Version 2
+
+- *Générer un relevé PDF* : Le peut générer le relevé bancaire d'un compte pour une période qu'il saisit, composé de la listes des opérations du comptes et de plusieurs informations tels que la somme des crédits durant la période, il permettra au guichetier de donner au client un relevé lui permettant de prendre au mieux des décisions lié à son argent.
+
+- *Gérer (faire le "CRUD") les prélevement automatiques*: le guichetier peut créer, lire, modifier, supprimer des prélevements automatiques définit par un montant, un jour de prélévement et un bénéficiaire
 
 ==== Chef d'Agence
 
 Le chef d'agence est le deuxième niveau de droit d'accès et l'utilisateur avec le plus de droits. 
 Il peut faire toutes les actions d'un guichetier mais en plus de cela il peut gérer tous les employés de son agence.
 
-- *Faire les actions des guichetiers* : Le chef d'agence peut faire toutes les actions d'un guichetier sous les mêmes conditions.
+===== Version 0
 
 - *Rendre inactif un client* : le chef d'agence peut désactiver le compte d'un client existant si nécessaire. Cela doit empêcher de faire des opérations sur son/ses compte(s).
 
-- *Gérer (faire le "CRUD") les employés (guichetier et chef d'agence)*: le chef d'agence peut créer, lire, mettre à jour et supprimer les informations des employés de son agence. 
+===== Version 1
 
+- *Gérer (faire le "CRUD") les employés*: le chef d'agence peut créer, lire, mettre à jour et supprimer les informations des employés de son agence. 
+
+===== Version 2
+
+- *Réaliser un débit exceptionnel* : Le chef d'agence peut faire un débit exceptionnel pour un compte courant, c'est à dire qu'il peut faire un débit faisant que le solde devient inférieur au découvert maximum autorisé par le compte. Une alerte le prévient lorsqu'il essaye d'en faire un pour lui demander de confirmer.
+
+- *Simuler un emprunt* : le chef d'agence peut simuler un emprunt pour un montant, un taux d'intérêts fixe et un nombre de période donné. Cela lui permettra de générer un tableau d'emprunt (affiché dans l'interface) lui permettant de montrer plusieurs informations sur l'emprunt au client tel que : Le capital restant dû en début et fin de période, le montant des intérêts, du principal et de la mensualité/annuité pour chaque période
+
+- *Simuler une assurance d'emprunt* : le chef d'agence peut simuler une assurance d'emprunt définit par le montant emprunté, un taux d'intérêts fixe et un nombre de période donné. Cela doit lui permettre de donner au client des informations sur l'assurance tel que le coût total de l'emprunt, le coût des mensualités/annuités de l'assurance.
 
 == Diagramme de classe des données global
 
-.Diagramme de Classe Initial V1
-image::../../ressources/images/dc-initialv1.svg[]
+.Diagramme de Classe
+image::../../ressources/images/dc-initialv2.svg[]
 
 Ce diagramme de classe des données représente la structure des classes et des relations entre elles dans le code développé. Voici une description détaillée des éléments particuliers présents dans le diagramme de classe :
 
@@ -208,9 +227,6 @@ La structuration de l'application est répartie en plusieurs packages que voici 
 
 - *model.data* : Ce package se compose des classes permettant de stocker les informations de l'application en cours.  Chaque classe représente une table.
 Le package est définit par le diagramme de classe ci-dessous.
-
-.Diagramme de classe de la V0
-image::..\..\ressources\images\dc-initialv0.svg[alt=Diagramme de classe V0]
 
 - *model.orm* : Ce package est composé des classes permettant de faire des requêtes à la base de donnée de l'application. Chaque classe représente l'accès à une table.
 
@@ -343,7 +359,11 @@ Expliqué par Illan GABARRA
 
 ===== Description 
 
-Afin de réaliser une opération de débit, l'utilisateur clique sur le bouton "Enregistrer un débit" ce qui déclenche la méthode doDebit() créant une page de dialogue OperationEditorPane demandant la saisie d'un montant et le choix d'un type d'opération, si la création de l'opération est validé par le clic sur le bouton "Effectuer débit" et que le montant est valide (montant supérieur à 0 et découvert non dépassé) alors l'opération est inscrite dans la base de donnée par un appel de la procédure SQL (DEBITER).
+Afin de réaliser une opération de débit, l'utilisateur clique sur le bouton "Enregistrer un débit" ce qui déclenche la méthode doDebit().
+
+Cela créé une une page de dialogue OperationEditorPane demandant la saisie d'un montant et le choix d'un type d'opération, si la création de l'opération est validé par le clic sur le bouton "Effectuer débit" et que le montant est valide (montant supérieur à 0 et découvert non dépassé) 
+
+Alors l'opération est inscrite dans la base de donnée par un appel de la procédure SQL (DEBITER) par la classe Acces_BD_Operation.
 
 
 === Créditer un compte :
@@ -375,7 +395,11 @@ Développé par Illan GABARRA
 
 Cette fonctionnalité a été faite en faisant des modifications dans plusieurs classes et en créant une procédure SQL (CREDITER) afin de pour voir inscrire les opérations de crédit. Cette fonctionnalité se base sur celle de débiter un compte.
 
-Afin de réaliser une opération de crédit, l'utilisateur clique sur le bouton "Enregistrer un crédit" ce qui déclenche une méthode créant une page de dialogue demandant la saisie d'un montant et le choix d'un type d'opération, si la création de l'opération est validé par le clic sur le bouton "Effectuer crédit" et que l'opération est valide alors l'opération est inscrite dans la base de donnée par la procédure SQL (CREDITER).
+Afin de réaliser une opération de crédit, l'utilisateur clique sur le bouton "Enregistrer un crédit" ce qui déclenche une méthode doCredit().
+
+Cela créé une page de dialogue demandant la saisie d'un montant et le choix d'un type d'opération, si la création de l'opération est validé par le clic sur le bouton "Effectuer crédit" et que l'opération est valide,
+
+Alors l'opération est inscrite dans la base de donnée par la procédure SQL (CREDITER) par la classe Acces_BD_Operation.
 
 === Créer un compte :
 [NOTE]
@@ -441,7 +465,11 @@ Cependant elle se base sur les fonctionnalités Debiter et Crediter.
 
 Tout d'abord j'ai du créer la classe OperationTransfert héritant de la classe Opération afin de stocker le compte destinataire avec l'attribut public "idNumCompteDestinataire" avec l'objet Opération qui est créé afin de l'inscrire dans la base de données.
 
-Au même tire que debiter ou crediter, l'utilisateur clique sur le bouton "Enregistrer un transfert" ce qui déclenche une méthode créant une page de dialogue demandant la saisie d'un montant, le choix d'un type d'opération et le compte destinataire, si la création de l'opération est validé par le clic sur le bouton "Effectuer transfert", que le compte destinataire n'est pas clôturé et que l'opération est considéré comme valide (Les mêmes préconditions que débiter), alors dans la méthode Access_BD_Operation.insertTransfert fait appel à la fonction Access_BD_Operation.insertDebit pour débiter le compte selectionné puis Access_BD_Operation.insertCrédit pour créditer le compte destinataire dans la base de donnée.
+Au même titre que debiter ou crediter, l'utilisateur clique sur le bouton "Enregistrer un transfert" ce qui déclenche une méthode créant une page de dialogue demandant la saisie d'un montant, le choix d'un type d'opération et le compte destinataire, si la création de l'opération est validé par le clic sur le bouton "Effectuer transfert", que le compte destinataire n'est pas clôturé et que l'opération est considéré comme valide (Les mêmes préconditions que débiter), 
+
+Alors dans la méthode Access_BD_Operation.insertTransfert() fait appel à la fonction Access_BD_Operation.insertDebit() pour débiter le compte selectionné puis Access_BD_Operation.insertCrédit() pour créditer le compte destinataire dans la base de donnée.
+
+Ce fonctionnement permet de garantir que des sommes d'argent ne peuvent pas être créé par un problème d'accès à la base de donnée mais peut cependant faire perdre l'argent destiné au compte destinataire si un problème lié à la BD se passe lors de l'insertion du crédit.
 
 
 === Clôturer un compte :
