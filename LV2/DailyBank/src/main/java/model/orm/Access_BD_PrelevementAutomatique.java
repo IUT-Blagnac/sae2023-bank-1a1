@@ -1,5 +1,6 @@
 package model.orm;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,15 +13,15 @@ import model.orm.exception.DatabaseConnexionException;
 public class Access_BD_PrelevementAutomatique {
 	public Access_BD_PrelevementAutomatique() {
 	}
-	
+
 	public ArrayList<PrelevementAutomatique> getAllPrelevements(int idCompte){
 		ArrayList<PrelevementAutomatique> output = new ArrayList<PrelevementAutomatique>();
-		
-		
+
+
 		String idNumCompte = idCompte + "";
 		int idCompteNormalize = Integer.parseInt(idNumCompte.replaceFirst("0", ""));
 		System.out.println(idCompteNormalize);
-		
+
 		Connection con;
 		try {
 			con = LogToDatabase.getConnexion();
@@ -42,10 +43,10 @@ public class Access_BD_PrelevementAutomatique {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return output;
 	}
-	
+
 	public void deletePrelevement(int idPrelevement) {
 		Connection con;
 		try {
@@ -55,7 +56,7 @@ public class Access_BD_PrelevementAutomatique {
 			PreparedStatement pst = con.prepareStatement(query);
 
 			ResultSet rs = pst.executeQuery();
-			
+
 		} catch (DatabaseConnexionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -64,23 +65,23 @@ public class Access_BD_PrelevementAutomatique {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void insertPrelevement(double montant, int dateRecurrente, String beneficiaire, int idCompte) {
-		
+
 		Connection con;
 		try {
 			con = LogToDatabase.getConnexion();
 
 			String query2 = "INSERT INTO prelevementautomatique VALUES(seq_id_prelevauto.NEXTVAL,?,?,?,?)";
 			PreparedStatement pst2 = con.prepareStatement(query2);
-			
+
 			pst2.setDouble(1, montant);
 			pst2.setInt(2, dateRecurrente);
 			pst2.setString(3, beneficiaire);
 			pst2.setInt(4,idCompte);
 
 			ResultSet rs2 = pst2.executeQuery();
-			
+
 		} catch (DatabaseConnexionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -88,6 +89,33 @@ public class Access_BD_PrelevementAutomatique {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+	}
+	/**
+	 * Exécute les prélevements automatiques du jour
+	 * 
+	 * @author illan
+	 * 
+	 * @throws DatabaseConnexionException Si la connexion à la BD est interrompu ou impossible
+	 */
+	public void executerPrelevement() throws DatabaseConnexionException {
 		
+		try {
+			Connection con = LogToDatabase.getConnexion();
+
+			String query = "{call ExecuterPrelevAuto(?)}";
+			
+			CallableStatement call;
+			call = con.prepareCall(query);
+			call.registerOutParameter(1, java.sql.Types.INTEGER);
+			call.execute();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		
+
 	}
 }
+

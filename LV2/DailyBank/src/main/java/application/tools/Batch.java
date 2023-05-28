@@ -20,6 +20,7 @@ import model.data.Client;
 import model.data.CompteCourant;
 import model.orm.Access_BD_Client;
 import model.orm.Access_BD_CompteCourant;
+import model.orm.Access_BD_PrelevementAutomatique;
 import model.orm.exception.DataAccessException;
 import model.orm.exception.DatabaseConnexionException;
 
@@ -59,20 +60,40 @@ public class Batch implements Runnable{
 			FileOutputStream fichierLogsOutputStream = new FileOutputStream(fichierLogs, true); // true est pour que le fichier n'écrase pas le fichier existant
 			PrintStream outputLogs = new PrintStream(fichierLogsOutputStream);
 			
+			try {
+				Access_BD_PrelevementAutomatique acc_BD_Prelev = new Access_BD_PrelevementAutomatique();
+				
+				outputLogs.println(formatterDateEnFr.format(LocalDateTime.now())+"\n");
+				outputLogs.println("Exécution de tous les prélevements automatiques du jour\n\n");
+				
+				acc_BD_Prelev.executerPrelevement();
+				
+				outputLogs.println(formatterDateEnFr.format(LocalDateTime.now())+"\n");
+				outputLogs.println("Les prélevements on bien été réalisés !\n\n");
+			} catch (DatabaseConnexionException e) {
+				
+				outputLogs.println(new Date()+"\n");
+				outputLogs.println("Une erreur a eut lieu durant l'exécution des prélevements !\n");
+				outputLogs.println(e.getStackTrace());
+				outputLogs.println("\n\n");
+				
+			}
 			
 			try {
 				outputLogs.println(formatterDateEnFr.format(LocalDateTime.now())+"\n");
-				outputLogs.println("Création pour l'agence "+dailyBankState.getAgenceActuelle().nomAg+" de tous les relevés de tous les comptes pour le mois précédent\n");
+				outputLogs.println("Création pour l'agence "+dailyBankState.getAgenceActuelle().nomAg+" de tous les relevés de tous les comptes pour le mois précédent\n\n");
+				
 				this.creationReleves();
+				
 				outputLogs.println(formatterDateEnFr.format(LocalDateTime.now())+"\n");
-				outputLogs.println("Les relevés ont bien été créés\n");
+				outputLogs.println("Les relevés ont bien été créés\n\n");
 			} catch (DataAccessException | DatabaseConnexionException | IOException | DocumentException e) {
+				
 				outputLogs.println(new Date()+"\n");
+				outputLogs.println("Une erreur a eut lieu durant la création des relevés !\n");
 				outputLogs.println(e.getStackTrace());
-				outputLogs.close();
+				outputLogs.println("\n\n");
 			}
-			
-			
 			
 			
 			outputLogs.close();
