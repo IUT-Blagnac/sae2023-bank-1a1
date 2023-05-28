@@ -19,6 +19,15 @@ Ce document fournit des informations sur l'utilisation du logiciel bancaire qui 
     . Modifier un employé
     . Lire les informations d'un employé
     . Supprimer un employé 
+- V2 
+    . Faire un débit exceptionnel
+    . Créer un prélèvement automatique
+    . Modifier un prélèvement automatique
+    . Lire un prélèvement automatique
+    . Supprimer un prélèvement automatique 
+    . Simuler un emprunt 
+    . Générer un relevé PDF
+    . Générer un relevé PDF (Batch)
 
 == Introduction
 
