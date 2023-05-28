@@ -2,9 +2,15 @@
 
 
 ==== Présentation de l'équipe et rôles respectifs
+
 - Katbie Mathéo
+Responsable du document : Documentation utilisateur
+
 - Gabara Illan
+Responsable des documents : Cahier des charges utilisateur, documentation technique
+
 - Kwadjani Bilon 
+Responsable du document : Planification gant
 
 ==== Répartition des tâches et état d'avancement
 [options="header,footer"]
