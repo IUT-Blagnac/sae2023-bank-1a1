@@ -708,7 +708,7 @@ Cela passe ensuite à la deuxième étape, une page de saisie ReleveEditorPane e
 Au clic cela passe à la troisième étape, le relevé PDF est créé à partir des informations sur les opération contenu de la base de donnée récupéré via la classe Access_BD_Operation.
 Suite à la création du fichier le pdf est affiché à l'écran via une librairie *_awt_* (Je sais c'est pas le top mais c'était le plus facile)
 
-==== Actions Batch
+==== Tâches Batch
 [NOTE]
 ====
 Développé par Illan GABARRA
@@ -717,39 +717,40 @@ Développé par Illan GABARRA
 *Classes impliquées dans chaque package :*
 
 * package application.control :
-** CompteManagement.java
+** DailyBankMainFrame.java
 
 * package application.view : 
-** CompteManagementController.java
-** ReleveEditorPaneController.java
+** DailyBankMainFrame.java
 
 * package application.tools :
+** Batch.java
 ** RelevesBancaire.java
 
 * package model.data :
 ** Client.java
 ** CompteCourant.java
-** Operation.java
 
 * package model.orm :
-** Access_BD_Operation.java
+** Access_BD_Client.java
+** Access_BD_CompteCourant.java
+** Access_BD_PrelevementAutomatique.java
 
 
 ===== Description
 
-La génération d'un relevé bancaire se divise en 3 parties
+le batch est un programme fait pour tourner en parrallèle dans un thread différent du thread de l'application, c'est pour cela que la classe Batch implémente l'interface Runnable afin de pouvoir l'utiliser dans un thread.
 
-* La sélection par l'utilisateur du compte auquel on veut faire un relevé
-* La saisie par l'utilisateur des informations sur le relevé voulu
-* La création d'un fichier .pdf avec le relevé bancaire du compte
+Tout au long du batch un fichier logBatch est créé au niveau du répertoire de travail, il permet d'enregistrer une trace de si les tâches se sont bien effectuées et permet ainsi de détecter des erreurs qui aurait pu se dérouler au Runtime.
 
+Le batch se divise en 2 parties :
 
-Pour la première cela se passe dans CompteManagement après avoir selectionné un compte l'utilisateur clique sur générer relevé PDF
+* La création de tous les relevés de tous les comptes de l'agence de l'employé en cours
+* Le prélevement de tous les prélevement automatiques du jour.
 
-Cela passe ensuite à la deuxième étape, une page de saisie ReleveEditorPane est lancé afin de faire saisir à l'utilisateur la date de début et de fin de la période voulu ainsi que l'emplacement du fichier qui sera généré au clic sur le bouton généré
+La première partie se compose de plusieurs méthodes permettant de créer l'arborsecence de dossier en supprimant tous les dossiers existant similaire et d'une méthode creationReleves() permettant de créer les relevés dans cette arborescence.
 
-Au clic cela passe à la troisième étape, le relevé PDF est créé à partir des informations sur les opération contenu de la base de donnée récupéré via la classe Access_BD_Operation.
-Suite à la création du fichier le pdf est affiché à l'écran via une librairie *_awt_* (Je sais c'est pas le top mais c'était le plus facile)
+La deuxième à partir d'une méthode Access_BD_PrelevementAutomatique.executerPrelevement() réaliser l'ensemble des prélevements du jour à partir de la procédure SQL ExecuterPrelevAuto()
+
 
 == Conclusion :
 

@@ -108,6 +108,7 @@ public class Batch implements Runnable{
 
 	/**
 	 * Méthode permettant de génrer les relevés de tous les comptes de l'agence de l'employé en cours
+	 * En mettant à l'intérieur l'ensemble des opérations du premier du mois passé au dernier jour du mois passé
 	 *
 	 * @throws DatabaseConnexionException  Si une erreur de connexion à lieu
 	 * @throws DataAccessException  S'il est impossible d'accéder à une donnée
