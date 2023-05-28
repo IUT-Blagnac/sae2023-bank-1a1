@@ -631,6 +631,39 @@ Développé par Mathéo KATBIE
 ** CompteCourant.java
 ** PrelevementAutomatique.java
 
+==== Simuler un emprunt
+[NOTE]
+====
+Développé par Illan GABARRA
+====
+
+*Classes impliquées dans chaque package :*
+
+* package application.control :
+** SimulationManagement.java
+
+* package application.view : 
+** SimulationManagementController.java
+** SimulationReadController.java
+
+* package model.data :
+** Simulation.java
+** LigneTableauEmprunt.java
+
+===== Description
+
+La simulation d'emprunt se divise en 3 sous parties :
+
+* La saisie par l'utilisateur des informations sur l'emprunt voulu
+* La génération du tableau d'emprunt 
+* L'affichage du tableau d'emprunt
+
+
+Pour la première cela se passe dans la classe SimulationManagementController.java après avoir indiqué des valeures correct et appuyer sur le bouton valider un objet Simulation est créé
+
+Cela passe ensuite à la deuxième étape, le tableau d'emprunt est généré en créant dans l'objet Simulation une arrayList de LigneTableauEmprunt représenant chacun une ligne du tableau.
+
+Pour ce qui est de la troisième étape, Une nouvelle page est créé SimulationRead représenant le tableau en utilisant l'objet Simulation.
 
 == Conclusion :
 

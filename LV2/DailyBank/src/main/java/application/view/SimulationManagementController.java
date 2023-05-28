@@ -174,7 +174,7 @@ public class SimulationManagementController {
 		// Vérification de la saisie du nombre du taux
 		try {
 			taux = Double.parseDouble(this.txtTaux.getText().trim());
-			if (taux < 0 | taux >= 100)
+			if (taux < 0 | taux > 100)
 				throw new NumberFormatException();
 		} catch (NumberFormatException nfe) {
 
