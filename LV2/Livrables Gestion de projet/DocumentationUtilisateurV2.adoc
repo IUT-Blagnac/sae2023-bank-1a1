@@ -67,19 +67,23 @@ Pour lancer l'application exécuter le jar dans le dossier.
 
 === Version 2
 
-|Faire un débit exceptionnel
+[options="header"]
+|===
+|Cas d'utilisation | Description
+
+| Faire un débit exceptionnel
 |
 
-|Créer un prélevement automatique  
+| Créer un prélevement automatique  
 |
 
-|Modifier un prélevement automatique  
+| Modifier un prélevement automatique  
 |
 
-|Lire les un prélevement automatique 
+| Lire les un prélevement automatique 
 |
 
-|Supprimer un prélevement automatique 
+| Supprimer un prélevement automatique 
 |
 
 |Simuler un emprunt
@@ -90,7 +94,7 @@ Pour lancer l'application exécuter le jar dans le dossier.
 
 |Générer un relevé PDF (BATCH)
 |Cette fonctionnalité permet la génération de tous les relevés de tous les comptes de l'agence de l'employé en cours de façon automatique (Pour le moment après clic sur un bouton par un chef d'agence)
-
+|===
 
 === Se connecter 
 Voici les démarches à suivre pour se connecter au logiciel bancaire : 
