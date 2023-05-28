@@ -6,8 +6,12 @@ Ce document fournit des informations sur l'utilisation du logiciel bancaire qui 
 
 == Sommaire 
 
+:toc:
+:toc-position: preamble
+:toc-title: Sommaire
+:sectnums:
 
-* Introduction 
+* Introduction
 * Cas d'utilisation 
 * Lancement application 
 * Guichetier  
@@ -31,7 +35,7 @@ Ce document fournit des informations sur l'utilisation du logiciel bancaire qui 
     - Générer un relevé PDF (Batch)
 * Besoin d'aide 
 
-== Introduction
+## Introduction
 
 Le logiciel bancaire est un outil puissant qui facilite la gestion des comptes bancaires et des opérations financières. Il permet aux utilisateurs de créer, modifier et clôturer des comptes, ainsi que d'effectuer des virements entre les comptes.
 
