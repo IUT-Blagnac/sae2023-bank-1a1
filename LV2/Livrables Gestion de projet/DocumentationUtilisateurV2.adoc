@@ -19,7 +19,7 @@ Le logiciel bancaire sera développé en plusieurs versions, avec des fonctionna
 
 Pour lancer l'application exécuter le jar dans le dossier.
 
-== Version 1
+== Cas d'Utilisation Version 1
 
 
 [options="header"]
@@ -52,7 +52,7 @@ Pour lancer l'application exécuter le jar dans le dossier.
 
 |===
 
-== Version 2
+== Cas d'Utilisation Version 2
 
 [options="header"]
 |===
@@ -87,7 +87,8 @@ Pour lancer l'application exécuter le jar dans le dossier.
 
 == Documentation Version 1
 
-=== Se connecter 
+=== Guichetier 
+==== Se connecter 
 Voici les démarches à suivre pour se connecter au logiciel bancaire : 
 
 Cliquez sur : Utilisateur -> Connexion
@@ -96,7 +97,7 @@ Rentrez votre login et mot de passe.
 
 image::..\..\ressources\images\I_Connecter1.png[alt=connecter]
 
-=== Créer un compte bancaire
+==== Créer un compte bancaire
 [abstract]
 Développé par Kwadjani Bilon
 
@@ -110,7 +111,7 @@ Si le client n'existe pas encore créer un nouveau client puis répetez les éta
 
 image::..\..\ressources\images\I_NouveauCompteBancaire.png[alt=Nouveau Compte]
 
-=== Créditer/Débiter 
+==== Créditer/Débiter 
 [abstract]
 [NOTE]
 ====
@@ -158,7 +159,7 @@ Vous pourrez vérifier que l'opération a bien été créé s'il est affiché da
 
 image::..\..\ressources\images\I_Crediter-debiter-4.png[alt=crediter/debiter_image4_Vérification]
 
-=== Effectuer un virement 
+==== Effectuer un virement 
 [abstract]
 [NOTE]
 ====
@@ -200,7 +201,7 @@ image::..\..\ressources\images\I_Transferer-3.png[alt=virement-Image-3-Vérifica
 ===== Vérification compte destinataire
 image::..\..\ressources\images\I_Transferer-4.png[alt=virement-Image-3-Vérification-Destination]
 
-=== Clôturer un compte 
+==== Clôturer un compte 
 [abstract]
 Développé par Kwadjani Bilon
 
@@ -210,7 +211,8 @@ Cliquez sur : Gestion -> Clients -> Choisissez un client -> Cloturer Compte
 
 image::..\..\ressources\images\I_Cloturer.png[alt=cloturer]
 
-=== Créer un employé
+=== Chef d'agence
+==== Créer un employé
 [abstract]
 Développé par Mathéo Katbie 
 
@@ -222,7 +224,7 @@ Rentrez les informations manquantes pour créer un nouveau employé dans l'agenc
 
 image::..\..\ressources\images\I_Cr%C3%A9erEmploye.png[alt=creeremploye]
 
-=== Lire les informations employé 
+==== Lire les informations employé 
 [abstract]
 Développé par Mathéo Katbie 
 
@@ -232,7 +234,7 @@ Gestion -> Employés -> Double cliquez sur l'employé pour avoir ces information
 
 image::..\..\ressources\images\I_VoirInformationEmploye.png[alt=lire]
 
-=== Modifier les informations employé 
+==== Modifier les informations employé 
 [abstract]
 Développé par Mathéo Katbie 
 
@@ -242,7 +244,7 @@ Gestion -> Employés -> Choisir un employé -> Modifier employé
 
 image::..\..\ressources\images\I_ModifierEmploye.png[alt=modifier]
 
-=== Supprimer un employé
+==== Supprimer un employé
 [abstract]
 Développé par Mathéo Katbie 
 
@@ -254,7 +256,9 @@ image::..\..\ressources\images\I_SupprimerEmploye.png[alt=supprimer]
 
 == Documentation Version 2 
 
-=== Créer un prélèvement automatique 
+=== Guichetier 
+
+==== Créer un prélèvement automatique 
 [abstract]
 [NOTE]
 ====
@@ -277,7 +281,7 @@ Cliquez sur "Valider"
 
 image::https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/594253ef2e32557f2a3237c3d6465bbcb17e6022/ressources/images/I_CreerPrelevement.png[alt=creerprelevement]
 
-=== Modifier un prélèvement automatique 
+==== Modifier un prélèvement automatique 
 [abstract]
 [NOTE]
 ====
@@ -300,7 +304,7 @@ Cliquez sur "Valider"
 
 image::https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/594253ef2e32557f2a3237c3d6465bbcb17e6022/ressources/images/I_ModifierPrelevement.png[alt=modifierprelevement]
 
-=== Voir un prélèvement automatique 
+==== Voir un prélèvement automatique 
 [abstract]
 [NOTE]
 ====
@@ -324,7 +328,7 @@ Cliquez sur "Valider" pour fermer la fenêtre.
 Fonctionnalité non fonctionnelle.
 ====
 
-=== Supprimer un prélèvement automatique 
+==== Supprimer un prélèvement automatique 
 [abstract]
 [NOTE]
 ====
@@ -345,7 +349,7 @@ image::https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/594253ef2e32557f2a32
 
 
 
-=== Générer un relevé PDF
+==== Générer un relevé PDF
 [abstract]
 [NOTE]
 ====
@@ -393,7 +397,9 @@ Si le relevé s'affiche à l'écran alors le fichier a bien été généré et s
 
 image::..\..\ressources\images\I_Generer-RelevePDF-6.png[alt=generer-RelevePDF-6-affichage]
 
-=== Actions Batch
+=== Chef d'agence 
+
+==== Actions Batch
 [NOTE]
 ====
 Développé par Illan GABARRA
