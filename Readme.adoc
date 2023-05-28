@@ -28,10 +28,10 @@ Responsable du document : Planification gant, cahier de recette
 |2    |Chef d’Agence     | Emprunt | Simuler emprunt|||F 
 |2    |Chef d’Agence     | Emprunt | Simuler assurance||D | 
 |2    |Guichetier     | Compte | Relevé PDF|| | F
-|2    |Guichetier     | CRUD Prélèvement | C|D| | 
-|2    |Guichetier     | CRUD Prélèvement | R|D| | 
-|2    |Guichetier     | CRUD Prélèvement | U|D| | 
-|2    |Guichetier     | CRUD Prélèvement | D|D| | 
+|2    |Guichetier     | CRUD Prélèvement | C|F| | 
+|2    |Guichetier     | CRUD Prélèvement | R|F| | 
+|2    |Guichetier     | CRUD Prélèvement | U|F| | 
+|2    |Guichetier     | CRUD Prélèvement | D|F| | 
 |2    |Batch     | Prélèvements automatiques | || | D
 |2    |Batch     | Reléves mensuels | || |F 
 
