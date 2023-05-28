@@ -463,7 +463,6 @@ C'est à dire que dans "Relevés-PDF_DAILYBANK-NomAgence" il y a un répertoire 
 
 image::..\..\ressources\images\I_Batch-3.png[alt=Batch-2-RepertoiresClient_Créés]
 image::..\..\ressources\images\I_Batch-4.png[alt=Batch-2-ReleverPdf_Créés]
-image::..\..\ressources\images\I_Generer-relevePDF-6.png[alt=generer-RelevePDF-6-affichage]
 
 === BESOIN D'AIDE 
 Si besoin d'aide contactez votre responsable informatique.
