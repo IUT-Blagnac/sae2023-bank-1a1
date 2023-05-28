@@ -1,5 +1,6 @@
 = Documentation Technique - DailyBankApp
 :toc:
+:toclevels: 3
 :toc-position: preamble
 :toc-title: Sommaire
 :sectnums:
@@ -289,7 +290,9 @@ A part :
 
 Chaque fonctionnalité est lié à un cas d'utilisation définit dans la partie <<use-case-general,Use Case de l'application>>
 
-=== Modifier les informations des clients : 
+=== Version 0
+
+==== Modifier les informations des clients : 
 
 * package application.control :
 ** ClientEditorPane.java
@@ -304,7 +307,7 @@ Chaque fonctionnalité est lié à un cas d'utilisation définit dans la partie 
 * package model.orm :
 ** Access_BD_Client.java
 
-=== Inscrire un nouveau client : 
+==== Inscrire un nouveau client : 
 
 *Classes impliquées dans chaque package :*
 
@@ -321,7 +324,7 @@ Chaque fonctionnalité est lié à un cas d'utilisation définit dans la partie 
 * package model.orm :
 ** Access_BD_Client.java
 
-=== Consulter un compte : 
+==== Consulter un compte : 
 
 *Classes impliquées dans chaque package :*
 
@@ -333,7 +336,7 @@ Chaque fonctionnalité est lié à un cas d'utilisation définit dans la partie 
 * package model.orm :
 ** Access_BD_CompteCourant.java
 
-=== Débiter un compte  :
+==== Débiter un compte  :
 
 [NOTE]
 ====
@@ -366,7 +369,9 @@ Cela créé une une page de dialogue OperationEditorPane demandant la saisie d'u
 Alors l'opération est inscrite dans la base de donnée par un appel de la procédure SQL (DEBITER) par la classe Acces_BD_Operation.
 
 
-=== Créditer un compte :
+=== Version 1
+
+==== Créditer un compte :
 
 [NOTE]
 ====
@@ -401,7 +406,7 @@ Cela créé une page de dialogue demandant la saisie d'un montant et le choix d'
 
 Alors l'opération est inscrite dans la base de donnée par la procédure SQL (CREDITER) par la classe Acces_BD_Operation.
 
-=== Créer un compte :
+==== Créer un compte :
 [NOTE]
 ====
 Développé par Bilon Kwadjani
@@ -433,7 +438,7 @@ Pour creer un compte j'ai utilise la classe "CompteManagement" que j'ai modifier
 La création d'un nouveau compte se fait seuleument si le client est actif sinon le boutton pour crée un nouveau compte est desactiver.
 
 
-=== Effectuer un virement de compte à compte :
+==== Effectuer un virement de compte à compte :
 
 [NOTE]
 ====
@@ -472,7 +477,7 @@ Alors dans la méthode Access_BD_Operation.insertTransfert() fait appel à la fo
 Ce fonctionnement permet de garantir que des sommes d'argent ne peuvent pas être créé par un problème d'accès à la base de donnée mais peut cependant faire perdre l'argent destiné au compte destinataire si un problème lié à la BD se passe lors de l'insertion du crédit.
 
 
-=== Clôturer un compte :
+==== Clôturer un compte :
 [NOTE]
 ====
 Développé par Bilon Kwadjani
@@ -499,7 +504,7 @@ Pour creer un compte j'ai utilise la classe "CompteManagement" que j'ai ajouter 
 La clôturation d'un compte se fait seuleument si le le solde du compte est de 0 sinon on reçoit un message d'erreur.
 
 
-=== Rendre inactif/actif un client :
+==== Rendre inactif/actif un client :
 
 [NOTE]
 ====
@@ -529,7 +534,7 @@ Après clic sur ce bouton, la méthode doDesactiverClient est appeler afin de r�
 Puis ensuite via un accès à la BD par un objet Access_BD_Client on appelle la méthode updateClient avec comme paramètre le client modifié afin de mettre à jour les nouvelles informations du client dans la base de données.
 
 
-=== Gérer (faire le "CRUD") les employés (guichetier et chef d'agence) :
+==== Gérer (faire le "CRUD") les employés (guichetier et chef d'agence) :
 
 *Classes impliquées dans chaque package :*
 
@@ -545,6 +550,9 @@ Puis ensuite via un accès à la BD par un objet Access_BD_Client on appelle la 
 ** Employe.java
 * package model.orm :
 ** Access_BD_Employe.java
+
+=== Version 2
+
 
 == Conclusion :
 
