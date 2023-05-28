@@ -26,6 +26,7 @@ import model.orm.exception.DatabaseConnexionException;
 /**
  * Classe permettant de réaliser toutes les opération du Batch c'est à dire, générer l'ensemble des relevés des comptes de l'agence de l'employé en cours
  * 
+ * 
  * Pour cela un fichier de logs est créé afin de pouvoir y noter toutes les actions réalisé et les erreurs si il y en a 
  * 
  * @author illan
@@ -46,10 +47,9 @@ public class Batch implements Runnable{
 	 * 
 	 * <BR>
 	 * 
-	 * Si il est impossible de créer le fichier de logs alors un message est affiché dans la console et le fichier de logs n'est pas créé et le programme s'arrête 
+	 * Si il est impossible de créer le fichier de logs alors un message est affiché dans la console, le fichier de logs n'est pas créé et le programme s'arrête 
 	 */
 	public void run() {
-		System.out.println("run");
 		try {
 			DateTimeFormatter formatterDateEnFr = DateTimeFormatter
 					.ofPattern("EEEE d MMMM yyyy HH:mm:ss", new Locale("fr"));
@@ -59,18 +59,22 @@ public class Batch implements Runnable{
 			FileOutputStream fichierLogsOutputStream = new FileOutputStream(fichierLogs, true); // true est pour que le fichier n'écrase pas le fichier existant
 			PrintStream outputLogs = new PrintStream(fichierLogsOutputStream);
 			
-			outputLogs.println(formatterDateEnFr.format(LocalDateTime.now())+"\n");
-			outputLogs.println("Création pour l'agence "+dailyBankState.getAgenceActuelle().nomAg+" de tous les relevés de tous les comptes pour le mois précédent\n");
+			
 			try {
+				outputLogs.println(formatterDateEnFr.format(LocalDateTime.now())+"\n");
+				outputLogs.println("Création pour l'agence "+dailyBankState.getAgenceActuelle().nomAg+" de tous les relevés de tous les comptes pour le mois précédent\n");
 				this.creationReleves();
+				outputLogs.println(formatterDateEnFr.format(LocalDateTime.now())+"\n");
+				outputLogs.println("Les relevés ont bien été créés\n");
 			} catch (DataAccessException | DatabaseConnexionException | IOException | DocumentException e) {
 				outputLogs.println(new Date()+"\n");
 				outputLogs.println(e.getStackTrace());
 				outputLogs.close();
-				return;
 			}
-			outputLogs.println(formatterDateEnFr.format(LocalDateTime.now())+"\n");
-			outputLogs.println("Les relevés ont bien été créés\n");
+			
+			
+			
+			
 			outputLogs.close();
 
 		} catch (FileNotFoundException e1) {
@@ -79,6 +83,8 @@ public class Batch implements Runnable{
 		}
 	}
 
+	
+	
 	/**
 	 * Méthode permettant de génrer les relevés de tous les comptes de l'agence de l'employé en cours 
 	 * 
@@ -121,8 +127,6 @@ public class Batch implements Runnable{
 				releveTmp.genererReleveBancaire(fichierReleveACreer);
 			}
 		}
-
-
 	}
 
 	/**
@@ -170,7 +174,7 @@ public class Batch implements Runnable{
 	 * Méthode récursive permettant de supprimer les fichier et si c'est un répertoire tous les fichier qu'il contient
 	 * 
 	 * @param fichier Fichier à supprimer
-	 * @throws IOException S'il est impossible de supprimer fichier
+	 * @throws IOException S'il est impossible de supprimer le fichier
 	 */
 	private void supprimerFichierRec(File fichier) throws IOException {
 		if (fichier.isDirectory()) {
