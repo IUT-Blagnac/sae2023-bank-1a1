@@ -28,6 +28,7 @@ Ce document fournit des informations sur l'utilisation du logiciel bancaire qui 
     . Simuler un emprunt 
     . Générer un relevé PDF
     . Générer un relevé PDF (Batch)
+- Besoin d'aide 
 
 == Introduction
 
@@ -406,3 +407,6 @@ image::..\..\ressources\images\I_Generer-relevePDF-5.png[alt=generer-RelevePDF-5
 Si le relevé s'affiche à l'écran alors le fichier a bien été généré et sauvegardé ! 
 
 image::..\..\ressources\images\I_Generer-relevePDF-6.png[alt=generer-RelevePDF-6-affichage]
+
+=== BESOIN D'AIDE 
+Si besoin d'aide contactez votre responsable informatique.
