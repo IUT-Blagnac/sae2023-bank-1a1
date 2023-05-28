@@ -439,7 +439,7 @@ Si ces fichiers ne sont pas généré il est probable que vous n'ayez pas le dro
 [IMPORTANT]
 ====
 A moins d'être l'administrateur système je vous invite à ne pas toucher au fichier logBatch.txt
-Il permet une sauvegarde du déroulé du batch permettant ainsi de détecter d'eventuel problème plus compliqué tel qu'un problème dans l'écriture d'un fichier spécifiquement.
+Il permet une sauvegarde du déroulé du batch permettant ainsi de détecter d'eventuels problèmes plus compliqués tel qu'un problème dans l'écriture d'un fichier spécifique.
 ====
 
 image::..\..\ressources\images\I_Batch-2.png[alt=Batch-2-Fichier_Créés]
@@ -461,8 +461,8 @@ Le répertoire a une arborescence de ce type :
 
 C'est à dire que dans "Relevés-PDF_DAILYBANK-NomAgence" il y a un répertoire pour chaque client de l'agence de l'employé où sont stocké tous les relevés du mois précédent pour chacun de ses comptes
 
-image::..\..\ressources\images\I_Batch-3.png[alt=Batch-2-RepertoiresClient_Créés]
-image::..\..\ressources\images\I_Batch-4.png[alt=Batch-2-ReleverPdf_Créés]
+image::..\..\ressources\images\I_Batch-3.png[alt=Batch-3-RepertoiresClient_Créés]
+image::..\..\ressources\images\I_Batch-4.png[alt=Batch-4-ReleverPdf_Créés]
 
 === BESOIN D'AIDE 
 Si besoin d'aide contactez votre responsable informatique.
