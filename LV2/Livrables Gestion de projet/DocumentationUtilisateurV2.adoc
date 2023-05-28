@@ -6,29 +6,30 @@ Ce document fournit des informations sur l'utilisation du logiciel bancaire qui 
 
 == Sommaire 
 
-- Introduction 
-- Cas d'utilisation 
-- Lancement application 
-- Guichetier  
-    . Créditer/débiter un compte
-    . Créer un compte
-    . Effectuer un virement
-    . Clôturer un compte
-- Chef d'agence
-    . Créer un employé
-    . Modifier un employé
-    . Lire les informations d'un employé
-    . Supprimer un employé 
-- V2 
-    . Faire un débit exceptionnel
-    . Créer un prélèvement automatique
-    . Modifier un prélèvement automatique
-    . Lire un prélèvement automatique
-    . Supprimer un prélèvement automatique 
-    . Simuler un emprunt 
-    . Générer un relevé PDF
-    . Générer un relevé PDF (Batch)
-- Besoin d'aide 
+
+* Introduction 
+* Cas d'utilisation 
+* Lancement application 
+* Guichetier  
+    - Créditer/débiter un compte
+    - Créer un compte
+    - Effectuer un virement
+    - Clôturer un compte
+* Chef d'agence
+    - Créer un employé
+    - Modifier un employé
+    - Lire les informations d'un employé
+    - Supprimer un employé 
+* V2 
+    - Faire un débit exceptionnel
+    - Créer un prélèvement automatique
+    - Modifier un prélèvement automatique
+    - Lire un prélèvement automatique
+    - Supprimer un prélèvement automatique 
+    - Simuler un emprunt 
+    - Générer un relevé PDF
+    - Générer un relevé PDF (Batch)
+* Besoin d'aide 
 
 == Introduction
 
