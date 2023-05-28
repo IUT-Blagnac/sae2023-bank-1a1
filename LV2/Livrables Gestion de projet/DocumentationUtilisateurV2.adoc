@@ -9,8 +9,13 @@
 Ce document fournit des informations sur l'utilisation du logiciel bancaire qui permet la création et la modification de comptes bancaires, ainsi que des fonctionnalités de virement. Il décrit les cas d'utilisation à développer dans les différentes versions du logiciel. Il permet également de créer/modifier des employés dans des agences.
 
 == Introduction
+L'industrie bancaire française est en constante évolution pour répondre aux exigences croissantes de ses clients en matière d'instantanéité et de services numériques. Dans cette optique, les banques françaises ont intensifié leurs efforts de restructuration et ont investi massivement dans la transformation digitale. Cela se traduit par la création de nouvelles offres alternatives, telles que les applications mobiles bancaires.
 
-Le logiciel bancaire est un outil puissant qui facilite la gestion des comptes bancaires et des opérations financières. Il permet aux utilisateurs de créer, modifier et clôturer des comptes, ainsi que d'effectuer des virements entre les comptes.
+La version initiale du logiciel (V0) permettait aux guichetiers de modifier les informations des clients, de créer de nouveaux clients, de consulter des comptes et d'effectuer des opérations de débit sur les comptes. De même, les chefs d'agence pouvaient rendre inactif un client.
+
+Cependant, pour répondre aux besoins croissants des clients et améliorer l'efficacité opérationnelle, plusieurs versions du logiciel ont été prévues. Dans la version 1 (V1), les guichetiers disposeront de fonctionnalités supplémentaires telles que le crédit/débit des comptes, la création de comptes, les virements de compte à compte et la clôture de comptes. Les chefs d'agence, quant à eux, pourront gérer les employés (guichetiers et chefs d'agence) via des opérations CRUD (Create, Read, Update, Delete).
+
+La version 2 (V2) introduira de nouvelles fonctionnalités pour les guichetiers, notamment la génération de relevés mensuels de compte en format PDF et la gestion des prélèvements automatiques. Les chefs d'agence, quant à eux, auront accès à des spécifications pour effectuer des débits exceptionnels, simuler des emprunts et des assurances d'emprunt.
 
 == Cas d'utilisation à développer
 
