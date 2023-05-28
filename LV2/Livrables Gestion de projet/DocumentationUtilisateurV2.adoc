@@ -89,6 +89,8 @@ Pour lancer l'application exécuter le jar dans le dossier.
 == Documentation Version 1
 
 === Guichetier 
+
+[[se-connecter]]
 ==== Se connecter 
 Voici les démarches à suivre pour se connecter au logiciel bancaire : 
 
@@ -400,7 +402,41 @@ image::..\..\ressources\images\I_Generer-RelevePDF-6.png[alt=generer-RelevePDF-6
 
 === Chef d'agence 
 
-==== Actions Batch
+==== Simuler emprunt
+
+[NOTE]
+====
+Développé par Illan GABARRA
+====
+
+Tout d'abord il faut que vous vous connectiez en tant que chef d'agence je vous invite à voir la <<se-connecter,documentation>> pour faire cela.
+
+Ensuite cliquez sur "Gestion" puis "Simulation"
+
+image::..\..\ressources\images\I_Simulation-Emprunt-1.png[alt=Emprunt-1-Lancement]
+
+Vous avez ensuite plus qu'à choisir le type de période, le nombre de période, le taux d'intérêts annuel ainsi que le montant de l'emprunt.
+
+image::..\..\ressources\images\I_Simulation-Emprunt-2.png[alt=Emprunt-2-Saisie]
+
+[NOTE]
+====
+Si vous choisissez des valeurs non valides le champ passerra en rouge pour vous indiquer que ce n'est pas des valeurs valides
+====
+Le nombre de période doit être supérieur à 0
+Le taux d'intérêts doit être compris entre 0 et 100
+Le montant de l'emprunt doit être supérieur à 0 
+
+[WARNING]
+====
+Des emprunt avec des périodes très grandes et des interêts et des montant très faibles peut donner lieu à des erreurs d'arrondi sur l'affichage des valeurs veuillez rentrer des emprunts ayant un vrai sens ! 
+====
+
+Cliquez ensuite sur valider et votre tableau d'emprunt sera généré ! 
+
+image::..\..\ressources\images\I_Simulation-Emprunt-3.png[alt=Emprunt-3-Affichage]
+
+=== Batch
 [NOTE]
 ====
 Développé par Illan GABARRA
