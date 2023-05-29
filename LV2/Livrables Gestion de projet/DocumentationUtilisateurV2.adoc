@@ -374,7 +374,7 @@ image::..\..\ressources\images\choix debit.png
 
 puis saisir le montant de debit et valider :
 
-image::..\..\ressources\images\Saisie montant debit.png
+ressources/images/Saisie montant debit.png
 
 si le debit depasse le decouvert autorisé et l'employe est chef d'agence il verra ce message de confirmation : 
 
