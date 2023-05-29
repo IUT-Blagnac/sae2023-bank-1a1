@@ -366,15 +366,15 @@ Cette fonctionnalité permet au chef d'agence d'enregistre un debit même si il 
 
 Pour cela choisir un compte actif puis Clic sur "Voir Operation" :
 
-image::..\..\ressources\images\choix compte.png
+image::..\..\ressources\images\choix compte.png[alt=choix compte]
 
 puis Clic sur "Enregistrer Débit" :
 
-image::..\..\ressources\images\choix debit.png
+image::..\..\ressources\images\choix debit.png[alt=choix debit]
 
 puis saisir le montant de debit et valider :
 
-ressources/images/Saisie montant debit.png
+image::..\..\ressources\images\Saisie montant debit.png[alt=saisie2]
 
 si le debit depasse le decouvert autorisé et l'employe est chef d'agence il verra ce message de confirmation : 
 
