@@ -359,10 +359,17 @@ image::https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/594253ef2e32557f2a32
 
 ==== Débit Exceptionnel
 [abstract]
+[NOTE]
+====
 Développé par Kwadjani Bilon
 ====
 
 Cette fonctionnalité permet au chef d'agence d'enregistre un debit même si il depasse le découvert autorisé.
+
+[IMPORTANT]
+====
+Pour faire un débit exceptionnel l'employe actuel doit être chef d'agence et le le sodle après le débit doit être inferieur au découvert autorisé.
+====
 
 Pour cela choisir un compte actif puis Clic sur "Voir Operation" :
 
@@ -380,10 +387,6 @@ si le debit depasse le decouvert autorisé et l'employe est chef d'agence il ver
 
 image::..\..\ressources\images\Confirmation debit.png[alt=confirmer debit]
 
-[IMPORTANT]
-====
-Pour faire un débit exceptionnel l'employe actuel doit être chef d'agence et le le sodle après le débit doit être inferieur au découvert autorisé.
-====
 
 ==== Générer un relevé PDF
 [abstract]
