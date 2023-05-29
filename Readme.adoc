@@ -26,7 +26,7 @@ Responsable des documents : Planification gant, cahier de recette
 |1    |Guichetier     | Compte | Clôturer|  | F | 
 |2    |Chef d’Agence     | Compte | Débit exceptionnel||F | 
 |2    |Chef d’Agence     | Emprunt | Simuler emprunt|||F 
-|2    |Chef d’Agence     | Emprunt | Simuler assurance||D | 
+|2    |Chef d’Agence     | Emprunt | Simuler assurance||F | 
 |2    |Guichetier     | Compte | Relevé PDF|| | F
 |2    |Guichetier     | CRUD Prélèvement | C|F| | 
 |2    |Guichetier     | CRUD Prélèvement | R|F| | 
