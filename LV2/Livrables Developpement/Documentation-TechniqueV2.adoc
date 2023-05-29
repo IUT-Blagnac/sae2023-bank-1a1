@@ -689,6 +689,38 @@ Cela passe ensuite à la deuxième étape, le tableau d'emprunt est généré en
 Pour ce qui est de la troisième étape, Une nouvelle page est créé SimulationRead représenant le tableau en utilisant l'objet Simulation.
 
 
+==== Simuler un emprunt
+[NOTE]
+====
+Développé par Bilon Kwadjani
+====
+
+*Classes impliquées dans chaque package :*
+
+* package application.control :
+** SimulationManagement.java
+
+* package application.view : 
+** SimulationManagementController.java
+** SimulationReadController.java
+
+* package model.data :
+** Simulation.java
+** LigneTableauAssurance.java
+
+===== Description
+Tout comme la simulation d'emprunt la simulation d'emprunt se fait en 3 etape :
+* La saisie par l'utilisateur des informations sur l'emprunt voulu
+* La génération du tableau d'assurance emprunt
+* L'affichage du tableau d'assurance emprunt
+
+Pour la première cela se passe dans la classe SimulationManagementController.java après avoir indiqué des valeures correct et appuyer sur le bouton valider un objet Simulation est créé
+
+Cela passe ensuite à la deuxième étape, le tableau d'emprunt est généré en créant dans l'objet Simulation une arrayList de LigneTableauAssurance représenant chacun une ligne du tableau.
+
+Pour ce qui est de la troisième étape, Une nouvelle page est créé SimulationRead représenant le tableau en utilisant l'objet Simulation.
+
+
 ==== Débit Exceptionnel :
 [NOTE]
 ====
