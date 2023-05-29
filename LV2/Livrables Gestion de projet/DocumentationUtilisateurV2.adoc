@@ -378,7 +378,7 @@ ressources/images/Saisie montant debit.png
 
 si le debit depasse le decouvert autorisé et l'employe est chef d'agence il verra ce message de confirmation : 
 
-image::..\..\ressources\images\Confirmation debit.png
+image::..\..\ressources\images\Confirmation debit.png[alt=confirmer debit]
 
 [IMPORTANT]
 ====
