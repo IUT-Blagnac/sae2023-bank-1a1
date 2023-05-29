@@ -110,6 +110,7 @@ public class SimulationReadController {
 			this.paneRoot.setCenter(tableView);
 		}
 		else { // Assurance
+			//developper par bilon
 			System.err.println("Assurance TODO - Partie Bilon");
 
 			TableColumn<LigneTableauAssurance, Integer> periodeColonne = new TableColumn<>("Periode");
@@ -125,7 +126,7 @@ public class SimulationReadController {
 			mensualite.setCellValueFactory(new PropertyValueFactory<>("mensualite"));
 
 			TableColumn<LigneTableauAssurance, Double> montantAssurance = new TableColumn<>("Montant Assurance");
-			montantAssurance.setCellValueFactory(new PropertyValueFactory<>("montantAssurance"));
+			montantAssurance.setCellValueFactory(new PropertyValueFactory<>("totalAssurance"));
 
 			// Création de la table
 						TableView<LigneTableauAssurance> tableView2 = new TableView<>();
@@ -136,14 +137,13 @@ public class SimulationReadController {
 						tableView2.getColumns().add(mensualite);
 						tableView2.getColumns().add(montantAssurance);
 						
-						this.paneRoot.setCenter(tableView2);
 						tableView2.getItems().setAll(this.simulationEnCours.alSimulationAs);
 
 						tableView2.resizeColumn(tableView2.getColumns().get(0), 80);
 						for (int i = 1 ; i < tableView2.getColumns().size() ; i ++) {
 							tableView2.resizeColumn(tableView2.getColumns().get(i), 150);
 						}
-			return;
+						this.paneRoot.setCenter(tableView2);
 		}
 
 
