@@ -104,7 +104,7 @@ public class OperationsManagement {
 				System.out.println(""+this.compteConcerne.debitAutorise);
 
 				if(this.dailyBankState.isChefDAgence() && (this.compteConcerne.debitAutorise>nSolde)) {
-					    ao.insertDebitExeptionnel(this.compteConcerne.idNumCompte,op.montant, op.idTypeOp);
+					    ao.insertDebitExceptionnel(this.compteConcerne.idNumCompte,op.montant, op.idTypeOp);
 				}else {
 					ao.insertDebit(this.compteConcerne.idNumCompte, op.montant, op.idTypeOp);
 				}

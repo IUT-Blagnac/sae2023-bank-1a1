@@ -20,6 +20,7 @@ public class Simulation {
 	public double taux;
 	public double montant;
 	public ArrayList<LigneTableauEmprunt> alSimulation;
+	public ArrayList<LigneTableauAssurance> alSimulationAs;
 
 	public Simulation() {
 		this.typeSimulation = "";
@@ -46,7 +47,7 @@ public class Simulation {
 	}
 
 	public void genererSimulation() {
-
+		this.alSimulationAs = new ArrayList<>() ;
 		this.alSimulation = new ArrayList<>() ;
 
 		switch (typeSimulation) {
@@ -78,8 +79,17 @@ public class Simulation {
 
 			break;
 		case ConstantesIHM.TYPE_SIMUL_2: // Assurance taux fixe
-			// TODO
-			System.err.println("TODO - Assurance taux fixe - Partie Bilon");
+			double montantAssurance,mensualite,tauxAssurance,montantEmprunt;
+			int nbTemps;
+			
+			montantEmprunt =this.montant;
+			nbTemps=this.nbPeriodes;
+			mensualite=montantEmprunt/nbTemps;
+			tauxAssurance=this.taux;
+			montantAssurance=taux*montant*nbPeriodes;
+			
+			System.out.println("le montant taux d'assurance de l'agence bancaire est de "+this.taux+ " votre assurance sera d'un total de "+montantAssurance+ " soit d'une mensualité de "+montantAssurance/12);
+			this.alSimulationAs.add( new LigneTableauAssurance(nbTemps, montantEmprunt, tauxAssurance, mensualite, montantAssurance));
 			break;
 
 		default:

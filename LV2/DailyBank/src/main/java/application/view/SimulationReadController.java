@@ -9,6 +9,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import model.data.LigneTableauAssurance;
 import model.data.LigneTableauEmprunt;
 import model.data.Simulation;
 
@@ -111,8 +112,37 @@ public class SimulationReadController {
 		else { // Assurance
 			System.err.println("Assurance TODO - Partie Bilon");
 
-			//DOIT FINIR PAR ça
-			//this.paneRoot.setCenter(CONTENU PRINCIPAL);
+			TableColumn<LigneTableauAssurance, Integer> periodeColonne = new TableColumn<>("Periode");
+			periodeColonne.setCellValueFactory(new PropertyValueFactory<>("periode"));
+
+			TableColumn<LigneTableauAssurance, Double> montantEmprunt= new TableColumn<>("Montant Emprunt");
+			montantEmprunt.setCellValueFactory(new PropertyValueFactory<>("montantEmprunt"));
+
+			TableColumn<LigneTableauAssurance, Double> tauxAssurance = new TableColumn<>("Taux Assurance");
+			tauxAssurance.setCellValueFactory(new PropertyValueFactory<>("tauxAssurance"));
+
+			TableColumn<LigneTableauAssurance, Double> mensualite = new TableColumn<>(strLbl);
+			mensualite.setCellValueFactory(new PropertyValueFactory<>("mensualite"));
+
+			TableColumn<LigneTableauAssurance, Double> montantAssurance = new TableColumn<>("Montant Assurance");
+			montantAssurance.setCellValueFactory(new PropertyValueFactory<>("montantAssurance"));
+
+			// Création de la table
+						TableView<LigneTableauAssurance> tableView2 = new TableView<>();
+
+						tableView2.getColumns().add(periodeColonne);
+						tableView2.getColumns().add(montantEmprunt);
+						tableView2.getColumns().add(tauxAssurance);
+						tableView2.getColumns().add(mensualite);
+						tableView2.getColumns().add(montantAssurance);
+						
+						this.paneRoot.setCenter(tableView2);
+						tableView2.getItems().setAll(this.simulationEnCours.alSimulationAs);
+
+						tableView2.resizeColumn(tableView2.getColumns().get(0), 80);
+						for (int i = 1 ; i < tableView2.getColumns().size() ; i ++) {
+							tableView2.resizeColumn(tableView2.getColumns().get(i), 150);
+						}
 			return;
 		}
 

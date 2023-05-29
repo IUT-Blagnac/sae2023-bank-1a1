@@ -135,7 +135,7 @@ public class Access_BD_Operation {
 	 * @param typeOp
 	 * @author Kwadjani Bilon
 	 */
-	public void insertDebitExeptionnel(int idNumCompte, double montant, String typeOp) {
+	public void insertDebitExceptionnel(int idNumCompte, double montant, String typeOp) {
 
 		try {
             // Appel de la procédure stockée
