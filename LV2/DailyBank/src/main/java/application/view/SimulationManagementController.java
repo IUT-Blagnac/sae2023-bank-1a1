@@ -186,6 +186,7 @@ public class SimulationManagementController {
 		}
 
 		String typeSimul = this.cbTypeSimul.getValue();
+		System.out.println(typeSimul);
 		String typePeriodes = this.cbTypePeriodes.getValue();
 
 		this.simulationResultat = new Simulation(typeSimul, typePeriodes, nbPeriodes,taux, montant);

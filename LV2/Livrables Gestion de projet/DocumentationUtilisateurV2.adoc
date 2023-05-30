@@ -219,6 +219,7 @@ Cliquez sur : Gestion -> Clients -> Choisissez un client -> Cloturer Compte
 
 image::..\..\ressources\images\I_Cloturer.png[alt=cloturer]
 
+
 === Chef d'agence
 ==== Créer un employé
 [abstract]
@@ -355,6 +356,36 @@ Les boutons permettant la création de ces opérations seront désactivés s'il 
 
 image::https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/594253ef2e32557f2a3237c3d6465bbcb17e6022/ressources/images/I_SupprimerPrelevement.png[alt=supprimerprelevement]
 
+
+==== Débit Exceptionnel
+[abstract]
+[NOTE]
+====
+Développé par Kwadjani Bilon
+====
+
+Cette fonctionnalité permet au chef d'agence d'enregistre un debit même si il depasse le découvert autorisé.
+
+[IMPORTANT]
+====
+Pour faire un débit exceptionnel l'employe actuel doit être chef d'agence et le le sodle après le débit doit être inferieur au découvert autorisé.
+====
+
+Pour cela choisir un compte actif puis Clic sur "Voir Operation" :
+
+image::..\..\ressources\images\choix compte.png[alt=choix compte]
+
+puis Clic sur "Enregistrer Débit" :
+
+image::..\..\ressources\images\choix debit.png[alt=choix debit]
+
+puis saisir le montant de debit et valider :
+
+image::..\..\ressources\images\Saisie montant debit.png[alt=saisie2]
+
+si le debit depasse le decouvert autorisé et l'employe est chef d'agence il verra ce message de confirmation : 
+
+image::..\..\ressources\images\Confirmation debit.png[alt=confirmer debit]
 
 
 ==== Générer un relevé PDF
