@@ -61,9 +61,9 @@ Dans sa colonne il doit remplir la ligne correspondant à chaque partie qu'il a 
 |         | Code V1 |  https://github.com/IUT-Blagnac/sae2023-bank-1a1/tree/main/LV1/DailyBank  | 
 |         | jar projet V1 |   https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/Livrable%20Dev/DailyBank-1.0%20.jar | Ca marche ! @Mathéo : n'appelez pas le bouton désactiver employé (désactiver a un autre sens), c'est supprimer. Peut-être mettre un popup qui dit : êtes vous sûr de vouloir supprimer.
 |         | Javadoc V1 |  https://github.com/IUT-Blagnac/sae2023-bank-1a1/tree/main/LV1/Livrable%20Dev/javadoc  |
-| 26/05   | Gantt V2  réalisé    |https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV2/Livrables%20Gestion%20de%20projet/PlanificationGantV2Realis%C3%A9.pdf| 
+| 26/05   | Gantt V2  réalisé    |https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV2/Livrables%20Gestion%20de%20projet/PlanificationGantV2Realis%C3%A9.pdf| Manque une légende : rouge pour tâches non traitées ?  
 |         | Doc. Util. V2 |  https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV2/Livrables%20Gestion%20de%20projet/DocumentationUtilisateurV2.adoc       |Manque version, nom équipe, date. Peu d'explications pour l'installation, les utilisateurs ne sont pas présentés (cf. rmq V1). Bien pour les foctionnalités  note 14/20. 
-|         | Suivi projet V2|https://github.com/orgs/IUT-Blagnac/projects/7/views/1 |
+|         | Suivi projet V2|https://github.com/orgs/IUT-Blagnac/projects/7/views/1 | Issues Ok. Gantt confus non légendés. QQ remarques non prises en compte  mais globalement très bonne gestion du Github et des livraisons. note 17/20.
 |         | Doc. Tec. V2 |   https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV2/Livrables%20Developpement/Documentation-TechniqueV2.adoc             |     
 |         | Code V2    |    https://github.com/IUT-Blagnac/sae2023-bank-1a1/tree/main/LV2/DailyBank                 | 
 |         | Javadoc V2 | https://github.com/IUT-Blagnac/sae2023-bank-1a1/tree/main/LV2/Livrables%20Developpement/javadoc  |
