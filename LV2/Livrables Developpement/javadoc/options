@@ -1,0 +1,24 @@
+-classpath
+'C:/Users/illan/.m2/repository/org/openjfx/javafx-controls/17/javafx-controls-17.jar;C:/Users/illan/.m2/repository/org/openjfx/javafx-controls/17/javafx-controls-17-win.jar;C:/Users/illan/.m2/repository/org/openjfx/javafx-graphics/17/javafx-graphics-17.jar;C:/Users/illan/.m2/repository/org/openjfx/javafx-graphics/17/javafx-graphics-17-win.jar;C:/Users/illan/.m2/repository/org/openjfx/javafx-fxml/17/javafx-fxml-17.jar;C:/Users/illan/.m2/repository/org/openjfx/javafx-fxml/17/javafx-fxml-17-win.jar;C:/Users/illan/.m2/repository/org/openjfx/javafx-base/17/javafx-base-17.jar;C:/Users/illan/.m2/repository/org/openjfx/javafx-base/17/javafx-base-17-win.jar;C:/Users/illan/.m2/repository/org/openjfx/javafx-web/17/javafx-web-17.jar;C:/Users/illan/.m2/repository/org/openjfx/javafx-web/17/javafx-web-17-win.jar;C:/Users/illan/.m2/repository/org/openjfx/javafx-media/17/javafx-media-17.jar;C:/Users/illan/.m2/repository/org/openjfx/javafx-media/17/javafx-media-17-win.jar;C:/Users/illan/.m2/repository/com/itextpdf/itextpdf/5.5.13.3/itextpdf-5.5.13.3.jar;C:/Users/illan/.m2/repository/com/oracle/database/jdbc/ojdbc10/19.18.0.0/ojdbc10-19.18.0.0.jar'
+-encoding
+'UTF-8'
+-public
+-source
+'17'
+-sourcepath
+'C:/Users/illan/OneDrive/Documents/SAE/SAE S2/SAE 2.01 DevApp/sae2023-bank-1a1/LV2/DailyBank/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2023. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/illan/OneDrive/Documents/SAE/SAE S2/SAE 2.01 DevApp/sae2023-bank-1a1/LV2/DailyBank/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'DailyBank App 1.0 API'
+-use
+-version
+-windowtitle
+'DailyBank App 1.0 API'

@@ -1,0 +1,530 @@
+= Documentation utilisateur : DailyBank
+:toc:
+:toclevels: 3
+:toc-position: preamble
+:toc-title: 
+:sectnums:
+
+[abstract]
+Ce document fournit des informations sur l'utilisation du logiciel bancaire qui permet la création et la modification de comptes bancaires, ainsi que des fonctionnalités de virement. Il décrit les cas d'utilisation à développer dans les différentes versions du logiciel. Il permet également de créer/modifier des employés dans des agences.
+
+== Introduction
+L'industrie bancaire française est en constante évolution pour répondre aux exigences croissantes de ses clients en matière d'instantanéité et de services numériques. Dans cette optique, les banques françaises ont intensifié leurs efforts de restructuration et ont investi massivement dans la transformation digitale. Cela se traduit par la création de nouvelles offres alternatives, telles que les applications mobiles bancaires.
+
+La version initiale du logiciel (V0) permettait aux guichetiers de modifier les informations des clients, de créer de nouveaux clients, de consulter des comptes et d'effectuer des opérations de débit sur les comptes. De même, les chefs d'agence pouvaient rendre inactif un client.
+
+Cependant, pour répondre aux besoins croissants des clients et améliorer l'efficacité opérationnelle, plusieurs versions du logiciel ont été prévues. Dans la version 1 (V1), les guichetiers disposeront de fonctionnalités supplémentaires telles que le crédit/débit des comptes, la création de comptes, les virements de compte à compte et la clôture de comptes. Les chefs d'agence, quant à eux, pourront gérer les employés (guichetiers et chefs d'agence) via des opérations CRUD (Create, Read, Update, Delete).
+
+La version 2 (V2) introduira de nouvelles fonctionnalités pour les guichetiers, notamment la génération de relevés mensuels de compte en format PDF et la gestion des prélèvements automatiques. Les chefs d'agence, quant à eux, auront accès à des spécifications pour effectuer des débits exceptionnels, simuler des emprunts et des assurances d'emprunt.
+
+== Cas d'utilisation à développer
+
+Le logiciel bancaire sera développé en plusieurs versions, avec des fonctionnalités spécifiques à chaque version. Voici l'ordre de développement des cas d'utilisation dans les différentes versions du logiciel :
+
+== Lancement application
+
+Pour lancer l'application exécuter le jar dans le dossier.
+
+== Cas d'Utilisation Version 1
+
+
+[options="header"]
+|===
+|Cas d'utilisation | Description
+
+|Créditer/débiter un compte
+|Cette fonctionnalité permet au guichetier de créditer ou débiter un compte bancaire. Elle est implémentée en utilisant le langage Java et en interagissant avec la base de données à l'aide d'une procédure stockée.
+
+|Créer un compte
+|Cette fonctionnalité permet au guichetier de créer un nouveau compte bancaire pour un client. Le guichetier doit fournir les informations nécessaires, telles que le nom du client, l'adresse, etc.
+
+|Effectuer un virement de compte à compte
+|Cette fonctionnalité permet aux utilisateurs de transférer des fonds d'un compte bancaire à un autre. Les utilisateurs doivent spécifier les comptes source et destinataire, ainsi que le montant à transférer.
+
+|Clôturer un compte
+|Cette fonctionnalité permet au guichetier de clôturer un compte bancaire. Le guichetier doit fournir le numéro de compte du compte à clôturer.
+
+|Créer un employé 
+|Cette fonctionnalité permet au chef d'agence de créer un compte employé. Le chef d'agence doit fournir un nom,prenom,login et mot de passe pour l'employé.
+
+|Modifier un employé 
+|Cette fonctionnalité permet au chef d'agence de modifier les informations d'un employé qui est dans son agence.
+
+|Lire les informations d'un employé 
+|Cette fonctionnalité permet au chef d'agence de lire les informations d'un employé.
+
+|Supprimer un employé 
+|Cette fonctionnalité permet au chef d'agence de supprimer un employé de l'agence.
+
+|===
+
+== Cas d'Utilisation Version 2
+
+[options="header"]
+|===
+|Cas d'utilisation | Description
+
+| Faire un débit exceptionnel
+|
+
+|Créer un prélevement automatique  
+|Cette fonctionnalité permet à un guichetier ou un chef d'agence de créer un prélèvement automatique tout les mois d'un montant donné et à un jour donné.
+
+|Modifier un prélevement automatique  
+|Cette fonctionnalité permet à un guichetier ou un chef d'agence de modifier un prélèvement automatique existant.
+
+|Lire un prélevement automatique 
+|Cette fonctionnalité permet à un guichetier ou chef d'agence de lire les informations d'un prélèvement automatique. 
+
+|Supprimer un prélevement automatique 
+|Cette fonctionnalité permet à un guichetier ou chef d'agence de supprimer un prélèvement automatique existant.
+
+|Simuler un emprunt
+|Cette fonctionnalité permet au chef d'agence de créer un tableau d'emprunt pour un montant, une période, à un taux d'intérêts choisit. 
+
+|Générer un relevé PDF 
+|Cette fonctionnalité permet au guichetier de créer un relevé des opération d'un compte courant pour une période choisit
+
+|Générer un relevé PDF (BATCH)
+|Cette fonctionnalité permet la génération de tous les relevés de tous les comptes de l'agence de l'employé en cours de façon automatique (Pour le moment après clic sur un bouton par un chef d'agence)
+
+[[se_connecter]]
+|===
+
+== Documentation Version 1
+
+=== Guichetier 
+
+[[se-connecter]]
+==== Se connecter 
+Voici les démarches à suivre pour se connecter au logiciel bancaire : 
+
+Cliquez sur : Utilisateur -> Connexion
+
+Rentrez votre login et mot de passe.
+
+image::..\..\ressources\images\I_Connecter1.png[alt=connecter]
+
+==== Créer un compte bancaire
+[abstract]
+Développé par Kwadjani Bilon
+
+Voici les démarches à suivre pour créer un compte bancaire : 
+
+Cliquez sur : Gestion -> Clients -> Choisissez un client -> Comptes client -> Nouveau Compte
+
+Rentrez les informations manquantes pour créer un nouveau compte client et cliquez sur ajouter.
+
+Si le client n'existe pas encore créer un nouveau client puis répetez les étapes d'au dessus.
+
+image::..\..\ressources\images\I_NouveauCompteBancaire.png[alt=Nouveau Compte]
+
+==== Créditer/Débiter 
+[abstract]
+[NOTE]
+====
+Créditer développé par Illan GABARRA
+====
+
+Tout d'abord il faudra faire les actions de base suivantes : 
+
+Se connecter -> Clic sur "Gestion" -> Clic sur "Clients" -> Choissisez un client -> Clic sur "Comptes clients" -> Choissisez un compte à crediter/debiter -> Clic sur "Voir opérations"
+
+[IMPORTANT]
+====
+La réalisation de ces actions n'est possible que si le compte sélectionné n'est pas clôturé !
+Les boutons permettant la création de ces opérations seront désactivés s'il l'est.
+====
+
+Vous devez ensuite choisir une des deux opérations en cliquant sur le bouton associé :
+
+image::..\..\ressources\images\I_Crediter-debiter-1.png[alt=crediter/debiter_image1_Choix_Opération]
+
+Après avoir fait cela vous aurez une interface vous demandant un type d'opération et un montant :
+
+===== _Pour créditer_ : 
+
+image::..\..\ressources\images\I_Crediter-debiter-2.png[alt=crediter_image2_saisie]
+
+Indiquer le type de l'opération via le menu déroulant type d'opération puis le montant de l'opération dans la partie montant *le montant doit être supérieur à 0* si vous ne le respectez pas la case montant passera au rouge pour vous inviter à resaisir .
+
+Enfin cliquez sur "Effectuer Crédit" pour réaliser l'opération
+Ou cliquez sur "Annuler Crédit" pour annuler l'opération
+
+===== _Pour débiter_ : 
+
+image::..\..\ressources\images\I_Crediter-debiter-3.png[alt=debiter_image3_saisie]
+
+Indiquer le type de l'opération via le menu déroulant type d'opération puis le montant de l'opération dans la partie montant *le montant doit être supérieur à 0 et le solde après le débit supérieur au découvert autorisé (ici : supérieur à -200, le découvert autorisé est indiqué dans la case supérieur au coté du solde actuel )* si vous ne respectez pas cela la case montant passera au rouge pour vous inviter à resaisir .
+
+Enfin cliquez sur "Effectuer Débit" pour réaliser l'opération
+Ou cliquez sur "Annuler Débit" pour annuler l'opération
+
+
+===== *_Vérification de l'existance de la nouvelle opération_*
+
+Vous pourrez vérifier que l'opération a bien été créé s'il est affiché dans le tableau des opérations du compte 
+
+image::..\..\ressources\images\I_Crediter-debiter-4.png[alt=crediter/debiter_image4_Vérification]
+
+==== Effectuer un virement 
+[abstract]
+[NOTE]
+====
+Développé par Illan GABARRA
+====
+
+Tout d'abord il faudra faire les actions de base suivantes : 
+
+Se connecter -> Clic sur "Gestion" -> Clic sur "Clients" -> Choissisez un client -> Clic sur "Comptes clients" -> Choissisez un compte à crediter/debiter -> Clic sur "Voir opérations"
+
+[IMPORTANT]
+====
+La réalisation de ces actions n'est possible que si le compte sélectionné n'est pas clôturé !
+Les boutons permettant la création de ces opérations seront désactivés s'il l'est.
+====
+
+Cliquez sur "Enregistrer Transfert"
+
+image::..\..\ressources\images\I_Transferer-1.png[alt=virement-Image-1-Bouton-op-Transfert]
+
+Indiquer  le montant de l'opération dans la partie montant *le montant doit être supérieur à 0 et le solde après le débit supérieur au découvert autorisé (ici : supérieur à -200, le découvert autorisé est indiqué dans la case supérieur au coté du solde actuel )* si vous ne respectez pas cela la case montant passera au rouge pour vous inviter à resaisir .
+
+[IMPORTANT]
+====
+Le compte destinataire doit être un compte valide c'est à dire existant et non clôturé.
+si vous ne respectez pas cela la case "Compte destinataire" passera au rouge pour vous inviter à resaisir .
+====
+
+Enfin cliquez sur "Effectuer transfert" pour réaliser l'opération
+Ou cliquez sur "Annuler transfert" pour annuler l'opération
+
+===== *_Vérification de l'existance de la nouvelle opération_*
+
+Vous pourrez vérifier que l'opération a bien été créé s'il est affiché dans le tableau des opérations du compte source et celui du destinataire :
+
+===== Vérification compte source
+image::..\..\ressources\images\I_Transferer-3.png[alt=virement-Image-3-Vérification-Source]
+
+===== Vérification compte destinataire
+image::..\..\ressources\images\I_Transferer-4.png[alt=virement-Image-3-Vérification-Destination]
+
+==== Clôturer un compte 
+[abstract]
+Développé par Kwadjani Bilon
+
+Voici les démarches à suivre pour clôturer un compte bancaire : 
+
+Cliquez sur : Gestion -> Clients -> Choisissez un client -> Cloturer Compte
+
+image::..\..\ressources\images\I_Cloturer.png[alt=cloturer]
+
+
+=== Chef d'agence
+==== Créer un employé
+[abstract]
+Développé par Mathéo Katbie 
+
+Voici les démarches à suivre pour créer un employé : 
+
+Cliquez sur : Gestion -> Employés -> Nouveau employé 
+
+Rentrez les informations manquantes pour créer un nouveau employé dans l'agence
+
+image::..\..\ressources\images\I_Cr%C3%A9erEmploye.png[alt=creeremploye]
+
+==== Lire les informations employé 
+[abstract]
+Développé par Mathéo Katbie 
+
+Voici les démarches à suivre pour lire les informations d'un employé : 
+
+Gestion -> Employés -> Double cliquez sur l'employé pour avoir ces informations 
+
+image::..\..\ressources\images\I_VoirInformationEmploye.png[alt=lire]
+
+==== Modifier les informations employé 
+[abstract]
+Développé par Mathéo Katbie 
+
+Voici les démarches à suivre pour modifier les informations d'un employé :
+
+Gestion -> Employés -> Choisir un employé -> Modifier employé
+
+image::..\..\ressources\images\I_ModifierEmploye.png[alt=modifier]
+
+==== Supprimer un employé
+[abstract]
+Développé par Mathéo Katbie 
+
+Voici les démarches à suivre pour supprimer un employé : 
+
+Gestion -> Employés -> Choisir un employé -> Désactiver employé
+
+image::..\..\ressources\images\I_SupprimerEmploye.png[alt=supprimer]
+
+== Documentation Version 2 
+
+=== Guichetier 
+
+==== Créer un prélèvement automatique 
+[abstract]
+[NOTE]
+====
+Développé par Mathéo KATBIE 
+====
+
+Tout d'abord il faudra faire les actions de base suivantes : 
+
+Se connecter -> Clic sur "Gestion" -> Clic sur "Clients" -> Choissisez un client -> Clic sur "Comptes clients" -> Choissisez un compte où créer un prélèvement automatique -> Clic sur "Voir prélèvements" -> Clic sur "Nouveau prélèvement"
+
+Indiquer le montant du prélèvement par mois, la date recurrente (quel jour du mois on débite le compte) et le bénéficiaire du prélèvement automatique.
+
+[IMPORTANT]
+====
+La réalisation de ces actions n'est possible que si le compte sélectionné n'est pas clôturé !
+Les boutons permettant la création de ces opérations seront désactivés s'il l'est.
+====
+
+Cliquez sur "Valider"
+
+image::https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/594253ef2e32557f2a3237c3d6465bbcb17e6022/ressources/images/I_CreerPrelevement.png[alt=creerprelevement]
+
+==== Modifier un prélèvement automatique 
+[abstract]
+[NOTE]
+====
+Développé par Mathéo KATBIE 
+====
+
+Tout d'abord il faudra faire les actions de base suivantes : 
+
+Se connecter -> Clic sur "Gestion" -> Clic sur "Clients" -> Choisissez un client -> Clic sur "Comptes clients" -> Choisissez un compte où créer un prélèvement automatique -> Clic sur "Voir prélèvements" -> Choisissez un prélèvement existant -> Clic sur "Modifier prélèvement"
+
+Indiquer le nouveau montant, la nouvelle date recurrente (quel jour du mois on débite le compte) et le nouveau bénéficiaire du prélèvement automatique.
+
+[IMPORTANT]
+====
+La réalisation de ces actions n'est possible que si le compte sélectionné n'est pas clôturé !
+Les boutons permettant la création de ces opérations seront désactivés s'il l'est.
+====
+
+Cliquez sur "Valider"
+
+image::https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/594253ef2e32557f2a3237c3d6465bbcb17e6022/ressources/images/I_ModifierPrelevement.png[alt=modifierprelevement]
+
+==== Voir un prélèvement automatique 
+[abstract]
+[NOTE]
+====
+Développé par Mathéo KATBIE 
+====
+
+Tout d'abord il faudra faire les actions de base suivantes : 
+
+Se connecter -> Clic sur "Gestion" -> Clic sur "Clients" -> Choisissez un client -> Clic sur "Comptes clients" -> Choisissez un compte où créer un prélèvement automatique -> Clic sur "Voir prélèvements" -> Choisissez un prélèvement existant -> Clic sur "Voir prélèvement"
+
+[IMPORTANT]
+====
+La réalisation de ces actions n'est possible que si le compte sélectionné n'est pas clôturé !
+Les boutons permettant la création de ces opérations seront désactivés s'il l'est.
+====
+
+Cliquez sur "Valider" pour fermer la fenêtre.
+
+[IMPORTANT]
+====
+Fonctionnalité non fonctionnelle.
+====
+
+==== Supprimer un prélèvement automatique 
+[abstract]
+[NOTE]
+====
+Développé par Mathéo KATBIE 
+====
+
+Tout d'abord il faudra faire les actions de base suivantes : 
+
+Se connecter -> Clic sur "Gestion" -> Clic sur "Clients" -> Choisissez un client -> Clic sur "Comptes clients" -> Choisissez un compte où créer un prélèvement automatique -> Clic sur "Voir prélèvements" -> Choisissez un prélèvement existant -> Clic sur "Supprimer prélèvement"
+
+[IMPORTANT]
+====
+La réalisation de ces actions n'est possible que si le compte sélectionné n'est pas clôturé !
+Les boutons permettant la création de ces opérations seront désactivés s'il l'est.
+====
+
+image::https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/594253ef2e32557f2a3237c3d6465bbcb17e6022/ressources/images/I_SupprimerPrelevement.png[alt=supprimerprelevement]
+
+
+==== Débit Exceptionnel
+[abstract]
+[NOTE]
+====
+Développé par Kwadjani Bilon
+====
+
+Cette fonctionnalité permet au chef d'agence d'enregistre un debit même si il depasse le découvert autorisé.
+
+[IMPORTANT]
+====
+Pour faire un débit exceptionnel l'employe actuel doit être chef d'agence et le le sodle après le débit doit être inferieur au découvert autorisé.
+====
+
+Pour cela choisir un compte actif puis Clic sur "Voir Operation" :
+
+image::..\..\ressources\images\choix compte.png[alt=choix compte]
+
+puis Clic sur "Enregistrer Débit" :
+
+image::..\..\ressources\images\choix debit.png[alt=choix debit]
+
+puis saisir le montant de debit et valider :
+
+image::..\..\ressources\images\Saisie montant debit.png[alt=saisie2]
+
+si le debit depasse le decouvert autorisé et l'employe est chef d'agence il verra ce message de confirmation : 
+
+image::..\..\ressources\images\Confirmation debit.png[alt=confirmer debit]
+
+
+==== Générer un relevé PDF
+[abstract]
+[NOTE]
+====
+Développé par Illan GABARRA
+====
+
+Cette fonctionnalité permet de générer le relevé PDF d'un compte, à partir d'une date de début non comprise à une date de fin comprise dans le relevé, tout deux sont saisit par vous utilisateur.
+
+Tout d'abord il faudra faire les actions de base suivantes : 
+
+Se connecter -> Clic sur "Gestion" -> Clic sur "Clients" -> Choissisez un client -> Clic sur "Comptes clients"
+
+Choisissez un compte pour lequel vous voulez générer le relevé puis cliquez sur "Générer Relevé PDF"
+
+image::..\..\ressources\images\I_Generer-RelevePDF-1.png[alt=generer-RelevePDF-1-Choisir-Compte]
+
+Vous arriverez à une page ou l'on vous demandera une saisie :
+
+image::..\..\ressources\images\I_Generer-RelevePDF-2.png[alt=generer-RelevePDF-2-PageSaisie]
+
+Choisissez ensuite une date correspondant à la date de début de période puis une date de fin de période.
+
+[TIP]
+====
+Cliquez sur le symbole de calendrier pour saisir les dates.
+====
+
+[IMPORTANT]
+====
+Le date doit être valide c'est à dire que la date de début doit être avant la date de fin et la date de fin peut être au maximum la date du jour.
+====
+image::..\..\ressources\images\I_Generer-RelevePDF-3.png[alt=generer-RelevePDF-3-PageSaisie-Date]
+
+Ensuite cliquez sur le bouton "Modifier l'emplacement et le nom du fichier" pour chosir où sera sauvegarder le relevé PDF du compte. Vous pouvez même changer le nom du fichier
+
+image::..\..\ressources\images\I_Generer-RelevePDF-4.png[alt=generer-RelevePDF-4-Saisie-Fichier]
+
+Cliquez sur enregistrer 
+
+Enfin cliquez sur générer 
+
+image::..\..\ressources\images\I_Generer-RelevePDF-5.png[alt=generer-RelevePDF-5-ClicGenerer]
+
+Si le relevé s'affiche à l'écran alors le fichier a bien été généré et sauvegardé ! 
+
+image::..\..\ressources\images\I_Generer-RelevePDF-6.png[alt=generer-RelevePDF-6-affichage]
+
+=== Chef d'agence 
+
+==== Simuler emprunt
+
+[NOTE]
+====
+Développé par Illan GABARRA
+====
+
+Tout d'abord il faut que vous vous connectiez en tant que chef d'agence je vous invite à voir la <<se-connecter,documentation>> pour faire cela.
+
+Ensuite cliquez sur "Gestion" puis "Simulation"
+
+image::..\..\ressources\images\I_Simulation-Emprunt-1.png[alt=Emprunt-1-Lancement]
+
+Vous avez ensuite plus qu'à choisir le type de période, le nombre de période, le taux d'intérêts annuel ainsi que le montant de l'emprunt.
+
+image::..\..\ressources\images\I_Simulation-Emprunt-2.png[alt=Emprunt-2-Saisie]
+
+[NOTE]
+====
+Si vous choisissez des valeurs non valides le champ passerra en rouge pour vous indiquer que ce n'est pas des valeurs valides
+====
+Le nombre de période doit être supérieur à 0
+Le taux d'intérêts doit être compris entre 0 et 100
+Le montant de l'emprunt doit être supérieur à 0 
+
+[WARNING]
+====
+Des emprunt avec des périodes très grandes et des interêts et des montant très faibles peut donner lieu à des erreurs d'arrondi sur l'affichage des valeurs veuillez rentrer des emprunts ayant un vrai sens ! 
+====
+
+Cliquez ensuite sur valider et votre tableau d'emprunt sera généré ! 
+
+image::..\..\ressources\images\I_Simulation-Emprunt-3.png[alt=Emprunt-3-Affichage]
+
+=== Batch
+[NOTE]
+====
+Développé par Illan GABARRA
+====
+
+Afin de réaliser toutes les actions Batch
+
+* Prélevements automatique du jour
+* Génération des relevés PDF du mois précédent pour tous les comptes de l'agence de l'employé actuel
+
+Tout d'abord il faut que vous vous connectiez en tant que chef d'agence je vous invite à voir la <<se-connecter,documentation>> pour faire cela.
+
+Ensuite cliquez sur "Gestion" puis "Lancer Batch"
+
+image::..\..\ressources\images\I_Batch-1.png[alt=Batch-1-Lancement]
+
+Après cette action votre batch est lancé, la réalisation du batch peut être plutôt longue mais elle ne vous empêche pas de travailler car tant que vous avez l'application d'ouvert, le programme batch tourne tout en vous laissant travailler sur l'application et faire toute sorte de manipulations.
+
+Dans votre navigateur de fichier vous verrez apparaitre un répertoire "Relevés-PDF_DAILYBANK" suivit du nom votre agence et un fichier logBatch.txt.
+
+[NOTE]
+====
+Si ces fichiers ne sont pas généré il est probable que vous n'ayez pas le droit de créér des fichier à l'endroit où est stocké le programme. Je vous invite à contacter votre Administrateur système pour lui faire part de ce problème.
+====
+
+[IMPORTANT]
+====
+A moins d'être l'administrateur système je vous invite à ne pas toucher au fichier logBatch.txt
+Il permet une sauvegarde du déroulé du batch permettant ainsi de détecter d'eventuels problèmes plus compliqués tel qu'un problème dans l'écriture d'un fichier spécifique.
+====
+
+image::..\..\ressources\images\I_Batch-2.png[alt=Batch-2-Fichier_Créés]
+
+
+Le répertoire a une arborescence de ce type :
+
+[source]
+----
+├── Relevés-PDF_DAILYBANK-NomAgence
+    └── client-idClient1-Nom1_Prenom1
+        ├── Compte-idCompte1.pdf
+        └── Compte-idCompte2.pdf
+    └── client-idClient2-Nom2_Prenom2
+        ├── Compte-idCompte3.pdf
+        ├── Compte-idCompte3.pdf
+        └── Compte-idCompte4.pdf
+----
+
+C'est à dire que dans "Relevés-PDF_DAILYBANK-NomAgence" il y a un répertoire pour chaque client de l'agence de l'employé où sont stocké tous les relevés du mois précédent pour chacun de ses comptes
+
+image::..\..\ressources\images\I_Batch-3.png[alt=Batch-3-RepertoiresClient_Créés]
+image::..\..\ressources\images\I_Batch-4.png[alt=Batch-4-ReleverPdf_Créés]
+
+== Besoin d'aide 
+Si besoin d'aide contactez votre responsable informatique.

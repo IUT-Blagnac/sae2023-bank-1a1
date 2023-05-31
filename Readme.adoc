@@ -1,0 +1,73 @@
+= SAE 2.01 - 2.05 Projet Daily Bank
+
+
+==== Présentation de l'équipe et rôles respectifs
+
+- Katbie Mathéo
+Responsable du document : Documentation utilisateur
+
+- Gabara Illan
+Responsable des documents : Cahier des charges utilisateur, documentation technique
+
+- Kwadjani Bilon 
+Responsable des documents : Planification gant, cahier de recette
+
+==== Répartition des tâches et état d'avancement
+[options="header,footer"]
+|=======================
+|version|rôle     |use case   |cas...                 |   Mathéo KATBIE | Bilon KWADJANI  |   Illan GABARRA 
+|1    |Chef d’Agence    |CRUD employé  |C| F | |
+|1    |Chef d’Agence    |CRUD employé  |R| F | |
+|1    |Chef d’Agence |CRUD employé  |U| F | |
+|1    |Chef d’Agence   |CRUD employé  |D| F | |
+|1    |Guichetier     | Compte | Créer| | F | 
+|1    |Guichetier     | Compte | Créditer/Débiter|| |F
+|1    |Guichetier     | Compte | Effectuer un virement|| |F
+|1    |Guichetier     | Compte | Clôturer|  | F | 
+|2    |Chef d’Agence     | Compte | Débit exceptionnel||F | 
+|2    |Chef d’Agence     | Emprunt | Simuler emprunt|||F 
+|2    |Chef d’Agence     | Emprunt | Simuler assurance||F | 
+|2    |Guichetier     | Compte | Relevé PDF|| | F
+|2    |Guichetier     | CRUD Prélèvement | C|F| | 
+|2    |Guichetier     | CRUD Prélèvement | R|F| | 
+|2    |Guichetier     | CRUD Prélèvement | U|F| | 
+|2    |Guichetier     | CRUD Prélèvement | D|F| | 
+|2    |Batch     | Prélèvements automatiques | || | F
+|2    |Batch     | Reléves mensuels | || |F 
+
+|=======================
+
+
+Chaque étudiant doit mettre son nom sur une des colonnes étudiant.
+Dans sa colonne il doit remplir la ligne correspondant à chaque partie qu'il a développé en indiquant
+
+*	*F* pour fonctionnel ou
+*	*D* pour encore en Développement
+
+==== Livrables
+
+[cols="1,2,2,5",options=header]
+|===
+| Date    | Nom         |  Lien                             | Retour
+| Sem.19  | CDC V1      |https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/Livrables%20Gestion%20de%20projet/CDCUV1.adoc                                 |  Manque nom du projet sur page de garde/Client.          V1 est prévue le 16/05, les dates de livrables se donnent à la fin dans les contraintes orga. Présenter les utilisateurs de l'appli et leur rôle, vous pouvez utiliser les UC V0 pour décrire l'existant. Idem pour V1. Il faut prioriser les fonctionnalités à developper.Il manque la description des fichiers fournis avec V0, l'architecture de l'appli. N'y a t'il pas également des contraintes juridiques ? de sécurité ? 
+|         |Gantt V1 Prévu|  https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/Livrables%20Gestion%20de%20projet/Plannification%20Gant.png                             |Il manque des tâches notamment doc User et les jalons avec les dates de livrables.
+| 16/05  | CdC V2final|https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV2/Livrables%20Gestion%20de%20projet/CDCUV2.adoc                                     |  Note 16/20  Bon travail. Plan à revoir, la problématique arrive un peu tard. Paragraphes non numérotés, des fautes. Manque UC V1 et V2 commentés ainsi que qq règles de gestion (ex. Clôture compte). A noter que la note peut être modulée pour les 2 étudiants qui n'ont pas participé à la rédaction du CDCU à défendre au bilan.
+|         | Gantt V1 Réalisé |https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/Livrables%20Gestion%20de%20projet/Planification%20GANTT%20V1%20R%C3%A9alis%C3%A9%20.png|     Ok attention au format 
+|         | Gantt V2 Prevu|https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV2/Livrables%20Gestion%20de%20projet/Planification%20GANTT%20V2.png|     Pb format, à mettre en pdf. Attention il y a des fautes d'orthographe dans le nom des tâches.
+|         | Doc. Tec. V1 |    https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/Livrable%20Dev/Documentation-TechniqueV1.adoc    |    Mettre des schémas pour expliquer l'architecture et pourquoi pas les fonctionnalités. Inscrire un client c'est créer un client ... Il manque des explications dans les fonctionnalités non développées pas Illan. Le reste est bien.
+|         | Doc User V1    |   https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/Livrables%20Gestion%20de%20projet/documentUtilisateur.adoc     | Reprendre les bonnes pratiques du cdcu :  page de garde, sommaire interactif ...  Reprendre la présentation des utilisateurs et classer les fonctions par utilisateur. Comment l'utilisateur s'assure que son action a été bien réalisée ? ex. à la suite d'une modification d'un client par exemple. Si ça ne marche pas qui dois-je contacter ? Est-ce que le jar se lance qqsoit mon système d'exploitation, que dois-je avoir installé ? 
+|         | Recette V1  |https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/Livrable%20Dev/Cahier%20de%20recetteV1.adoc| Bien, il faut compléter le test rendre un client inactif.
+|         | Suivi projet V1|https://github.com/orgs/IUT-Blagnac/projects/7/views/1 |  QQ doc non livrées à temps. Pensez à créer un milestone V2 avec les issues du Gantt V2. Des issues ne sont pas affectées. Il manque les task list dans les issues notamment de dev. Bon courage !
+|         | Code V1 |  https://github.com/IUT-Blagnac/sae2023-bank-1a1/tree/main/LV1/DailyBank  | 
+|         | jar projet V1 |   https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV1/Livrable%20Dev/DailyBank-1.0%20.jar | Ca marche ! @Mathéo : n'appelez pas le bouton désactiver employé (désactiver a un autre sens), c'est supprimer. Peut-être mettre un popup qui dit : êtes vous sûr de vouloir supprimer.
+|         | Javadoc V1 |  https://github.com/IUT-Blagnac/sae2023-bank-1a1/tree/main/LV1/Livrable%20Dev/javadoc  |
+| 26/05   | Gantt V2  réalisé    |https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV2/Livrables%20Gestion%20de%20projet/PlanificationGantV2Realis%C3%A9.pdf| Manque une légende : rouge pour tâches non traitées ?  
+|         | Doc. Util. V2 |  https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV2/Livrables%20Gestion%20de%20projet/DocumentationUtilisateurV2.adoc       |Manque version, nom équipe, date. Peu d'explications pour l'installation, les utilisateurs ne sont pas présentés (cf. rmq V1). Bien pour les foctionnalités  note 14/20. 
+|         | Suivi projet V2|https://github.com/orgs/IUT-Blagnac/projects/7/views/1 | Issues Ok. Gantt confus non légendés. QQ remarques non prises en compte  mais globalement très bonne gestion du Github et des livraisons. note 17/20.
+|         | Doc. Tec. V2 |   https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV2/Livrables%20Developpement/Documentation-TechniqueV2.adoc             |     
+|         | Code V2    |    https://github.com/IUT-Blagnac/sae2023-bank-1a1/tree/main/LV2/DailyBank                 | 
+|         | Javadoc V2 | https://github.com/IUT-Blagnac/sae2023-bank-1a1/tree/main/LV2/Livrables%20Developpement/javadoc  |
+|         | Recette V2 |   https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV2/Livrables%20Developpement/Cahier%20de%20recetteV2.adoc                   | 
+|         | `jar` projet | https://github.com/IUT-Blagnac/sae2023-bank-1a1/blob/main/LV2/Livrables%20Developpement/DailyBank-2.0.jar   | 
+
+|===

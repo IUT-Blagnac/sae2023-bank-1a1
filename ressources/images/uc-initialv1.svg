@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="944px" preserveAspectRatio="none" style="width:458px;height:944px;background:#FFFFFF;" version="1.1" viewBox="0 0 458 944" width="458px" zoomAndPan="magnify"><defs><filter height="300%" id="frvyxcel86bb5" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="381" x="35" y="17.4023">Diagramme des Cas d'utilisation Initial (V.1)</text><ellipse cx="308.5634" cy="53.5172" fill="#F0F8FF" filter="url(#frvyxcel86bb5)" rx="81.4889" ry="26.318" style="stroke:#2F4F4F;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="95" x="259.0634" y="48.564">Modifier infos</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="37" x="292.0634" y="65.0523">client</text><ellipse cx="308.5989" cy="141.5172" fill="#F0F8FF" filter="url(#frvyxcel86bb5)" rx="85.0244" ry="26.318" style="stroke:#2F4F4F;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60" x="276.5989" y="136.564">Créer un</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="100" x="260.5989" y="153.0523">nouveau client</text><ellipse cx="308.8207" cy="229.5172" fill="#F0F8FF" filter="url(#frvyxcel86bb5)" rx="77.2462" ry="26.318" style="stroke:#2F4F4F;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="89" x="262.3207" y="224.564">Consulter un</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51" x="285.3207" y="241.0523">compte</text><ellipse cx="308.7999" cy="317.5172" fill="#F0F8FF" filter="url(#frvyxcel86bb5)" rx="65.2254" ry="26.318" style="stroke:#2F4F4F;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="72" x="270.7999" y="312.564">Débiter un</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51" x="285.2999" y="329.0523">compte</text><ellipse cx="308.5" cy="405.5498" fill="#F0F8FF" filter="url(#frvyxcel86bb5)" rx="101.4255" ry="26.3506" style="stroke:#2F4F4F;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="123" x="242" y="401.3233">Créer un nouveau</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51" x="282" y="417.8115">compte</text><ellipse cx="308.5426" cy="493.5172" fill="#F0F8FF" filter="url(#frvyxcel86bb5)" rx="69.468" ry="26.318" style="stroke:#2F4F4F;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78" x="267.5426" y="488.564">Créditer un</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51" x="285.0426" y="505.0523">compte</text><ellipse cx="308.5781" cy="581.5172" fill="#F0F8FF" filter="url(#frvyxcel86bb5)" rx="73.0036" ry="26.318" style="stroke:#2F4F4F;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="265.0781" y="576.564">Effectuer un</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60" x="280.5781" y="593.0523">virement</text><ellipse cx="308.7497" cy="669.5172" fill="#F0F8FF" filter="url(#frvyxcel86bb5)" rx="70.1751" ry="26.318" style="stroke:#2F4F4F;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="79" x="267.2497" y="664.564">Cloturer un</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51" x="285.2497" y="681.0523">compte</text><ellipse cx="308.7411" cy="757.5172" fill="#F0F8FF" filter="url(#frvyxcel86bb5)" rx="99.1665" ry="26.318" style="stroke:#2F4F4F;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="276.2411" y="752.564">Gérer les</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="120" x="250.7411" y="769.0523">employés - CRUD</text><ellipse cx="308.5634" cy="845.5172" fill="#F0F8FF" filter="url(#frvyxcel86bb5)" rx="81.4889" ry="26.318" style="stroke:#2F4F4F;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="95" x="259.0634" y="840.564">Rendre inactif</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59" x="281.0634" y="857.0523">un client</text><!--MD5=[338e9af232e5abde8a6bc8ae9f528414]
+entity g--><ellipse cx="97.5745" cy="383.6992" fill="#FEFECE" filter="url(#frvyxcel86bb5)" rx="16" ry="16" style="stroke:#2F4F4F;stroke-width:1.5;"/><path d="M97.5745,403.6992 C101.5745,403.6992 104.5745,403.6992 108.5745,399.6992 C116.5745,399.6992 124.5745,407.6992 124.5745,415.6992 L124.5745,419.6992 C124.5745,423.6992 120.5745,427.6992 116.5745,427.6992 L78.5745,427.6992 C74.5745,427.6992 70.5745,423.6992 70.5745,419.6992 L70.5745,415.6992 C70.5745,407.6992 78.5745,399.6992 86.5745,399.6992 C90.5745,403.6992 93.5745,403.6992 97.5745,403.6992 " fill="#FEFECE" filter="url(#frvyxcel86bb5)" style="stroke:#2F4F4F;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="70" x="62.5745" y="442.7344">Guichetier</text><!--MD5=[8e9b2d9d80e066cced8e5d90e9bdea61]
+entity c--><ellipse cx="97.5745" cy="735.6992" fill="#FEFECE" filter="url(#frvyxcel86bb5)" rx="16" ry="16" style="stroke:#2F4F4F;stroke-width:1.5;"/><path d="M97.5745,755.6992 C101.5745,755.6992 104.5745,755.6992 108.5745,751.6992 C116.5745,751.6992 124.5745,759.6992 124.5745,767.6992 L124.5745,771.6992 C124.5745,775.6992 120.5745,779.6992 116.5745,779.6992 L78.5745,779.6992 C74.5745,779.6992 70.5745,775.6992 70.5745,771.6992 L70.5745,767.6992 C70.5745,759.6992 78.5745,751.6992 86.5745,751.6992 C90.5745,755.6992 93.5745,755.6992 97.5745,755.6992 " fill="#FEFECE" filter="url(#frvyxcel86bb5)" style="stroke:#2F4F4F;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="99" x="48.0745" y="794.7344">Chef d'Agence</text><!--MD5=[8e3013cc50e22366ce65bcadd667ea6a]
+reverse link g to c--><path d="M97.5745,465.6192 C97.5745,549.7992 97.5745,633.9792 97.5745,718.1692 " fill="none" id="g-backto-c" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="none" points="90.5745,465.3692,97.5745,445.3692,104.5745,465.3692,90.5745,465.3692" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[56faa3431feb797de56d9f2c094392c6]
+link g to modifClient--><path d="M102.4445,366.0192 C110.6945,301.8592 135.5145,174.7592 207.0745,97.6992 C216.6545,87.3792 229.0845,79.3592 241.9145,73.1592 " fill="none" id="g-to-modifClient" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="246.6545,70.9492,236.8067,71.0948,242.116,73.0472,240.1636,78.3565,246.6545,70.9492" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[3dda48c798f22c0363661c3cf4f68dc1]
+link g to enrClient--><path d="M108.9745,366.1092 C123.5245,317.7392 154.2645,236.1592 207.0745,185.6992 C217.1345,176.0892 229.6345,168.3792 242.3545,162.2692 " fill="none" id="g-to-enrClient" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="247.0545,160.0992,237.2067,160.2448,242.516,162.1972,240.5636,167.5065,247.0545,160.0992" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[d909d92e2fbf3fffac54a5d833f9d970]
+link g to consulterCompte--><path d="M123.7645,365.9092 C143.5645,337.2192 173.3645,299.2092 207.0745,273.6992 C219.3545,264.4092 233.9045,256.5992 248.0645,250.2592 " fill="none" id="g-to-consulterCompte" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="252.8445,248.1592,242.9958,248.1164,248.2667,250.17,246.2131,255.441,252.8445,248.1592" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[8525d30286661788f62e0d4620df3d74]
+link g to debiterCompte--><path d="M132.6145,391.3692 C166.6345,377.0392 219.2845,354.8792 257.9445,338.5992 " fill="none" id="g-to-debiterCompte" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="262.5845,336.6392,252.7379,336.4301,257.9734,338.5725,255.8311,343.808,262.5845,336.6392" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[7d6950033bb577999cabdc415f96bf3d]
+link c to inactif--><path d="M147.3145,778.2192 C179.0445,791.5792 220.4745,809.0292 253.2645,822.8292 " fill="none" id="c-to-inactif" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="258.0345,824.8392,251.3,817.6527,253.4285,822.8938,248.1874,825.0223,258.0345,824.8392" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[f1866b66e83363dd1f2e3caf89b80dea]
+link g to creerCompte--><path d="M132.6145,405.6992 C151.7045,405.6992 176.6545,405.6992 201.7145,405.6992 " fill="none" id="g-to-creerCompte" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="206.7245,405.6992,197.7245,401.6992,201.7245,405.6992,197.7245,409.6992,206.7245,405.6992" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[739e803b8668fb10dc1ad12e8878429c]
+link g to crediterCompte--><path d="M132.6145,420.0292 C166.1845,434.1692 217.9045,455.9492 256.4245,472.1592 " fill="none" id="g-to-crediterCompte" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="261.0545,474.1092,254.32,466.9227,256.4485,472.1638,251.2074,474.2923,261.0545,474.1092" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[785d88b135e52c120bc1c2d3644f8d03]
+link g to virer--><path d="M123.7645,445.4892 C143.5645,474.1792 173.3645,512.1892 207.0745,537.6992 C219.7645,547.2992 234.8745,555.3192 249.4845,561.7692 " fill="none" id="g-to-virer" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="254.4045,563.8992,247.7269,556.6598,249.814,561.9176,244.5562,564.0047,254.4045,563.8992" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[599e8512f670cb6a64b5351d368c4c04]
+link g to cloturerCompte--><path d="M108.9745,445.2892 C123.5245,493.6592 154.2645,575.2392 207.0745,625.6992 C218.5145,636.6392 233.1245,645.1092 247.6345,651.5592 " fill="none" id="g-to-cloturerCompte" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="252.5445,653.6792,245.8669,646.4398,247.954,651.6976,242.6962,653.7847,252.5445,653.6792" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[543250bd403801bb8dbfad4b596a8fde]
+link c to gererEmp--><path d="M147.3145,757.6992 C164.4345,757.6992 184.3845,757.6992 204.2745,757.6992 " fill="none" id="c-to-gererEmp" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="209.3345,757.6992,200.3345,753.6992,204.3345,757.6992,200.3345,761.6992,209.3345,757.6992" style="stroke:#000000;stroke-width:1.0;"/><rect fill="#DDDDDD" height="26.4883" rx="5" ry="5" style="stroke:#000000;stroke-width:1.0;" width="434" x="8" y="890.8351"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="422" x="14" y="909.3703">Le source de ce diagramme se trouve dans uc-initial.plantuml</text><text fill="#888888" font-family="sans-serif" font-size="10" font-style="italic" lengthAdjust="spacing" textLength="312" x="69.5" y="935.9914">Diagramme généré par JMB via http://plantuml.sourceforge.net.</text><!--MD5=[5817bf629cb419eecd94424c2413db64]
+@startuml uc-initial
+'- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+' SAE 1.1/1.5 Comptes
+' v1. 2022-02-20
+'- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+!include config.cfg
+
+'- - - - Defines to show/hide versions
+!define v0
+!define v1
+' !define v2
+' !define v3
+
+!ifdef v0
+!define VERSION V.0
+!endif
+!ifdef v1
+!define VERSION V.1
+!endif
+!ifdef v2
+!define VERSION V.2
+!endif
+!ifdef v3
+!define VERSION V.3
+!endif
+
+
+'- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+' Title & Legend
+'- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+title Diagramme des Cas d'utilisation Initial (VERSION)
+legend right
+   <i>Le source de ce diagramme se trouve dans uc-initial.plantuml</i>
+ endlegend
+center footer <i>Diagramme généré par JMB via http://plantuml.sourceforge.net.</i>
+
+'- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+' UC
+'- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+'- - v0
+
+usecase (Modifier infos \n client) as modifClient
+usecase (Créer un \n nouveau client) as enrClient
+usecase (Consulter un \n compte) as consulterCompte
+usecase (Débiter un \n compte) as debiterCompte
+'- - v1
+!ifdef v1
+usecase (Créer un nouveau \n compte) as creerCompte
+usecase (Créditer un \n compte) as crediterCompte
+usecase (Effectuer un \n virement) as virer
+usecase (Cloturer un \n compte) as cloturerCompte
+usecase (Gérer les \n employés - CRUD) as gererEmp
+!endif
+'- - v2
+!ifdef v2
+usecase (Générer un \n relevé mensuel \n en PDF) as pdfAll
+usecase (Gérer les prélévemenst \n automatiques - CRUD) as crud
+!endif
+
+usecase (Rendre inactif \n un client) as inactif
+'- - v2
+!ifdef v2
+usecase (Effectuer un \n débit exceptionnel) as debit
+usecase (Simuler un \n emrunt) as simEmprunt
+usecase (Simuler une \n assurance d'emrunt) as simAss
+!endif
+
+'- - v3
+!ifdef v3
+usecase (Générer les \n relevés mensuels \n en PDF) as pdfAll
+usecase (Exécuter les \n prélévements automatiques) as exec
+!endif
+
+'- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+' Acteurs
+'- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+actor Guichetier as g
+actor "Chef d'Agence" as c
+'- - v3
+!ifdef v3
+agent Batch as batch <<process>>
+!endif
+
+g <|- c
+
+'- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+' Associations
+'- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+g - -> modifClient
+g - -> enrClient
+g - -> consulterCompte
+g - -> debiterCompte
+
+c - -> inactif
+
+!ifdef v1
+g - -> creerCompte
+g - -> crediterCompte
+g - -> virer
+g - -> cloturerCompte
+
+c - -> gererEmp
+!endif
+
+
+!ifdef v2
+c - -> debit
+c - -> simEmprunt
+c - -> gererEmp
+c - -> simAss
+
+g - -> crud
+!endif
+
+!ifdef v3
+batch - -> pdfAll
+batch - -> exec
+!endif
+@enduml
+
+@startuml uc-initial
+
+hide circle
+hide empty members
+hide empty methods
+
+skinparam classAttributeIconSize 0
+skinparam package {
+	BackgroundColor empty
+	BorderColor DarkSlateGray
+	ArrowColor Black
+	FontColor Black
+	FontSize 12
+	FontName Helvetica
+}
+skinparam roundcorner 5
+
+skinparam class {
+	BackgroundColor AliceBlue
+	BorderColor DarkSlateGray
+	ArrowColor Black
+	FontColor Black
+	FontSize 12
+	FontName Helvetica
+}
+
+skinparam enum {
+  	BackgroundColor LightGreen
+}
+
+skinparam arrow {
+    MessageAlign center
+}
+
+
+skinparam actorStyle awesome
+left to right direction
+
+skinparam usecase {
+	BackgroundColor AliceBlue
+	BorderColor DarkSlateGray
+}
+
+skinparam actor {
+	BorderColor DarkSlateGray
+}
+
+skinparam agent {
+	BorderColor DarkSlateGray
+}
+
+
+
+
+title Diagramme des Cas d'utilisation Initial (V.1)
+legend right
+   <i>Le source de ce diagramme se trouve dans uc-initial.plantuml</i>
+ endlegend
+center footer <i>Diagramme généré par JMB via http://plantuml.sourceforge.net.</i>
+
+
+usecase (Modifier infos \n client) as modifClient
+usecase (Créer un \n nouveau client) as enrClient
+usecase (Consulter un \n compte) as consulterCompte
+usecase (Débiter un \n compte) as debiterCompte
+usecase (Créer un nouveau \n compte) as creerCompte
+usecase (Créditer un \n compte) as crediterCompte
+usecase (Effectuer un \n virement) as virer
+usecase (Cloturer un \n compte) as cloturerCompte
+usecase (Gérer les \n employés - CRUD) as gererEmp
+
+usecase (Rendre inactif \n un client) as inactif
+
+
+actor Guichetier as g
+actor "Chef d'Agence" as c
+
+g <|- c
+
+g - -> modifClient
+g - -> enrClient
+g - -> consulterCompte
+g - -> debiterCompte
+
+c - -> inactif
+
+g - -> creerCompte
+g - -> crediterCompte
+g - -> virer
+g - -> cloturerCompte
+
+c - -> gererEmp
+
+
+
+@enduml
+
+PlantUML version 1.2022.0(Tue Jan 11 17:16:42 CET 2022)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: fr
+Country: FR
+--></g></svg>

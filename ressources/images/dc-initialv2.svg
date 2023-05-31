@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="724px" preserveAspectRatio="none" style="width:1310px;height:724px;background:#FFFFFF;" version="1.1" viewBox="0 0 1310 724" width="1310px" zoomAndPan="magnify"><defs/><g><rect height="26.2969" rx="2.5" ry="2.5" style="stroke:#00000000;stroke-width:1.0;fill:none;" width="289" x="503.5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="279" x="508.5" y="22.9951">Diagramme de Classes Initial (V.2)</text><!--MD5=[9a2897d96cfcc917fe91044b2ccff0ad]
+class Employe--><g id="elem_Employe"><rect codeLine="105" fill="#F0F8FF" height="101.8125" id="Employe" rx="2.5" ry="2.5" style="stroke:#2F4F4F;stroke-width:0.5;" width="77" x="490" y="466.7969"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="52" x="502.5" y="482.9355">Employe</text><line style="stroke:#2F4F4F;stroke-width:0.5;" x1="491" x2="566" y1="490.7656" y2="490.7656"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="26" x="496" y="505.9043">nom</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="47" x="496" y="519.873">prenom</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="65" x="496" y="533.8418">droitAcces</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="29" x="496" y="547.8105">login</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="58" x="496" y="561.7793">motPasse</text></g><!--MD5=[60c39ebf345a01ad47d2efce4ef038e5]
+class AgenceBancaire--><g id="elem_AgenceBancaire"><rect codeLine="113" fill="#F0F8FF" height="59.9063" id="AgenceBancaire" rx="2.5" ry="2.5" style="stroke:#2F4F4F;stroke-width:0.5;" width="121" x="1182" y="411.7969"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="98" x="1193.5" y="427.9355">AgenceBancaire</text><line style="stroke:#2F4F4F;stroke-width:0.5;" x1="1183" x2="1302" y1="435.7656" y2="435.7656"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="42" x="1188" y="450.9043">nomAg</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="109" x="1188" y="464.873">adressePostaleAg</text></g><!--MD5=[ed6624c6556d5e7b1bd23032162d20b7]
+class Client--><g id="elem_Client"><rect codeLine="118" fill="#F0F8FF" height="115.7813" id="Client" rx="2.5" ry="2.5" style="stroke:#2F4F4F;stroke-width:0.5;" width="105" x="13.5" y="302.7969"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="33" x="49.5" y="318.9355">Client</text><line style="stroke:#2F4F4F;stroke-width:0.5;" x1="14.5" x2="117.5" y1="326.7656" y2="326.7656"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="26" x="19.5" y="341.9043">nom</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="47" x="19.5" y="355.873">prenom</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="93" x="19.5" y="369.8418">adressePostale</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="32" x="19.5" y="383.8105">email</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="61" x="19.5" y="397.7793">telephone</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="54" x="19.5" y="411.748">estInactif</text></g><!--MD5=[ebfdca7f475abcc805c7ccf297fa0985]
+class CompteCourant--><g id="elem_CompteCourant"><rect codeLine="127" fill="#F0F8FF" height="87.8438" id="CompteCourant" rx="2.5" ry="2.5" style="stroke:#2F4F4F;stroke-width:0.5;" width="119" x="469" y="113.7969"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="93" x="482" y="129.9355">CompteCourant</text><line style="stroke:#2F4F4F;stroke-width:0.5;" x1="470" x2="587" y1="137.7656" y2="137.7656"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="84" x="475" y="152.9043">idNumCompte</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="107" x="475" y="166.873">debitAutorise = 0</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="38" x="475" y="180.8418">/solde</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="62" x="475" y="194.8105">estCloturé</text></g><path d="M509.5,43.2969 L509.5,51.8633 L537,190.6563 L509.5,59.8633 L509.5,68.4297 A0,0 0 0 0 509.5,68.4297 L547.5,68.4297 A0,0 0 0 0 547.5,68.4297 L547.5,53.2969 L537.5,43.2969 L509.5,43.2969 A0,0 0 0 0 509.5,43.2969 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M537.5,43.2969 L537.5,53.2969 L547.5,53.2969 L537.5,43.2969 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="17" x="515.5" y="60.3638">V1</text><!--MD5=[cca5d97aaf46870920fae66c9bd85cdd]
+class Operation--><g id="elem_Operation"><rect codeLine="142" fill="#F0F8FF" height="73.875" id="Operation" rx="2.5" ry="2.5" style="stroke:#2F4F4F;stroke-width:0.5;" width="77" x="490" y="236.7969"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="60" x="498.5" y="252.9355">Operation</text><line style="stroke:#2F4F4F;stroke-width:0.5;" x1="491" x2="566" y1="260.7656" y2="260.7656"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="48" x="496" y="275.9043">montant</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="45" x="496" y="289.873">dateOp</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="65" x="496" y="303.8418">dateValeur</text></g><!--MD5=[30c294c048888fe19ad7bfbd9b4b7579]
+class TypeOperation--><g id="elem_TypeOperation"><rect codeLine="148" fill="#F0F8FF" height="23.9688" id="TypeOperation" rx="2.5" ry="2.5" style="stroke:#2F4F4F;stroke-width:0.5;" width="96" x="914.5" y="244.7969"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="90" x="917.5" y="260.9355">TypeOperation</text></g><g id="elem_GMN264822"><path d="M866,306.2969 L866,341.5625 A2.5,2.5 0 0 0 868.5,344.0625 L1056.5,344.0625 A2.5,2.5 0 0 0 1059,341.5625 L1059,313.7969 L1049,303.7969 L966.5,303.7969 L962.5,268.8749 L958.5,303.7969 L868.5,303.7969 A2.5,2.5 0 0 0 866,306.2969 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1049,303.7969 L1049,312.5469 A1.25,1.25 0 0 0 1050.25,313.7969 L1059,313.7969 L1049,303.7969 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="119" x="872" y="320.8638">cheque, retrait CB,</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="168" x="876" y="335.9966">paiement CB, virement, ...</text></g><!--MD5=[070306e695cb4f941eda0afd86bc6227]
+class PrelevementAutomatique--><g id="elem_PrelevementAutomatique"><rect codeLine="162" fill="#F0F8FF" height="73.875" id="PrelevementAutomatique" rx="2.5" ry="2.5" style="stroke:#2F4F4F;stroke-width:0.5;" width="156" x="649" y="47.7969"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="150" x="652" y="63.9355">PrelevementAutomatique</text><line style="stroke:#2F4F4F;stroke-width:0.5;" x1="650" x2="804" y1="71.7656" y2="71.7656"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="48" x="655" y="86.9043">montant</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="93" x="655" y="100.873">dateRecurrente</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="71" x="655" y="114.8418">beneficiaire</text></g><!--MD5=[e4366c919f9a1d20f14e6bc8291e05b5]
+class Emprunt--><g id="elem_Emprunt"><rect codeLine="168" fill="#F0F8FF" height="87.8438" id="Emprunt" rx="2.5" ry="2.5" style="stroke:#2F4F4F;stroke-width:0.5;" width="98" x="17" y="453.7969"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="49" x="41.5" y="469.9355">Emprunt</text><line style="stroke:#2F4F4F;stroke-width:0.5;" x1="18" x2="114" y1="477.7656" y2="477.7656"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="51" x="23" y="492.9043">tauxEmp</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="65" x="23" y="506.873">capitalEmp</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="62" x="23" y="520.8418">dureeEmp</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="86" x="23" y="534.8105">deateDebEmp</text></g><!--MD5=[37613ed1bbb93d10b2c44619f71ee5af]
+class AssuranceEmprunt--><g id="elem_AssuranceEmprunt"><rect codeLine="175" fill="#F0F8FF" height="59.9063" id="AssuranceEmprunt" rx="2.5" ry="2.5" style="stroke:#2F4F4F;stroke-width:0.5;" width="118" x="7" y="593.7969"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="112" x="10" y="609.9355">AssuranceEmprunt</text><line style="stroke:#2F4F4F;stroke-width:0.5;" x1="8" x2="124" y1="617.7656" y2="617.7656"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="47" x="13" y="632.9043">tauxAss</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacing" textLength="55" x="13" y="646.873">tauxCouv</text></g><g id="elem_GMN264831"><path d="M186,487.7969 L186,493.7969 L115.301,497.7969 L186,501.7969 L186,507.9297 A2.5,2.5 0 0 0 188.5,510.4297 L221.5,510.4297 A2.5,2.5 0 0 0 224,507.9297 L224,495.2969 L214,485.2969 L188.5,485.2969 A2.5,2.5 0 0 0 186,487.7969 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M214,485.2969 L214,494.0469 A1.25,1.25 0 0 0 215.25,495.2969 L224,495.2969 L214,485.2969 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="17" x="192" y="502.3638">V2</text></g><g id="elem_GMN264834"><path d="M186,613.7969 L186,619.7969 L125.1,623.7969 L186,627.7969 L186,633.9297 A2.5,2.5 0 0 0 188.5,636.4297 L221.5,636.4297 A2.5,2.5 0 0 0 224,633.9297 L224,621.2969 L214,611.2969 L188.5,611.2969 A2.5,2.5 0 0 0 186,613.7969 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M214,611.2969 L214,620.0469 A1.25,1.25 0 0 0 215.25,621.2969 L224,621.2969 L214,611.2969 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="17" x="192" y="628.3638">V2</text></g><g id="elem_GMN264837"><path d="M943.5,74.7969 L943.5,80.7969 L805.104,84.7969 L943.5,88.7969 L943.5,94.9297 A2.5,2.5 0 0 0 946,97.4297 L979,97.4297 A2.5,2.5 0 0 0 981.5,94.9297 L981.5,82.2969 L971.5,72.2969 L946,72.2969 A2.5,2.5 0 0 0 943.5,74.7969 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M971.5,72.2969 L971.5,81.0469 A1.25,1.25 0 0 0 972.75,82.2969 L981.5,82.2969 L971.5,72.2969 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="17" x="949.5" y="89.3638">V2</text></g><!--MD5=[8cd595a7e5ed4faabe86713542de6752]
+link Employe to AgenceBancaire--><g id="link_Employe_AgenceBancaire"><path codeLine="150" d="M567.096,525.6019 C606.591,525.2039 670.551,518.7969 726,518.7969 C726,518.7969 726,518.7969 1121,518.7969 C1159.33,518.7969 1198,494.1729 1220.85,472.0049 " fill="none" id="Employe-AgenceBancaire" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="106" x="574.9675" y="538.9978">ChefAgence 0..1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="1207.5597" y="491.8724">1</text></g><!--MD5=[8cd595a7e5ed4faabe86713542de6752]
+link Employe to AgenceBancaire--><g id="link_Employe_AgenceBancaire"><path codeLine="151" d="M567.096,499.4709 C606.591,490.2039 670.551,483.7969 726,483.7969 C726,483.7969 726,483.7969 1121,483.7969 C1142.03,483.7969 1163.17,476.3809 1181.74,467.5459 " fill="none" id="Employe-AgenceBancaire-1" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="83" x="574.9805" y="510.4879">Guichetiers *</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="1165.8474" y="483.6788">1</text></g><!--MD5=[4467a8c9ada92e790db41fa5f8613df6]
+link Client to AgenceBancaire--><g id="link_Client_AgenceBancaire"><path codeLine="152" d="M118.537,381.0069 C143.872,389.2129 175.104,396.7969 204,396.7969 C204,396.7969 204,396.7969 1121,396.7969 C1143.11,396.7969 1166.14,403.5269 1186.07,411.7809 " fill="none" id="Client-AgenceBancaire" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="33" x="512" y="392.8638">Avoir</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23" x="126.3415" y="396.4723">1..*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="1166.1728" y="401.4841">1</text></g><!--MD5=[f067a251af9eeeb5fcefb13f76264d56]
+link Client to CompteCourant--><g id="link_Client_CompteCourant"><path codeLine="153" d="M100.5422,302.5009 C124.512,269.1149 160.216,233.7969 204,233.7969 C204,233.7969 204,233.7969 408,233.7969 C436.029,233.7969 462.792,218.7259 483.858,202.0069 " fill="none" id="Client-CompteCourant" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="59" x="286" y="229.8638">Posséder</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="96.2645" y="291.5703">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23" x="452.6121" y="221.6899">1..*</text></g><!--MD5=[6c8b2fc5f9ab48af8498adbc85ac05b7]
+link CompteCourant to AgenceBancaire--><g id="link_CompteCourant_AgenceBancaire"><path codeLine="154" d="M588.285,165.5509 C627.27,170.0339 679.602,174.7969 726,174.7969 C726,174.7969 726,174.7969 1121,174.7969 C1223.98,174.7969 1239.44,341.8599 1241.4,411.6879 " fill="none" id="CompteCourant-AgenceBancaire" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="36" x="944.5" y="170.8638">Gérer</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="595.9979" y="179.4945">*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="1232.2844" y="400.5526">1</text></g><!--MD5=[4a688682a53a4e6a6ef6310df10ea53e]
+reverse link CompteCourant to Operation--><g id="link_CompteCourant_Operation"><path codeLine="155" d="M528.5,214.8889 C528.5,222.1399 528.5,229.3899 528.5,236.6409 " fill="none" id="CompteCourant-backto-Operation" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="528.5,201.8389,524.5,207.8389,528.5,213.8389,532.5,207.8389,528.5,201.8389" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="520.8766" y="225.7764">*</text></g><!--MD5=[972cd2cb5f7f88bd0b2b244a1a3172fc]
+link Operation to TypeOperation--><g id="link_Operation_TypeOperation"><path codeLine="156" d="M567.081,272.3179 C645.806,269.2199 827.881,262.0549 914.315,258.6539 " fill="none" id="Operation-TypeOperation" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="33" x="710.5" y="258.8638">Avoir</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="575.1027" y="285.5571">*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="898.6503" y="272.1071">1</text></g><!--MD5=[9dc51b78678ba44b4aa8bd3329569dfb]
+link Client to Emprunt--><g id="link_Client_Emprunt"><path codeLine="180" d="M66,418.8279 C66,430.4339 66,442.0399 66,453.6469 " fill="none" id="Client-Emprunt" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="57.5375" y="438.4921">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23" x="41.2391" y="442.827">0..*</text></g><!--MD5=[f3e798cdc617df53d39fce6d7991cb37]
+link Emprunt to AssuranceEmprunt--><g id="link_Emprunt_AssuranceEmprunt"><path codeLine="181" d="M66,542.0399 C66,559.1013 66,578.1822 66,593.6168 " fill="none" id="Emprunt-AssuranceEmprunt" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="46" x="31.5" y="572.3638">Couvrir</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="57.4125" y="561.7278">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="24" x="39.525" y="582.9355">0..1</text></g><!--MD5=[4243e21c3bdcf96e2ee8bdc131c78f3e]
+reverse link CompteCourant to PrelevementAutomatique--><g id="link_CompteCourant_PrelevementAutomatique"><path codeLine="183" d="M600.496,131.4219 C616.149,125.6069 632.805,119.4189 648.695,113.5159 " fill="none" id="CompteCourant-backto-PrelevementAutomatique" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="588.19,135.9929,595.2074,137.6529,599.4388,131.8138,592.4214,130.1537,588.19,135.9929" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="633.898" y="129.0472">*</text></g><rect fill="#DDDDDD" height="28.2969" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:1.0;" width="451" x="837" y="667.7031"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="439" x="843" y="686.6982">Le source de ce diagramme se trouve dans dc-initial.plantuml</text><rect height="11.6406" rx="2.5" ry="2.5" style="stroke:#00000000;stroke-width:1.0;fill:none;" width="315" x="490.5" y="705"/><text fill="#888888" font-family="sans-serif" font-size="10" font-style="italic" lengthAdjust="spacing" textLength="315" x="490.5" y="714.2822">Diagramme généré par JMB via http://plantuml.sourceforge.net.</text><!--MD5=[0fc1d56ebb2c2a8a4d1153c2061e85d1]
+@startuml
+'- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+' SAE 2.1/2.5 Comptes
+' v1. 2022-03-07
+'- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+'- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+' Common definitions for generated models
+' JMB 2020
+'- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+'- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+' Content of class
+'- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+hide circle
+hide empty members
+hide empty methods
+
+'- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+' Colors & Fonts
+'- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+'Colors => see http://plantuml.com/color
+skinparam classAttributeIconSize 0
+'skinparam monochrome true
+'skinparam monochrome reverse
+'skinparam handwritten true
+skinparam package {
+	BackgroundColor empty
+	BorderColor DarkSlateGray
+	ArrowColor Black
+	FontColor Black
+	FontSize 12
+	FontName Helvetica
+}
+skinparam roundcorner 5
+
+skinparam class {
+	BackgroundColor AliceBlue
+	BorderColor DarkSlateGray
+	ArrowColor Black
+	FontColor Black
+	FontSize 12
+	FontName Helvetica
+}
+
+skinparam enum {
+  	BackgroundColor LightGreen
+}
+
+skinparam arrow {
+    MessageAlign center
+}
+
+
+'- - - - - - - - - - - - - - UC
+skinparam actorStyle awesome
+left to right direction
+
+skinparam usecase {
+	BackgroundColor AliceBlue
+	BorderColor DarkSlateGray
+}
+
+skinparam actor {
+	BorderColor DarkSlateGray
+}
+
+skinparam agent {
+	BorderColor DarkSlateGray
+}
+
+
+
+'- - - - Defines to show/hide versions
+!define v0
+!define v1
+!define v2
+
+!ifdef v0
+!define VERSION V.0
+!endif
+!ifdef v1
+!define VERSION V.1
+!endif
+!ifdef v2
+!define VERSION V.2
+!endif
+
+
+
+'- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+' Title & Legend
+'- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+title Diagramme de Classes Initial (VERSION)
+legend right
+   <i>Le source de ce diagramme se trouve dans dc-initial.plantuml</i>
+ endlegend
+center footer <i>Diagramme généré par JMB via http://plantuml.sourceforge.net.</i>
+
+'- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+' Classes
+'- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+'- - v0
+
+class Employe {
+  nom
+  prenom
+  droitAcces
+  login
+  motPasse
+}
+
+class AgenceBancaire {
+  nomAg
+  adressePostaleAg
+}
+
+Class Client {
+  nom
+  prenom
+  adressePostale
+  email
+  telephone
+  estInactif
+}
+
+class CompteCourant {
+  idNumCompte
+  debitAutorise = 0
+  /solde
+  !ifdef v1
+  estCloturé
+  !endif
+}
+
+!ifdef v1
+note left of CompteCourant::estCloturé
+V1
+end note
+!endif
+
+Class Operation {
+  montant
+  dateOp
+  dateValeur
+}
+
+class TypeOperation 
+
+Employe "ChefAgence 0..1" - - - - - "1" AgenceBancaire
+Employe "Guichetiers *" - - - - - "1" AgenceBancaire
+Client "1..*" - - - - - "1" AgenceBancaire : Avoir
+Client "1" - - - - - "1..*" CompteCourant : Posséder
+CompteCourant "*" - - - - - "1" AgenceBancaire : Gérer
+CompteCourant *- "*" Operation
+Operation "*" - - - "1" TypeOperation : Avoir
+
+note bottom of TypeOperation : cheque, retrait CB, \n paiement CB, virement, ...
+
+
+!ifdef v2
+class PrelevementAutomatique {
+  montant
+  dateRecurrente
+  beneficiaire
+}
+
+Class Emprunt {
+  tauxEmp
+  capitalEmp
+  dureeEmp
+  deateDebEmp
+}
+
+class AssuranceEmprunt {
+  tauxAss
+  tauxCouv
+}
+
+Client "1" - "0..*" Emprunt
+Emprunt "1" - "0..1" AssuranceEmprunt : Couvrir
+
+CompteCourant *- - "*" PrelevementAutomatique
+
+note right of Emprunt : V2
+note right of AssuranceEmprunt : V2
+note right of PrelevementAutomatique : V2
+
+!endif
+@enduml
+
+@startuml
+
+
+hide circle
+hide empty members
+hide empty methods
+
+skinparam classAttributeIconSize 0
+skinparam package {
+	BackgroundColor empty
+	BorderColor DarkSlateGray
+	ArrowColor Black
+	FontColor Black
+	FontSize 12
+	FontName Helvetica
+}
+skinparam roundcorner 5
+
+skinparam class {
+	BackgroundColor AliceBlue
+	BorderColor DarkSlateGray
+	ArrowColor Black
+	FontColor Black
+	FontSize 12
+	FontName Helvetica
+}
+
+skinparam enum {
+  	BackgroundColor LightGreen
+}
+
+skinparam arrow {
+    MessageAlign center
+}
+
+
+skinparam actorStyle awesome
+left to right direction
+
+skinparam usecase {
+	BackgroundColor AliceBlue
+	BorderColor DarkSlateGray
+}
+
+skinparam actor {
+	BorderColor DarkSlateGray
+}
+
+skinparam agent {
+	BorderColor DarkSlateGray
+}
+
+
+
+
+
+
+
+title Diagramme de Classes Initial (V.2)
+legend right
+   <i>Le source de ce diagramme se trouve dans dc-initial.plantuml</i>
+ endlegend
+center footer <i>Diagramme généré par JMB via http://plantuml.sourceforge.net.</i>
+
+
+
+class Employe {
+  nom
+  prenom
+  droitAcces
+  login
+  motPasse
+}
+
+class AgenceBancaire {
+  nomAg
+  adressePostaleAg
+}
+
+Class Client {
+  nom
+  prenom
+  adressePostale
+  email
+  telephone
+  estInactif
+}
+
+class CompteCourant {
+  idNumCompte
+  debitAutorise = 0
+  /solde
+  estCloturé
+}
+
+note left of CompteCourant::estCloturé
+V1
+end note
+
+Class Operation {
+  montant
+  dateOp
+  dateValeur
+}
+
+class TypeOperation 
+
+Employe "ChefAgence 0..1" - - - - - "1" AgenceBancaire
+Employe "Guichetiers *" - - - - - "1" AgenceBancaire
+Client "1..*" - - - - - "1" AgenceBancaire : Avoir
+Client "1" - - - - - "1..*" CompteCourant : Posséder
+CompteCourant "*" - - - - - "1" AgenceBancaire : Gérer
+CompteCourant *- "*" Operation
+Operation "*" - - - "1" TypeOperation : Avoir
+
+note bottom of TypeOperation : cheque, retrait CB, \n paiement CB, virement, ...
+
+
+class PrelevementAutomatique {
+  montant
+  dateRecurrente
+  beneficiaire
+}
+
+Class Emprunt {
+  tauxEmp
+  capitalEmp
+  dureeEmp
+  deateDebEmp
+}
+
+class AssuranceEmprunt {
+  tauxAss
+  tauxCouv
+}
+
+Client "1" - "0..*" Emprunt
+Emprunt "1" - "0..1" AssuranceEmprunt : Couvrir
+
+CompteCourant *- - "*" PrelevementAutomatique
+
+note right of Emprunt : V2
+note right of AssuranceEmprunt : V2
+note right of PrelevementAutomatique : V2
+
+@enduml
+
+PlantUML version 1.2022.6beta5(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

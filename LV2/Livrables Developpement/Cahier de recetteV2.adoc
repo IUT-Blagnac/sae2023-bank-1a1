@@ -1,0 +1,445 @@
+= Cahier De Recette - DailyBankApp
+:toc:
+:toc-title: Sommaire
+:Entreprise: DailyBank
+:Equipe:  
+
+[cols="1,1", options="header"]
+|===
+| Version | Date
+
+| V2 | 28 mai 2023 
+|===
+
+[discrete]
+=== Equipe : 1A1
+
+[discrete]
+=== Membres :
+[cols="1,1,1", options="header"]
+|===
+
+|Mathéo KATBIE | Bilon KWADJANI |Illan GABARRA
+
+|===
+
+
+
+== I. Introduction
+
+=== 1. Objet :
+[.text-justify]
+Ce document a été produit dans le cadre d'un projet d'élaboration d'une application bancaire pour la banque DailyBank souhaitant développer une application Java-Oracle pour gérer les comptes clients dans ses 100 agences. L'application sera utilisée par des guichetiers et des chefs d'agence avec des droits d'accès différents. L'objectif est de remplacer plusieurs outils obsolètes et de moderniser les services bancaires.
+
+
+== II. Pre-Requis :
+[.text-justify]
+L'exécution des tests spécifiés au chapitre suivant requiert :
+
+* Une base de données installée (référence document technique).
+* L'environnement de test tel que spécifié dans la partie "Environnement de test" de ce document.
+* Les fiches de tests.
+
+
+=== 1. Éléments à tester :
+[.text-justify]
+Les éléments testés concernent les Use-Cases spécifiés dans le 
+link:../Livrables_Gestion_de_projet/CDCUV2.adoc[cahier des charges utilisateur V2]
+
+
+=== 2. Environnement de test :
+[.text-justify]
+
+- Ordinateur sous Windows ou OS équivalent.
+- Après identification par un login et un mot de passe d'un employé (Selon le test effectué et le niveau d'accès nécessaire. Exemple : Créer employé avec un compte *chef d'agence*, et créer client avec un compte *guichetier et chef d'agence*)
+
+
+
+== III. Cas de test :
+=== 1. Fonctionnalités des guichetiers :
+==== 1.1 Gestion des clients :
+
+|====
+
+>|Cas de test 4+|Test-01-01-01
+>|Titre 4+|Création d'un nouveau client
+>|Objectif 4+| Vérifier qu'il est possible de créer un nouveau client
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|All_G_C.1 ^|Cliquer sur le bouton "Nouveau client". ^|La fenêtre de création des clients s'ouvre. ^| aucune ^|OK
+^|All_G_C.2 ^|Compléter les champs spécifiés et valider. ^|Un nouveau client est créé. ^|aucune ^|OK
+
+
+5+|
+
+5+|Commentaire :
+Validé
+
+|====
+
+
+|====
+
+>|Cas de test 4+|Test-01-01-02
+>|Titre 4+|Modification d'un client
+>|Objectif 4+| Vérifier qu'il est possible de modifier un client
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|All_G_C.3 ^|Cliquer sur le bouton "Modifier client". ^|La fenêtre de modification des données du clients s'ouvre. ^|Le client est sélectionné ^|OK
+^|All_G_C.4 ^|Modifier les champs souhaités et confirmer. ^|Retour sur les informations du client. Le client est modifié. ^|La fenêtre modifier client est active ^|OK
+^|All_G_C.5 ^|Modifier les champs souhaités et annuler. ^|Retour sur les informations du client. Le client est inchangé. ^|La fenêtre modifier client est active ^|OK
+
+|====
+
+
+==== 1.2 Gestion des comptes bancaires :
+
+
+|====
+
+>|Cas de test 4+|Test-01-02-01
+>|Titre 4+|Consultation d'un compte
+>|Objectif 4+| Vérifier qu'il est possible de consulter un compte
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|All_G_CB.1 ^|Cliquer sur le bouton "Comptes client". ^|La page des comptes du client s’affiche. ^|Un client actif est sélectionné ^|OK
+^|All_G_CB.2 ^|Sélectionner le bouton "Voir opérations". ^|La page des opérations du compte s’affiche. ^|Un compte actif est sélectionné ^|OK
+...
+
+|====
+
+|====
+
+>|Cas de test 4+|Test-01-02-02
+>|Titre 4+|Cloturer un compte courant .
+>|Objectif 4+| Vérifier qu'il est possible de créer un Compte courant pour un client .
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|Gestion_T_CC_Clt.1^|Cliquer sur le bouton "Cloturer". ^|pop-up avec message de précondition ^| Solde du compte different de 0. ^|OK
+^|Gestion_T_CC_Clt.2^|Cliquer sur le bouton "Cloturer". ^|Compte affiche cloturer + boutton cloturer affiche reouvrir ^| Solde du compte=0. ^|OK
+
+
+5+|
+
+5+|Commentaire :Fonctionnalité développé par Bilon Kwadjani
+Validé
+
+|====
+
+|====
+
+>|Cas de test 4+|Test-01-02-03
+>|Titre 4+|ReOuvrir un compte courant .
+>|Objectif 4+| Vérifier qu'il est possible de Reouvrir un Compte courant pour un client .
+
+5+|
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|Gestion_T_CC_Clt.1^|Cliquer sur le bouton "ReOuvrir". ^|Compte affiche Ouvert + boutton cloturer affiche cloturer^| Compte cloturer ^|OK
+
+
+
+5+|
+
+5+|Commentaire :Fonctionnalité développé par Bilon Kwadjani
+Validé
+
+|====
+
+|====
+
+>|Cas de test 4+|Test-01-02-04
+>|Titre 4+|Crée un compte courant
+>|Objectif 4+| Vérifier qu'il est possible de crée un compte courant pour un client.
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|Gestion_T_CC_Cree.1  ^|Cliquer sur le bouton "Nouveau compte". ^|Affichage d'une fenetre pour définir le solde et le découvert autorisé . ^| Le compte client n'est pas desactivé
+ ^|OK
+^|Gestion_T_CC_Cree.2  ^|Rentrer un montant 50 dans le champ "Decouvert Autoriser" et Rentrer un montant 10 dans le champ "solde(premier depot)" ^|Le découvert autorisé est -50euros le solde du compte est de 10. On a créé une nouveau compte dans la liste des compte avec son solde et son découvert autorisé ^| Montant>0
+ ^|OK
+
+
+|====
+
+
+==== 1.3 Gestion des opérations :
+
+|====
+
+>|Cas de test 4+|Test-01-03-01
+>|Titre 4+|Débiter un compte
+>|Objectif 4+| Vérifier qu'il est possible de débiter un compte
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|All_G_COP.1 ^|Cliquer sur le bouton "Enregistrer Débit". ^|La page des débit du compte s’affiche. ^| Un compte actif est sélectionné ^|OK
+^|All_G_COP.2  ^|Rentrer un montant 50 dans le champ "Montant". ^|Le nouveau solde est +50euros. On a créé une nouvelle opération dans la liste des opérations avec le bon montant et la bonne date ^| Le compte sélectionné a un solde de +100 euros
+ ^|OK
+^|All_G_COP.3  ^|Rentrer un montant 150 dans le champ "Montant". ^|Le nouveau solde est -50 euros. On a créé une nouvelle opération dans la liste des opérations avec le bon montant et la bonne date ^| Le compte sélectionné a un solde de +100 euros, le découvert
+autorisé est de -100 euros.
+ ^|OK
+^|All_G_COP.4  ^|Rentrer un montant 250 dans le champ "Montant". ^|Blocage ! + pop-up ^| Le compte sélectionné a un solde de +100 euros, le découvert
+autorisé est de -100 euros.
+ ^|OK
+ 
+
+|====
+
+|====
+
+>|Cas de test 4+|Test-01-03-02
+>|Titre 4+|Créditer un compte
+>|Objectif 4+| Vérifier qu'il est possible de créditer un compte
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+^|All_G_COP.1 ^|Cliquer sur le bouton "Enregistrer Crédit". ^|La page des crédits du compte s’affiche. ^| Un compte actif est sélectionné ^|OK
+^|All_G_COP.2  ^|Rentrer un montant 300 dans le champ "Montant". ^|Le nouveau solde est +350euros. On a créé une nouvelle opération dans la liste des opérations avec le bon montant et la bonne date ^| Le compte sélectionné a un solde de +50 euros
+ ^|OK
+^|All_G_COP.3  ^|Rentrer un montant -50 dans le champ "Montant". ^|Blocage ! La zone de saisie passe en rouge ^| Aucune
+ ^|OK
+  
+ 
+5+|Commentaire : Fonctionnalité développé par Illan GABARRA
+|====
+
+|====
+
+>|Cas de test 4+|Test-01-03-03
+>|Titre 4+|Faire un transfert de compte à compte
+>|Objectif 4+| Vérifier qu'il est possible de faire un transfert de compte à compte
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+
+^|All_G_COP.1 ^|Cliquer sur le bouton "Enregistrer Transfert". ^|La page d'édition de nouveau transfert s’affiche. ^| Un compte actif est sélectionné et on a cliqué sur voir les opérations  ^|OK
+
+^|All_G_COP.2  ^|Rentrer un montant 50 dans le champ "Montant", rentrer l'idendifiant du compte destinataire ^|Le nouveau solde du compte selectionné est +50euros et celui du compte destinataire est +300. On a créé une nouvelle opération dans la liste des opérations du compte selectionné et du compte destinataire avec le montant négatif (-50) pour le compte selectionné et positif pour le compte destinataire (+50) et la bonne date ^| Le compte sélectionné a un solde de +100 euros et le compte destinataire a un solde de 250.
+^|OK
+
+^|All_G_COP.3  ^|Rentrer un montant 250 dans le champ "Montant". ^|Blocage ! + pop-up ^| Le compte sélectionné a un solde de +100 euros, le découvert
+autorisé est de -100 euros.
+ ^|OK
+
+^|All_G_COP.4  ^|Rentrer l'identifiant du compte selectionné dans le champ "Compte destinataire". ^|Blocage ! La zone de saisie passe en rouge |
+ ^|OK
+
+^|All_G_COP.5  ^|Rentrer 10000 dans le champ "Compte destinataire". ^|Blocage ! La zone de saisie passe en rouge ^| Le compte d'identifiant 10000 ne doit pas exister
+ ^|OK
+
+^|All_G_COP.6  ^|Rentrer 10 dans le champ "Compte destinataire". ^|Blocage ! La zone de saisie passe en rouge ^| Le compte d'identifiant 10 doit être clôturé et le compte sélectionné ne doit pas être le 10
+ ^|OK
+
+
+
+
+5+|Commentaire : Fonctionnalité développé par Illan GABARRA
+|====
+
+|====
+
+>|Cas de test 4+|Test-01-04-01
+>|Titre 4+|Créer un nouveau prélèvement automatique
+>|Objectif 4+| Vérifier qu'il est possible de créer un nouveau prélèvement automatique
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+
+^|All_G_COP.1 ^|Cliquer sur le bouton "Nouveau prélèvement". ^|La page d'édition de nouveau prélèvement s’affiche. ^| Un compte actif est sélectionné et on a cliqué sur voir les prélèvements  ^|OK
+
+^|All_G_COP.2  ^|Rentrer un montant de 200 dans "Montant" et EDF dans bénéficiaire^| On a créé un nouveau prélèvement automatique de 200€ vers EDF avec la date recurrente du 1er ^| Le compte sélectionné est actif
+^|OK
+
+^|All_G_COP.3  ^|Rentrer un montant -250 dans le champ "Montant". ^|Blocage ! + pop-up ^| Le compte sélectionné est actif 
+ ^|OK
+
+^|All_G_COP.4  ^|Rentrer une date récurrente inférieure à 1 ou supérieure à 28 ^|Blocage ! + pop up ^|
+ ^|OK
+
+^|All_G_COP.5  ^|Ne rien mettre dans bénéficiaire ^|Blocage ! + pop up ^| Le compte sélectionné est actif
+ ^|OK
+
+5+|Commentaire : Fonctionnalité développé par Mathéo KATBIE
+|====
+
+|====
+>|Cas de test 4+|Test-01-04-02
+>|Titre 4+|Modifier un prélèvement automatique
+>|Objectif 4+| Vérifier qu'il est possible de modifier un prélèvement automatique
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+
+^|All_G_COP.1 ^|Cliquer sur le bouton "Modifier prélèvement". ^|La page d'édition de modifier prélèvement s’affiche. ^| Un prélèvement automatique est sélectionné  ^|OK
+
+^|All_G_COP.2  ^|Rentrer un montant de 200 dans "Montant" et EDF dans bénéficiaire^| On a créé un nouveau prélèvement automatique de 200€ vers EDF avec la date recurrente du 1er ^| Le compte sélectionné est actif
+^|OK
+
+^|All_G_COP.3  ^|Rentrer un montant -250 dans le champ "Montant". ^|Blocage ! + pop-up ^| Le compte sélectionné est actif 
+ ^|OK
+
+^|All_G_COP.4  ^|Rentrer une date récurrente inférieure à 1 ou supérieure à 28 ^|Blocage ! + pop up ^|
+ ^|OK
+
+^|All_G_COP.5  ^|Ne rien mettre dans bénéficiaire ^|Blocage ! + pop up ^| Le compte sélectionné est actif
+ ^|OK
+
+5+|Commentaire : Fonctionnalité développé par Mathéo KATBIE
+|====
+
+|====
+
+>|Cas de test 4+|Test-01-04-03
+>|Titre 4+|Supprimer un nouveau prélèvement automatique
+>|Objectif 4+| Vérifier qu'il est possible de supprimer un prélèvement automatique 
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+
+^|All_G_COP.1 ^|Cliquer sur le bouton "Supprimer prélèvement". ^| Blocage !  ^| Ne pas avoir sélectionné de prélèvement  ^|OK
+
+^|All_G_COP.2  ^|Cliquer sur le bouton "Supprimer prélèvement" ^| On a supprimé le prélèvement automatique dans la base de données ^| Un prélèvement automatique est sélectionné 
+^|OK
+
+5+|Commentaire : Fonctionnalité développé par Mathéo KATBIE
+|====
+
+
+=== 2. Fonctionnalités des chefs d'agence :
+
+[.text-justify]
+Les chefs d'agence ont accès aux mêmes fonctionnalités que les guichetiers, ainsi que d'autres qui leur sont réservées.
+
+==== 2.1 Gestion des clients :
+
+|====
+
+>|Cas de test 4+|Test-02-01-01
+>|Titre 4+|Rendre inactif un client
+>|Objectif 4+| Vérifier qu'il est possible de rendre un client inactif
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+
+^|C_G_C.1    ^|Cliquer sur modifier client puis sélectionner le bouton "Inactif" et confirmer. ^|...  ^|Un client actif est sélectionné et le test All_G_C.3 est validé, et tous ses comptes sont cloturés ^| OK
+
+^|C_G_C.2    ^|Sur la page de gestion de client ^|le bouton "Desactiver client" doit être activé  ^|Un client actif est sélectionné et tous ses comptes sont cloturés  ^| OK
+
+^|C_G_C.3    ^|Cliquer sur modifier client ^|le bouton "Inactif" doit être désactivé  ^|Un client désactif est sélectionné et le test All_G_C.3 est validé ^| OK
+
+^|C_G_C.4    ^|Sur la page de gestion de client ^|le bouton "Desactiver client" doit être désactivé  ^|Un client désactif est sélectionné ^| OK
+
+^|C_G_C.5    ^|Cliquer sur modifier client le bouton "Inactif" doit être désactivé ^|...  ^|Un client actif est sélectionné et le test All_G_C.3 est validé mais tous ses comptes ne sont pas clôturés ^| OK
+
+^|C_G_C.6    ^|Sur la page de gestion de client ^|le bouton "Desactiver client" doit être désactivé  ^|Un client désactif est sélectionné mais tous ses comptes ne sont pas clôturés ^| OK
+
+5+|Commentaire : Fonctionnalité amélioré par Illan GABARRA
+|====
+
+==== 2.1 Gestion des employés : 
+
+|====
+
+>|Cas de test 4+|Test-01-03-03
+>|Titre 4+|Créer un nouveau employé
+>|Objectif 4+| Vérifier qu'il est possible de créer un nouveau employé 
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+
+^|All_G_COP.1 ^|Cliquer sur le bouton "Nouveau employé" ^|La page d'édition de nouveau employe s’affiche. ^| Doit être connecté en tant que chef d'agence ^|OK
+^|All_G_COP.2 ^|Cliquer sur le bouton confirmer sans le nom ^|Blocage ! Il n'est pas possible de créer un employé sans nom. ^| ... ^|OK
+^|All_G_COP.3 ^|Cliquer sur le bouton confirmer sans le prenom ^|Blocage ! Il n'est pas possible de créer un employé sans prénom. ^| ... ^|OK
+^|All_G_COP.4 ^|Cliquer sur le bouton confirmer sans le login ^|Blocage ! Il n'est pas possible de créer un employé sans login. ^| ... ^|OK
+^|All_G_COP.5 ^|Cliquer sur le bouton confirmer sans le mot de passe ^|Blocage ! Il n'est pas possible de créer un employé sans mot de passe. ^| ... ^|OK
+5+|Commentaire : Fonctionnalité développé par Mathéo KATBIE
+
+
+5+|
+
+>|Cas de test 4+|Test-01-03-03
+>|Titre 4+|Modifier un employé existant
+>|Objectif 4+| Vérifier qu'il est possible de modifier les informations d'un employé
+
+^|All_G_COP.1 ^|Cliquer sur le bouton "Modifier employé" ^|La page d'édition de l'employé s’affiche. ^| Doit avoir selectionné un employé ^|OK
+5+|Commentaire : Fonctionnalité développé par Mathéo KATBIE
+
+
+5+|
+
+>|Cas de test 4+|Test-01-03-03
+>|Titre 4+|Lire les informations d'un employé existant
+>|Objectif 4+| Vérifier qu'il est possible de lire les informations d'un employé
+
+^|All_G_COP.1 ^|Double cliquer sur un employé ^|La page de lecture des informations de l'employé s’affiche. ^| Doit avoir selectionné un employé ^|OK
+5+|Commentaire : Fonctionnalité développé par Mathéo KATBIE
+
+5+|
+
+>|Cas de test 4+|Test-01-03-03
+>|Titre 4+|Supprimer un employé 
+>|Objectif 4+| Vérifier qu'il est possible de supprimer un employé 
+
+^|All_G_COP.1 ^|Cliquer sur le boutno "Désactiver employé" ^| L'employé disparait de la liste ^| Doit avoir selectionné un employé ^|OK
+
+5+|Commentaire : Fonctionnalité développé par Mathéo KATBIE
+|====
+
+==== Simulation 
+
+|====
+
+>|Cas de test 4+|Test-01-03-03
+>|Titre 4+|Faire une simulation d'emprunt
+>|Objectif 4+| Vérifier qu'il est possible de faire une simulation d'emprunt
+
+5+|
+
+^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
+
+^|All_G_COP.1 
+^|Cliquer sur le bouton "Valider". 
+^|La page avec le tableau d'emprunt s'affiche et correspond avec les valeurs du TD de Gestion de projet sur les emprunts
+^| Avoir saisit un nombre de période de 120, un taux de 3, un montant de 40 000
+^|OK
+
+^|All_G_COP.2  ^| 
+^| La saisie du nombre de période passe en rouge, l'emprunt n'est pas simulé
+^| Saisir un nombre de période de 0, un taux de 3, un montant de 40 000
+^|OK
+
+^|All_G_COP.3  ^| 
+^| La saisie du nombre du taux passe en rouge, l'emprunt n'est pas simulé
+^| Saisir un nombre de période de 120, un taux de 0, un montant de 40 000
+^|OK
+
+^|All_G_COP.4  ^| 
+^| La saisie du nombre du taux passe en rouge, l'emprunt n'est pas simulé
+^| Saisir un nombre de période de 120, un taux de 101, un montant de 40 000
+^|OK
+
+^|All_G_COP.5  ^| 
+^| La saisie du montant passe en rouge, l'emprunt n'est pas simulé
+^| Saisir un nombre de période de 120, un taux de 3, un montant de 0
+^|OK
+
+
+
+
+5+|Commentaire : Fonctionnalité développé par Illan GABARRA
+|====
